@@ -107,3 +107,60 @@ a:hover{
   color: var(--muted);
   font-size: 0.95rem;
 }
+
+/* --------------------------
+   Print styles (PDF export)
+   -------------------------- */
+@media print {
+  :root { color-scheme: light; }
+
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  .wrap {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .header, .block, .footer {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .block {
+    padding: 0 !important;
+    margin: 12pt 0 !important;
+    page-break-inside: avoid;
+  }
+
+  h1 {
+    font-size: 20pt !important;
+    margin: 0 0 10pt 0 !important;
+  }
+
+  h2 {
+    font-size: 12pt !important;
+    margin: 14pt 0 6pt 0 !important;
+  }
+
+  p, li {
+    font-size: 11pt !important;
+    line-height: 1.45 !important;
+    color: #111111 !important;
+  }
+
+  a {
+    color: #111111 !important;
+    text-decoration: none !important;
+  }
+
+  /* Hide purely navigational bits if any */
+  .links, .subtitle a {
+    display: none !important;
+  }
+}
