@@ -164,3 +164,10 @@ a:hover{
     display: none !important;
   }
 }
+
+
+/* Make paper title links visually neutral */
+.papers a {
+  color: inherit;
+  text-decoration: none;
+}
