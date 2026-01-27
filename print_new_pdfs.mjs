@@ -20,7 +20,7 @@ const slugs = [
 
 const papersDir = path.join(__dirname, "papers");
 
-const htmlToPdf = async () => {
+const run = async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
@@ -31,13 +31,14 @@ const htmlToPdf = async () => {
 
     await page.goto(url, { waitUntil: "networkidle" });
 
-    // Ensure CSS is applied as on screen
-    await page.emulateMedia({ media: "screen" });
+    // PRINT mode (this is the key difference)
+    await page.emulateMedia({ media: "print" });
 
     await page.pdf({
       path: pdfPath,
       format: "A4",
       printBackground: true,
+      preferCSSPageSize: true,
       margin: { top: "18mm", right: "18mm", bottom: "18mm", left: "18mm" },
     });
 
@@ -47,7 +48,7 @@ const htmlToPdf = async () => {
   await browser.close();
 };
 
-htmlToPdf().catch((err) => {
-  console.error("PDF generation failed:", err);
+run().catch((err) => {
+  console.error(err);
   process.exit(1);
 });
