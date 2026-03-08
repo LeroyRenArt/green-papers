@@ -1,7 +1,3 @@
-cd ~/green-papers
-mkdir -p scripts
-
-cat > scripts/print_one_pdf.mjs <<'EOF'
 import { chromium } from "playwright";
 import path from "path";
 import fs from "fs";
@@ -70,6 +66,3 @@ try {
 } finally {
   await browser.close();
 }
-EOF
-
-node scripts/print_one_pdf.mjs papers/penguin-dashboard-legibility-as-governance.html
