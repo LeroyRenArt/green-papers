@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steward Monthly Dashboard Sheet</title>
+  <style>
+    :root {
+      --ink: #1f2a1f;
+      --muted: #5f6b5f;
+      --line: #cfd7cf;
+      --soft: #f6f8f4;
+      --soft-2: #eef2ea;
+      --accent: #dfe8d6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: #e9ede6;
+      padding: 24px;
+    }
+
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: white;
+      padding: 14mm 14mm 12mm 14mm;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.1;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      margin-top: 5px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+      min-width: 270px;
+      font-size: 12px;
+    }
+
+    .line-field {
+      display: flex;
+      gap: 6px;
+      align-items: baseline;
+      white-space: nowrap;
+    }
+
+    .label {
+      font-weight: 600;
+    }
+
+    .fill {
+      flex: 1;
+      border-bottom: 1px solid #7f887f;
+      min-width: 70px;
+      height: 14px;
+    }
+
+    .instruction {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 1.35;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .instruction strong { font-weight: 700; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 170px;
+    }
+
+    .card-head {
+      background: var(--soft-2);
+      border-bottom: 1px solid var(--line);
+      padding: 8px 10px;
+    }
+
+    .card-kicker {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .card-body {
+      padding: 9px 10px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .question {
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 11.5px;
+      line-height: 1.35;
+    }
+
+    .traffic {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      align-items: center;
+      font-size: 11px;
+      margin-top: auto;
+      padding-top: 4px;
+      font-weight: 600;
+    }
+
+    .traffic-label {
+      font-size: 11px;
+      color: var(--muted);
+      width: 100%;
+      font-weight: 400;
+      margin-bottom: 2px;
+    }
+
+    .traffic-option {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .bubble {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1.5px solid #7c847c;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .bubble.green  { background: #c8e6c9; border-color: #4caf50; }
+    .bubble.yellow { background: #fff9c4; border-color: #f9a825; }
+    .bubble.red    { background: #ffcdd2; border-color: #e53935; }
+
+    .notes {
+      border-top: 1px solid var(--line);
+      padding-top: 6px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .note-lines {
+      height: 34px;
+      border-bottom: 1px solid var(--line);
+      border-top: 1px solid transparent;
+      background-image: linear-gradient(to bottom, transparent 15px, var(--line) 15px, var(--line) 16px, transparent 16px);
+      background-size: 100% 17px;
+    }
+
+    .rulebox {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 10px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 10px;
+      background: var(--soft);
+    }
+
+    .panel h2 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+
+    .panel p {
+      margin: 0;
+      font-size: 11.5px;
+      line-height: 1.4;
+    }
+
+    .next-steps {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .next-steps h2 {
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+
+    .fields {
+      display: grid;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .field-block {
+      display: grid;
+      gap: 4px;
+    }
+
+    .bigline {
+      height: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .twolines {
+      height: 40px;
+      border-bottom: 1px solid var(--line);
+      background-image: linear-gradient(to bottom, transparent 19px, var(--line) 19px, var(--line) 20px, transparent 20px);
+      background-size: 100% 20px;
+    }
+
+    .footer {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .small {
+      font-size: 10.8px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+      max-width: 60%;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 10.5px;
+      background: white;
+      white-space: nowrap;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .sheet {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="topbar">
+      <div>
+        <h1>Steward Monthly Dashboard Sheet</h1>
+        <div class="subtitle">
+          A simple monthly reading for stewards, schools, and local field teams.
+          Read the place, the people, and the coordination separately. Then decide the next 30 days clearly.
+        </div>
+      </div>
+      <div class="meta">
+        <div class="line-field"><span class="label">Place / node:</span><span class="fill"></span></div>
+        <div class="line-field"><span class="label">Date:</span><span class="fill"></span></div>
+        <div class="line-field"><span class="label">Month:</span><span class="fill"></span></div>
+        <div class="line-field"><span class="label">Reviewed by:</span><span class="fill"></span></div>
+      </div>
+    </div>
+
+    <div class="instruction">
+      <div><strong>Monthly use:</strong> Read three things separately: <strong>place</strong>, <strong>people</strong>, and <strong>coordination</strong>.</div>
+      <div><strong>End point:</strong> Decide the next 30 days clearly.</div>
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <div class="card-head">
+          <div class="card-kicker">A</div>
+          <h2 class="card-title">Place and ecology</h2>
+        </div>
+        <div class="card-body">
+          <div class="question">Is the place becoming more alive, protected, and stable?</div>
+          <ul>
+            <li>soil cover and mulch</li>
+            <li>water behaviour</li>
+            <li>plant vitality</li>
+            <li>signs of life</li>
+            <li>whether planned care happened</li>
+          </ul>
+          <div class="traffic">
+            <div class="traffic-label">Circle one:</div>
+            <div class="traffic-option"><span class="bubble green"></span> GREEN</div>
+            <div class="traffic-option"><span class="bubble yellow"></span> YELLOW</div>
+            <div class="traffic-option"><span class="bubble red"></span> RED</div>
+          </div>
+          <div class="notes">
+            <div class="small"><strong>Short note</strong></div>
+            <div class="note-lines"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <div class="card-kicker">B</div>
+          <h2 class="card-title">Steward viability</h2>
+        </div>
+        <div class="card-body">
+          <div class="question">Can the people carrying the work continue without exhaustion?</div>
+          <ul>
+            <li>time and energy</li>
+            <li>basic needs</li>
+            <li>role clarity</li>
+            <li>overload or conflict</li>
+            <li>ability to keep a 30-day rhythm</li>
+          </ul>
+          <div class="traffic">
+            <div class="traffic-label">Circle one:</div>
+            <div class="traffic-option"><span class="bubble green"></span> GREEN</div>
+            <div class="traffic-option"><span class="bubble yellow"></span> YELLOW</div>
+            <div class="traffic-option"><span class="bubble red"></span> RED</div>
+          </div>
+          <div class="notes">
+            <div class="small"><strong>Short note</strong></div>
+            <div class="note-lines"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <div class="card-kicker">C</div>
+          <h2 class="card-title">Coordination and governance</h2>
+        </div>
+        <div class="card-body">
+          <div class="question">Are roles, agreements, and next steps clear enough to proceed?</div>
+          <ul>
+            <li>known decisions</li>
+            <li>clear responsibilities</li>
+            <li>aligned expectations</li>
+            <li>separation of money, purpose, and decisions</li>
+            <li>whether the next 30 days are decided</li>
+          </ul>
+          <div class="traffic">
+            <div class="traffic-label">Circle one:</div>
+            <div class="traffic-option"><span class="bubble green"></span> GREEN</div>
+            <div class="traffic-option"><span class="bubble yellow"></span> YELLOW</div>
+            <div class="traffic-option"><span class="bubble red"></span> RED</div>
+          </div>
+          <div class="notes">
+            <div class="small"><strong>Short note</strong></div>
+            <div class="note-lines"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="rulebox">
+      <div class="panel">
+        <h2>Important rule</h2>
+        <p>
+          Do not force green. Yellow or red is not failure. It is useful honesty.<br><br>
+          <strong>Green</strong> may justify a small next step.<br>
+          <strong>Yellow</strong> usually calls for adjustment.<br>
+          <strong>Red</strong> calls for protection, pause, or repair.
+        </p>
+      </div>
+
+      <div class="next-steps">
+        <h2>Next 30 days</h2>
+        <div class="fields">
+          <div class="field-block">
+            <div><strong>What will happen next?</strong></div>
+            <div class="twolines"></div>
+          </div>
+          <div class="field-block">
+            <div><strong>Who is responsible?</strong></div>
+            <div class="bigline"></div>
+          </div>
+          <div class="field-block">
+            <div><strong>What must not be started yet?</strong></div>
+            <div class="bigline"></div>
+          </div>
+          <div class="field-block">
+            <div><strong>Next review date</strong></div>
+            <div class="bigline"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="small">
+        <strong>Remember:</strong> Read the place. Read the people. Read the coordination. Then decide the next 30 days clearly.
+      </div>
+      <div class="examples">
+        <span class="tag">add mulch</span>
+        <span class="tag">repair water access</span>
+        <span class="tag">pause expansion</span>
+        <span class="tag">plant next pixel zone</span>
+        <span class="tag">invite one new person</span>
+        <span class="tag">start next school cycle</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

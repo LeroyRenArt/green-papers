@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>30-Day Action Sheet — Planetary Guardians</title>
+  <style>
+    :root {
+      --ink: #1f2a1f; --muted: #5f6b5f; --line: #cfd7cf; --soft: #f6f8f4; --soft-2: #eef2ea;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Georgia, "Times New Roman", serif; color: var(--ink); background: #e9ede6; padding: 24px; }
+    .sheet { width: 210mm; min-height: 297mm; margin: 0 auto; background: white; padding: 14mm 14mm 12mm 14mm; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; gap: 11px; }
+    .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+    h1 { margin: 0; font-size: 23px; line-height: 1.1; font-weight: 600; }
+    .subtitle { margin-top: 5px; font-size: 12px; line-height: 1.35; color: var(--muted); max-width: 480px; }
+    .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; min-width: 270px; font-size: 12px; }
+    .line-field { display: flex; gap: 6px; align-items: baseline; white-space: nowrap; }
+    .label { font-weight: 600; }
+    .fill { flex: 1; border-bottom: 1px solid #7f887f; min-width: 70px; height: 14px; }
+    .instruction { background: var(--soft); border: 1px solid var(--line); padding: 8px 10px; border-radius: 8px; font-size: 12px; line-height: 1.35; display: flex; justify-content: space-between; gap: 12px; }
+    .instruction strong { font-weight: 700; }
+    .reading-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; }
+    .reading-card { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    .reading-head { background: var(--soft-2); border-bottom: 1px solid var(--line); padding: 6px 10px; display: flex; align-items: baseline; gap: 6px; }
+    .r-kicker { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+    .r-title { font-size: 13px; font-weight: 600; margin: 0; }
+    .reading-body { padding: 7px 10px 9px; display: flex; flex-direction: column; gap: 5px; }
+    .signal-label { font-size: 11px; color: var(--muted); }
+    .signal-row { display: flex; gap: 8px; align-items: center; font-size: 11px; font-weight: 600; }
+    .signal-option { display: flex; align-items: center; gap: 4px; }
+    .dot { width: 14px; height: 14px; border-radius: 999px; border: 1.4px solid #7c847c; flex-shrink: 0; }
+    .dot.green  { background: #c8e6c9; border-color: #4caf50; }
+    .dot.yellow { background: #fff9c4; border-color: #f9a825; }
+    .dot.red    { background: #ffcdd2; border-color: #e53935; }
+    .oneline { height: 20px; border-bottom: 1px solid var(--line); }
+    .action-block { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    .action-head { background: var(--soft-2); border-bottom: 1px solid var(--line); padding: 7px 10px; }
+    .action-title { font-size: 15px; font-weight: 600; margin: 0; }
+    .action-table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+    .action-table th { background: var(--soft); border-bottom: 1px solid var(--line); padding: 5px 10px; text-align: left; font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .action-table td { padding: 6px 10px; border-bottom: 1px solid var(--line); height: 28px; vertical-align: middle; }
+    .action-table tr:last-child td { border-bottom: none; }
+    .num { width: 28px; color: var(--muted); font-size: 11px; text-align: center; }
+    .what { width: 42%; }
+    .who  { width: 25%; }
+    .when { width: 20%; }
+    .hold-block { border: 1px solid #ffe0b2; border-radius: 10px; overflow: hidden; }
+    .hold-head { background: #fff3e0; border-bottom: 1px solid #ffe0b2; padding: 7px 10px; display: flex; align-items: baseline; gap: 8px; }
+    .hold-title { font-size: 15px; font-weight: 600; margin: 0; }
+    .hold-sub { font-size: 11px; color: #bf6c00; }
+    .hold-body { padding: 8px 10px 10px; }
+    .threelines { height: 52px; background-image: linear-gradient(to bottom, transparent 16px, var(--line) 16px, var(--line) 17px, transparent 17px); background-size: 100% 17px; }
+    .review-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; }
+    .review-card { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; background: var(--soft); display: flex; flex-direction: column; gap: 4px; font-size: 11.5px; }
+    .bigline { height: 22px; border-bottom: 1px solid var(--line); }
+    .footer { margin-top: auto; border-top: 1px solid var(--line); padding-top: 8px; display: flex; justify-content: space-between; align-items: flex-end; gap: 18px; }
+    .small { font-size: 10.8px; line-height: 1.35; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end; max-width: 55%; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 3px 8px; font-size: 10.5px; background: white; white-space: nowrap; }
+    @media print { body { background: white; padding: 0; } .sheet { box-shadow: none; margin: 0; } }
+  </style>
+</head>
+<body>
+<div class="sheet">
+  <div class="topbar">
+    <div>
+      <h1>30-Day Action Sheet</h1>
+      <div class="subtitle">A coordination surface for what the dashboard showed and what happens next. Fill in after the monthly reading. Keep it specific. Assign everything.</div>
+    </div>
+    <div class="meta">
+      <div class="line-field"><span class="label">Place / node:</span><span class="fill"></span></div>
+      <div class="line-field"><span class="label">Date:</span><span class="fill"></span></div>
+      <div class="line-field"><span class="label">Month:</span><span class="fill"></span></div>
+      <div class="line-field"><span class="label">Filled by:</span><span class="fill"></span></div>
+    </div>
+  </div>
+
+  <div class="instruction">
+    <div><strong>Fill in after the monthly dashboard reading.</strong> Choose a small number of real actions. Assign each clearly.</div>
+    <div><strong>Rule:</strong> Do not try to fix everything at once.</div>
+  </div>
+
+  <div class="reading-row">
+    <div class="reading-card">
+      <div class="reading-head"><span class="r-kicker">A</span><h2 class="r-title">Place and ecology</h2></div>
+      <div class="reading-body">
+        <div class="signal-label">This month's reading:</div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> GREEN</div>
+          <div class="signal-option"><span class="dot yellow"></span> YELLOW</div>
+          <div class="signal-option"><span class="dot red"></span> RED</div>
+        </div>
+        <div class="signal-label">Key signal:</div>
+        <div class="oneline"></div>
+      </div>
+    </div>
+    <div class="reading-card">
+      <div class="reading-head"><span class="r-kicker">B</span><h2 class="r-title">Steward viability</h2></div>
+      <div class="reading-body">
+        <div class="signal-label">This month's reading:</div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> GREEN</div>
+          <div class="signal-option"><span class="dot yellow"></span> YELLOW</div>
+          <div class="signal-option"><span class="dot red"></span> RED</div>
+        </div>
+        <div class="signal-label">Key signal:</div>
+        <div class="oneline"></div>
+      </div>
+    </div>
+    <div class="reading-card">
+      <div class="reading-head"><span class="r-kicker">C</span><h2 class="r-title">Coordination</h2></div>
+      <div class="reading-body">
+        <div class="signal-label">This month's reading:</div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> GREEN</div>
+          <div class="signal-option"><span class="dot yellow"></span> YELLOW</div>
+          <div class="signal-option"><span class="dot red"></span> RED</div>
+        </div>
+        <div class="signal-label">Key signal:</div>
+        <div class="oneline"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-block">
+    <div class="action-head"><h2 class="action-title">What will happen in the next 30 days</h2></div>
+    <table class="action-table">
+      <thead>
+        <tr>
+          <th class="num">#</th>
+          <th class="what">Action</th>
+          <th class="who">Responsible</th>
+          <th class="when">By when</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="what"></td><td class="who"></td><td class="when"></td></tr>
+        <tr><td class="num">2</td><td class="what"></td><td class="who"></td><td class="when"></td></tr>
+        <tr><td class="num">3</td><td class="what"></td><td class="who"></td><td class="when"></td></tr>
+        <tr><td class="num">4</td><td class="what"></td><td class="who"></td><td class="when"></td></tr>
+        <tr><td class="num">5</td><td class="what"></td><td class="who"></td><td class="when"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hold-block">
+    <div class="hold-head">
+      <h2 class="hold-title">What must not be started yet</h2>
+      <span class="hold-sub">— hold until conditions are ready</span>
+    </div>
+    <div class="hold-body"><div class="threelines"></div></div>
+  </div>
+
+  <div class="review-row">
+    <div class="review-card"><strong>Next review date</strong><div class="bigline"></div></div>
+    <div class="review-card"><strong>Who calls the next reading</strong><div class="bigline"></div></div>
+    <div class="review-card"><strong>One thing to watch closely</strong><div class="bigline"></div></div>
+  </div>
+
+  <div class="footer">
+    <div class="small">
+      <strong>Green</strong> may justify a small next step. &nbsp;
+      <strong>Yellow</strong> calls for adjustment. &nbsp;
+      <strong>Red</strong> calls for protection, pause, or repair.<br>
+      This sheet feeds the PG Ledger — keep it, date it, file it.
+    </div>
+    <div class="tags">
+      <span class="tag">add mulch</span>
+      <span class="tag">repair water access</span>
+      <span class="tag">pause expansion</span>
+      <span class="tag">plant next pixel zone</span>
+      <span class="tag">invite one new person</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

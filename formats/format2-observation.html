@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Observation Sheet — Planetary Guardians</title>
+  <style>
+    :root {
+      --ink: #1f2a1f;
+      --muted: #5f6b5f;
+      --line: #cfd7cf;
+      --soft: #f6f8f4;
+      --soft-2: #eef2ea;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: #e9ede6;
+      padding: 24px;
+    }
+
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: white;
+      padding: 14mm 14mm 12mm 14mm;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+
+    h1 { margin: 0; font-size: 23px; line-height: 1.1; font-weight: 600; }
+
+    .subtitle {
+      margin-top: 5px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+      min-width: 270px;
+      font-size: 12px;
+    }
+
+    .line-field { display: flex; gap: 6px; align-items: baseline; white-space: nowrap; }
+    .label { font-weight: 600; }
+    .fill { flex: 1; border-bottom: 1px solid #7f887f; min-width: 70px; height: 14px; }
+
+    .instruction {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 1.35;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .instruction strong { font-weight: 700; }
+
+    .obs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .obs-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .obs-head {
+      background: var(--soft-2);
+      border-bottom: 1px solid var(--line);
+      padding: 6px 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .obs-num {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .obs-title { font-size: 14px; font-weight: 600; margin: 0; }
+
+    .obs-body {
+      padding: 7px 10px 9px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .question { font-size: 11.5px; font-weight: 600; color: var(--muted); margin-bottom: 2px; }
+
+    .writelines {
+      height: 40px;
+      background-image: linear-gradient(to bottom, transparent 13px, var(--line) 13px, var(--line) 14px, transparent 14px);
+      background-size: 100% 14px;
+    }
+
+    .signal-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .signal-option { display: flex; align-items: center; gap: 4px; }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 1.4px solid #7c847c;
+      flex-shrink: 0;
+    }
+
+    .dot.green  { background: #c8e6c9; border-color: #4caf50; }
+    .dot.yellow { background: #fff9c4; border-color: #f9a825; }
+    .dot.red    { background: #ffcdd2; border-color: #e53935; }
+
+    .full-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .full-head {
+      background: var(--soft-2);
+      border-bottom: 1px solid var(--line);
+      padding: 6px 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .full-body {
+      padding: 8px 10px 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .field-block { display: flex; flex-direction: column; gap: 3px; font-size: 11.5px; }
+
+    .twolines {
+      height: 36px;
+      background-image: linear-gradient(to bottom, transparent 17px, var(--line) 17px, var(--line) 18px, transparent 18px);
+      background-size: 100% 18px;
+    }
+
+    .footer {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 18px;
+    }
+
+    .small { font-size: 10.8px; line-height: 1.35; color: var(--muted); }
+    .decisive { font-size: 11px; font-style: italic; color: var(--muted); text-align: right; }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .sheet { box-shadow: none; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="topbar">
+    <div>
+      <h1>Observation Sheet</h1>
+      <div class="subtitle">
+        A field record for one pixel or plot. Fill in after each visit, significant weather event, or care action.
+        No expertise required — honest observation is enough.
+      </div>
+    </div>
+    <div class="meta">
+      <div class="line-field"><span class="label">Place / pixel:</span><span class="fill"></span></div>
+      <div class="line-field"><span class="label">Date:</span><span class="fill"></span></div>
+      <div class="line-field"><span class="label">Weather:</span><span class="fill"></span></div>
+      <div class="line-field"><span class="label">Observer:</span><span class="fill"></span></div>
+    </div>
+  </div>
+
+  <div class="instruction">
+    <div><strong>Use this sheet</strong> after each visit, planting, pruning, rain event, or change you notice.</div>
+    <div><strong>Decisive question:</strong> Is this practice giving to life?</div>
+  </div>
+
+  <div class="obs-grid">
+
+    <div class="obs-card">
+      <div class="obs-head"><span class="obs-num">1</span><h2 class="obs-title">Soil cover</h2></div>
+      <div class="obs-body">
+        <div class="question">Is the surface covered or bare?</div>
+        <div class="writelines"></div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> Covered</div>
+          <div class="signal-option"><span class="dot yellow"></span> Partial</div>
+          <div class="signal-option"><span class="dot red"></span> Bare</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obs-card">
+      <div class="obs-head"><span class="obs-num">2</span><h2 class="obs-title">Vegetation layering</h2></div>
+      <div class="obs-body">
+        <div class="question">Are multiple layers present?</div>
+        <div class="writelines"></div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> Layered</div>
+          <div class="signal-option"><span class="dot yellow"></span> Partial</div>
+          <div class="signal-option"><span class="dot red"></span> Flat / mono</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obs-card">
+      <div class="obs-head"><span class="obs-num">3</span><h2 class="obs-title">Water behaviour</h2></div>
+      <div class="obs-body">
+        <div class="question">Does water infiltrate or run off?</div>
+        <div class="writelines"></div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> Absorbs</div>
+          <div class="signal-option"><span class="dot yellow"></span> Mixed</div>
+          <div class="signal-option"><span class="dot red"></span> Runs off</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obs-card">
+      <div class="obs-head"><span class="obs-num">4</span><h2 class="obs-title">Succession signals</h2></div>
+      <div class="obs-body">
+        <div class="question">Is the system becoming more complex?</div>
+        <div class="writelines"></div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> Advancing</div>
+          <div class="signal-option"><span class="dot yellow"></span> Holding</div>
+          <div class="signal-option"><span class="dot red"></span> Resetting</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obs-card">
+      <div class="obs-head"><span class="obs-num">5</span><h2 class="obs-title">Biodiversity presence</h2></div>
+      <div class="obs-body">
+        <div class="question">What species are present — plants, insects, birds?</div>
+        <div class="writelines"></div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> Diverse</div>
+          <div class="signal-option"><span class="dot yellow"></span> Some</div>
+          <div class="signal-option"><span class="dot red"></span> Absent</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obs-card">
+      <div class="obs-head"><span class="obs-num">6</span><h2 class="obs-title">Soil health signals</h2></div>
+      <div class="obs-body">
+        <div class="question">Smell, texture, earthworms, fungal signs?</div>
+        <div class="writelines"></div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> Alive</div>
+          <div class="signal-option"><span class="dot yellow"></span> Mixed</div>
+          <div class="signal-option"><span class="dot red"></span> Flat / hard</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obs-card">
+      <div class="obs-head"><span class="obs-num">7</span><h2 class="obs-title">Biomass cycle</h2></div>
+      <div class="obs-body">
+        <div class="question">Is organic matter returned or removed?</div>
+        <div class="writelines"></div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> Returned</div>
+          <div class="signal-option"><span class="dot yellow"></span> Partial</div>
+          <div class="signal-option"><span class="dot red"></span> Removed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="obs-card">
+      <div class="obs-head"><span class="obs-num">8</span><h2 class="obs-title">Human rhythm</h2></div>
+      <div class="obs-body">
+        <div class="question">Is the work rhythm sustainable for the people doing it?</div>
+        <div class="writelines"></div>
+        <div class="signal-row">
+          <div class="signal-option"><span class="dot green"></span> Sustainable</div>
+          <div class="signal-option"><span class="dot yellow"></span> Strained</div>
+          <div class="signal-option"><span class="dot red"></span> Depleted</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="full-card">
+    <div class="full-head">
+      <span class="obs-num">Notes</span>
+      <h2 class="obs-title">Actions, changes, and what to carry forward</h2>
+    </div>
+    <div class="full-body">
+      <div class="field-block">
+        <div><strong>Actions since last visit</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>What changed or surprised you</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>What the place seems to need next</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>Sketch / photo reference</strong></div>
+        <div class="twolines"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="small">
+      <strong>Remember:</strong> An honest gap is more valuable than a fabricated green.<br>
+      This sheet feeds the PG Ledger — keep it, date it, file it.
+    </div>
+    <div class="decisive">Is this practice giving to life?</div>
+  </div>
+
+</div>
+</body>
+</html>

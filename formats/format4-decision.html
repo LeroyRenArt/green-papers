@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Governance / Decision Log — Planetary Guardians</title>
+  <style>
+    :root {
+      --ink: #1f2a1f; --muted: #5f6b5f; --line: #cfd7cf; --soft: #f6f8f4; --soft-2: #eef2ea;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Georgia, "Times New Roman", serif; color: var(--ink); background: #e9ede6; padding: 24px; }
+    .sheet { width: 210mm; min-height: 297mm; margin: 0 auto; background: white; padding: 14mm 14mm 12mm 14mm; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; gap: 11px; }
+    .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+    h1 { margin: 0; font-size: 23px; line-height: 1.1; font-weight: 600; }
+    .subtitle { margin-top: 5px; font-size: 12px; line-height: 1.35; color: var(--muted); max-width: 480px; }
+    .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; min-width: 270px; font-size: 12px; }
+    .line-field { display: flex; gap: 6px; align-items: baseline; white-space: nowrap; }
+    .label { font-weight: 600; }
+    .fill { flex: 1; border-bottom: 1px solid #7f887f; min-width: 70px; height: 14px; }
+    .instruction { background: var(--soft); border: 1px solid var(--line); padding: 8px 10px; border-radius: 8px; font-size: 12px; line-height: 1.35; display: flex; justify-content: space-between; gap: 12px; }
+    .instruction strong { font-weight: 700; }
+
+    .entry {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .entry-head {
+      background: var(--soft-2);
+      border-bottom: 1px solid var(--line);
+      padding: 6px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .entry-num {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .entry-date-field {
+      display: flex;
+      gap: 5px;
+      align-items: baseline;
+      font-size: 11.5px;
+      flex-shrink: 0;
+    }
+
+    .date-fill { width: 80px; border-bottom: 1px solid #7f887f; height: 14px; }
+
+    .entry-body {
+      padding: 8px 10px 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 14px;
+      font-size: 11.5px;
+    }
+
+    .entry-body.wide {
+      grid-template-columns: 1fr;
+    }
+
+    .field-block { display: flex; flex-direction: column; gap: 3px; }
+    .field-block.span2 { grid-column: span 2; }
+
+    .oneline { height: 20px; border-bottom: 1px solid var(--line); }
+
+    .twolines {
+      height: 36px;
+      background-image: linear-gradient(to bottom, transparent 17px, var(--line) 17px, var(--line) 18px, transparent 18px);
+      background-size: 100% 18px;
+    }
+
+    .threelines {
+      height: 52px;
+      background-image: linear-gradient(to bottom, transparent 16px, var(--line) 16px, var(--line) 17px, transparent 17px);
+      background-size: 100% 17px;
+    }
+
+    .stream-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-size: 11.5px;
+      padding: 4px 0;
+    }
+
+    .stream-option {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .sbox {
+      width: 13px;
+      height: 13px;
+      border: 1.4px solid #7c847c;
+      border-radius: 2px;
+      background: white;
+      flex-shrink: 0;
+    }
+
+    .rule-panel {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+
+    .rule-panel strong { font-weight: 700; }
+
+    .rule-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      font-size: 11.5px;
+    }
+
+    .rule-col { display: flex; flex-direction: column; gap: 3px; }
+
+    .footer { margin-top: auto; border-top: 1px solid var(--line); padding-top: 8px; display: flex; justify-content: space-between; align-items: flex-end; gap: 18px; }
+    .small { font-size: 10.8px; line-height: 1.35; color: var(--muted); }
+
+    @media print { body { background: white; padding: 0; } .sheet { box-shadow: none; margin: 0; } }
+  </style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="topbar">
+    <div>
+      <h1>Governance / Decision Log</h1>
+      <div class="subtitle">
+        For larger or more complex nodes. Log decisions, roles, and changes as they happen.
+        Keep this durable. It is the memory of the field.
+      </div>
+    </div>
+    <div class="meta">
+      <div class="line-field"><span class="label">Place / node:</span><span class="fill"></span></div>
+      <div class="line-field"><span class="label">Period:</span><span class="fill"></span></div>
+      <div class="line-field"><span class="label">Held by:</span><span class="fill"></span></div>
+      <div class="line-field"><span class="label">Version:</span><span class="fill"></span></div>
+    </div>
+  </div>
+
+  <div class="instruction">
+    <div><strong>Log each significant decision</strong> as it is made — not after the fact. Keep entries short and traceable.</div>
+    <div><strong>Rule:</strong> Separate money, purpose, and decision-making at all times.</div>
+  </div>
+
+  <!-- Entry 1 -->
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-num">Entry 1</span>
+      <div class="entry-date-field"><span>Date:</span><span class="date-fill"></span></div>
+    </div>
+    <div class="entry-body">
+      <div class="field-block span2">
+        <div><strong>Decision or change</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>Reason</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>Who was involved</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>Stream</strong></div>
+        <div class="stream-row">
+          <div class="stream-option"><span class="sbox"></span> A — Land</div>
+          <div class="stream-option"><span class="sbox"></span> B — Steward</div>
+          <div class="stream-option"><span class="sbox"></span> C — Governance</div>
+        </div>
+      </div>
+      <div class="field-block">
+        <div><strong>Next review date</strong></div>
+        <div class="oneline"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Entry 2 -->
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-num">Entry 2</span>
+      <div class="entry-date-field"><span>Date:</span><span class="date-fill"></span></div>
+    </div>
+    <div class="entry-body">
+      <div class="field-block span2">
+        <div><strong>Decision or change</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>Reason</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>Who was involved</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>Stream</strong></div>
+        <div class="stream-row">
+          <div class="stream-option"><span class="sbox"></span> A — Land</div>
+          <div class="stream-option"><span class="sbox"></span> B — Steward</div>
+          <div class="stream-option"><span class="sbox"></span> C — Governance</div>
+        </div>
+      </div>
+      <div class="field-block">
+        <div><strong>Next review date</strong></div>
+        <div class="oneline"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Entry 3 -->
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-num">Entry 3</span>
+      <div class="entry-date-field"><span>Date:</span><span class="date-fill"></span></div>
+    </div>
+    <div class="entry-body">
+      <div class="field-block span2">
+        <div><strong>Decision or change</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>Reason</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>Who was involved</strong></div>
+        <div class="twolines"></div>
+      </div>
+      <div class="field-block">
+        <div><strong>Stream</strong></div>
+        <div class="stream-row">
+          <div class="stream-option"><span class="sbox"></span> A — Land</div>
+          <div class="stream-option"><span class="sbox"></span> B — Steward</div>
+          <div class="stream-option"><span class="sbox"></span> C — Governance</div>
+        </div>
+      </div>
+      <div class="field-block">
+        <div><strong>Next review date</strong></div>
+        <div class="oneline"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule-panel">
+    <strong>The three-stream rule:</strong> &nbsp;
+    Land currency (Elir) cannot convert to personal wealth. &nbsp;
+    Personal support (Elia) cannot leverage land control. &nbsp;
+    Group funds cannot accumulate as power. &nbsp;
+    Each stream has its own membrane — keep them separate in every entry.
+  </div>
+
+  <div class="footer">
+    <div class="small">
+      This log feeds the PG Ledger — the durable memory of the field.<br>
+      Keep it, date it, version it. Add pages as the node grows.
+    </div>
+    <div class="small" style="text-align:right;">
+      papers.spiralweb.earth · CC BY 4.0<br>
+      Spiralweb Stewardship Association
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
