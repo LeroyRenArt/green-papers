@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financial Ledger Sheet</title>
+  <style>
+    :root {
+      --ink: #1f2a1f;
+      --muted: #5f6b5f;
+      --line: #cfd7cf;
+      --soft: #f6f8f4;
+      --soft-2: #eef2ea;
+      --accent: #dfe8d6;
+      --stream-a: #c8e6c9;
+      --stream-b: #fff9c4;
+      --stream-c: #d6e3f0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: #e9ede6;
+      padding: 24px;
+    }
+
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: white;
+      padding: 14mm 14mm 12mm 14mm;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.1;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      margin-top: 5px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+      min-width: 270px;
+      font-size: 12px;
+    }
+
+    .line-field {
+      display: flex;
+      gap: 6px;
+      align-items: baseline;
+      white-space: nowrap;
+    }
+
+    .label {
+      font-weight: 600;
+    }
+
+    .fill {
+      flex: 1;
+      border-bottom: 1px solid #7f887f;
+      min-width: 70px;
+      height: 14px;
+    }
+
+    .instruction {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 1.35;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .instruction strong { font-weight: 700; }
+
+    .ledger-table {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .ledger-head {
+      display: grid;
+      grid-template-columns: 24px 60px 70px 1.4fr 110px 50px 1.2fr;
+      background: var(--soft-2);
+      border-bottom: 1px solid var(--line);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .ledger-head > div {
+      padding: 7px 8px;
+      border-right: 1px solid var(--line);
+    }
+
+    .ledger-head > div:last-child {
+      border-right: none;
+    }
+
+    .ledger-row {
+      display: grid;
+      grid-template-columns: 24px 60px 70px 1.4fr 110px 50px 1.2fr;
+      border-bottom: 1px solid var(--line);
+      min-height: 56px;
+      font-size: 11px;
+    }
+
+    .ledger-row:last-child {
+      border-bottom: none;
+    }
+
+    .ledger-row > div {
+      padding: 6px 8px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .ledger-row > div:last-child {
+      border-right: none;
+    }
+
+    .row-num {
+      background: var(--soft);
+      font-weight: 600;
+      color: var(--muted);
+      align-items: center;
+      justify-content: center !important;
+      font-size: 11.5px;
+    }
+
+    .stream-cell {
+      background: var(--soft);
+      font-size: 9.5px;
+      line-height: 1.25;
+      color: var(--muted);
+    }
+
+    .stream-options {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 9.5px;
+    }
+
+    .stream-options span {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .checkbox {
+      width: 9px;
+      height: 9px;
+      border: 1px solid #7c847c;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .checkbox.a { background: var(--stream-a); border-color: #4caf50; }
+    .checkbox.b { background: var(--stream-b); border-color: #f9a825; }
+    .checkbox.c { background: var(--stream-c); border-color: #4a7ca8; }
+
+    .class-cell {
+      font-size: 9px;
+      line-height: 1.25;
+      color: var(--muted);
+    }
+
+    .lined-cell {
+      background-image: linear-gradient(to bottom, transparent 13px, var(--line) 13px, var(--line) 14px, transparent 14px);
+      background-size: 100% 14px;
+      background-position: 0 4px;
+    }
+
+    .rulebox {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 10px;
+      background: var(--soft);
+    }
+
+    .panel h2 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .panel p {
+      margin: 0;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .panel p + p {
+      margin-top: 5px;
+    }
+
+    .footer {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .small {
+      font-size: 10.8px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+
+    .examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+      max-width: 60%;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 10.5px;
+      background: white;
+      white-space: nowrap;
+    }
+
+    .legend {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 10.5px;
+      color: var(--muted);
+      padding: 6px 2px 0;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .sheet {
+        box-shadow: none;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="topbar">
+      <div>
+        <h1>Financial Ledger Sheet</h1>
+        <div class="subtitle">
+          A simple registration of money in the same observational mode as the field formats.
+          One line per transaction. Connect each entry to a stream, a purpose, and the effect it had on the field.
+        </div>
+      </div>
+      <div class="meta">
+        <div class="line-field"><span class="label">Place / node:</span><span class="fill"></span></div>
+        <div class="line-field"><span class="label">Period:</span><span class="fill"></span></div>
+        <div class="line-field"><span class="label">Currency:</span><span class="fill"></span></div>
+        <div class="line-field"><span class="label">Reviewed by:</span><span class="fill"></span></div>
+      </div>
+    </div>
+
+    <div class="instruction">
+      <div><strong>Per transaction:</strong> Record date, amount, classification, stream, purpose, and observed effect.</div>
+      <div><strong>Rule:</strong> Field-legibility layer only. Formal accounting remains separate.</div>
+    </div>
+
+    <div class="ledger-table">
+      <div class="ledger-head">
+        <div>#</div>
+        <div>Date</div>
+        <div>Amount</div>
+        <div>Sender / Recipient · Purpose</div>
+        <div>Classification</div>
+        <div>Stream</div>
+        <div>Observed effect on the field</div>
+      </div>
+
+      <div class="ledger-row">
+        <div class="row-num">1</div>
+        <div class="lined-cell"></div>
+        <div class="lined-cell"></div>
+        <div class="lined-cell"></div>
+        <div class="class-cell">
+          <div>☐ donation</div>
+          <div>☐ grant</div>
+          <div>☐ membership</div>
+          <div>☐ service</div>
+          <div>☐ salary</div>
+          <div>☐ reimbursement</div>
+          <div>☐ reciprocity</div>
+        </div>
+        <div class="stream-options">
+          <span><span class="checkbox a"></span> A</span>
+          <span><span class="checkbox b"></span> B</span>
+          <span><span class="checkbox c"></span> C</span>
+        </div>
+        <div class="lined-cell"></div>
+      </div>
+
+      <div class="ledger-row">
+        <div class="row-num">2</div>
+        <div class="lined-cell"></div>
+        <div class="lined-cell"></div>
+        <div class="lined-cell"></div>
+        <div class="class-cell">
+          <div>☐ donation</div>
+          <div>☐ grant</div>
+          <div>☐ membership</div>
+          <div>☐ service</div>
+          <div>☐ salary</div>
+          <div>☐ reimbursement</div>
+          <div>☐ reciprocity</div>
+        </div>
+        <div class="stream-options">
+          <span><span class="checkbox a"></span> A</span>
+          <span><span class="checkbox b"></span> B</span>
+          <span><span class="checkbox c"></span> C</span>
+        </div>
+        <div class="lined-cell"></div>
+      </div>
+
+      <div class="ledger-row">
+        <div class="row-num">3</div>
+        <div class="lined-cell"></div>
+        <div class="lined-cell"></div>
+        <div class="lined-cell"></div>
+        <div class="class-cell">
+          <div>☐ donation</div>
+          <div>☐ grant</div>
+          <div>☐ membership</div>
+          <div>☐ service</div>
+          <div>☐ salary</div>
+          <div>☐ reimbursement</div>
+          <div>☐ reciprocity</div>
+        </div>
+        <div class="stream-options">
+          <span><span class="checkbox a"></span> A</span>
+          <span><span class="checkbox b"></span> B</span>
+          <span><span class="checkbox c"></span> C</span>
+        </div>
+        <div class="lined-cell"></div>
+      </div>
+
+      <div class="ledger-row">
+        <div class="row-num">4</div>
+        <div class="lined-cell"></div>
+        <div class="lined-cell"></div>
+        <div class="lined-cell"></div>
+        <div class="class-cell">
+          <div>☐ donation</div>
+          <div>☐ grant</div>
+          <div>☐ membership</div>
+          <div>☐ service</div>
+          <div>☐ salary</div>
+          <div>☐ reimbursement</div>
+          <div>☐ reciprocity</div>
+        </div>
+        <div class="stream-options">
+          <span><span class="checkbox a"></span> A</span>
+          <span><span class="checkbox b"></span> B</span>
+          <span><span class="checkbox c"></span> C</span>
+        </div>
+        <div class="lined-cell"></div>
+      </div>
+
+      <div class="ledger-row">
+        <div class="row-num">5</div>
+        <div class="lined-cell"></div>
+        <div class="lined-cell"></div>
+        <div class="lined-cell"></div>
+        <div class="class-cell">
+          <div>☐ donation</div>
+          <div>☐ grant</div>
+          <div>☐ membership</div>
+          <div>☐ service</div>
+          <div>☐ salary</div>
+          <div>☐ reimbursement</div>
+          <div>☐ reciprocity</div>
+        </div>
+        <div class="stream-options">
+          <span><span class="checkbox a"></span> A</span>
+          <span><span class="checkbox b"></span> B</span>
+          <span><span class="checkbox c"></span> C</span>
+        </div>
+        <div class="lined-cell"></div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="checkbox a"></span> Stream A — Land &amp; ecology</div>
+      <div class="legend-item"><span class="checkbox b"></span> Stream B — Steward viability</div>
+      <div class="legend-item"><span class="checkbox c"></span> Stream C — Governance &amp; coordination</div>
+    </div>
+
+    <div class="rulebox">
+      <div class="panel">
+        <h2>Important rule</h2>
+        <p>
+          The streams are non-compensatory. A strong reading in one stream does not justify weakness in another.
+        </p>
+        <p>
+          <strong>Stream A</strong> funds land, water, soil, and ecological work.<br>
+          <strong>Stream B</strong> funds the people carrying the field.<br>
+          <strong>Stream C</strong> funds governance and coordination.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Consent and care</h2>
+        <p>
+          Where photographs, names, schools, or minors are involved, note consent in the observed-effect column. Consent is ongoing and revisable.
+        </p>
+        <p>
+          If a transfer crosses an internal threshold, ensure dual review. If anything is unclear, log it as a question rather than as a fact.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="small">
+        <strong>Remember:</strong> Connect money to action to lived effect. One line per transaction. Honest gaps are more useful than fabricated entries.
+      </div>
+      <div class="examples">
+        <span class="tag">water pipe installed</span>
+        <span class="tag">monthly stipend</span>
+        <span class="tag">tree nursery materials</span>
+        <span class="tag">translation work</span>
+        <span class="tag">field day food</span>
+        <span class="tag">documentation support</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
