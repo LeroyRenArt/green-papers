@@ -239,6 +239,340 @@ section{animation:fadeUp .45s ease both}
   }
   a{border-bottom:none}
 }
+
+/* Eve PDF print refinement */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 18mm 16mm 18mm;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  .site-header {
+    padding: 0.7rem 1.2rem !important;
+    font-size: 0.58rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .hero {
+    padding: 2.4rem 1.6rem 1.8rem !important;
+    margin-bottom: 1.2rem !important;
+    page-break-after: avoid;
+    break-after: avoid-page;
+  }
+
+  .hero h1 {
+    font-size: 2.35rem !important;
+    line-height: 1.08 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero .subtitle {
+    font-size: 0.98rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.55rem !important;
+  }
+
+  .hero .dek,
+  .hero .subsubtitle {
+    font-size: 0.84rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 1.2rem !important;
+  }
+
+  .meta-block {
+    padding-top: 0.85rem !important;
+    gap: 0.9rem 1.4rem !important;
+    font-size: 0.58rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .paper-body {
+    padding-top: 0 !important;
+  }
+
+  .editorial-note:first-of-type {
+    margin-top: 1.2rem !important;
+  }
+
+  h2 {
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+
+/* Eve PDF final print layout refinement */
+@media print {
+  @page {
+    size: A4;
+    margin: 13mm 18mm 15mm 18mm;
+  }
+
+  html {
+    font-size: 16px !important;
+  }
+
+  body {
+    background: #ffffff !important;
+  }
+
+  .site-header {
+    padding: 0.65rem 1.1rem !important;
+    font-size: 0.56rem !important;
+    line-height: 1.45 !important;
+    border-bottom: 1px solid var(--rule) !important;
+  }
+
+  .hero {
+    padding: 1.55rem 1.4rem 1.25rem !important;
+    margin: 0 auto 0.85rem !important;
+    border-bottom: 1px solid var(--rule) !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+    min-height: 0 !important;
+  }
+
+  .hero h1 {
+    font-size: 2.15rem !important;
+    line-height: 1.08 !important;
+    margin: 0 0 0.55rem !important;
+    max-width: 100% !important;
+  }
+
+  .hero .subtitle {
+    font-size: 0.93rem !important;
+    line-height: 1.42 !important;
+    margin: 0 0 0.35rem !important;
+    max-width: 100% !important;
+  }
+
+  .hero .dek,
+  .hero .subsubtitle {
+    font-size: 0.78rem !important;
+    line-height: 1.42 !important;
+    margin: 0 0 0.95rem !important;
+    max-width: 100% !important;
+  }
+
+  .meta-block {
+    padding-top: 0.75rem !important;
+    margin-top: 0.75rem !important;
+    gap: 0.55rem 1.15rem !important;
+    font-size: 0.55rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .protocol-note,
+  .ai-note,
+  .hero em {
+    font-size: 0.68rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .paper-body {
+    padding-top: 0 !important;
+  }
+
+  .editorial-note {
+    margin: 1rem 0 1.3rem !important;
+    padding: 0.95rem 1.2rem !important;
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid-page !important;
+  }
+
+  .section {
+    padding: 1.45rem 0 !important;
+  }
+
+  .section h2 {
+    font-size: 1.32rem !important;
+    line-height: 1.22 !important;
+    margin-bottom: 0.9rem !important;
+    page-break-after: avoid !important;
+    break-after: avoid-page !important;
+  }
+
+  .section h3 {
+    page-break-after: avoid !important;
+    break-after: avoid-page !important;
+  }
+
+  .section p,
+  .section li {
+    font-size: 0.9rem !important;
+    line-height: 1.62 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .pull-quote {
+    font-size: 1.12rem !important;
+    line-height: 1.38 !important;
+    margin: 1.2rem 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid-page !important;
+  }
+
+  table {
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+  }
+}
+
+
+/* Eve PDF clean book-style final override */
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 20mm 18mm 20mm;
+  }
+
+  html {
+    font-size: 16px !important;
+  }
+
+  body {
+    background: #ffffff !important;
+  }
+
+  .site-header {
+    display: none !important;
+  }
+
+  .hero {
+    max-width: 760px !important;
+    margin: 0 auto 1.6rem auto !important;
+    padding: 18mm 0 8mm 0 !important;
+    background: transparent !important;
+    border-bottom: 1px solid var(--rule) !important;
+    min-height: 0 !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .series-label {
+    font-size: 0.58rem !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.18em !important;
+    margin-bottom: 1.4rem !important;
+    color: var(--moss) !important;
+  }
+
+  .hero h1 {
+    font-size: 3.05rem !important;
+    line-height: 1.03 !important;
+    letter-spacing: -0.015em !important;
+    margin: 0 0 1rem 0 !important;
+    max-width: 680px !important;
+  }
+
+  .hero .subtitle {
+    font-size: 1.08rem !important;
+    line-height: 1.55 !important;
+    max-width: 650px !important;
+    margin: 0 0 0.75rem 0 !important;
+  }
+
+  .hero .dek,
+  .hero .subsubtitle {
+    font-size: 0.86rem !important;
+    line-height: 1.55 !important;
+    max-width: 620px !important;
+    margin: 0 0 1.35rem 0 !important;
+  }
+
+  .meta-block {
+    border-top: 1px solid var(--rule) !important;
+    padding-top: 1rem !important;
+    margin-top: 1.1rem !important;
+    gap: 0.45rem 1.15rem !important;
+    font-size: 0.56rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .protocol-note,
+  .ai-note,
+  .hero em {
+    font-size: 0.72rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .paper-body {
+    max-width: 760px !important;
+    margin: 0 auto !important;
+    padding: 0 0 3rem 0 !important;
+  }
+
+  .editorial-note {
+    margin: 1.4rem 0 1.6rem 0 !important;
+    padding: 1.1rem 1.35rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.62 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid-page !important;
+  }
+
+  .section {
+    padding: 1.65rem 0 !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  .section h2 {
+    font-size: 1.48rem !important;
+    line-height: 1.22 !important;
+    margin-bottom: 1rem !important;
+    page-break-after: avoid !important;
+    break-after: avoid-page !important;
+  }
+
+  .section h3 {
+    font-size: 1.05rem !important;
+    line-height: 1.3 !important;
+    margin-top: 1.25rem !important;
+    page-break-after: avoid !important;
+    break-after: avoid-page !important;
+  }
+
+  .section p,
+  .section li {
+    font-size: 0.96rem !important;
+    line-height: 1.68 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .pull-quote {
+    font-size: 1.18rem !important;
+    line-height: 1.42 !important;
+    margin: 1.35rem 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid-page !important;
+  }
+
+  table {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid-page !important;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -337,7 +671,7 @@ section{animation:fadeUp .45s ease both}
 
 <p>The penguins in the title require a word of explanation. EVA and ADAM name the Danish economic lineage: EVA as cooperative critical friend to ADAM, the macroeconomic model through which Danish policy proposals were made institutionally legible. The Penguins name the Spiralweb response: Penguin Economics and Penguin Dashboard as attempts to design economic and governance instruments around rotation, replenishment, steward viability, non-extraction, and collective survival in harsh conditions. The title therefore joins three figures: the model, its critical companion, and the living accounting architecture now being developed in response.</p>
 
-<p>What I want to say in the letter is that the methodological inquiry I have been working on across my entire research life — first as a PhD student at Roskilde University, then through twenty-five years of peer-reviewed published research in inclusive and sustainable cities, and now as an Independent Scholar developing the Spiralweb architecture — has been one continuous question: how do we make living complexity institutionally legible without reducing it? I did not always have the words for the question. The lineages I name in this letter taught me the words, one tradition at a time, sometimes in person and sometimes through writing read across decades.</p>
+<p>What I want to say in the letter is that the methodological inquiry I have been working on across my entire research life — first as a PhD student at Roskilde University, then through twenty years of peer-reviewed published research in inclusive and sustainable cities, and now as an Independent Scholar developing the Spiralweb architecture — has been one continuous question: how do we make living complexity institutionally legible without reducing it? I did not always have the words for the question. The lineages I name in this letter taught me the words, one tradition at a time, sometimes in person and sometimes through writing read across decades.</p>
 
 <p>What is new is that AI-enabled pattern recognition has changed where the bottleneck sits. The methodological commitment to bottom-up textured inquiry — that careful, situated, relational knowledge cannot be sacrificed when systems scale — has held in heterodox traditions for decades, against the headwind of cognitive tractability. The headwind is now changing. The work I have been part of can find operational ground that did not exist when the conversations began.</p>
 
@@ -399,7 +733,7 @@ section{animation:fadeUp .45s ease both}
 
 <h3>1.5 The meta-governance trajectory</h3>
 
-<p>Across twenty-five years of subsequent published research in inclusive and sustainable cities, the bottom-up methodological commitment was developed into an explicit framework for <em>meta-governance</em> — the governance of governance, the strategic management of the boundaries between different institutional logics operating at different scales. This work was carried out within a broader Danish meta-governance research tradition associated principally with Eva Sørensen and Jacob Torfing at Roskilde University and the Center for Democratic Network Governance, with foundational contributions from Peter Bogason, and with substantial dialogue with the wider international literature including Bob Jessop, Erik-Hans Klijn, and Bent Flyvbjerg. The Sørensen-Torfing canon — including Sørensen (2006) on metagovernance and the changing role of politicians, and Sørensen and Torfing (2009) on making governance networks effective and democratic through metagovernance — provides the theoretical core that my own published work draws on and extends into urban regeneration and climate adaptation contexts.</p>
+<p>Across twenty years of subsequent published research in inclusive and sustainable cities, the bottom-up methodological commitment was developed into an explicit framework for <em>meta-governance</em> — the governance of governance, the strategic management of the boundaries between different institutional logics operating at different scales. This work was carried out within a broader Danish meta-governance research tradition associated principally with Eva Sørensen and Jacob Torfing at Roskilde University and the Center for Democratic Network Governance, with foundational contributions from Peter Bogason, and with substantial dialogue with the wider international literature including Bob Jessop, Erik-Hans Klijn, and Bent Flyvbjerg. The Sørensen-Torfing canon — including Sørensen (2006) on metagovernance and the changing role of politicians, and Sørensen and Torfing (2009) on making governance networks effective and democratic through metagovernance — provides the theoretical core that my own published work draws on and extends into urban regeneration and climate adaptation contexts.</p>
 
 <p>My own contributions to this lineage include Engberg, Bayer &amp; Tarnø (2000) on consensus-steering in Danish urban regeneration as an early empirical application; Engberg &amp; Larsen (2010) in <em>Planning Theory &amp; Practice</em> developing the framework as <em>context-oriented meta-governance in Danish urban regeneration</em>; Svane, Wangel, Engberg &amp; Palm (2011) applying it as <em>negotiated sustainabilities</em> in the analysis of Hammarby Sjöstad in Stockholm, where competing actor positions on sustainability had to be coordinated by a project team functioning as meta-governor; Engberg &amp; Hansen (2017) extending it to Aalborg East place-making strategies; and Engberg (2018) applying it to Copenhagen climate adaptation, showing how the city <em>"strategically meta-govern[s] the boundaries between the expert governed large-scale water management scheme against small-scale place-based bottom-up projects in collaboration with citizens and other place-based stakeholders"</em> (Engberg 2018: abstract).</p>
 
