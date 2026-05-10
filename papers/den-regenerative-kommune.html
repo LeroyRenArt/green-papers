@@ -76,12 +76,13 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;fon
   .section h2 + .table-wrap,
   .section h3 + .table-wrap,
   .section h4 + .table-wrap{break-before:avoid;page-break-before:avoid}
-  .section p{font-size:.96rem;line-height:1.50;margin-bottom:.62rem}
-  .fragment-list,.numbered-list{margin:.55rem 0 .75rem 0}
-  .fragment-list li,.numbered-list li{font-size:.94rem;line-height:1.46;padding-top:.08rem;padding-bottom:.08rem}
-  .pull-quote{font-size:1.05rem;line-height:1.36;margin:1rem 0;padding:.45rem 0 .45rem 1rem}
+  .section p{font-size:.96rem;line-height:1.50;margin-bottom:.62rem;orphans:3;widows:3}
+  .fragment-list,.numbered-list{margin:.55rem 0 .75rem 0;break-inside:avoid-page;page-break-inside:avoid}
+  .fragment-list li,.numbered-list li{font-size:.94rem;line-height:1.46;padding-top:.08rem;padding-bottom:.08rem;break-inside:avoid;page-break-inside:avoid}
+  .pull-quote{font-size:1.05rem;line-height:1.36;margin:1rem 0;padding:.45rem 0 .45rem 1rem;break-inside:avoid-page;page-break-inside:avoid;orphans:3;widows:3}
   .table-wrap{margin:.75rem 0 1rem;page-break-inside:auto;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  table{font-size:.64rem;line-height:1.25}
+  table{font-size:.64rem;line-height:1.25;break-inside:auto}
+  tr{break-inside:avoid;page-break-inside:avoid}
   th{padding:.35rem .3rem}
   td{padding:.3rem .3rem}
   code{font-size:.78em}
