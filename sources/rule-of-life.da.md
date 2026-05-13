@@ -17,14 +17,17 @@ Dette paper er placeret i **Serie IV — Field Papers**. Det fungerer som et kon
 **Redaktionel note**
 Dette paper indgår i Green Papers-serien, *Notes Toward Planetary Guardianship*. Det syntetiserer og videreudvikler begreber fra Spiralweb / Planetary Guardians’ vidensarkitektur, herunder Penguin Economics, PG Ledger, regenerativ reciprocitet, Moral Biology, det civile nervesystem, Penguin Dashboard, 13×13-feltstrukturen og Rule of Life.
 
+**Sproglig note**
+Nogle engelske kernebegreber er bevaret som arkitektoniske egennavne på tværs af Spiralweb / Planetary Guardians-materialet: Penguin Economics, PG Ledger, Penguin Dashboard, AnchorPoints, Earth Time, Rule of Law og Rule of Life. Hvor teksten bruger danske begreber som fælleder, strømadskillelse, steward-levedygtighed og borgervidenskab, er de valgt for at styrke dansk læsbarhed uden at løsne forbindelsen til den samlede protokolarkitektur.
+
 **AI-deklaration**
 Dette paper er udviklet og redigeret gennem AI-understøttet dialog under [Sophia Lumen Protocol](https://papers.spiralweb.earth/sophia-lumen-protocol.html). Lars A. Engberg har kurateret, revideret og bærer ansvaret for den endelige tekst, dens substantielle påstande, udeladelser og offentliggørelse.
 
 ## Sammenfatning
 
-Penguin Economics er ikke filantropi. Filantropi begynder med privat overskud og spørger, hvordan det kan gives til et offentligt gode. Penguin Economics begynder med fælles udsathed og spørger, hvordan livsunderstøttende betingelser kan forblive levedygtige på tværs af jord, vand, stewards, fællesskaber og kommende generationer.
+Penguin Economics er ikke filantropi. Filantropi begynder med privat overskud og spørger, hvordan det kan gives til det almene bedste. Penguin Economics begynder med fælles udsathed og spørger, hvordan livsunderstøttende betingelser kan forblive levedygtige på tværs af jord, vand, stewards, fællesskaber og kommende generationer.
 
-Den foreslåede økonomi er en **Planetary Stewardship Economy**: en ledger-styret, polycentrisk flowarkitektur, hvor støtte træder ind i virkelige steder gennem dokumenterede AnchorPoints, adskilles i ikke-kompenserende strømme og først kan cirkulere videre, når overflod er opstået uden gæld, ejerskab, ekstraktion eller kontrol.
+Den foreslåede økonomi er en **planetarisk forvaltningsøkonomi** — en **Planetary Stewardship Economy**: en ledger-styret, polycentrisk strømarkitektur, hvor støtte træder ind i virkelige steder gennem dokumenterede AnchorPoints, adskilles i ikke-kompenserende strømme og først kan cirkulere videre, når overflod er opstået uden gæld, ejerskab, ekstraktion eller kontrol.
 
 Dens grundlæggende enhed er ikke donoren, investoren, forbrugeren eller modtageren. Dens grundlæggende enhed er det stewardede levende felt.
 
@@ -42,7 +45,7 @@ Dens kreditprincip er enkelt:
 
 Dens test er streng:
 
-Hjælper denne handling livet med at fortsætte? Beskytter den feltet mod capture? Gør den byrde synlig? Roterer den varme mod udsathed? Holder den kulstof-, biodiversitets- og finansielle målinger inde i en bredere ledger i stedet for at lade én enkelt måling blive suveræn? Respekterer den Earth Time i stedet for at tvinge levende systemer ind i investor-, valg-, projekt-, kredit- eller rapporteringstid?
+Hjælper denne handling livet med at fortsætte? Beskytter den feltet mod capture (institutionel overtagelse)? Gør den byrde synlig? Roterer den varme mod udsathed? Holder den kulstof-, biodiversitets- og finansielle målinger inde i en bredere ledger i stedet for at lade én enkelt måling blive suveræn? Respekterer den Earth Time i stedet for at tvinge levende systemer ind i investor-, valg-, projekt-, kredit- eller rapporteringstid?
 
 Hvis ja, hører den til i den nye økonomi.
 
@@ -61,7 +64,7 @@ Kerneordforrådet er følgende:
 * **Regenerativ reciprocitet:** flowprincippet, hvorigennem overflod først cirkulerer, når livet er stabilt nok til at give.
 * **PG Ledger:** protokollaget, der gør feltbetingelser, byrder, evidens, roller, flows, tærskler og korrektioner synlige.
 * **Penguin Dashboard:** orienteringslaget, der hjælper stewards og institutioner med at se, om et felt er inden for et arbejdsdygtigt spænd, nærmer sig overbelastning eller allerede er i Red Phase.
-* **Trestrømsdisciplinen:** ikke-kompenserende regnskab på tværs af Land and Ecology, Steward Viability og Coordination and Governance.
+* **Trestrømsdisciplinen:** ikke-kompenserende regnskab på tværs af land og økologi, steward-levedygtighed og koordinering og governance.
 * **Earth Time:** tidslig governance afstemt med levende systemer snarere end investor-, valg-, projekt-, kredit- eller rapporteringstid.
 * **Rule of Life:** den konstitutionelle horisont, hvor ingen økonomi, institution, teknologi, rettighed eller juridisk form må tilsidesætte livets betingelser — samtidig med at den forbliver bundet til Rule of Law.
 
@@ -77,7 +80,7 @@ Den centrale tese er enkel:
 
 ## Orientering
 
-Denne tekst er skrevet til stewards, fundere, juridiske praktikere, offentlige institutioner, forskere, commons-teoretikere, AI-governance-praktikere og governance-designere, som fornemmer, at de eksisterende økonomiske kategorier er utilstrækkelige, men som har brug for et disciplineret alternativ til romantisering, grøn finans, filantropisk afhængighed og markedscapture.
+Denne tekst er skrevet til stewards, støttegivere, juridiske praktikere, offentlige institutioner, forskere, commons-teoretikere, AI-governance-praktikere og governance-designere, som fornemmer, at de eksisterende økonomiske kategorier er utilstrækkelige, men som har brug for et disciplineret alternativ til romantisering, grøn finans, filantropisk afhængighed og markedscapture.
 
 Planetary Stewardship Economy forstås bedst som en syntese og operationalisering, ikke som et krav om at erstatte eksisterende alternative økonomiske traditioner. Dens særlige bevægelse er at spørge, hvordan livsunderstøttende stewardship kan gøres tilstrækkeligt læselig til at guide penge, lov, governance, teknologi og reciprocitet uden at overgive feltet til nogen af dem.
 
@@ -85,7 +88,7 @@ Neoklassisk økonomi er fortsat nyttig til nogle spørgsmål om allokering, pris
 
 PG Ledger er et protokollag, ikke blot en database.
 
-Det kombinerer feltobservation, evidensformater, strømseparation, review, korrektionssløjfer, tærskellogik, guardrails for AI-assistance og governance-beslutninger, så livsunderstøttende betingelser kan blive synlige uden at blive reduceret til én enkelt måling.
+Det kombinerer feltobservation, evidensformater, strømadskillelse, review, korrektionssløjfer, tærskellogik, guardrails for AI-assistance og governance-beslutninger, så livsunderstøttende betingelser kan blive synlige uden at blive reduceret til én enkelt måling.
 
 ## Hvorfor filantropi ikke er det rette ord
 
@@ -99,17 +102,17 @@ Penguin Economics begynder et andet sted.
 
 Den begynder ikke med de magtfuldes overskud. Den begynder med fælles udsathed. Den spørger, hvor den kolde kant er, hvem der bærer for meget, hvilke felter der udtømmes, hvilke stewards der brænder ud, hvilke levende systemer der mister evnen til at regenerere, og hvordan varme, kapacitet, opmærksomhed og ressourcer kan rotere uden at blive dominans.
 
-Philanthropy asks: who gives to whom?
+Filantropi spørger: hvem giver til hvem?
 
-Penguin Economics asks: where is life exposed, and how does the system rotate capacity toward that exposure before collapse?
+Penguin Economics spørger: hvor er livet udsat, og hvordan roterer systemet kapacitet mod denne udsathed inden kollaps?
 
 Dette er ikke en retorisk forskel. Det er en arkitektonisk forskel.
 
-I filantropi behandles penge ofte som én strøm: en donor giver, et projekt modtager, en rapport skrives, og cyklussen fortsætter. I Penguin Economics og PG Ledger-arkitekturen er penge ikke ét udifferentieret flow. De må adskilles i strømme, som hverken moralsk eller operationelt kan substituere hinanden. Land and Ecology, Steward Viability og Coordination and Governance er ikke det samme. En grøn økologisk indikator kan ikke kompensere for en udbrændt steward. En smuk fortælling kan ikke kompensere for svag evidens. Stærk finansiel indstrømning kan ikke kompensere for capture. Vækst kan ikke kompensere for tab af livsunderstøttende betingelser.
+I filantropi behandles penge ofte som én strøm: en donor giver, et projekt modtager, en rapport skrives, og cyklussen fortsætter. I Penguin Economics og PG Ledger-arkitekturen er penge ikke ét udifferentieret flow. De må adskilles i strømme, som hverken moralsk eller operationelt kan substituere hinanden. Land og økologi, steward-levedygtighed og koordinering og governance er ikke det samme. En grøn økologisk indikator kan ikke kompensere for en udbrændt steward. En smuk fortælling kan ikke kompensere for svag evidens. Stærk finansiel indstrømning kan ikke kompensere for capture (institutionel overtagelse). Vækst kan ikke kompensere for tab af livsunderstøttende betingelser.
 
 Det er derfor, filantropi ikke er den rette rod-kategori. Filantropi kan blive ét muligt input i systemet. Intelligent, ydmyg og langsigtet filantropi kan være en vigtig indgangsstrøm. Men den kan ikke være systemets grammatik.
 
-Når filantropiske midler træder ind i en Planetary Stewardship Economy, må de underlægge sig de samme membraner som enhver anden form for støtte: strømseparation, ledger-synlighed, felttempo, non-capture, samtykke, korrektion og byrdebevidsthed.
+Når filantropiske midler træder ind i en planetarisk forvaltningsøkonomi — en Planetary Stewardship Economy — må de underlægge sig de samme membraner som enhver anden form for støtte: strømadskillelse, ledger-synlighed, felttempo, beskyttelse mod overtagelse, samtykke, korrektion og byrdebevidsthed.
 
 Grammatikken er stewardship.
 
@@ -164,7 +167,7 @@ Sammenligningen kan formuleres enkelt:
 | Commons-økonomi | Fælleder kræver regler, monitorering, grænser og polycentrisk governance | Integrerer Tragedy, Romance og Ledger of the Commons som en felt-governance-disciplin |
 | Regenerativ økonomi | Økonomien bør understøtte levende systemer | Gør regeneration observerbar gennem protokoller, evidens og review |
 | Cirkulær økonomi | Materialeflows må redesignes | Placerer materialecirkulation inde i Rule of Life og feltlevedygtighed |
-| Solidaritetsøkonomi | Gensidighed, retfærdighed, demokratisk kontrol | Tilføjer eksplicit non-capture-arkitektur og strømseparation |
+| Solidaritetsøkonomi | Gensidighed, retfærdighed, demokratisk kontrol | Tilføjer eksplicit non-capture-arkitektur, beskyttelse mod overtagelse og strømadskillelse |
 | Community wealth building | Lokal recirkulation og ankerinstitutioner | Knytter AnchorPoints til økologisk evidens, steward-byrde og governance-kapacitet |
 | Foundational economy | Hverdagens infrastrukturer betyder noget | Udvider foundational-anliggender til jord, vand, mad, omsorg og governance |
 
@@ -228,7 +231,7 @@ Pris kan være nyttig, men den kan ikke bære hele sandheden om liv, omsorg, fre
 At beskytte jord, vand, mad, fællesskab, dokumentation, tillid, konflikthåndtering og langsigtet levedygtighed er ikke frivillig pynt omkring den “rigtige” økonomi. Det er grundlæggende økonomisk arbejde.
 
 **4. Strømme må adskilles.**  
-Land and Ecology, Steward Viability og Coordination and Governance må ikke blandes sammen, som om fremgang i én strøm kan kompensere for skade i en anden.
+Land og økologi, steward-levedygtighed og koordinering og governance må ikke blandes sammen, som om fremgang i én strøm kan kompensere for skade i en anden.
 
 **5. Felter har tempo.**  
 Levende systemer kan ikke tvinges ustraffet ind i investor-, valg-, projekt-, kredit- eller rapporteringstid. Earth Time må være en governance-kategori.
@@ -329,7 +332,7 @@ Penguin Economics accepterer penge, men kun under membran.
 Membranen består af:
 
 * formål
-* stream separation
+* strømadskillelse
 * PG Ledger-evidens
 * steward-samtykke
 * non-capture
@@ -519,15 +522,15 @@ Trestrømsdisciplinen er en enkel governance-regel:
 
 PG Ledger arbejder derfor med mindst tre ikke-kompenserende strømme:
 
-1. **Land and Ecology**
-2. **Steward Viability**
-3. **Coordination and Governance**
+1. **land og økologi**
+2. **steward-levedygtighed**
+3. **koordinering og governance**
 
-Land and Ecology omfatter jord, vand, biodiversitet, madkapacitet, habitat, mikroklima, hydrologi, økosystemfunktion og regenerative signaler.
+Land og økologi omfatter jord, vand, biodiversitet, madkapacitet, habitat, mikroklima, hydrologi, økosystemfunktion og regenerative signaler.
 
-Steward Viability omfatter tid, indkomst, hvile, sikkerhed, sundhed, relationel kapacitet, succession, læring og evnen til at fortsætte uden skjult udtømning.
+Steward-levedygtighed omfatter tid, indkomst, hvile, sikkerhed, sundhed, relationel kapacitet, succession, læring og evnen til at fortsætte uden skjult udtømning.
 
-Coordination and Governance omfatter roller, samtykke, dokumentation, review, beslutningsprocesser, konfliktkapacitet, transparens, ledger-disciplin, korrektion og non-capture.
+Koordinering og governance omfatter roller, samtykke, dokumentation, review, beslutningsprocesser, konfliktkapacitet, transparens, ledger-disciplin, korrektion og non-capture.
 
 Disse strømme kan påvirke hinanden, men de må ikke lægges sammen til én score.
 
@@ -549,9 +552,9 @@ Et muligt dashboardfelt kan se sådan ud:
 
 | Strøm | Typisk evidens | Røde signaler | Governance-respons |
 |---|---|---|---|
-| Land and Ecology | jord, vand, biodiversitet, madkapacitet, habitat, regenerationssignaler | nedbrydning, forurening, erosion, biodiversitetstab, vandstress | pause, reparation, teknisk review, feltdesign, økologisk tærskelhandling |
-| Steward Viability | tid, indkomst, hvile, sikkerhed, sundhed, relationel kapacitet, succession | burnout, ulønnet overbelastning, usikkert arbejde, skjult afhængighed, tab af agency | reducér byrde, omdirigér midler, rotér ansvar, sænk projekttempo, giv støtte |
-| Coordination and Governance | roller, samtykke, evidenskvalitet, review, konflikthåndtering, rapporteringskapacitet | uklar autoritet, svag dokumentation, capture-risiko, konflikteskalation, for høj rapporteringsbyrde | afklar roller, styrk ledger, aktiver korrektionssløjfer, begræns indstrømning, gå i Red Phase hvis nødvendigt |
+| land og økologi | jord, vand, biodiversitet, madkapacitet, habitat, regenerationssignaler | nedbrydning, forurening, erosion, biodiversitetstab, vandstress | pause, reparation, teknisk review, feltdesign, økologisk tærskelhandling |
+| steward-levedygtighed | tid, indkomst, hvile, sikkerhed, sundhed, relationel kapacitet, succession | burnout, ulønnet overbelastning, usikkert arbejde, skjult afhængighed, tab af agency | reducér byrde, omdirigér midler, rotér ansvar, sænk projekttempo, giv støtte |
+| koordinering og governance | roller, samtykke, evidenskvalitet, review, konflikthåndtering, rapporteringskapacitet | uklar autoritet, svag dokumentation, capture-risiko, konflikteskalation, for høj rapporteringsbyrde | afklar roller, styrk ledger, aktiver korrektionssløjfer, begræns indstrømning, gå i Red Phase hvis nødvendigt |
 
 Trestrømsdisciplinen gør én ting meget klart:
 
@@ -720,7 +723,7 @@ Penguin Dashboard skal hjælpe med at opdage disse former for overshoot tidligt 
 
 Ledger of the Commons bliver mulig gennem konvergensen mellem borgervidenskab, 13×13-feltstruktur og ansvarlig AI-assistance.
 
-Borgervidenskab betyder her ikke, at alle observationer automatisk er lige stærke. Det betyder, at situerede mennesker kan bidrage med systematisk, struktureret og reviewbar viden om steder, de kender.
+Borgervidenskab betyder her ikke, at alle observationer automatisk er lige stærke. Det betyder, at situerede mennesker kan bidrage med systematisk, struktureret og prøvbar viden om steder, de kender.
 
 En steward kan se jordens forandring.
 
@@ -938,7 +941,7 @@ Den kan udvikles gennem:
 * commons-governance
 * international ret
 
-PG Ledger kan bidrage ved at gøre livsbetingelser mere synlige, dokumenterbare og reviewbare på feltniveau.
+PG Ledger kan bidrage ved at gøre livsbetingelser mere synlige, dokumenterbare og prøvbare på feltniveau.
 
 Rule of Life kræver et bedre nervesystem for loven.
 
@@ -1160,7 +1163,7 @@ En Planetary Stewardship Economy må ikke reproducere den gamle økonomis afhæn
 
 Hvis en stewardship-økonomi afhænger af mennesker, der bærer langt ansvar for jord, vand, fødevaresystemer, commons og fællesskabstillid, må den på sigt forholde sig til sygdom, aldring, overgang, forsikring, hvile, succession og pensionslignende kontinuitet. Ellers risikerer den at reproducere den skjulte udtømning, den blev skabt for at forhindre.
 
-Steward Viability er derfor ikke kun et månedligt dashboardfelt. Det er et livsforløbsanliggende.
+Steward-levedygtighed er derfor ikke kun et månedligt dashboardfelt. Det er et livsforløbsanliggende.
 
 Et system, der beskytter jord, men efterlader sine stewards uden fremtidig tryghed, er ikke fuldt regenerativt.
 
@@ -1197,12 +1200,12 @@ Anstændighed er den hverdagslige moralske form af Rule of Life.
 | Regenerativ reciprocitet | Flowprincippet, hvor overflod først cirkulerer, når livsbetingelserne er stabile nok til at give |
 | PG Ledger | Protokollaget, der gør feltbetingelser, evidens, byrder, flows og korrektioner synlige |
 | Penguin Dashboard | Orienteringslaget, der viser grøn/gul/rød/grå status uden at reducere feltet til én måling |
-| Trestrømsdisciplin | Ikke-kompenserende regnskab på tværs af Land and Ecology, Steward Viability og Coordination and Governance |
+| Trestrømsdisciplin | Ikke-kompenserende regnskab på tværs af land og økologi, steward-levedygtighed og koordinering og governance |
 | Earth Time | Governance-tid afstemt med levende systemers tempo |
 | Rule of Life | Konstitutionel horisont: ingen økonomi, institution, teknologi, rettighed eller juridisk form må tilsidesætte livets betingelser |
 | Ledger of the Commons | Commons-governance gennem hukommelse, evidens, membraner, flowdisciplin og korrektion |
 | Non-capture | Beskyttelse mod donor-, investor-, platform-, narrativ-, metrisk-, AI- eller intern capture |
-| Steward Viability | Stewardens evne til at fortsætte uden skjult udtømning |
+| steward-levedygtighed | Stewardens evne til at fortsætte uden skjult udtømning |
 | Anstændighed | Strukturel decency; grænsen for, hvad et system må tillade sig at gøre mod dem, der bærer livet |
 
 ## Afsluttende diagnostisk test
@@ -1213,7 +1216,7 @@ Et projekt, en fond, en kommune, en virksomhed, et fællesskab, en protokol elle
 2. Hvilke livsbetingelser risikerer det at nedbryde?
 3. Hvem bærer stewardship-byrden?
 4. Er byrden synlig?
-5. Er Land and Ecology, Steward Viability og Coordination and Governance adskilt?
+5. Er land og økologi, steward-levedygtighed og koordinering og governance adskilt?
 6. Kan en stærk indikator skjule en rød strøm?
 7. Hvem kan stoppe flowet?
 8. Hvem kan korrigere ledgeren?
