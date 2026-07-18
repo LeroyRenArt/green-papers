@@ -1,4 +1,48 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://papers.spiralweb.earth/sitemap.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://papers.spiralweb.earth/</loc></url>
+<url><loc>https://papers.spiralweb.earth/formats/format1-dashboard.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/formats/format2-observation.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/formats/format3-action.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/formats/format4-decision.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/formats/format5-financial-ledger.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/methods-editorial-practice.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/attention.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/beauty.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/bioregional-knowing-stewardship-pg-ledger.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/boundaries-are-not-violence.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/boundaries.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/civic-nervous-system.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/climate-and-living-systems.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/commons-as-habitat.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/commons.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/den-nye-faelled-en.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/den-nye-faelled-kalaallisut.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/den-nye-faelled.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/den-regenerative-kommune.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/elia-love-without-capture.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/elir-when-love-touches-soil.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/eve-adam-and-the-penguins.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/gold-before-bloom.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/holding-the-line.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/knowing-from-the-ground.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/meatball-before-symbol.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/moral-biology.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/nervous-system-love.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/penguin-dashboard-legibility-as-governance.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/penguin-economics.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/planetary-guardianship.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/regulation.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/report-06-regenerative-reciprocity.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/ritual-after-regulation.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/ritual-repair.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/rule-of-life-da.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/rule-of-life.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/srip-the-stewards-journey.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/the-regenerative-municipality.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/papers/viability.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/sophia-lumen-protocol.html</loc></url>
+<url><loc>https://papers.spiralweb.earth/kernel/constitutional-ground.pdf</loc></url>
+<url><loc>https://papers.spiralweb.earth/kernel/constitutional-ground.pdf</loc></url>
+<url><loc>https://papers.spiralweb.earth/kernel/constitutional-ground.pdf</loc></url>
+<url><loc>https://papers.spiralweb.earth/kernel/support-funding-patron-pathways.pdf</loc></url>
