@@ -1,0 +1,117 @@
+{
+  "id": "PG-Syntropy",
+  "version": "1.0.0",
+  "status": "kernel",
+  "title": "Syntropic Agroforestry (Hot/Dry Node)",
+  "topic": "foodforest",
+  "protocol_type": "biophysical",
+  "biome": "desert-edge",
+  "field_13": 1,
+  "phase": "establishment",
+  "biodiversity_primary": true,
+  "indicators": [
+    {
+      "name": "Soil Organic Carbon",
+      "metric": "soil_organic_carbon_pct",
+      "unit": "%",
+      "frequency": "quarterly",
+      "baseline": null,
+      "target": 0.5
+    },
+    {
+      "name": "Water Infiltration",
+      "metric": "infiltration_rate",
+      "unit": "mm/hr",
+      "frequency": "quarterly",
+      "baseline": null,
+      "target": 25
+    },
+    {
+      "name": "Fungi:Bacteria Ratio",
+      "metric": "fungi_bacteria_ratio",
+      "unit": "ratio",
+      "frequency": "quarterly",
+      "baseline": null,
+      "target": 1.2
+    },
+    {
+      "name": "Tree Survival Rate",
+      "metric": "survival_pct",
+      "unit": "%",
+      "frequency": "monthly",
+      "baseline": null,
+      "target": 75
+    },
+    {
+      "name": "Yield Density",
+      "metric": "yield_kg_per_m2",
+      "unit": "kg/m2",
+      "frequency": "seasonal",
+      "baseline": null,
+      "target": 0.8
+    }
+  ],
+  "steps": [
+    "Map contour and establish swale system",
+    "Heavy mulch application and soil cover",
+    "Plant multi-layered guild structure",
+    "Install windbreak and shade scaffolding",
+    "Apply Johnson-Su inoculum",
+    "Low-pressure irrigation during establishment",
+    "Quarterly monitoring and adaptive pruning"
+  ],
+  "evidence": [
+    "Photo grid",
+    "Sensor sheet",
+    "Witness log",
+    "Soil lab report"
+  ],
+  "qa": [
+    "Quarterly soil sampling protocol",
+    "Randomized survival sampling (n>=50)",
+    "Infiltration calibration per season"
+  ],
+  "dependencies": [
+    "Water access",
+    "Local nursery supply",
+    "Community stewardship"
+  ],
+  "related_protocols": [
+    "PG-Pass-Free",
+    "PG-EleCorridors"
+  ],
+  "links": [],
+  "bio_regulator": {
+    "version": "v1",
+    "hydrology_weight": 1.2,
+    "dimensions": [
+      {
+        "name": "species_richness_delta",
+        "method": "seasonal species count comparison",
+        "scale": "0-1"
+      },
+      {
+        "name": "native_ratio_delta",
+        "method": "native vs non-native ratio shift",
+        "scale": "0-1"
+      },
+      {
+        "name": "habitat_structure_score",
+        "method": "canopy-layer-ground diversity presence",
+        "scale": "0-1"
+      },
+      {
+        "name": "soil_foodweb_proxy",
+        "method": "fungi:bacteria trend + visible soil life",
+        "scale": "0-1"
+      },
+      {
+        "name": "water_infiltration_trend",
+        "method": "infiltration rate change",
+        "scale": "0-1"
+      }
+    ],
+    "multiplier_logic": "average(dimensions) * hydrology_weight",
+    "flow_effect": "band_multiplier"
+  }
+}
