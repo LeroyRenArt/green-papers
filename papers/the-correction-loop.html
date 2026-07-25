@@ -161,6 +161,57 @@ margin: 0 0.8em 0.2em -1.6em;
 vertical-align: middle;
 }
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+
+/* SPIRALWEB 13x13 PRINT FIT
+   Layout-only correction for Report 02 Part A and Part B.
+   No textual or semantic content is changed. */
+@media print {
+  table.grid-13x13 {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  table.grid-13x13 thead {
+    display: table-header-group;
+  }
+
+  table.grid-13x13 tbody {
+    display: table-row-group;
+  }
+
+  table.grid-13x13 tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  table.grid-13x13 th,
+  table.grid-13x13 td {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    padding: 2.1pt 1.8pt !important;
+    line-height: 1.08 !important;
+    vertical-align: top !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: auto !important;
+  }
+
+  table.grid-part-a {
+    font-size: 7pt !important;
+  }
+
+  table.grid-part-b {
+    font-size: 7.5pt !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -604,17 +655,17 @@ inquiry. It is a tool for orientation, not prescription.</p>
 </table>
 <h3 id="the-full-table">3.3 The Full Table</h3>
 <p><strong>Part A: Layers 1-13 × Dimensions 1-7</strong></p>
-<table>
+<table class="grid-13x13 grid-part-a">
 <colgroup>
 <col style="width: 3%" />
 <col style="width: 9%" />
-<col style="width: 12%" />
-<col style="width: 18%" />
-<col style="width: 22%" />
 <col style="width: 11%" />
-<col style="width: 7%" />
+<col style="width: 11%" />
 <col style="width: 14%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
 <col style="width: 14%" />
+<col style="width: 21%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -776,16 +827,16 @@ inquiry. It is a tool for orientation, not prescription.</p>
 </tbody>
 </table>
 <p><strong>Part B: Layers 1-13 × Dimensions 8-13</strong></p>
-<table>
+<table class="grid-13x13 grid-part-b">
 <colgroup>
 <col style="width: 4%" />
 <col style="width: 10%" />
-<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
 <col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 17%" />
-<col style="width: 7%" />
-<col style="width: 24%" />
+<col style="width: 14%" />
+<col style="width: 12%" />
+<col style="width: 23%" />
 </colgroup>
 <thead>
 <tr class="header">
