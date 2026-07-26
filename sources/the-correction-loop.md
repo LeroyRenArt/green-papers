@@ -213,7 +213,7 @@ Parasuraman, R., & Riley, V. (1997). Humans and automation: Use, misuse, disuse,
 
 Sharma, M., et al. (2023). *Towards understanding sycophancy in language models.* Anthropic. arXiv:2310.13548.
 
-Companion Spiralweb material: *Kommunalt Arbejde som Natur* (Series III, Report 01); *Knowing From the Ground* (the methodological ground of the thirteen-layer axis); *Regenerative Reciprocity* (Report 06, the PG Ledger and the three streams in practice); *Silent Degradation* (Green Paper 21). Green Papers: https://papers.spiralweb.earth/
+Companion Spiralweb material: *Kommunalt Arbejde som Natur* (Series III, Report 01); *Knowing From the Ground* (the methodological ground of the thirteen-layer axis); *Regenerative Reciprocity* (Report 06, the PG Ledger and the three streams in practice). Green Papers: https://papers.spiralweb.earth/
 
 ---
 
