@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Climate Intervention to Bioregional Stewardship — Green Papers</title>
+<meta name="description" content="A field paper on moving from climate and development intervention toward the continuing capacity of places to sense, learn, coordinate, correct, and regenerate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a18;--earth:#3d3830;--moss:#5c6b4a;--stone:#8a8478;--parchment:#f4f0e8;--cream:#faf8f3;--pale:#eeebe1;--accent:#7a6e52;--rule:#d4cfc3}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.75;-webkit-font-smoothing:antialiased}
+.site-header{background:var(--parchment);border-bottom:1px solid var(--rule);padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:baseline;font-family:'Jost',sans-serif;font-size:.72rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--stone)}
+.site-header a{color:var(--stone);text-decoration:none}
+.hero{background:var(--parchment);padding:5rem 2rem 4rem;max-width:780px;margin:0 auto;border-bottom:1px solid var(--rule)}
+.series-label{font-family:'Jost',sans-serif;font-size:.68rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--moss);margin-bottom:2rem}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:300;line-height:1.1;letter-spacing:-.01em;color:var(--earth);margin-bottom:1.2rem}
+.hero .subtitle{font-size:1.15rem;font-weight:300;font-style:italic;color:var(--accent);line-height:1.5;max-width:620px;margin-bottom:2.5rem}
+.meta-block{display:flex;gap:2.5rem;font-family:'Jost',sans-serif;font-size:.72rem;font-weight:300;letter-spacing:.08em;color:var(--stone);border-top:1px solid var(--rule);padding-top:1.5rem;flex-wrap:wrap}
+.meta-block span strong{display:block;font-weight:500;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;font-size:.62rem;margin-bottom:.2rem}
+.paper-body{max-width:780px;margin:0 auto;padding:0 2rem 6rem}
+.editorial-note{background:var(--pale);border-left:3px solid var(--moss);padding:1.4rem 1.8rem;margin:3rem 0;font-size:.92rem;line-height:1.7;color:var(--earth)}
+.editorial-note .note-label{font-family:'Jost',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--moss);margin-bottom:.6rem}
+.section{padding:2.5rem 0;border-bottom:1px solid var(--rule)}
+.section:last-child{border-bottom:none}
+.section-number{font-family:'Jost',sans-serif;font-size:.62rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);margin-bottom:.5rem}
+.section h2{font-size:1.55rem;font-weight:400;line-height:1.25;color:var(--earth);margin-bottom:1.6rem;letter-spacing:-.01em}
+.section p{font-size:1.05rem;line-height:1.85;color:var(--ink);margin-bottom:1.1rem}
+.section p:last-child{margin-bottom:0}
+.section p em{font-style:italic;color:var(--earth)}
+.pull-quote{font-size:1.45rem;font-style:italic;font-weight:300;line-height:1.45;color:var(--earth);border-left:2px solid var(--moss);padding:.8rem 0 .8rem 1.8rem;margin:2.2rem 0;letter-spacing:-.01em}
+.fragment-list{list-style:none;padding:0;margin:1.2rem 0 1.4rem 0}
+.fragment-list li{font-size:1.05rem;line-height:1.7;color:var(--ink);padding:.25rem 0 .25rem 1.4rem;position:relative}
+.fragment-list li::before{content:'—';position:absolute;left:0;color:var(--stone);font-weight:300}
+.cite-block{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--rule);font-family:'Jost',sans-serif;font-size:.72rem;font-weight:300;color:var(--stone);line-height:1.7}
+.cite-block strong{display:block;font-weight:500;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;font-size:.62rem;margin-bottom:.4rem}
+.cite-block a{color:var(--stone)}
+.site-footer{background:var(--parchment);border-top:1px solid var(--rule);padding:2rem;text-align:center;font-family:'Jost',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.1em;color:var(--stone)}
+.site-footer a{color:var(--stone)}
+@media(max-width:600px){.site-header{flex-direction:column;gap:.4rem}.hero{padding:3rem 1.4rem 2.5rem}.paper-body{padding:0 1.4rem 4rem}.meta-block{gap:1.5rem}}
+.section{animation:fadeUp .5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media print{
+  html{font-size:14px}
+  body{line-height:1.48}
+
+  .site-header{
+    padding:.75rem 1.2rem;
+    font-size:.55rem;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact
+  }
+
+  .hero{
+    max-width:780px;
+    padding:2.2rem 1.6rem 1.8rem;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact
+  }
+
+  .hero h1{
+    font-size:2.45rem;
+    line-height:1.08;
+    margin-bottom:.75rem
+  }
+
+  .hero .subtitle{
+    max-width:620px;
+    font-size:.98rem;
+    line-height:1.35;
+    margin-bottom:1.5rem
+  }
+
+  .meta-block{
+    gap:1.5rem;
+    padding-top:1rem;
+    font-size:.58rem;
+    line-height:1.45
+  }
+
+  .meta-block span strong{font-size:.52rem}
+
+  .paper-body{
+    max-width:780px;
+    padding:0 1.2rem 2rem
+  }
+
+  .editorial-note{
+    margin:1.5rem 0;
+    padding:.9rem 1.15rem;
+    font-size:.82rem;
+    line-height:1.48;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact
+  }
+
+  .editorial-note .note-label{font-size:.52rem}
+
+  .section{
+    animation:none;
+    padding:1.45rem 0;
+    page-break-inside:auto;
+    break-inside:auto
+  }
+
+  .section-number{
+    font-size:.52rem;
+    margin-bottom:.35rem
+  }
+
+  .section h2{
+    font-size:1.26rem;
+    line-height:1.18;
+    margin-bottom:1rem;
+    page-break-after:avoid;
+    break-after:avoid-page
+  }
+
+  .section p,
+  .fragment-list li{
+    font-size:.96rem;
+    line-height:1.50
+  }
+
+  .section p{margin-bottom:.72rem}
+
+  .fragment-list{
+    margin:.75rem 0 .9rem
+  }
+
+  .fragment-list li{
+    padding:.12rem 0 .12rem 1.15rem;
+    orphans:3;
+    widows:3
+  }
+
+  .pull-quote{
+    font-size:1.05rem;
+    line-height:1.36;
+    margin:1rem 0;
+    padding:.45rem 0 .45rem 1rem;
+    page-break-inside:avoid;
+    break-inside:avoid-page
+  }
+
+  .section p{
+    orphans:3;
+    widows:3
+  }
+
+  .cite-block{
+    margin-top:2rem;
+    padding-top:1.2rem;
+    font-size:.60rem;
+    line-height:1.5
+  }
+
+  .cite-block strong{font-size:.52rem}
+
+  .site-footer{
+    padding:1.1rem;
+    font-size:.55rem
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span>Green Papers · Notes Toward Planetary Guardianship</span>
+  <span>Series IV · Field Papers · <a href="https://papers.spiralweb.earth">papers.spiralweb.earth</a></span>
+</header>
+
+<div class="hero">
+  <div class="series-label">Green Paper · Field Paper</div>
+  <h1>From Climate Intervention to Bioregional Stewardship</h1>
+  <p class="subtitle">Strengthening the Capacity of Places to Sense, Learn and Regenerate</p>
+  <div class="meta-block">
+    <span><strong>Date</strong>July 2026</span>
+    <span><strong>Status</strong>Working paper / field note</span>
+    <span><strong>Version</strong>v0.1</span>
+    <span><strong>Author</strong>Lars A. Engberg</span>
+    <span><strong>Series</strong>Series IV — Field Papers</span>
+    <span><strong>Licence</strong>CC BY 4.0</span>
+  </div>
+</div>
+
+<div class="paper-body">
+
+  <div class="editorial-note">
+    <div class="note-label">Editorial Note</div>
+    This paper brings together and revises the central movements of two earlier Field Papers: <em>From Climate Debate to Living Systems Governance</em> (April 2026) and <em>Bioregional Knowing, Stewardship &amp; The PG Ledger</em> (June 2026). The original v0.1 texts remain preserved as part of the development history of the series.
+  </div>
+
+  <div class="editorial-note">
+    <div class="note-label">Author's Note — AI co-creation</div>
+    This paper was developed in dialogue between Lars A. Engberg and AI language systems. Responsibility for all substantive claims, omissions, interpretations, and final editorial decisions rests with the author.
+  </div>
+
+  <div class="section">
+    <div class="section-number">Abstract</div>
+    <h2>Abstract</h2>
+
+    <p>The climate field has achieved something remarkable. Within a few decades, climate science moved from the margins of public debate into international governance, institutional planning, finance, law, and civic life.</p>
+
+    <p>Yet emissions are not the whole condition.</p>
+
+    <p>Living systems are encountered through soil that does or does not hold water, vegetation that creates shade or leaves ground exposed, species that return or disappear, food systems that remain viable or become brittle, and people who can or cannot continue caring for the places they inhabit.</p>
+
+    <p>Climate and development interventions can produce necessary and valuable outcomes. They can bring water, energy, healthcare, education, infrastructure, finance, and technical knowledge. But an intervention may succeed in its stated output while leaving the deeper capacity of a place unchanged or weakened.</p>
+
+    <p>This paper proposes a complementary movement: from climate intervention to bioregional stewardship.</p>
+
+    <p>The aim is not to reject intervention, expertise, measurement, or finance. It is to ask what remains after an intervention ends.</p>
+
+    <p>Bioregional stewardship begins when support strengthens a place's continuing capacity to sense, learn, coordinate, correct, and regenerate over time.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">01</div>
+    <h2>The unfinished task of climate governance</h2>
+
+    <p>Climate governance most often begins with a necessary question:</p>
+
+    <div class="pull-quote">How do we reduce emissions and limit further warming?</div>
+
+    <p>The work built around this question has produced a mature institutional field. Carbon inventories, national commitments, energy transitions, climate-risk assessments, adaptation plans, and financial mechanisms have made previously invisible planetary pressures politically legible.</p>
+
+    <p>But no single variable can govern a living system.</p>
+
+    <p>A lower-emissions activity may still degrade soil, simplify biodiversity, exhaust workers, centralise control, or displace local knowledge. A tree plantation may accumulate biomass while creating a fragile monoculture. A restoration programme may report ecological gains while depending on labour that cannot continue.</p>
+
+    <p>This does not make emissions accounting irrelevant. It means that emissions must be placed inside a wider reading of life.</p>
+
+    <p>The prior question is therefore:</p>
+
+    <div class="pull-quote">How do we maintain and regenerate the conditions that make life possible?</div>
+
+    <p>Those conditions include climate stability, but also living soil, functioning water cycles, biodiversity, food, human viability, cultural memory, local judgement, and institutions capable of recognising when their own actions are causing harm.</p>
+
+    <p>The movement is not away from climate action.</p>
+
+    <p>It is from managing a variable towards stewarding a living system.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">02</div>
+    <h2>What places perceive</h2>
+
+    <p>A climate model can show changing temperature and rainfall patterns. A satellite can register vegetation cover. A sensor can measure moisture, carbon, or water quality. These forms of knowledge are indispensable.</p>
+
+    <p>But places are also known through sustained presence.</p>
+
+    <p>A steward notices whether rain enters the soil or moves rapidly across its surface. Whether shade remains through the dry season. Whether insects return after planting. Whether a wetland smells different. Whether a field becomes easier or harder to care for. Whether the people carrying the work are growing in confidence or quietly becoming depleted.</p>
+
+    <p>These observations are often treated as anecdotal until they have been translated into an institutional format. Yet they are frequently where consequential change first becomes perceptible.</p>
+
+    <p>To know from a place is not to possess complete or infallible knowledge. Local people can misread conditions. Communities contain disagreement, unequal power, inherited conflict, and different interests. Outside expertise can reveal mechanisms that no person can sense directly.</p>
+
+    <p>But a reading made from outside is not automatically more complete because it is distant, technical, or aggregated.</p>
+
+    <p>Local observation is knowledge from the beginning: situated, partial, fallible, correctable, and accountable to consequence. It may be strengthened through repetition, comparison, scientific testing, external expertise, and wider patterns. These processes do not transform raw experience into knowledge. They help existing knowledge become more robust.</p>
+
+    <p>The fuller epistemological and methodological argument is developed in <em>Knowing From the Ground</em>. The narrower institutional point here is:</p>
+
+    <div class="pull-quote">A place cannot steward what it has no continuing capacity to perceive.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">03</div>
+    <h2>From intervention to stewardship</h2>
+
+    <p>Intervention asks practical and often urgent questions:</p>
+
+    <ul class="fragment-list">
+      <li>What problem must be solved?</li>
+      <li>What resources are required?</li>
+      <li>What can be delivered?</li>
+      <li>How quickly can implementation begin?</li>
+      <li>Which outcomes can be measured?</li>
+      <li>How can the model be expanded?</li>
+    </ul>
+
+    <p>These questions have enabled extraordinary achievements.</p>
+
+    <p>But a project normally has a defined problem, an intervention period, allocated resources, specified outputs, reporting requirements, and an endpoint.</p>
+
+    <p>A living system has none of these boundaries.</p>
+
+    <p>A watershed continues after a project closes. Soil changes over seasons and decades. Trust may take years to form and one decision to damage. Knowledge remains distributed among people who may never appear in a stakeholder map. Drought, illness, conflict, migration, political change, and institutional fatigue alter what a place can carry.</p>
+
+    <p>An intervention can therefore meet its target while the deeper system becomes less capable of responding to what comes next.</p>
+
+    <p>A water project can deliver infrastructure while local capacity to read the watershed remains weak. An agricultural programme can supply seeds and training without strengthening the relationships through which soil, water, labour, livestock, food, and judgement are held together. A climate-finance mechanism can make carbon visible while rendering other forms of consequence secondary.</p>
+
+    <p>The problem is not that interventions always fail.</p>
+
+    <p>It is that outputs cannot substitute for the continuing intelligence of a place.</p>
+
+    <p>Stewardship begins from a different question:</p>
+
+    <div class="pull-quote">How does a place become increasingly capable of caring for itself?</div>
+
+    <p>This shifts attention from projects to continuing relationships, from transactions to learning, and from replication to translation.</p>
+
+    <p>A place capable of stewardship does not need to know everything. It needs ways to notice change, compare observations, remember what happened, hold disagreement, recognise burden, involve appropriate expertise, and alter course.</p>
+
+    <p>This capacity is neither purely local nor purely external.</p>
+
+    <p>Local knowledge without openness to correction can become insular, romanticised, or captured by existing power. External knowledge without accountability to place can become extractive, simplifying, and overconfident.</p>
+
+    <p>Science can test soil, model water, identify species, reconstruct historical conditions, and reveal processes unavailable to immediate perception. Local observation can identify anomalies, histories, meanings, burdens, relationships, and consequences that instruments or short visits do not receive. Institutions can mobilise resources and hold long-term obligations. Communities can reveal whether those resources are strengthening or displacing the capacity to care.</p>
+
+    <p>The aim is not to replace external intervention with an idealised local autonomy. Places are not homogeneous, and many cannot repair the effects of planetary and historical forces alone.</p>
+
+    <p>The aim is to change the relationship:</p>
+
+    <div class="pull-quote">External support should increase a place's capacity to know and act, not make that capacity permanently dependent on the supporter.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">04</div>
+    <h2>Stewardship is not extraction by better means</h2>
+
+    <p>The language of participation is now common across development, research, climate policy, and philanthropy.</p>
+
+    <p>Yet participation can remain extractive when local people are asked to contribute:</p>
+
+    <ul class="fragment-list">
+      <li>observations they do not govern,</li>
+      <li>knowledge they cannot withdraw,</li>
+      <li>stories shaped for institutional reporting,</li>
+      <li>labour hidden from the budget,</li>
+      <li>or consent that was never free to be refused.</li>
+    </ul>
+
+    <p>Stewardship requires more than participation in a process designed elsewhere.</p>
+
+    <p>Data must be offered, not extracted.</p>
+
+    <p>A field record belongs first to the steward and the local relation in which it arose. Wider sharing may support learning, funding, comparison, or public accountability, but it must remain consensual, contextual, and correctable.</p>
+
+    <p>Not everything that can be noticed should be collected.</p>
+
+    <p>Interior states, grief, sacred knowledge, local conflict, cultural memory, and community-held knowledge cannot be made available merely because a system has created a category for them. Sometimes responsible observation means recognising that something matters without recording its content.</p>
+
+    <p>Nor can ecological work be financed through invisible human depletion.</p>
+
+    <p>A field may show improving soil or biodiversity while one person carries unpaid coordination, emotional burden, travel, translation, reporting, and responsibility. If that burden remains unseen, the project may look regenerative while reproducing the extractive logic it claims to replace.</p>
+
+    <p>The wider Spiralweb architecture therefore keeps ecological condition, steward viability, and governance structurally separate. One form of apparent value must not erase another form of reality.</p>
+
+    <p>The technical mechanism is described elsewhere. The principle is sufficient here:</p>
+
+    <div class="pull-quote">A place is not regenerating if the people carrying the work are being consumed by it.</div>
+
+    <p>This principle also turns the critique inward.</p>
+
+    <p>A stewardship organisation can become extractive. A citizen-science method can become surveillance. A locally framed programme can still centralise authority. A language of care can conceal unpaid labour or dependency. A ledger can begin as collective memory and end as an instrument of institutional control.</p>
+
+    <p>Stewardship is not secured by vocabulary.</p>
+
+    <p>It depends on whether people can refuse, withdraw, correct the record, name burden, stop expansion, and remain present in decisions that affect the places they hold.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">05</div>
+    <h2>Bioregional knowing</h2>
+
+    <p>A bioregion is not simply an administrative area or an ecological zone drawn on a map. It is a lived field of relations among water, soil, climate, species, food, settlements, livelihoods, institutions, histories, and ways of knowing.</p>
+
+    <p>Bioregional knowing is the continuing capacity of people within such a field to perceive, interpret, remember, and respond to the conditions shaping life there.</p>
+
+    <p>It is not one dataset.</p>
+
+    <p>It is not unanimous community knowledge.</p>
+
+    <p>It is not a claim that people living in a place automatically understand every process affecting it.</p>
+
+    <p>It emerges through repeated attention, material practice, memory, dialogue, comparison, correction, and the capacity to receive knowledge from elsewhere without surrendering local judgement.</p>
+
+    <p>An observation may begin in one person's body or field. It becomes more reliable when it is repeated, compared, discussed, tested where appropriate, and held accountable to what later happens. An unsuccessful intervention is not removed from the record merely because it complicates the story. It remains part of the place's memory.</p>
+
+    <p>The purpose of such memory is not to create a command system.</p>
+
+    <p>It is to improve judgement.</p>
+
+    <p>The wider Spiralweb architecture offers practical forms for this work: bounded observations, cumulative records, separate readings of ecological condition and human viability, correction mechanisms, consent boundaries, and an explicit requirement that AI may assist but cannot hold final responsibility.</p>
+
+    <p>This paper does not reproduce those methods. They are developed in <em>Knowing From the Ground</em>, the Applied Protocol Reports, and the operational field formats.</p>
+
+    <p>Their shared purpose is:</p>
+
+    <div class="pull-quote">To make living change visible without converting the place into an object administered from elsewhere.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">06</div>
+    <h2>Scaling capacity, not models</h2>
+
+    <p>Conventional development often asks:</p>
+
+    <div class="pull-quote">How can this solution scale?</div>
+
+    <p>The question usually assumes that an effective model should be replicated across more sites.</p>
+
+    <p>Stewardship asks:</p>
+
+    <div class="pull-quote">How can the capacity of places to perceive, learn, and regenerate become more widespread?</div>
+
+    <p>The distinction is decisive.</p>
+
+    <p>To scale a model is to reproduce a design.</p>
+
+    <p>To scale capacity is to strengthen the ability of each place to form its own informed response.</p>
+
+    <p>This does not mean every place begins from nothing. Practices can travel. Seeds can travel. Protocols, research, tools, lessons, warnings, and technical designs can travel. People can teach one another. Institutions can provide finance, legal support, infrastructure, translation, and continuity.</p>
+
+    <p>But what travels must be translated.</p>
+
+    <p>A dryland farm in Morocco cannot be treated as a copy of a community food-forest relation in northern Uganda. A chinampa landscape in Mexico City cannot become a branch of a European methodology. A school network in Karachi carries different ecological, institutional, and social conditions from a village-based land relation.</p>
+
+    <p>Shared learning does not require shared command.</p>
+
+    <p>Places can meet without becoming identical. Knowledge can circulate while authority remains distributed. A wider network can help patterns become visible without turning local fields into delivery units of a centre.</p>
+
+    <p>Scaling stewardship means more places able to observe truthfully, remember what happened, recognise ecological and human strain, receive and question expertise, and remain present in decisions about their own conditions.</p>
+
+    <p>The measure of success is not how widely one model is installed.</p>
+
+    <p>It is whether places become more capable of knowing and acting without becoming more dependent on distant authority for the basic interpretation of their own reality.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">07</div>
+    <h2>What institutions can support</h2>
+
+    <p>A movement from intervention to stewardship does not eliminate the need for institutions. It changes what institutions are asked to support.</p>
+
+    <p>Institutions can fund the conditions under which places learn:</p>
+
+    <ul class="fragment-list">
+      <li>time for observation and local coordination,</li>
+      <li>steward viability,</li>
+      <li>translation,</li>
+      <li>repeated field visits,</li>
+      <li>scientific tests where useful,</li>
+      <li>locally governed records,</li>
+      <li>small bounded experiments,</li>
+      <li>repair when an intervention creates strain,</li>
+      <li>and exchange between places without compulsory standardisation.</li>
+    </ul>
+
+    <p>They can accept that a responsible first cycle may produce a clearer question rather than a deliverable, a pause rather than expansion, evidence that the original intervention was poorly designed, or a decision not to proceed.</p>
+
+    <p>They can allow Earth Time to affect institutional time.</p>
+
+    <p>They can make support conditional not only on ecological ambition, but on clear consent, viable human rhythms, transparent decision trails, and the ability to stop.</p>
+
+    <p>They can ask not merely whether a project achieved its output, but whether the place is better able to read and care for its living conditions after the institution leaves.</p>
+
+    <p>This requires governments, funders, researchers, NGOs, companies, and technology providers to surrender part of the control that conventional accountability systems are designed to retain.</p>
+
+    <p>Without that surrender, participation may remain intervention in a more relational vocabulary.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">08</div>
+    <h2>A bounded way to begin</h2>
+
+    <p>Bioregional stewardship need not begin with a regional authority, a large digital platform, or an integrated programme.</p>
+
+    <p>It can begin with:</p>
+
+    <ul class="fragment-list">
+      <li>one bounded place,</li>
+      <li>people who actually hold a relation to it,</li>
+      <li>a repeated rhythm of observation,</li>
+      <li>a record that remains locally governed,</li>
+      <li>one practical action,</li>
+      <li>and the willingness to change that action when the field answers.</li>
+    </ul>
+
+    <p>The first purpose is not to prove a model.</p>
+
+    <p>It is to discover whether the relation can become more truthful.</p>
+
+    <p>Can ecological change be noticed?</p>
+    <p>Can burden be named?</p>
+    <p>Can local observations and external expertise meet without one cancelling the other?</p>
+    <p>Can disagreement be held?</p>
+    <p>Can the process pause?</p>
+    <p>Can the people involved still recognise themselves in what is recorded?</p>
+    <p>Can the place refuse what it cannot absorb?</p>
+
+    <p>A small cycle that can answer these questions honestly may carry more long-term value than a large intervention that can only report success.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">09</div>
+    <h2>Field relations</h2>
+
+    <p>This paper has been shaped through relationships and conversations connected to Kitgum in Uganda, Doukkala in Morocco, Mexico City, and Karachi.</p>
+
+    <p>These relations are at different stages and do not constitute completed applications of a uniform model. Current status is maintained separately and should always be cited with a verification date.</p>
+
+    <p>Their relevance here is not as interchangeable proof points.</p>
+
+    <p>They repeatedly show that living places cannot be approached as blank sites for a transferable programme.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">10</div>
+    <h2>An invitation</h2>
+
+    <p>The climate field has created planetary awareness, coordination, and institutional capacity at a scale that once seemed impossible.</p>
+
+    <p>Development institutions have delivered knowledge, infrastructure, services, and resources that have changed millions of lives.</p>
+
+    <p>The next movement does not require abandoning these achievements.</p>
+
+    <p>It requires asking what they have not yet been designed to hold.</p>
+
+    <p>Can climate governance receive the knowledge of soil, water, biodiversity, food, culture, and human capacity without forcing them into one sovereign metric?</p>
+
+    <p>Can development strengthen the intelligence of places rather than leaving them dependent on repeated intervention?</p>
+
+    <p>Can finance support ecological repair without purchasing control or concealing human depletion?</p>
+
+    <p>Can institutions become capable of correction before failure becomes irreversible?</p>
+
+    <p>Can knowledge travel without authority becoming centralised?</p>
+
+    <p>The ecological crises of our time are crises of climate and resources. They are also crises of perception, relation, memory, and institutional capacity.</p>
+
+    <p>Bioregional stewardship is not offered as a final model or universal solution.</p>
+
+    <p>It is an invitation to a different institutional question:</p>
+
+    <div class="pull-quote">What would it mean to leave a place more capable of sensing, learning, coordinating, and regenerating than it was before we arrived?</div>
+
+    <p>The question beneath the metrics remains simple:</p>
+
+    <div class="pull-quote">Is this giving to life?</div>
+
+    <p>And the question beneath the intervention may be equally important:</p>
+
+    <div class="pull-quote">When the intervention ends, can the place continue to know and care for itself?</div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Related</div>
+    <h2>Related architecture</h2>
+
+    <p>The following works develop elements referenced but not reproduced in this paper:</p>
+
+    <ul class="fragment-list">
+      <li><a href="/papers/knowing-from-the-ground.html"><em>Knowing From the Ground</em></a> — embodied, situated, fallible, and correctable knowledge; the relationship between inquiry and local observation; consent, safeguarding, and claim status.</li>
+
+      <li><a href="/papers/the-correction-loop.html"><em>The Correction Loop</em></a> — human responsibility, corrigibility, functional versus moral agency, and the requirement that the last accountable decision remains human.</li>
+
+      <li><a href="/papers/srip-the-stewards-journey.html"><em>SRIP: The Steward's Journey</em></a> — bounded observation, the practical steward pathway, the eight-category entry, the pixel, Circle of 13, and the open practice layer.</li>
+
+      <li><a href="/papers/report-06-regenerative-reciprocity.html"><em>Regenerative Reciprocity</em></a> — AnchorPoints, the PG Ledger, non-compensating streams, support flows, steward viability, and the operational relationship between fields and the association.</li>
+
+      <li><a href="/papers/rule-of-life.html"><em>Rule of Life</em></a> — the constitutional horizon in which no economic, institutional, or technological arrangement may override the conditions of life.</li>
+    </ul>
+  </div>
+
+  <div class="cite-block">
+    <strong>How to cite this paper</strong>
+    Engberg, L. A. (2026). <em>From Climate Intervention to Bioregional Stewardship: Strengthening the Capacity of Places to Sense, Learn and Regenerate</em>. Field Papers, Spiralweb Green Papers (v0.1, July 2026). Spiralweb Stewardship Association. CC BY 4.0.<br><br>
+
+    This paper revises and carries forward the central movements of:
+    <a href="/papers/climate-and-living-systems.html"><em>From Climate Debate to Living Systems Governance</em></a> (v0.1, April 2026) and
+    <a href="/papers/bioregional-knowing-stewardship-pg-ledger.html"><em>Bioregional Knowing, Stewardship &amp; The PG Ledger</em></a> (v0.1, June 2026). The original texts remain preserved at their existing URLs.<br><br>
+
+    <a href="https://papers.spiralweb.earth">papers.spiralweb.earth</a> ·
+    <a href="https://spiralweb.earth">spiralweb.earth</a>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  Green Papers · Notes Toward Planetary Guardianship ·
+  <a href="https://papers.spiralweb.earth">papers.spiralweb.earth</a> ·
+  CC BY 4.0
+</footer>
+
+</body>
+</html>
