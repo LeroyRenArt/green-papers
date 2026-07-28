@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <meta
+    name="description"
+    content="The requested Green Papers page could not be found."
+  >
+  <title>Page not found · Green Papers</title>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f1e8;
+      --ink: #1d2a23;
+      --muted: #5b685f;
+      --line: #c9c3b4;
+      --green: #315e46;
+      --green-dark: #244535;
+      --white: #fffdf7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--paper);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(49, 94, 70, 0.08),
+          transparent 34rem
+        ),
+        linear-gradient(
+          180deg,
+          var(--paper) 0%,
+          var(--white) 100%
+        );
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(760px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: clamp(72px, 13vh, 132px) 0 64px;
+    }
+
+    .mark {
+      display: inline-block;
+      margin: 0 0 24px;
+      color: var(--green);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 5.4rem);
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      line-height: 0.98;
+    }
+
+    .lead {
+      max-width: 640px;
+      margin: 30px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2.5vw, 1.3rem);
+    }
+
+    .rule {
+      width: 92px;
+      margin: 34px 0;
+      border: 0;
+      border-top: 2px solid var(--green);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .actions a {
+      display: inline-block;
+      padding: 11px 17px;
+      border: 1px solid var(--green);
+      border-radius: 999px;
+      color: var(--green-dark);
+      background: rgba(255, 253, 247, 0.72);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      font-size: 0.94rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .actions a:first-child {
+      color: var(--white);
+      background: var(--green);
+    }
+
+    .actions a:hover,
+    .actions a:focus-visible {
+      outline: 3px solid rgba(49, 94, 70, 0.2);
+      outline-offset: 3px;
+    }
+
+    footer {
+      margin-top: clamp(72px, 12vh, 124px);
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      font-size: 0.83rem;
+    }
+
+    footer a {
+      color: inherit;
+    }
+
+    @media (max-width: 540px) {
+      main {
+        width: min(100% - 28px, 760px);
+        padding-top: 56px;
+      }
+
+      .actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .actions a {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <p class="mark">404 · Green Papers</p>
+
+    <h1>This path does not hold a paper.</h1>
+
+    <p class="lead">
+      The Green Papers are a living, versioned archive. This address may be
+      incomplete, retired, or mistyped. The current index remains the reliable
+      entry point.
+    </p>
+
+    <hr class="rule">
+
+    <div class="actions" aria-label="Navigation">
+      <a href="/">Return to Green Papers</a>
+      <a href="https://spiralweb.earth/">Visit Spiralweb</a>
+    </div>
+
+    <footer>
+      <p>
+        Spiralweb Stewardship Association ·
+        <a href="/">papers.spiralweb.earth</a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
