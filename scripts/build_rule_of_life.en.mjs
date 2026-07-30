@@ -42,7 +42,7 @@ const series = getLine("Series") || "Series IV — Field Papers";
 const paperType = getLine("Paper type") || "Constitutional Field Paper · Economic Field Paper · Commons Governance Note";
 const version = getLine("Version") || "v1.0 · Release candidate";
 const date = getLine("Date") || "May 2026";
-const author = getLine("Author") || "Lars A. Engberg, PhD — Independent Scholar / AI-assisted Knowledge Practitioner";
+const author = getLine("Author") || "Lars A. Engberg, PhD — Knowledge Worker";
 
 function escapeHtml(s) {
   return String(s)

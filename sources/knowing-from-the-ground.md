@@ -3,7 +3,7 @@
 *Observation from the body is full knowledge — full but not final; situated, fallible, and correctable — not raw material for someone else's knowledge. An argument from Moral Biology, demonstrated operationally through the Gaia GoldBloom citizen-science method.*
 
 Series IV — Field Papers · Green Papers: Notes Toward Planetary Guardianship
-Lars A. Engberg · Spiralweb Stewardship Association · co-authored under the Sophia Lumen Protocol · CC BY 4.0
+Lars A. Engberg · Knowledge Worker · Spiralweb Stewardship Association · developed through AI-assisted dialogue; final authorship and responsibility remain human · CC BY 4.0
 Field Paper · v1.0 · June 2026
 
 *This paper stands alone, but it draws on a wider architecture. Only the elements needed for the present argument are introduced in the body; others are noted briefly under Related architecture at the end.*
@@ -182,7 +182,7 @@ The operational rules follow directly:
 - Sensitive or interior reflections are not processed by AI by default (see the safeguarding rules, Part 5).
 - No automated escalation: local observations are never pushed up into institutional authority by the system itself.
 
-This is the Sophia Lumen Protocol in field practice: the human brings intention, judgement, material, correction, and responsibility; AI supports articulation, structure, and comparison. Its living form is the Correction Loop — when something goes wrong, the human names it, the AI looks again, correction happens, and both stay at the table. If AI cannot be corrected, it cannot be trusted. This is what lets a person use a powerful cognitive instrument without surrendering the authorship of their own knowing to it — the refusal, returning to Part 2, to let a new privileged grid install itself above the one that belongs to everyone.
+This is Sophia Lumen in field practice: the human brings intention, judgement, material, correction, and responsibility; AI supports articulation, structure, and comparison. Its formal accountability mechanism is The Correction Loop — when something goes wrong, the human names it, the AI looks again, correction happens, and both stay at the table. If AI cannot be corrected, it cannot be trusted. This is what lets a person use a powerful cognitive instrument without surrendering the authorship of their own knowing to it — the refusal, returning to Part 2, to let a new privileged grid install itself above the one that belongs to everyone.
 
 Within the PG Ledger specifically, AI's role is bounded to classification, translation, inconsistency checks, and comparison across records — never authorisation, interpretation of meaning, or escalation. Every such output is contestable by the stewards it concerns, and a steward's contestation outranks the model's pattern.
 
@@ -319,7 +319,7 @@ This does not dissolve into "all observations are equally valid." Critical reali
 
 Two honest limits close the note. First, critical realism is itself one contested philosophical framework; its transcendental arguments have been challenged, and it is offered here as a useful structure, not a proof. Second, the method does not require the reader to hold it. A person with a piece of ground and an honest eye is doing real stewardship whether or not they share this philosophy. The grid is open at the level of practice — and so, deliberately, is the question of what reality finally is.
 
-This note connects the method to the Sophia Lumen Protocol (the discipline of corrigible, human-responsible knowing) and to the foundational arc of this work — from the 2000 study of reflexivity and re-embedding in political participation, through Moral Biology, to the present architecture. The thread throughout is a single conviction: that the capacity to know is not the property of a privileged level, but a capacity of bodies, in places, in relation — met one day at a time.
+This note connects the method to Sophia Lumen, the relational human–AI working practice, and to The Correction Loop, its formal accountability mechanism. It also connects to the foundational arc of this work — from the 2000 study of reflexivity and re-embedding in political participation, through Moral Biology, to the present architecture. The thread throughout is a single conviction: that the capacity to know is not the property of a privileged level, but a capacity of bodies, in places, in relation — met one day at a time.
 
 ---
 
@@ -477,7 +477,7 @@ This paper draws on a wider body of work. A reader needs only the terms introduc
 - **Earth Time** — the temporal discipline that living systems set the pace (Part 5; developed in Rule of Life).
 - **Gaia GoldBloom / Gold Before Bloom** — Green Paper 11, the ecosystem and its "stabilise before expanding" logic. https://papers.spiralweb.earth/papers/gold-before-bloom.html
 - **Penguin Economics / Regenerative Reciprocity** — not a concept of this paper, but the wider economic and flow architecture around it: rotation, anti-hoarding, viable circulation, and abundance circulating only after life is stable enough to give. Green Paper 12 (https://papers.spiralweb.earth/papers/penguin-economics.html); Report 06 places Regenerative Reciprocity, AnchorPoints, the PG Ledger, and the three non-compensatory streams together.
-- **Sophia Lumen Protocol** — the human–AI co-authorship discipline under which this paper was written. https://papers.spiralweb.earth/sophia-lumen-protocol.html
+- **Sophia Lumen** — the relational human–AI working practice through which this paper was developed; final authorship and responsibility remain with the human author. https://papers.spiralweb.earth/sophia-lumen-protocol.html
 - **Methods / Editorial Practice** — how the Green Papers are written, revised, and held. https://papers.spiralweb.earth/methods-editorial-practice.html
 
 *Suggested citation:* Engberg, L. A. (2026). **Knowing From the Ground: Embodied Citizen Science as Full but Fallible Knowledge**. Field Papers, Green Papers (v1.0, June 2026). Planetary Guardians. CC BY 4.0.

@@ -21,7 +21,7 @@ Dette paper indgår i Green Papers-serien, *Notes Toward Planetary Guardianship*
 Nogle engelske kernebegreber er bevaret som arkitektoniske egennavne på tværs af Spiralweb / Planetary Guardians-materialet: Penguin Economics, PG Ledger, Penguin Dashboard, AnchorPoints, Earth Time, Rule of Law og Rule of Life. Hvor teksten bruger danske begreber som fælleder, strømadskillelse, steward-levedygtighed og borgervidenskab, er de valgt for at styrke dansk læsbarhed uden at løsne forbindelsen til den samlede protokolarkitektur.
 
 **AI-deklaration**
-Dette paper er udviklet og redigeret gennem AI-understøttet dialog under [Sophia Lumen Protocol](https://papers.spiralweb.earth/sophia-lumen-protocol.html). Lars A. Engberg har kurateret, revideret og bærer ansvaret for den endelige tekst, dens substantielle påstande, udeladelser og offentliggørelse.
+Dette paper er udviklet og redigeret gennem AI-understøttet dialog. Hvor den særlige relationelle arbejdspraksis er relevant, kaldes den [Sophia Lumen](https://papers.spiralweb.earth/sophia-lumen-protocol.html). Den formelle ansvarlighedsmekanisme beskrives i [The Correction Loop](https://papers.spiralweb.earth/papers/the-correction-loop.html). Lars A. Engberg har kurateret, revideret og bærer ansvaret for den endelige tekst, dens substantielle påstande, udeladelser og offentliggørelse.
 
 ## Sammenfatning
 
@@ -755,7 +755,7 @@ En observation må kunne angive:
 * hvilken handling foreslås?
 * hvilken korrektion blev senere foretaget?
 
-AI kan hjælpe med at organisere dette materiale. Den kan gruppere mønstre, foreslå kategorier, opdage huller, oversætte, sammenligne rapporter og gøre dashboards læsbare. Men AI må arbejde under Sophia Lumen Protocol: menneskeligt ansvar, transparens, stop-ret, korrektionssløjfer og ingen autonom beslutning med væsentlig moralsk, juridisk eller faktisk virkning.
+AI kan hjælpe med at organisere dette materiale. Den kan gruppere mønstre, foreslå kategorier, opdage huller, oversætte, sammenligne rapporter og gøre dashboards læsbare. Inden for Sophia Lumen-arbejdspraksissen forbliver ansvar, transparens og stop-ret menneskelige; The Correction Loop bærer den formelle korrektions- og ansvarlighedsmekanisme. AI træffer ingen autonom beslutning med væsentlig moralsk, juridisk eller faktisk virkning.
 
 Ledgeren bliver mulig, når mange små observationer kan samles uden at miste deres sted, krop, ansvar og usikkerhed.
 
@@ -820,7 +820,7 @@ AI kan støtte stewards.
 
 AI kan også udtrække deres viden uden passende reciprocitet.
 
-Derfor gælder Sophia Lumen Protocol ikke kun for brugen af AI inde i PG Ledger, men også for AI’s bredere politiske økonomi. AI må ikke blive en mekanisme, der overfører varme opad, mens den placerer kulde hos arbejdere, fællesskaber, lærere, kunstnere, omsorgspersoner, administratorer, oversættere, forskere eller lokale institutioner.
+Derfor gælder de menneskelige ansvarsværn, som forbindes med Sophia Lumen og The Correction Loop, ikke kun for brugen af AI inde i PG Ledger, men også for AI’s bredere politiske økonomi. AI må ikke blive en mekanisme, der overfører varme opad, mens den placerer kulde hos arbejdere, fællesskaber, lærere, kunstnere, omsorgspersoner, administratorer, oversættere, forskere eller lokale institutioner.
 
 Den centrale AI-test er derfor:
 
@@ -1324,7 +1324,7 @@ Engberg, L. A. (2026). *Regenerative Reciprocity* (Green Papers / Notes Toward P
 
 Engberg, L. A. (2026). *SRIP — The Steward’s Journey* (Green Papers / Notes Toward Planetary Guardianship). Spiralweb / Planetary Guardians.
 
-Engberg, L. A. (2026). *Sophia Lumen Protocol* (Green Papers / Notes Toward Planetary Guardianship). Spiralweb / Planetary Guardians.
+Engberg, L. A. (2026). *Sophia Lumen: relationel menneske–AI-arbejdspraksis* (Green Papers / Notes Toward Planetary Guardianship). Spiralweb / Planetary Guardians.
 
 Engberg, L. A. (2026). *Water Into Dry Riverbeds* (Green Papers / Notes Toward Planetary Guardianship). Spiralweb / Planetary Guardians.
 

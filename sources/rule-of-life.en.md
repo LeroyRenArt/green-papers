@@ -7,7 +7,7 @@
 **Paper type:** Constitutional Field Paper · Economic Field Paper · Commons Governance Note
 **Version:** v1.0
 **Date:** May 2026
-**Author:** Lars A. Engberg, PhD — Independent Scholar / AI-assisted Knowledge Practitioner
+**Author:** Lars A. Engberg, PhD — Knowledge Worker
 **Context:** Spiralweb / Planetary Guardians / PG Ledger
 **License:** CC BY 4.0
 
@@ -18,7 +18,7 @@ This paper is intended for placement in **Series IV — Field Papers**. It funct
 This paper is part of the Green Papers series, *Notes Toward Planetary Guardianship*. It synthesises and extends concepts developed across the Spiralweb / Planetary Guardians knowledge architecture, including Penguin Economics, PG Ledger, Regenerative Reciprocity, Moral Biology, the Civic Nervous System, Penguin Dashboard, 13×13 field structure, and Rule of Life.
 
 **AI disclosure**
-This paper was developed and edited through AI-assisted dialogue under the [Sophia Lumen Protocol](https://papers.spiralweb.earth/sophia-lumen-protocol.html). Lars A. Engberg has curated, revised, and remains responsible for the final text, its substantive claims, omissions, and publication.
+This paper was developed and edited through AI-assisted dialogue. Where the specific relational working practice matters, it is named [Sophia Lumen](https://papers.spiralweb.earth/sophia-lumen-protocol.html). The formal accountability mechanism is described in [The Correction Loop](https://papers.spiralweb.earth/papers/the-correction-loop.html). Lars A. Engberg has curated, revised, and remains responsible for the final text, its substantive claims, omissions, and publication.
 
 ## Executive summary
 
@@ -774,7 +774,7 @@ AI can help sort observations, translate across languages, detect missing fields
 
 But AI does not replace judgement. It does not verify truth by itself. It does not decide significance. It does not govern the field.
 
-In the Sophia Lumen Protocol, AI may assist drafting, translation, pattern recognition, comparison, memory, and legibility. It may not hold moral agency, legal responsibility, final interpretive authority, or the last impulse of decision. The last impulse must remain human, situated, accountable, and reviewable.
+Within the Sophia Lumen working practice, AI may assist drafting, translation, pattern recognition, comparison, memory, and legibility. It may not hold moral agency, legal responsibility, final interpretive authority, or the last impulse of decision. The Correction Loop requires that the last impulse remain human, situated, accountable, and reviewable.
 
 This means that AI responsibility is not an abstract slogan. It concerns decision rights, authorship, liability, contestability, correction, and the right of affected stewards to challenge how observations are classified, summarised, translated, or escalated.
 
@@ -862,7 +862,7 @@ That shift must be handled carefully. Stewardship must not become a romantic sub
 
 The purpose of AI in this architecture is therefore not to remove humans from the field. It is to increase the field’s capacity to notice, remember, translate, coordinate, correct, and care — while keeping responsibility human, situated, accountable, and reviewable.
 
-Sophia Lumen Protocol applies not only to the use of AI inside PG Ledger, but also to the wider political economy of AI. AI must not become a mechanism for transferring warmth upward while assigning cold to workers, communities, teachers, artists, carers, administrators, translators, researchers, or local institutions.
+The human-responsibility safeguards associated with Sophia Lumen and The Correction Loop apply not only to the use of AI inside PG Ledger, but also to the wider political economy of AI. AI must not become a mechanism for transferring warmth upward while assigning cold to workers, communities, teachers, artists, carers, administrators, translators, researchers, or local institutions.
 
 Open-source and green-hub infrastructures are part of the response. They can make protocols, formats, field grammars, dashboard logic, AI guardrails, and ledger practices available without requiring every participant to enter a closed platform, surrender data, adopt a brand identity, or wait for institutional permission. Open access alone is not enough; it must be joined to governance, consent, review, and non-capture. But without open access, stewardship risks becoming another professionalised enclosure.
 
@@ -1371,7 +1371,7 @@ Engberg, L. A. (2026). *Regenerative Reciprocity* (Green Papers / Notes Toward P
 
 Engberg, L. A. (2026). *SRIP — The Steward’s Journey* (Green Papers / Notes Toward Planetary Guardianship). Spiralweb / Planetary Guardians.
 
-Engberg, L. A. (2026). *Sophia Lumen Protocol* (Green Papers / Notes Toward Planetary Guardianship). Spiralweb / Planetary Guardians.
+Engberg, L. A. (2026). *Sophia Lumen: relational human–AI working practice* (Green Papers / Notes Toward Planetary Guardianship). Spiralweb / Planetary Guardians.
 
 Engberg, L. A. (2026). *Water Into Dry Riverbeds* (Green Papers / Notes Toward Planetary Guardianship). Spiralweb / Planetary Guardians.
 
