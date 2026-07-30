@@ -112,12 +112,12 @@
 
     .ledger-head {
       display: grid;
-      grid-template-columns: 24px 60px 70px 1.4fr 110px 50px 1.2fr;
+      grid-template-columns: 24px 58px 84px 1.45fr 118px 50px 1.25fr;
       background: var(--soft-2);
       border-bottom: 1px solid var(--line);
-      font-size: 10.5px;
+      font-size: 9.2px;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -133,10 +133,10 @@
 
     .ledger-row {
       display: grid;
-      grid-template-columns: 24px 60px 70px 1.4fr 110px 50px 1.2fr;
+      grid-template-columns: 24px 58px 84px 1.45fr 118px 50px 1.25fr;
       border-bottom: 1px solid var(--line);
-      min-height: 56px;
-      font-size: 11px;
+      min-height: 58px;
+      font-size: 10.5px;
     }
 
     .ledger-row:last-child {
@@ -197,8 +197,12 @@
     .checkbox.c { background: var(--stream-c); border-color: #4a7ca8; }
 
     .class-cell {
-      font-size: 9px;
-      line-height: 1.25;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px 4px;
+      align-content: start;
+      font-size: 8.4px;
+      line-height: 1.15;
       color: var(--muted);
     }
 
@@ -302,32 +306,33 @@
       <div>
         <h1>Financial Ledger Sheet</h1>
         <div class="subtitle">
-          A simple registration of money in the same observational mode as the field formats.
-          One line per transaction. Connect each entry to a stream, a purpose, and the effect it had on the field.
+          A one-page operational registration of money in the same observational mode as the field formats.
+          Connect source, recipient, legal classification, stream, purpose, evidence, and lived effect.
+          Report 06 companion · Format 5 v1.0 · July 2026.
         </div>
       </div>
       <div class="meta">
         <div class="line-field"><span class="label">Place / node:</span><span class="fill"></span></div>
         <div class="line-field"><span class="label">Period:</span><span class="fill"></span></div>
-        <div class="line-field"><span class="label">Currency:</span><span class="fill"></span></div>
-        <div class="line-field"><span class="label">Reviewed by:</span><span class="fill"></span></div>
+        <div class="line-field"><span class="label">Base currency:</span><span class="fill"></span></div>
+        <div class="line-field"><span class="label">Sheet reviewed by:</span><span class="fill"></span></div>
       </div>
     </div>
 
     <div class="instruction">
-      <div><strong>Per transaction:</strong> Record date, amount, classification, stream, purpose, and observed effect.</div>
-      <div><strong>Rule:</strong> Field-legibility layer only. Formal accounting remains separate.</div>
+      <div><strong>Per transaction:</strong> Record amount and currency/FX, source category, recipient, legal classification, stream, purpose, method/evidence, observed effect, and any privacy or review note.</div>
+      <div><strong>Rule:</strong> Use the classification supported by the underlying record. Do not guess; mark <em>other</em> and log a question. Formal accounting remains separate.</div>
     </div>
 
     <div class="ledger-table">
       <div class="ledger-head">
         <div>#</div>
         <div>Date</div>
-        <div>Amount</div>
-        <div>Sender / Recipient · Purpose</div>
-        <div>Classification</div>
+        <div>Amount · Currency / FX</div>
+        <div>Source category / Recipient · Purpose · Method / Evidence</div>
+        <div>Legal classification</div>
         <div>Stream</div>
-        <div>Observed effect on the field</div>
+        <div>Observed effect · Consent / Privacy · Reviewed by</div>
       </div>
 
       <div class="ledger-row">
@@ -339,10 +344,11 @@
           <div>☐ donation</div>
           <div>☐ grant</div>
           <div>☐ membership</div>
-          <div>☐ service</div>
+          <div>☐ service payment</div>
           <div>☐ salary</div>
           <div>☐ reimbursement</div>
-          <div>☐ reciprocity</div>
+          <div>☐ reciprocity contribution</div>
+          <div>☐ other / question</div>
         </div>
         <div class="stream-options">
           <span><span class="checkbox a"></span> A</span>
@@ -361,10 +367,11 @@
           <div>☐ donation</div>
           <div>☐ grant</div>
           <div>☐ membership</div>
-          <div>☐ service</div>
+          <div>☐ service payment</div>
           <div>☐ salary</div>
           <div>☐ reimbursement</div>
-          <div>☐ reciprocity</div>
+          <div>☐ reciprocity contribution</div>
+          <div>☐ other / question</div>
         </div>
         <div class="stream-options">
           <span><span class="checkbox a"></span> A</span>
@@ -383,10 +390,11 @@
           <div>☐ donation</div>
           <div>☐ grant</div>
           <div>☐ membership</div>
-          <div>☐ service</div>
+          <div>☐ service payment</div>
           <div>☐ salary</div>
           <div>☐ reimbursement</div>
-          <div>☐ reciprocity</div>
+          <div>☐ reciprocity contribution</div>
+          <div>☐ other / question</div>
         </div>
         <div class="stream-options">
           <span><span class="checkbox a"></span> A</span>
@@ -405,10 +413,11 @@
           <div>☐ donation</div>
           <div>☐ grant</div>
           <div>☐ membership</div>
-          <div>☐ service</div>
+          <div>☐ service payment</div>
           <div>☐ salary</div>
           <div>☐ reimbursement</div>
-          <div>☐ reciprocity</div>
+          <div>☐ reciprocity contribution</div>
+          <div>☐ other / question</div>
         </div>
         <div class="stream-options">
           <span><span class="checkbox a"></span> A</span>
@@ -427,10 +436,11 @@
           <div>☐ donation</div>
           <div>☐ grant</div>
           <div>☐ membership</div>
-          <div>☐ service</div>
+          <div>☐ service payment</div>
           <div>☐ salary</div>
           <div>☐ reimbursement</div>
-          <div>☐ reciprocity</div>
+          <div>☐ reciprocity contribution</div>
+          <div>☐ other / question</div>
         </div>
         <div class="stream-options">
           <span><span class="checkbox a"></span> A</span>
@@ -442,9 +452,9 @@
     </div>
 
     <div class="legend">
-      <div class="legend-item"><span class="checkbox a"></span> Stream A — Land &amp; ecology</div>
-      <div class="legend-item"><span class="checkbox b"></span> Stream B — Steward viability</div>
-      <div class="legend-item"><span class="checkbox c"></span> Stream C — Governance &amp; coordination</div>
+      <div class="legend-item"><span class="checkbox a"></span> Stream A — Land and Ecology</div>
+      <div class="legend-item"><span class="checkbox b"></span> Stream B — Steward Viability</div>
+      <div class="legend-item"><span class="checkbox c"></span> Stream C — Governance and Collaboration</div>
     </div>
 
     <div class="rulebox">
@@ -454,26 +464,26 @@
           The streams are non-compensatory. A strong reading in one stream does not justify weakness in another.
         </p>
         <p>
-          <strong>Stream A</strong> funds land, water, soil, and ecological work.<br>
-          <strong>Stream B</strong> funds the people carrying the field.<br>
-          <strong>Stream C</strong> funds governance and coordination.
+          <strong>Stream A</strong> records Land and Ecology flows.<br>
+          <strong>Stream B</strong> records Steward Viability flows.<br>
+          <strong>Stream C</strong> records Governance and Collaboration flows.
         </p>
       </div>
 
       <div class="panel">
         <h2>Consent and care</h2>
         <p>
-          Where photographs, names, schools, or minors are involved, note consent in the observed-effect column. Consent is ongoing and revisable.
+          Reference the receipt or evidence where available. Where photographs, names, schools, or minors are involved, note privacy or consent. Consent is ongoing and revisable.
         </p>
         <p>
-          If a transfer crosses an internal threshold, ensure dual review. If anything is unclear, log it as a question rather than as a fact.
+          If a transfer crosses an internal threshold, record the reviewed-by identifier and ensure dual review. If anything is unclear, log it as a question rather than as a fact.
         </p>
       </div>
     </div>
 
     <div class="footer">
       <div class="small">
-        <strong>Remember:</strong> Connect money to action to lived effect. One line per transaction. Honest gaps are more useful than fabricated entries.
+        <strong>Remember:</strong> Connect source to recipient, purpose, evidence, and lived effect. One line per transaction. Honest gaps are more useful than fabricated entries.
       </div>
       <div class="examples">
         <span class="tag">water pipe installed</span>
