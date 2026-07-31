@@ -4,293 +4,279 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="A flow architecture for land, stewards, and planetary commons. Report 03, v0.2, July 2026.">
-<link rel="canonical" href="https://papers.spiralweb.earth/papers/water-into-dry-riverbeds.html">
 <title>Water Into Dry Riverbeds — Report 03 — v0.2</title>
+<link rel="canonical" href="https://papers.spiralweb.earth/papers/water-into-dry-riverbeds.html">
 <style>
-  :root {
-    --green: #2d5f1c;
-    --green-mid: #5b893d;
-    --green-pale: #edf4e8;
-    --green-line: #a8c88d;
-    --ink: #1f201e;
-    --muted: #666861;
-    --paper: #fff;
-  }
 
-  @page {
-    size: A4;
-    margin: 18mm 19mm 19mm 19mm;
-    @bottom-right {
-      content: counter(page);
-      color: #777;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 8.5pt;
-    }
-  }
+:root{
+  --paper:#fbf7ee;
+  --ink:#1f1d1a;
+  --ink-soft:#3b3833;
+  --rule:#cdc4ad;
+  --accent:#5a6f3c;
+  --accent-soft:#8c9c69;
+  --quiet:#6b6557;
+  --tint:#f3eeda;
+  --maxw:780px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink)}
+body{
+  font-family:"Iowan Old Style","Charter","Cambria","Georgia",serif;
+  font-size:18px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:48px 28px 96px}
+.crumb{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:13px;
+  letter-spacing:.04em;
+  color:var(--quiet);
+  margin-bottom:32px;
+}
+.crumb a{color:var(--quiet);text-decoration:none;border-bottom:1px solid var(--rule)}
+.crumb a:hover{color:var(--ink)}
+.header{
+  text-align:center;
+  padding-bottom:28px;
+  margin-bottom:32px;
+  border-bottom:1px solid var(--rule);
+}
+.header .series{
+  display:inline-block;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:11px;
+  color:var(--accent);
+  margin-bottom:12px;
+}
+.header h1{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-weight:600;
+  font-size:32px;
+  line-height:1.2;
+  letter-spacing:-.01em;
+  margin:0 0 12px;
+  color:var(--ink);
+  text-wrap:balance;
+}
+.header .sub{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.45;
+  font-style:italic;
+  color:var(--ink-soft);
+  margin:0 0 18px;
+  font-weight:400;
+}
+.header .meta{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:13px;
+  line-height:1.55;
+  color:var(--quiet);
+  letter-spacing:.01em;
+}
+.header .ai-note{
+  max-width:650px;
+  margin:18px auto 0;
+  font-size:15px;
+  line-height:1.55;
+  color:var(--quiet);
+  font-style:italic;
+}
+h2{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-weight:600;
+  font-size:23px;
+  line-height:1.25;
+  letter-spacing:-.005em;
+  margin:48px 0 16px;
+  color:var(--ink);
+}
+h3{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-weight:600;
+  font-size:17px;
+  line-height:1.3;
+  letter-spacing:.005em;
+  margin:32px 0 10px;
+  color:var(--ink-soft);
+}
+h4{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-weight:600;
+  font-size:15px;
+  line-height:1.3;
+  margin:24px 0 8px;
+  color:var(--ink-soft);
+}
+p{margin:0 0 16px}
+p strong,li strong{color:var(--ink);font-weight:600}
+ul,ol{margin:0 0 16px;padding-left:24px}
+li{margin-bottom:8px}
+a{color:var(--accent)}
+a:hover{color:var(--ink)}
+.part{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:11px;
+  font-weight:600;
+  color:var(--accent);
+  margin:56px 0 10px;
+}
+.pull{
+  margin:24px 0;
+  padding:14px 22px;
+  border-left:3px solid var(--accent-soft);
+  background:rgba(140,156,105,.08);
+  font-style:italic;
+  color:var(--ink-soft);
+  font-size:19px;
+  line-height:1.5;
+}
+.note,.editorial-note{
+  margin:24px 0;
+  break-inside:avoid;
+  padding:18px 22px;
+  background:rgba(140,156,105,.08);
+  border-left:3px solid var(--accent-soft);
+}
+.note p:last-child,.editorial-note p:last-child{margin-bottom:0}
+.note h3,.editorial-note h3{margin-top:0}
+.artifact{
+  margin:24px 0;
+  border-left:3px solid var(--accent);
+  background:var(--tint);
+  break-inside:auto;
+}
+.artifact-title{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:13px;
+  line-height:1.4;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--accent);
+  padding:14px 18px 10px;
+  border-bottom:1px solid var(--rule);
+}
+.artifact-body{
+  padding:16px 18px 18px;
+  font-size:16px;
+  line-height:1.55;
+}
+.artifact-body p{margin-bottom:12px}
+.artifact-body p:last-child{margin-bottom:0}
+.artifact-body ul,.artifact-body ol{margin-bottom:0}
+table{
+  border-collapse:collapse;
+  width:100%;
+  margin:24px 0;
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:15px;
+  line-height:1.45;
+}
+th,td{
+  text-align:left;
+  padding:10px 14px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+th{
+  font-weight:600;
+  color:var(--ink);
+  border-bottom:2px solid var(--ink);
+  background:rgba(140,156,105,.06);
+}
+.small{font-size:14px;color:var(--quiet)}
+.references{font-size:15px;line-height:1.55}
+.references p{
+  margin:0 0 12px;
+  padding-left:0;
+  text-indent:0;
+}
+.footer-block{
+  margin-top:56px;
+  padding-top:24px;
+  border-top:1px solid var(--rule);
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:13px;
+  line-height:1.6;
+  color:var(--quiet);
+  text-align:center;
+}
+@media(max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:32px 20px 64px}
+  .header h1{font-size:26px}
+  h2{font-size:20px;margin-top:36px}
+  h3{font-size:16px}
+  .artifact-body{font-size:15px}
+  table{font-size:14px}
+}
+@page{size:A4;margin:18mm 16mm 19mm}
+@media print{
+  html,body{background:#fff;color:#000}
+  body{font-size:11pt;line-height:1.5}
+  .wrap{max-width:none;padding:0}
+  .crumb{display:none}
+  .header{padding-bottom:18pt;margin-bottom:20pt}
+  .header .series{font-size:8.5pt;margin-bottom:8pt}
+  .header h1{font-size:24pt;line-height:1.15;margin-bottom:8pt}
+  .header .sub{font-size:12pt;line-height:1.4;margin-bottom:12pt}
+  .header .meta{font-size:9.5pt;line-height:1.45}
+  .header .ai-note{font-size:9.5pt;line-height:1.45;margin-top:12pt}
+  h2{font-size:17pt;line-height:1.2;margin:28pt 0 10pt;break-after:avoid}
+  h3{font-size:12.5pt;line-height:1.25;margin:20pt 0 7pt;break-after:avoid}
+  h4{font-size:11pt;break-after:avoid}
+  p{margin-bottom:10pt}
+  ul,ol{margin-bottom:10pt}
+  li{margin-bottom:5pt}
+  .part{font-size:8.5pt;margin:32pt 0 7pt;break-after:avoid}
+  .pull{font-size:12pt;line-height:1.45;margin:15pt 0;padding:9pt 14pt}
+  .note,.editorial-note{margin:15pt 0;padding:11pt 14pt}
+  .artifact{margin:15pt 0;background:#f4f1e8}
+  .artifact-title{font-size:8.8pt;padding:9pt 12pt 7pt;break-after:avoid}
+  .artifact-body{font-size:9.5pt;line-height:1.45;padding:10pt 12pt 11pt}
+  table{font-size:9pt;line-height:1.35;margin:15pt 0}
+  th,td{padding:6pt 8pt}
+  .small{font-size:8.5pt}
+  .references{font-size:8.7pt;line-height:1.35}
+  .references p{margin-bottom:4.5pt}
+  .footer-block{font-size:8pt;line-height:1.4;margin-top:18pt;padding-top:10pt}
+  a{color:#000;text-decoration:none}
+}
 
-  * { box-sizing: border-box; }
-
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: var(--paper);
-    color: var(--ink);
-  }
-
-  body {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 10.5pt;
-    line-height: 1.52;
-  }
-
-  main { width: 100%; }
-
-  .topline {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 8.7pt;
-    font-style: italic;
-    color: var(--muted);
-    letter-spacing: .01em;
-    margin-bottom: 14mm;
-  }
-
-  .rule {
-    height: 1px;
-    background: var(--green-line);
-    margin: 0 0 14mm;
-  }
-
-  h1 {
-    color: var(--green);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 29pt;
-    line-height: 1.04;
-    margin: 0 0 2mm;
-    letter-spacing: -.02em;
-  }
-
-  .subtitle {
-    color: var(--muted);
-    font-style: italic;
-    font-size: 15pt;
-    line-height: 1.25;
-    margin: 0 0 11mm;
-  }
-
-  .meta {
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--muted);
-    font-size: 8.8pt;
-    line-height: 1.45;
-    margin: 0 0 6mm;
-  }
-
-  .ai-note {
-    color: #5d5f59;
-    font-style: italic;
-    font-size: 10.5pt;
-    line-height: 1.55;
-    margin: 0 0 8mm;
-  }
-
-  .site {
-    color: var(--muted);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 8.8pt;
-    font-style: italic;
-    margin-bottom: 9mm;
-  }
-
-  h2 {
-    color: var(--green);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18pt;
-    line-height: 1.15;
-    margin: 8mm 0 3mm;
-    break-after: avoid;
-  }
-
-  h3 {
-    color: var(--green);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13.2pt;
-    line-height: 1.2;
-    margin: 6mm 0 2mm;
-    break-after: avoid;
-  }
-
-  h4 {
-    color: var(--green);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10.5pt;
-    line-height: 1.2;
-    margin: 5mm 0 1.5mm;
-    break-after: avoid;
-  }
-
-  .part {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    color: #62645f;
-    font-size: 9pt;
-    letter-spacing: .03em;
-    margin: 9mm 0 4mm;
-    break-after: avoid;
-  }
-
-  p {
-    margin: 0 0 3.2mm;
-    text-align: justify;
-    orphans: 3;
-    widows: 3;
-  }
-
-  ul, ol {
-    margin: 1.5mm 0 3.8mm 7mm;
-    padding-left: 5mm;
-  }
-
-  li {
-    margin: 0 0 1.5mm;
-    orphans: 2;
-    widows: 2;
-  }
-
-  strong { font-weight: 700; }
-
-  .pull {
-    font-style: italic;
-    color: #4d5049;
-    font-size: 12pt;
-    line-height: 1.45;
-    margin: 6mm 8mm;
-    text-align: left;
-  }
-
-  .note, .editorial-note {
-    border-left: 3px solid var(--green-mid);
-    background: #f5f8f2;
-    padding: 4mm 5mm;
-    margin: 4mm 0 5mm;
-    break-inside: avoid;
-  }
-
-  .editorial-note h3,
-  .note h3 { margin-top: 0; }
-
-  .artifact {
-    border: 1px solid var(--green-line);
-    background: var(--green-pale);
-    margin: 4mm 0 5mm;
-    break-inside: avoid;
-  }
-
-  .artifact-title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    color: var(--green);
-    padding: 2.2mm 3mm 1.8mm;
-    border-bottom: 1px solid var(--green-line);
-    font-size: 9.4pt;
-  }
-
-  .artifact-body {
-    padding: 3mm 4mm 3.5mm;
-    font-size: 9.7pt;
-    line-height: 1.42;
-  }
-
-  .artifact-body p { text-align: left; margin-bottom: 2mm; }
-  .artifact-body ul, .artifact-body ol { margin-bottom: 1mm; }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 3mm 0 5mm;
-    font-size: 9.2pt;
-    line-height: 1.35;
-    break-inside: avoid;
-  }
-
-  th {
-    background: var(--green-pale);
-    color: var(--green);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    text-align: left;
-  }
-
-  th, td {
-    border: 1px solid #bdcbb2;
-    padding: 2mm 2.4mm;
-    vertical-align: top;
-  }
-
-  .small { font-size: 8.8pt; color: #555850; }
-  .no-justify { text-align: left; }
-  .page-break { break-before: page; }
-  .avoid { break-inside: avoid; }
-
-  .references p {
-    font-size: 8.8pt;
-    line-height: 1.35;
-    text-align: left;
-    margin-bottom: 2mm;
-    padding-left: 6mm;
-    text-indent: -6mm;
-  }
-
-  .footer-block {
-    border-top: 1px solid var(--green-line);
-    margin-top: 8mm;
-    padding-top: 4mm;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--muted);
-    font-size: 8.3pt;
-    line-height: 1.45;
-  }
-
-  a { color: inherit; text-decoration: none; }
-
-  .review-label {
-    display: inline-block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 7.8pt;
-    font-weight: 700;
-    color: #fff;
-    background: var(--green);
-    padding: 1mm 2.3mm;
-    margin-bottom: 3mm;
-    letter-spacing: .04em;
-  }
 </style>
 </head>
 <body>
-<main>
-
+<div class="wrap">
+  <div class="crumb"><a href="../">← Green Papers</a></div>
+  <main>
 <section>
-  <div class="topline">Series III — Applied Protocols · Report 03 · v0.2 · July 2026</div>
-  <div class="rule"></div>
-  <h1>Water Into Dry Riverbeds</h1>
-  <div class="subtitle">A flow architecture for land, stewards, and planetary commons</div>
-  <div class="rule"></div>
-
-  <div class="meta">
-    Author: Lars A. Engberg · Knowledge Worker · Planetary Guardians<br>
-    Dialogical and editorial collaboration: Claude (Anthropic) and ChatGPT (OpenAI)<br>
-    Human direction, judgment, selection, and responsibility remain with the author.
-  </div>
-
-  <p class="ai-note">
-    This report was developed through human–AI dialogue. AI systems supported comparison,
-    structuring, drafting, and revision. They do not hold authorship, authority, or
-    responsibility for the public claims. The relational working practice is named Sophia
-    Lumen; the formal accountability mechanism is described in Report 02,
-    <em>The Correction Loop</em>.
-  </p>
-
-  <div class="site">papers.spiralweb.earth</div>
-  <div class="rule"></div>
+  <header class="header">
+    <span class="series">Series III · Applied Protocols · Report 03</span>
+    <h1>Water Into Dry Riverbeds</h1>
+    <p class="sub">A flow architecture for land, stewards, and planetary commons</p>
+    <div class="meta">
+      Report 03 · v0.2 · July 2026<br>
+      Lars A. Engberg · Knowledge Worker · Planetary Guardians<br>
+      Dialogical and editorial collaboration: Claude (Anthropic) and ChatGPT (OpenAI)<br>
+      Human direction, judgment, selection, and responsibility remain with the author.
+    </div>
+    <p class="ai-note">
+      This report was developed through human-AI dialogue. AI systems supported comparison,
+      structuring, drafting, and revision. They do not hold authorship, authority, or
+      responsibility for the public claims. The relational working practice is named Sophia
+      Lumen; the formal accountability mechanism is described in Report 02,
+      <em>The Correction Loop</em>.
+    </p>
+  </header>
 
   <h2>Executive Summary</h2>
 
@@ -1217,7 +1203,7 @@
     Planetary Guardians · Green Papers / Spiralweb · CC BY 4.0 · July 2026
   </div>
 </section>
-
-</main>
+  </main>
+</div>
 </body>
 </html>
