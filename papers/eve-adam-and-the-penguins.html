@@ -1,1222 +1,639 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eve & Adam, and the Penguins — From Critical Friendship to Penguin Economics — Green Papers</title>
-  <link rel="canonical" href="https://papers.spiralweb.earth/papers/eve-adam-and-the-penguins" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eve &amp; Adam, and the Penguins · v1.1</title>
+<meta name="description" content="A public lineage letter on green economics, bottom-up methodology, polycentric governance, relational friction, Penguin Economics, AI provenance, and macroeconomic method.">
+<meta name="author" content="Lars A. Engberg">
+<link rel="canonical" href="https://papers.spiralweb.earth/papers/eve-adam-and-the-penguins.html">
 <style>
 :root{
-  --ink:#1a1a18;
-  --earth:#3d3830;
-  --moss:#5c6b4a;
-  --stone:#8a8478;
-  --parchment:#f4f0e8;
-  --cream:#faf8f3;
-  --pale:#eeebe1;
-  --accent:#7a6e52;
-  --rule:#d4cfc3;
+  --paper:#fbf7ee;
+  --ink:#17352d;
+  --muted:#5b6c65;
+  --line:#cfd7cf;
+  --accent:#2f6a55;
+  --accent-soft:#e5eee8;
+  --warm:#f0e8d7;
+  --maxw:72ch;
 }
-*,*::before,*::after{box-sizing:border-box}
-html{font-size:16.5px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+html{background:var(--paper);color:var(--ink);scroll-behavior:smooth}
 body{
   margin:0;
-  background:var(--cream);
-  color:var(--ink);
-  font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;
-  font-weight:400;
-  line-height:1.72;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
+  line-height:1.68;
   -webkit-font-smoothing:antialiased;
 }
-a{color:var(--moss);text-decoration:none;border-bottom:1px solid rgba(92,107,74,.25)}
-a:hover{border-bottom-color:var(--moss)}
-.paper-header{
-  background:var(--parchment);
-  border-bottom:1px solid var(--rule);
-  padding:1.05rem 2rem;
-  display:flex;
-  justify-content:space-between;
-  gap:1.5rem;
-  align-items:baseline;
-  font-family:'Jost',sans-serif;
-  font-size:.68rem;
-  font-weight:300;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--stone);
-}
-.paper-header p{margin:0}
-.paper-header a{color:var(--stone);border-bottom:none}
-.paper-content{
-  max-width:820px;
-  margin:0 auto;
-  padding:4.25rem 2rem 6rem;
-}
-.paper-content>h1{
-  font-size:clamp(2.55rem,5.4vw,4.0rem);
-  font-weight:300;
-  line-height:1.05;
-  letter-spacing:-.015em;
-  color:var(--earth);
-  margin:0 0 1rem;
-}
-.paper-content>.subtitle{
-  font-size:1.25rem;
-  font-weight:300;
-  font-style:italic;
-  color:var(--accent);
-  line-height:1.45;
-  max-width:660px;
-  margin:0 0 .45rem;
-}
-.subtitle-note{
-  margin:.2rem 0 2.1rem;
-  font-size:1.02rem;
-  color:var(--stone);
-}
-.metadata{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.7rem 2rem;
-  font-family:'Jost',sans-serif;
-  font-size:.72rem;
-  font-weight:300;
-  letter-spacing:.06em;
-  color:var(--stone);
-  border-top:1px solid var(--rule);
-  border-bottom:1px solid var(--rule);
-  padding:1.25rem 0;
-  margin:2rem 0 2.4rem;
-}
-.metadata p{margin:0;line-height:1.65}
-.metadata strong{
-  font-weight:500;
-  color:var(--accent);
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  font-size:.62rem;
-}
-.protocol-note{
-  flex-basis:100%;
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:.98rem;
-  letter-spacing:0;
-  color:var(--earth);
-}
-.editorial-note,.glossary,.contents,.how-to-read,.cite,.related{
-  background:var(--pale);
-  border-left:3px solid var(--moss);
-  padding:1.25rem 1.55rem;
-  margin:2.2rem 0;
-  font-size:.98rem;
-  line-height:1.68;
-  color:var(--earth);
-}
-.editorial-note h3,.glossary h3,.contents h3,.how-to-read h3,.cite h3,.related h3{
-  font-family:'Jost',sans-serif;
-  font-size:.68rem;
-  font-weight:500;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--moss);
-  margin:0 0 .85rem;
-}
-section{
-  padding:2.05rem 0;
-  border-bottom:1px solid var(--rule);
-}
-section:last-of-type{border-bottom:none}
-section h2{
-  font-size:1.55rem;
-  font-weight:400;
-  line-height:1.25;
-  color:var(--earth);
-  margin:0 0 1.35rem;
-  letter-spacing:-.01em;
-}
-section h3{
-  font-size:1.12rem;
-  font-weight:500;
-  line-height:1.32;
-  color:var(--moss);
-  margin:1.75rem 0 .75rem;
-}
-section h4{
-  font-size:1.02rem;
-  font-weight:500;
-  color:var(--accent);
-  margin:1.3rem 0 .6rem;
-}
-p{
-  font-size:1.02rem;
-  line-height:1.72;
-  margin:0 0 1.0rem;
-}
-p:last-child{margin-bottom:0}
-em{color:var(--earth)}
-strong{font-weight:500;color:var(--earth)}
+a{color:var(--accent);text-decoration-thickness:.08em;text-underline-offset:.14em}
+main{width:min(calc(100% - 40px),var(--maxw));margin:0 auto;padding:54px 0 90px}
+header{padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.crumb,.series,.meta,.small,.revision{font-family:Arial,Helvetica,sans-serif}
+.crumb{font-size:.86rem;margin-bottom:32px}
+.series{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:.98;letter-spacing:-.035em;margin:.55rem 0 1rem;text-wrap:balance}
+.subtitle{font-size:clamp(1.2rem,2.4vw,1.65rem);line-height:1.28;margin:0 0 1.5rem;color:#294a40;text-wrap:balance}
+.meta{font-size:.88rem;line-height:1.55;color:var(--muted)}
+.status-badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.badge{font:700 .72rem/1 Arial,Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:7px 10px;background:rgba(255,255,255,.28)}
+h2{font-size:clamp(1.65rem,3vw,2.2rem);line-height:1.16;margin:3.5rem 0 1.2rem;letter-spacing:-.015em;text-wrap:balance}
+h3{font-size:1.25rem;line-height:1.28;margin:2.35rem 0 .75rem;text-wrap:balance}
+h4{font:700 .95rem/1.3 Arial,Helvetica,sans-serif;letter-spacing:.02em;margin:1.7rem 0 .45rem}
+p{margin:0 0 1.15rem}
+ul,ol{padding-left:1.35rem;margin:0 0 1.25rem}
+li{margin:.35rem 0}
 blockquote{
   margin:1.7rem 0;
-  padding:.75rem 0 .75rem 1.55rem;
-  border-left:2px solid var(--moss);
-  color:var(--earth);
-  font-size:1.18rem;
-  font-style:italic;
-  line-height:1.48;
+  padding:.15rem 0 .15rem 1.3rem;
+  border-left:4px solid var(--accent);
+  font-size:1.08em;
+  color:#24483d;
 }
-ul,ol{margin:1rem 0 1.2rem 1.25rem;padding:0}
-li{margin:.35rem 0;font-size:1.02rem;line-height:1.62}
-hr{
-  border:none;
-  border-top:1px solid var(--rule);
-  margin:1.4rem 0;
+.proposition{
+  margin:2rem 0;
+  padding:1.25rem 1.35rem;
+  background:var(--accent-soft);
+  border-left:5px solid var(--accent);
+  border-radius:0 8px 8px 0;
 }
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin:1.2rem 0 1.5rem;
-  font-family:'Jost',sans-serif;
-  font-size:.78rem;
-  line-height:1.45;
-  color:var(--earth);
+.proposition p:last-child{margin-bottom:0}
+.warm{
+  margin:2rem 0;
+  padding:1.35rem;
+  background:var(--warm);
+  border-radius:8px;
 }
-th,td{
-  border-top:1px solid var(--rule);
-  padding:.55rem .45rem;
-  text-align:left;
-  vertical-align:top;
+.part{
+  margin:5rem 0 1.5rem;
+  padding:1.1rem 0 .9rem;
+  border-top:2px solid var(--ink);
+  border-bottom:1px solid var(--line);
 }
-th{
-  font-weight:500;
-  color:var(--moss);
-  background:rgba(238,235,225,.55);
+.part .kicker{font:700 .78rem/1 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.part h2{margin:.4rem 0 0;font-size:2.25rem}
+.toc{
+  margin:2.2rem 0 3.5rem;
+  padding:1.25rem 1.35rem;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,.22);
 }
-.references p{
-  font-size:.95rem;
-  line-height:1.62;
-  margin-bottom:.85rem;
+.toc h2{margin:0 0 .8rem;font-size:1.35rem}
+.toc ol{columns:2;column-gap:2rem;margin:0}
+.toc li{break-inside:avoid;font-size:.95rem;margin:.25rem 0}
+table{width:100%;border-collapse:collapse;margin:1.6rem 0 2rem;font-size:.91rem;line-height:1.5}
+th,td{border:1px solid var(--line);padding:.65rem .7rem;text-align:left;vertical-align:top}
+th{font-family:Arial,Helvetica,sans-serif;font-size:.78rem;letter-spacing:.025em;background:var(--accent-soft)}
+.caption{font:italic .82rem/1.45 Arial,Helvetica,sans-serif;color:var(--muted);margin-top:-1.4rem}
+.sequence{
+  margin:1.6rem 0 2rem;
+  padding:1.1rem 1.25rem;
+  border:1px solid var(--line);
+  border-radius:8px;
+  font-size:1.02rem;
 }
-.paper-footer{
-  background:var(--parchment);
-  border-top:1px solid var(--rule);
-  padding:2rem;
-  text-align:center;
-  font-family:'Jost',sans-serif;
-  font-size:.68rem;
-  font-weight:300;
-  letter-spacing:.1em;
-  color:var(--stone);
-}
-.paper-footer a{color:var(--stone);border-bottom:none}
-section{animation:fadeUp .45s ease both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.sequence p{margin:.25rem 0}
+.changelog{margin-top:3rem;padding:1.25rem 1.35rem;border:1px solid var(--line);border-radius:8px}
+.references{font-size:.9rem;line-height:1.5}
+.references p{padding-left:1.3rem;text-indent:-1.3rem;margin-bottom:.75rem}
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);font-family:Arial,Helvetica,sans-serif;font-size:.8rem;color:var(--muted)}
+.page-break{break-before:page}
 @media(max-width:700px){
-  html{font-size:16px}
-  .paper-header{flex-direction:column;gap:.35rem;padding:1rem 1.25rem}
-  .paper-content{padding:3rem 1.25rem 4.5rem}
-  .metadata{display:block}
-  .metadata p{margin-bottom:.55rem}
+  main{width:min(calc(100% - 28px),var(--maxw));padding-top:30px}
+  body{font-size:17px;line-height:1.65}
+  .toc ol{columns:1}
   table{display:block;overflow-x:auto;white-space:normal}
 }
+@page{size:A4;margin:18mm 16mm 19mm}
 @media print{
-  .keep-together{break-inside:avoid-page;page-break-inside:avoid}
-  .keep-with-next{break-after:avoid-page;page-break-after:avoid}
-
-  html{font-size:10.5pt}
-  body{background:white}
-  .paper-header,.paper-footer,.editorial-note,.glossary,.contents,.how-to-read,.cite,.related{
-    -webkit-print-color-adjust:exact;
-    print-color-adjust:exact;
+  html,body{background:#fff}
+  body{font-size:11pt;line-height:1.48}
+  main{width:auto;max-width:none;margin:0;padding:0}
+  a{color:inherit;text-decoration:none}
+  .crumb{display:none}
+  h1{font-size:31pt}
+  .subtitle{font-size:15pt}
+  h2{font-size:18pt;break-after:avoid}
+  h3{font-size:13.5pt;break-after:avoid}
+  p,li{orphans:3;widows:3}
+  table{font-size:8.4pt;break-inside:auto}
+  tr{break-inside:avoid}
+  .part{break-before:page;margin-top:0}
+  .toc{
+    break-after:page;
+    padding:.8rem .9rem;
   }
-  .paper-content{max-width:100%;padding:0}
-  section{animation:none;break-inside:auto;page-break-inside:auto}
-  h1,h2,h3,h4{break-after:avoid;page-break-after:avoid}
-  blockquote,table,.editorial-note,.glossary,.contents,.how-to-read,.cite,.related{
-    break-inside:avoid;
-    page-break-inside:avoid;
+  .toc ol{
+    columns:3;
+    column-gap:1rem;
+    padding-left:1rem;
   }
-  a{border-bottom:none}
+  .toc li{
+    font-size:8.2pt;
+    line-height:1.22;
+    margin:.13rem 0;
+  }
+  .proposition,.warm,blockquote{break-inside:avoid}
+  footer{font-size:8pt}
 }
 
-/* Eve PDF print refinement */
-@media print {
-  @page {
-    size: A4;
-    margin: 14mm 18mm 16mm 18mm;
-  }
-
-  body {
-    background: #ffffff;
-  }
-
-  .site-header {
-    padding: 0.7rem 1.2rem !important;
-    font-size: 0.58rem !important;
-    line-height: 1.45 !important;
-  }
-
-  .hero {
-    padding: 2.4rem 1.6rem 1.8rem !important;
-    margin-bottom: 1.2rem !important;
-    page-break-after: avoid;
-    break-after: avoid-page;
-  }
-
-  .hero h1 {
-    font-size: 2.35rem !important;
-    line-height: 1.08 !important;
-    margin-bottom: 0.75rem !important;
-  }
-
-  .hero .subtitle {
-    font-size: 0.98rem !important;
-    line-height: 1.45 !important;
-    margin-bottom: 0.55rem !important;
-  }
-
-  .hero .dek,
-  .hero .subsubtitle {
-    font-size: 0.84rem !important;
-    line-height: 1.45 !important;
-    margin-bottom: 1.2rem !important;
-  }
-
-  .meta-block {
-    padding-top: 0.85rem !important;
-    gap: 0.9rem 1.4rem !important;
-    font-size: 0.58rem !important;
-    line-height: 1.5 !important;
-  }
-
-  .paper-body {
-    padding-top: 0 !important;
-  }
-
-  .editorial-note:first-of-type {
-    margin-top: 1.2rem !important;
-  }
-
-  h2 {
-    break-after: avoid-page;
-    page-break-after: avoid;
-  }
-
-  p, li {
-    orphans: 3;
-    widows: 3;
-  }
+.address{
+  margin:1.8rem 0 2rem;
+  font-size:1.08rem;
 }
-
-
-/* Eve PDF final print layout refinement */
-@media print {
-  @page {
-    size: A4;
-    margin: 13mm 18mm 15mm 18mm;
-  }
-
-  html {
-    font-size: 16px !important;
-  }
-
-  body {
-    background: #ffffff !important;
-  }
-
-  .site-header {
-    padding: 0.65rem 1.1rem !important;
-    font-size: 0.56rem !important;
-    line-height: 1.45 !important;
-    border-bottom: 1px solid var(--rule) !important;
-  }
-
-  .hero {
-    padding: 1.55rem 1.4rem 1.25rem !important;
-    margin: 0 auto 0.85rem !important;
-    border-bottom: 1px solid var(--rule) !important;
-    page-break-after: auto !important;
-    break-after: auto !important;
-    min-height: 0 !important;
-  }
-
-  .hero h1 {
-    font-size: 2.15rem !important;
-    line-height: 1.08 !important;
-    margin: 0 0 0.55rem !important;
-    max-width: 100% !important;
-  }
-
-  .hero .subtitle {
-    font-size: 0.93rem !important;
-    line-height: 1.42 !important;
-    margin: 0 0 0.35rem !important;
-    max-width: 100% !important;
-  }
-
-  .hero .dek,
-  .hero .subsubtitle {
-    font-size: 0.78rem !important;
-    line-height: 1.42 !important;
-    margin: 0 0 0.95rem !important;
-    max-width: 100% !important;
-  }
-
-  .meta-block {
-    padding-top: 0.75rem !important;
-    margin-top: 0.75rem !important;
-    gap: 0.55rem 1.15rem !important;
-    font-size: 0.55rem !important;
-    line-height: 1.45 !important;
-  }
-
-  .protocol-note,
-  .ai-note,
-  .hero em {
-    font-size: 0.68rem !important;
-    line-height: 1.4 !important;
-  }
-
-  .paper-body {
-    padding-top: 0 !important;
-  }
-
-  .editorial-note {
-    margin: 1rem 0 1.3rem !important;
-    padding: 0.95rem 1.2rem !important;
-    font-size: 0.82rem !important;
-    line-height: 1.55 !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid-page !important;
-  }
-
-  .section {
-    padding: 1.45rem 0 !important;
-  }
-
-  .section h2 {
-    font-size: 1.32rem !important;
-    line-height: 1.22 !important;
-    margin-bottom: 0.9rem !important;
-    page-break-after: avoid !important;
-    break-after: avoid-page !important;
-  }
-
-  .section h3 {
-    page-break-after: avoid !important;
-    break-after: avoid-page !important;
-  }
-
-  .section p,
-  .section li {
-    font-size: 0.9rem !important;
-    line-height: 1.62 !important;
-    orphans: 3;
-    widows: 3;
-  }
-
-  .pull-quote {
-    font-size: 1.12rem !important;
-    line-height: 1.38 !important;
-    margin: 1.2rem 0 !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid-page !important;
-  }
-
-  table {
-    font-size: 0.76rem !important;
-    line-height: 1.35 !important;
-  }
+.signature{
+  margin:2.3rem 0 0;
+  padding-left:1.2rem;
+  border-left:3px solid var(--line);
 }
-
-
-/* Eve PDF clean book-style final override */
-@media print {
-  @page {
-    size: A4;
-    margin: 18mm 20mm 18mm 20mm;
-  }
-
-  html {
-    font-size: 16px !important;
-  }
-
-  body {
-    background: #ffffff !important;
-  }
-
-  .site-header {
-    display: none !important;
-  }
-
-  .hero {
-    max-width: 760px !important;
-    margin: 0 auto 1.6rem auto !important;
-    padding: 18mm 0 8mm 0 !important;
-    background: transparent !important;
-    border-bottom: 1px solid var(--rule) !important;
-    min-height: 0 !important;
-    page-break-after: auto !important;
-    break-after: auto !important;
-  }
-
-  .series-label {
-    font-size: 0.58rem !important;
-    line-height: 1.5 !important;
-    letter-spacing: 0.18em !important;
-    margin-bottom: 1.4rem !important;
-    color: var(--moss) !important;
-  }
-
-  .hero h1 {
-    font-size: 3.05rem !important;
-    line-height: 1.03 !important;
-    letter-spacing: -0.015em !important;
-    margin: 0 0 1rem 0 !important;
-    max-width: 680px !important;
-  }
-
-  .hero .subtitle {
-    font-size: 1.08rem !important;
-    line-height: 1.55 !important;
-    max-width: 650px !important;
-    margin: 0 0 0.75rem 0 !important;
-  }
-
-  .hero .dek,
-  .hero .subsubtitle {
-    font-size: 0.86rem !important;
-    line-height: 1.55 !important;
-    max-width: 620px !important;
-    margin: 0 0 1.35rem 0 !important;
-  }
-
-  .meta-block {
-    border-top: 1px solid var(--rule) !important;
-    padding-top: 1rem !important;
-    margin-top: 1.1rem !important;
-    gap: 0.45rem 1.15rem !important;
-    font-size: 0.56rem !important;
-    line-height: 1.45 !important;
-  }
-
-  .protocol-note,
-  .ai-note,
-  .hero em {
-    font-size: 0.72rem !important;
-    line-height: 1.55 !important;
-  }
-
-  .paper-body {
-    max-width: 760px !important;
-    margin: 0 auto !important;
-    padding: 0 0 3rem 0 !important;
-  }
-
-  .editorial-note {
-    margin: 1.4rem 0 1.6rem 0 !important;
-    padding: 1.1rem 1.35rem !important;
-    font-size: 0.9rem !important;
-    line-height: 1.62 !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid-page !important;
-  }
-
-  .section {
-    padding: 1.65rem 0 !important;
-    page-break-inside: auto !important;
-    break-inside: auto !important;
-  }
-
-  .section h2 {
-    font-size: 1.48rem !important;
-    line-height: 1.22 !important;
-    margin-bottom: 1rem !important;
-    page-break-after: avoid !important;
-    break-after: avoid-page !important;
-  }
-
-  .section h3 {
-    font-size: 1.05rem !important;
-    line-height: 1.3 !important;
-    margin-top: 1.25rem !important;
-    page-break-after: avoid !important;
-    break-after: avoid-page !important;
-  }
-
-  .section p,
-  .section li {
-    font-size: 0.96rem !important;
-    line-height: 1.68 !important;
-    orphans: 3;
-    widows: 3;
-  }
-
-  .pull-quote {
-    font-size: 1.18rem !important;
-    line-height: 1.42 !important;
-    margin: 1.35rem 0 !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid-page !important;
-  }
-
-  table {
-    font-size: 0.78rem !important;
-    line-height: 1.35 !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid-page !important;
-  }
-
-  thead {
-    display: table-header-group;
-  }
+.lineage{
+  margin:1.8rem 0;
+  padding:1rem 1.2rem;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  color:#294a40;
 }
-
+.question{
+  font-size:1.14em;
+  line-height:1.52;
+}
+@media print{
+  .address{margin-top:1rem}
+  .signature{break-inside:avoid}
+}
 </style>
 </head>
 <body>
 
-<header class="paper-header">
-<p class="series-line">Green Papers · Notes Toward Planetary Guardianship · Series IV · Field Papers · <a href="https://papers.spiralweb.earth">papers.spiralweb.earth</a></p>
-<p class="paper-type">Green Paper · Field Paper · Lineage Letter</p>
+<main>
+<header>
+<div class="crumb"><a href="../index.html">← Green Papers</a></div>
+<div class="series">Series IV · Field Papers · Lineage Letter</div>
+<h1>Eve &amp; Adam, and the Penguins</h1>
+<p class="subtitle">From Critical Friendship to Penguin Economics: A Lineage Letter on Money, Life, and Living Complexity</p>
+<div class="meta">
+Lars A. Engberg · Knowledge Worker · Green Papers / Spiralweb<br>
+<strong>v1.1 · July 2026</strong> · Public lineage letter · CC BY 4.0
+</div>
 </header>
 
-<main class="paper-content">
+<section id="disclosure">
+<h2>AI disclosure and responsibility</h2>
+<p>This letter was developed and edited through AI-assisted dialogue. <a href="../sophia-lumen-protocol.html">Sophia Lumen</a> names the specific relational human–AI working practice through which articulation, comparison, source checking, restructuring, and revision were supported. The formal accountability architecture is described in <a href="the-correction-loop.html">The Correction Loop</a>. AI systems did not determine the argument, verify the historical record by themselves, govern any field, or bear responsibility for publication. Lars A. Engberg selected, corrected, and remains responsible for the text, its claims, its omissions, and its effects.</p>
+</section>
 
-<h1>Eve &amp; Adam, and the Penguins</h1>
-<h2 class="subtitle">From Critical Friendship to Penguin Economics: A Lineage Letter on Money, Life, and Living Complexity</h2>
-<p class="subtitle-note"><em>Making living complexity institutionally legible without reducing it.</em></p>
+<section id="editorial-note">
+<h2>Editorial note</h2>
+<p>This is a lineage letter: a public epistolary essay tracing intellectual inheritance, divergence, and operational consequence. It records debts, continuities, and departures without claiming endorsement from those addressed or cited. It is addressed openly to Jesper Jespersen and to several traditions that shaped the inquiry: the EVA cooperative and the Danish green-economics moment around <em>Pengene og Livet</em>; Vincent and Elinor Ostrom and the Workshop tradition; Peter Bogason, Eva Sørensen, Lars Hulgård, and Danish bottom-up methodology; the Danish and international meta-governance conversation; post-Keynesian macroeconomic methodology; and those now working on citizen science, ecological accounting, public-sector capacity, and responsible human–AI collaboration.</p>
+<p>The letter does not claim endorsement from any person or tradition named here. Nor does it present validation results for PG Ledger, Penguin Dashboard, 13×13, Regenerative Reciprocity, or the field relationships now taking shape. It offers provenance, a methodological proposition, and an invitation to examine whether the pieces belong together.</p>
+<p>The detailed operational arguments now live elsewhere in the Green Papers architecture. <a href="knowing-from-the-ground.html">Knowing From the Ground</a> carries the current epistemic and 13×13 method. <a href="penguin-dashboard-legibility-as-governance.html">Report 04</a> carries the governance instrument. <a href="report-06-regenerative-reciprocity.html">Report 06</a> carries the flow architecture. <a href="rule-of-life.html">Rule of Life</a> carries the constitutional and economic synthesis. This letter does not reproduce those works. It asks how the lineage that preceded them became capable of taking operational form.</p>
+</section>
 
-<div class="metadata">
-<p><strong>Date</strong> May 2026 <strong>Status</strong> v1.0 · Public lineage letter <strong>Author</strong> Lars A. Engberg, Knowledge Worker <strong>Series</strong> Series IV — Field Papers <strong>Licence</strong> CC BY 4.0</p>
-<p class="protocol-note"><em>Drafted and edited in dialogue with Claude (Anthropic) and ChatGPT (OpenAI) through the relational working practice named Sophia Lumen. Final authorship and responsibility remain with Lars A. Engberg.</em></p>
+<section id="readers-map">
+<h2>Reader’s map</h2>
+<p>The letter moves through seven steps. It begins with EVA, ADAM, <em>Pengene og Livet</em>, and the skylark. It then follows the methodological lineage through Bloomington, bottom-up research, critical realism, and meta-governance. Part III explains what AI-assisted patterning changes — and what it does not change. Part IV develops the letter’s primary economic proposition: relational friction as an unpriced cost of institutional mistrust. Part V brings this proposition into dialogue with polycentric governance and critical friendship. Part VI uses four field settings to show why one stewardship architecture must change shape across different ecological, economic, and institutional conditions. It then develops Doukkala and Xochimilco as two contrasting professional examples: a bounded dryland stewardship inquiry and an established metropolitan wetland-agricultural system whose practices, economies, records, and public institutions remain fragmented. Part VII returns to macroeconomic method and asks what categories an ecologically realistic public economy would need.</p>
+</section>
+
+<nav class="toc" aria-label="Contents">
+<h2>Contents</h2>
+<ol>
+<li><a href="#opening">Opening</a></li>
+<li><a href="#part-i">Part I — Money, Life, and the Skylark</a></li>
+<li><a href="#eva-adam">1. EVA beside ADAM</a></li>
+<li><a href="#skylark">2. To value the skylark</a></li>
+<li><a href="#adjacency">3. Institutional adjacency</a></li>
+<li><a href="#part-ii">Part II — A Methodological Lineage</a></li>
+<li><a href="#workshop">4. Bloomington and epistemic infrastructure</a></li>
+<li><a href="#bottom-up">5. Bottom-up inquiry and critical realism</a></li>
+<li><a href="#metagovernance">6. Meta-governance and boundary work</a></li>
+<li><a href="#part-iii">Part III — What Has Become Operationally Possible</a></li>
+<li><a href="#bottleneck">7. The bottleneck has moved</a></li>
+<li><a href="#division">8. A division of epistemic and institutional labour</a></li>
+<li><a href="#disclosure-method">9. Disclosure as method</a></li>
+<li><a href="#part-iv">Part IV — Relational Friction</a></li>
+<li><a href="#friction">10. The unpriced cost of institutional mistrust</a></li>
+<li><a href="#surplus">11. The hidden surplus</a></li>
+<li><a href="#productive-friction">12. Not a frictionless state</a></li>
+<li><a href="#kommune">13. The regenerative kommune</a></li>
+<li><a href="#part-v">Part V — Polycentric Governance and Critical Friendship</a></li>
+<li><a href="#polycentric">14. No single centre can see enough</a></li>
+<li><a href="#critical-friendship">15. Critical friendship as political method</a></li>
+<li><a href="#part-vi">Part VI — Field Examples: Different Conditions, Different Institutional Questions</a></li>
+<li><a href="#different-fields">16. One architecture, different action arenas</a></li>
+<li><a href="#doukkala">17. Doukkala: dryland stewardship under constraint</a></li>
+<li><a href="#xochimilco">18. Xochimilco and Mexico City: existing practice, fragmented institutions</a></li>
+<li><a href="#part-vii">Part VII — An Invitation to Macroeconomic Method</a></li>
+<li><a href="#categories">19. What categories are missing?</a></li>
+<li><a href="#invitation">20. From adjacency to encounter</a></li>
+<li><a href="#closing">Closing — Money, life, and one day at a time</a></li>
+<li><a href="#references">References</a></li>
+</ol>
+</nav>
+
+<section id="opening">
+<h2>Opening</h2>
+<div class="address">
+<p>Dear Jesper — and dear all,</p>
+</div>
+<p>Jesper, I do not write to ask you to carry, endorse, or answer what follows. I write because a question opened around EVA, ADAM, and <em>Pengene og Livet</em> has remained alive in my own work: how might money be brought back into accountable relation with life?</p>
+<p>This letter has been arriving for a long time. Some of it began in the autumn of 1988 at Vestjyllands Højskole, when a group of people gathered around a question that was at once economic, democratic, and existential: What happens when the instruments used to judge the economy cannot register the conditions of life?</p>
+<p>Some of it arrived in Bloomington in 1995, through weekly memoranda and a correspondence with Vincent Ostrom about constitutional choice, institutional reform, knowledge, monitoring, and adaptation. Some of it came through the Danish bottom-up methodology tradition, where the methodological problem was how to preserve the texture of lived situations while still producing knowledge that institutions could use. Some of it came through twenty years of research on urban regeneration, network governance, place-making, and climate adaptation, where the same problem appeared again at the boundaries between experts, public authorities, citizens, organisations, infrastructures, and places.</p>
+<p>And some of it has arrived only now, because AI-assisted pattern recognition changes what can be done with distributed, textured observations. It does not make judgment automatic. It does not make knowledge neutral. It does not remove the need for public law, expertise, democratic authority, critical realism, or responsibility. But it changes the location of a methodological bottleneck that has shaped bottom-up inquiry for decades.</p>
+<p>The title joins three figures. ADAM is the established Danish macroeconomic model. EVA was formed as its cooperative critical friend: close enough to understand the institution, independent enough to ask what it could not see. The Penguins name a newer response — Penguin Economics and the wider Spiralweb attempt to organise value around rotation, replenishment, steward viability, non-extraction, and shared survival under conditions of ecological and institutional cold.</p>
+<p>The line from EVA to the Penguins is not a claim that the work is the same. The world has changed, the institutional setting has changed, and the present architecture carries concepts that did not exist in the earlier conversation. The continuity lies in a methodological question:</p>
+<div class="proposition question">
+<p><strong>How can living complexity become institutionally legible without being reduced to the categories that made it invisible?</strong></p>
+</div>
+<p>The economic proposition developed here is that modern institutions bind enormous capacity in <strong>relational friction</strong>: duplicated verification, broken interfaces, defensive documentation, mistrust, repeated handovers, meeting inflation, opacity, exhaustion, and ecological neglect. These costs are real, but conventional productivity accounting rarely identifies them as a coherent economic field. If they can be made visible without turning relation into a commodity, significant human, democratic, administrative, and ecological capacity may be recoverable.</p>
+<p>This is offered as a lineage letter because the argument is not only scholarly. It is also a record of gratitude, unfinished conversation, and critical friendship.</p>
+</section>
+
+<div class="part" id="part-i">
+<div class="kicker">Part I</div>
+<h2>Money, Life, and the Skylark</h2>
 </div>
 
-<section class="editorial-note">
-<h3>Editorial Note</h3>
-
-<p>This is a Lineage Letter. It is addressed openly to Jesper Jespersen and to the traditions that shaped this inquiry — the EVA cooperative and the Danish green economics moment of 1988–90; the Workshop in Political Theory and Policy Analysis at Indiana University and the formative correspondence with Vincent Ostrom in 1995–96; Elinor Ostrom and the polycentric governance tradition; Peter Bogason, Eva Sørensen, Lars Hulgård and the Danish bottom-up methodology tradition; the meta-governance scholarship developed across Roskilde University and Aalborg University over twenty-five years; and the broader heterodox scholarly community working on how money and life can be brought back into accountable relation.</p>
-
-<p>It is made publicly available for those who wish to read alongside.</p>
-
-<p>The letter does not claim that any of the named figures or traditions would necessarily endorse what is offered here. The claim is more modest: that this work operates inside methodological problems to which their work has given decisive language. The form of a letter, rather than a Green Paper, is chosen because the lineages are personal as well as scholarly, and because the form should match the substance.</p>
-
-<p>The letter does not present validation results for PG Ledger, Penguin Dashboard, 13×13, or any other element of the Spiralweb architecture. It does not claim that AI-generated pattern recognition is epistemically neutral. It does not propose replacing democratic judgment with dashboards. It argues for a methodological architecture whose claims must be tested through practice, documentation, critique, and revision.</p>
-
-<p>This v1.0 version should be read alongside <em>Den Regenerative Kommune</em>, published as a Danish policy report in the same Series IV field-paper layer. Where the present letter develops the methodological lineage — green economics, bottom-up methodology, polycentric governance, critical friendship, AI disclosure, Penguin Economics, and relational friction — <em>Den Regenerative Kommune</em> translates part of that lineage into a concrete reform proposal for KL and the Danish municipal sector.</p>
+<section id="eva-adam">
+<h2>1. EVA beside ADAM</h2>
+<p>Andelsselskabet EVA was constituted in 1988–89 after a Grundtvig course at Vestjyllands Højskole. Its name was deliberate. ADAM — the Annual Danish Aggregate Model — was one of the institutional instruments through which economic proposals became visible to the Danish state. EVA did not position itself as a pure outside. It became a companion-critic to the model and to the wider accounting logic that shaped economic judgment.</p>
+<p>The cooperative form mattered. EVA was not only arguing for a different economic content. It was performing a different institutional relation: association, shared inquiry, democratic initiative, and critical proximity rather than expert monopoly or rhetorical opposition.</p>
+<p><em>Pengene og Livet</em>, published in 1990, gathered a heterogeneous green-economic conversation. Jesper Jespersen’s contribution on national accounts, economic models, and planetary survival spoke directly to the methodological problem. Conventional accounts could describe production and exchange with extraordinary precision while treating the conditions of life as background, externality, or residual concern.</p>
+<p>The intervention reached formal politics. It helped place green economics on the parliamentary and ministerial agenda. Yet recognition was not the same as integration. The question was heard, but the central macroeconomic machinery did not become answerable to the whole field of consequences that EVA had named.</p>
+<p>This is the first continuity I want to preserve. The unresolved issue was never merely whether environmental variables should be added to an existing model. It was whether the categories of economic judgment could be redesigned so that money remained in contact with life.</p>
 </section>
 
-<section class="glossary">
-<h3>Working Glossary</h3>
-
-<p><em>PG Ledger</em> (Planetary Guardians Ledger) is a field-level accounting infrastructure for regenerative practice across three streams.</p>
-
-<p><em>Penguin Dashboard</em> is a decision-support instrument that reads PG Ledger data through a green/yellow/red logic. Treated in detail in Report 04.</p>
-
-<p><em>Penguin Economics</em> names the economic logic developed across the Spiralweb Green Papers: rotation rather than hoarding, replenishment rather than extraction, viability rather than burnout, and shared survival under conditions of ecological and institutional cold. It is not a metaphor for cuteness or branding. It is a governance image for how value, attention, burden, care, and responsibility must circulate if living systems are not to be depleted.</p>
-
-<p>The Penguins in the title refer to this wider Spiralweb economic and governance lineage: Penguin Economics, Penguin Dashboard, and the attempt to make regenerative value institutionally legible without turning life into extractive accounting.</p>
-
-<p><em>Stream A / Stream B / Stream C</em> names the analytical separation: Stream A is ecology, Stream B is steward viability, Stream C is coordination.</p>
-
-<p><em>13×13</em> is a citizen-science framework with 169 observation domains across thirteen domains of life. Qualitative, relational, sovereign.</p>
-
-<p><em>Moral Biology</em> is the philosophical ground beneath the architecture. Treated fully in Part IV. The first Green Paper of Series I.</p>
-
-<p><em>Regenerative Reciprocity</em> names the principle that flows of money, attention, knowledge, and institutional support should return capacity to the living systems and communities from which value is drawn. Treated fully in Report 06.</p>
-
-<p><em>Sophia Lumen</em> names the disciplined human–AI working practice through which this letter was drafted. Not a persona, not an AI author. It is a working relation in which the human contributor retains responsibility and correction rights while AI supports articulation, structuring, and synthesis. <a href="https://papers.spiralweb.earth/sophia-lumen-protocol.html">Read the working-practice note</a>.</p>
-
-<p><em>Age of Disclosure</em> names the historical moment in which, for those of us using AI substantively in knowledge work, open disclosure with proper protocols becomes an ethical minimum.</p>
+<section id="skylark">
+<h2>2. To value the skylark</h2>
+<p>The Danish expression <em>at sætte pris på lærkesang</em> carries the whole problem in one phrase. <em>At sætte pris på</em> can mean to cherish, appreciate, or recognise worth. It can also mean to assign a price.</p>
+<p>The empirical sequence matters. Dansk Ornitologisk Forening’s long-running point counts show that the Danish breeding population of skylarks has more than halved since systematic monitoring began in the mid-1970s. The song remains familiar enough to sound abundant, while the population beneath it has thinned dramatically. The example therefore joins valuation to observation: the loss is measurable, but its meaning is not exhausted by the count.</p>
+<p>If the skylark remains outside institutional accounting, its disappearance may be mourned while agricultural policy, land valuation, fiscal incentives, and productivity analysis continue as if nothing material has been lost. If the skylark is translated too quickly into a price, a credit, or a compensable unit, the living relation may become visible only by being converted into the grammar that threatened it.</p>
+<p>The answer cannot be that nothing should be measured. Nor can it be that everything important must become a market object.</p>
+<div class="proposition">
+<p><strong>The methodological task is to make living value consequential without making price its sovereign form.</strong></p>
+</div>
+<p>This requires an architecture capable of holding different kinds of evidence together without collapsing them. Bird populations, habitat condition, farm economics, soil, water, labour, institutional incentives, local knowledge, bodily stress, and cultural meaning are not interchangeable variables. They may be connected, but they do not compensate for one another automatically.</p>
+<p>The skylark therefore becomes more than an environmental indicator. It is a test of institutional attention. What kind of economy can notice the conditions in which its song becomes possible — and what kind of public reasoning can respond before absence is the only evidence left?</p>
 </section>
 
-<section class="contents">
-<h3>Contents</h3>
+<section id="adjacency">
+<h2>3. Institutional adjacency</h2>
+<p>Denmark did not ignore environmental economics. Environmental expertise acquired formal standing, and Det Miljøøkonomiske Råd became part of the institutional landscape. That development matters. It created knowledge, review, public debate, and continuity that would otherwise have been weaker.</p>
+<p>But standing beside the central macroeconomic architecture is not the same as transforming it. Environmental economics can be institutionally recognised and still remain adjacent to fiscal judgment, productivity analysis, economic forecasting, and the categories through which policy alternatives are declared realistic or unrealistic.</p>
+<p>Jesper, your 2020 intervention on the limits of a single CO₂-tax strategy made this distinction concrete. Price signals alone could not carry the transition. Public investment, subsidy, regulation, coordination, security, industrial capacity, and balance-of-payments effects belonged inside the analysis. The economy was not a self-correcting market waiting for the correct price. It was an institutional arrangement acting under uncertainty.</p>
+<p>That is the relevant post-Keynesian contribution here: models must remain answerable to the actual institutional and material relations through which economic life occurs. The question is not whether ecological economics should be added as a parallel specialism. It is whether ecological and human conditions enter the centre of economic judgment.</p>
+</section>
+
+<div class="part" id="part-ii">
+<div class="kicker">Part II</div>
+<h2>A Methodological Lineage</h2>
+</div>
+
+<section id="workshop">
+<h2>4. Bloomington and epistemic infrastructure</h2>
+<p>In the autumn of 1995 I began a research period at the Workshop in Political Theory and Policy Analysis at Indiana University Bloomington. The exchange with Vincent Ostrom became formative because it joined institutional design to a deeper question about knowledge.</p>
+<p>My conference paper <em>Some Problems of Institutional Reform</em> questioned intentionalist accounts of institutional design. Political actors do not stand outside history with complete information and control. Reforms create unintended consequences; rules alter incentives and interpretations; institutions are reproduced and changed through action that no designer fully commands.</p>
+<p>Vincent’s response placed rule maintenance, monitoring, and adaptation inside an epistemic context: institutions require ways of organising knowledge and information that are consistent with constructive transformation. The important point was not that more data would solve institutional problems. It was that self-governance depends on the quality of the relation between rules, observation, interpretation, memory, and correction.</p>
+<p>This remains one of the deepest sources of the PG Ledger idea. A ledger is not useful because it centralises truth. It is useful when it helps a field remember what was observed, what was inferred, who decided, who was burdened, what remains uncertain, and how a decision may be challenged or corrected.</p>
+<p>The lineage is therefore constitutional before it is technical. Knowledge infrastructure shapes who can act, whose account becomes consequential, how rules are maintained, and whether institutions can learn without pretending to control the whole field.</p>
+</section>
+
+<section id="bottom-up">
+<h2>5. Bottom-up inquiry and critical realism</h2>
+<p>The Danish bottom-up methodology tradition gave this problem an empirical form. The question was not simply how to collect local voices. It was how to produce generalisable knowledge without treating situated meaning as noise.</p>
+<p>In the 1998 work on induction and deduction in bottom-up research, I used a framework organised around prior assumptions, empirical gathering, the stories told about the field, and confrontation or reflection between accounts. Thirty-seven thematic dimensions in a database analysis of the Grantoften Bydelsting case were an early attempt to preserve structure without eliminating texture.</p>
+<p>The deeper methodological commitment came from critical realism and from the distinction between endogenous and exogenous reflexivity. Participants understand their own worlds from within; analysts may identify structural conditions that are not fully visible from any single position. Neither standpoint is complete. Local knowledge is full but fallible. External analysis is also full but fallible.</p>
+<p>The productive work lies in disciplined encounter between them.</p>
+<p>This is why bottom-up inquiry cannot be reduced to collecting stories and cannot be replaced by top-down indicators. The stories reveal meanings, relations, practical constraints, and institutional effects that aggregated data often misses. Structural analysis reveals distributions of power, material conditions, and causal mechanisms that no participant can be expected to hold alone.</p>
+<p>The unresolved problem was scale. Rich studies could preserve texture, but institutions often treated them as isolated cases. Large systems could aggregate across many cases, but did so by discarding precisely the context that made the observations intelligible.</p>
+<p>The present work begins from the same tension. It does not claim to solve it. It asks whether structured, distributed observation and accountable patterning can hold more of the tension than earlier institutional technologies allowed.</p>
+</section>
+
+<section id="metagovernance">
+<h2>6. Meta-governance and boundary work</h2>
+<p>Across subsequent research on urban regeneration, brownfield development, place-making, and climate adaptation, the bottom-up problem became a governance problem. Multiple institutions, professions, communities, infrastructures, and scales had to act in relation without being absorbed into one logic.</p>
+<p>The Danish meta-governance tradition supplied a language for this: the governance of governance, or the strategic shaping of conditions under which networks and institutions coordinate. Meta-governance is not command from above. Nor is it faith that self-organisation will always produce legitimate outcomes. It concerns boundary work: how different centres of authority, knowledge, and responsibility are connected, enabled, limited, and held publicly answerable.</p>
+<p>In Copenhagen climate adaptation, this meant examining how expert-led large-scale water management interacted with place-based citizen initiatives. In Hammarby Sjöstad, it meant following how competing meanings of sustainability were negotiated in a project organisation. In urban regeneration, it meant studying how public authorities could support local action without converting participation into administrative theatre.</p>
+<p>The continuity with the Workshop tradition is strong but not identical. Ostromian polycentricity begins from multiple centres of decision and from the institutional conditions of self-governance. Danish meta-governance places stronger emphasis on the role of public authorities, democratic anchoring, and the strategic management of boundaries between institutional logics.</p>
+<p>The current architecture draws from both. It requires local standing and distributed authority, but it also requires public law, explicit roles, review, conflict resolution, and institutions capable of coordinating across scales.</p>
+</section>
+
+<div class="part" id="part-iii">
+<div class="kicker">Part III</div>
+<h2>What Has Become Operationally Possible</h2>
+</div>
+
+<section id="bottleneck">
+<h2>7. The bottleneck has moved</h2>
+<p>Bottom-up textured inquiry has long faced a cognitive constraint. Human researchers and institutions cannot pattern across unlimited numbers of situated observations while preserving their context. The usual response has been to choose: rich texture in a small number of cases, or broad aggregation that strips texture away.</p>
+<p>AI-assisted pattern recognition changes this constraint, but not in the triumphant way often implied by automation narratives. The bottleneck does not disappear. It moves.</p>
+<p>The central question is no longer only whether a human analyst can hold enough material in working memory. It becomes whether the records are responsibly produced; whether observation and interpretation remain distinguishable; whether machine-generated patterns can be challenged; whether missing data and minority accounts remain visible; whether the people affected retain standing; and whether an identifiable human or institution accepts responsibility for consequential decisions.</p>
+<div class="proposition">
+<p><strong>The shift is not from human inquiry to AI inquiry. It is from cognition-limited bottom-up inquiry to responsibility-limited, AI-assisted inquiry.</strong></p>
+</div>
+<p>This is a genuine expansion of capacity and a genuine expansion of risk. AI can compare, cluster, translate, retrieve, organise, and detect recurrence across materials that would otherwise overwhelm a small team. It can also produce false coherence, amplify what is easiest to encode, conceal uncertainty behind fluent language, and privilege records shaped for machine readability.</p>
+<p>The response cannot be concealment, and it cannot be delegation of judgment. It must be explicit architecture.</p>
+</section>
+
+<section id="division">
+<h2>8. A division of epistemic and institutional labour</h2>
+<p>The present Spiralweb architecture can be stated without reproducing each component:</p>
+<div class="sequence" aria-label="Canonical responsibility chain">
+<p><strong>Citizen science observes.</strong></p>
+<p><strong>13×13 structures inquiry.</strong></p>
+<p><strong>AI assists.</strong></p>
+<p><strong>PG Ledger records and connects.</strong></p>
+<p><strong>Human stewards govern.</strong></p>
+<p><strong>Rule of Life provides the constitutional horizon.</strong></p>
+</div>
+<p>The sequence matters because confusion about agency creates governance errors.</p>
+<p>Citizen science is not treated as raw data supply to a distant expert system. It is situated observation carried by people who may also interpret, contest, and act. The current 13×13 method is one grammar met from two directions: thirteen layers of existence read through thirteen dimensions of inquiry, and situated domains or prompts through which a place can begin to notice what matters. It is not an instruction to fill 169 boxes.</p>
+<p>PG Ledger is a protocol and memory layer, not a governor. It connects observations, roles, conditions, flows, decisions, uncertainty, and correction. The three streams — land and ecology, steward viability, and coordination or governance — remain separate because success in one cannot erase collapse in another.</p>
+<p>Penguin Dashboard is a recurring human reading of these conditions, not rule by colour. Moral Biology provides the claim that ethical and institutional life depends on embodied capacities such as attention, trust, sleep, care, judgment, and regulation. Regenerative Reciprocity provides the flow discipline through which support may enter a field without acquiring ownership or control.</p>
+<p>The fuller accounts now belong to their own papers. The point here is methodological: an institution can become more attentive without pretending that one model, metric, expert, platform, or dataset can represent the whole living field.</p>
+</section>
+
+<section id="disclosure-method">
+<h2>9. Disclosure as method</h2>
+<p>AI disclosure is not an ornamental ethics statement attached after the work. It is part of the method because readers must know what kind of cognitive process produced the text and what kinds of errors may follow from it.</p>
+<p>The relevant distinction is not between “human” and “AI” as pure categories. Contemporary knowledge work already passes through search systems, databases, transcription, statistical tools, editorial software, collaborative platforms, and institutional conventions. The relevant questions are which operations were delegated, which judgments remained human, how sources were checked, whether corrections are traceable, and who accepts responsibility.</p>
+<p>Sophia Lumen names a relational working practice, not an autonomous author or formal governor. The Correction Loop carries the formal accountability requirements: provisionality, named responsibility, correction rights, stop rights, and the preservation of reasons and evidence.</p>
+<p>That responsibility has two directions. <strong>Downstream disclosure</strong> concerns how an AI system participated in this particular text, which judgments remained human, and who can correct the result. <strong>Upstream disclosure</strong> concerns the material, legal, ecological, and institutional histories built into the systems themselves. A method that discloses the visible interaction while leaving those upstream conditions unexamined remains incomplete.</p>
+
+<h3>Upstream provenance and stopping rules</h3>
+<p>Court records established that Anthropic purchased millions of print books, removed their bindings, scanned every page, and discarded or recycled the paper originals while building a private digital research library. Later reporting described the operation as Project Panama and documented a market for pre-2022 books promoted as AI training material precisely because they were free of AI-generated text. The strongest public evidence concerns mass destructive scanning. Claims that rare or unique antiquarian copies have been destroyed through the same pipeline remain less firmly established and should not be repeated as settled fact.</p>
+<p>The institutional problem is larger than copyright and more exact than the metaphor of book burning. The text is retained as a private computational asset while the physical vessel, provenance, annotations, circulation history, and possibility of later public access may disappear. The missing element is a stopping rule capable of distinguishing an expendable duplicate from a scarce or culturally significant object, and a reciprocity rule requiring that private extraction return something to the knowledge commons on which it depends.</p>
+<p>This is disembedding in material form: the transferable layer is preserved while the conditions that carried it are treated as disposable. The example also shows why disclosure cannot end with a declaration that AI was used. It must open the chain of responsibility far enough to ask what the system drew upon, what was lost in making it available, who benefited, and where a human or institution could still have stopped.</p>
+<p>Disclosure does not establish truth or innocence. It creates the minimum conditions under which claims, methods, dependencies, and consequences can be examined honestly.</p>
+</section>
+
+<div class="part" id="part-iv">
+<div class="kicker">Part IV</div>
+<h2>Relational Friction</h2>
+</div>
+
+<section id="friction">
+<h2>10. The unpriced cost of institutional mistrust</h2>
+<p>The primary economic proposition of this letter is that modern institutions bind enormous amounts of capacity in relational friction.</p>
+<p>Relational friction is one operational surface of <strong>silent degradation</strong>: the condition in which an institution retains its offices, procedures, meetings, and outputs while gradually losing the judgment those forms were built to carry. Such systems do not necessarily stop working. They often work harder on smaller and more defensible fragments. Degradation can therefore look like diligence — <strong>green on structure while turning red on capacity</strong>.</p>
+<p>Silent degradation names the condition. Relational friction names part of its operational surface: the recurring burden created when people, departments, professions, organisations, and citizens cannot rely on the interfaces through which they must act together. It appears as duplicated verification, repeated case handling, documentation produced mainly as defence, unclear responsibility, handover loss, meeting inflation, siloed information, legal fear, digital opacity, complaints, escalation, sickness absence, turnover, burnout, and the slow erosion of professional judgment.</p>
+<p>These burdens are visible everywhere and yet rarely assembled as one economic field. Each may be counted separately: hours, cases, complaints, legal costs, sick days, vacancies, delays, failed procurements, environmental remediation, or citizen dissatisfaction. What disappears is the common mechanism: institutions spend resources compensating for damaged trust, weak interfaces, fragmented knowledge, and responsibility that cannot travel with the work.</p>
+<p>Conventional productivity accounting can therefore misread the institution. A system may produce high throughput while consuming its workers, multiplying defensive procedures, exhausting citizens, and transferring ecological costs outside the measured boundary. The throughput is recorded; the capacity destroyed in producing it is scattered across other accounts or not recorded at all.</p>
+<p>Relational friction is not a metaphor for every imperfection. It is a proposed analytical category. It asks:</p>
 <ul>
-<li>Opening</li>
-<li>Part I — The Lineage: From Re-embedding to Regeneration</li>
-<li>Part II — The Danish Trajectory: Institutional Adjacency Since 2007</li>
-<li>Part III — Living Complexity Made Institutionally Legible</li>
-<li>Part IV — Moral Biology: The Philosophical Ground</li>
-<li>Part V — The Hidden Economic Logic: Relational Friction</li>
-<li>Part VI — Polycentric Governance and Critical Friendship</li>
-<li>Part VII — Three Emerging Field Engagements</li>
-<li>Part VIII — The Age of Disclosure</li>
-<li>Part IX — What This Means for Macroeconomic Method</li>
-<li>Closing — To Each of You</li>
-<li>References</li>
+<li>How much work is repeated because prior work cannot be trusted or found?</li>
+<li>How much documentation exists to defend the institution rather than clarify the case?</li>
+<li>How many decisions are delayed because authority is unclear?</li>
+<li>How much professional capacity is lost to interfaces that require people to translate the same reality repeatedly?</li>
+<li>How much ecological damage follows from institutional fragmentation?</li>
+<li>How much sickness, exit, and public mistrust is produced by these arrangements?</li>
 </ul>
+<p>The category becomes economically important because the costs are not incidental. They shape public expenditure, labour productivity, service quality, investment, legitimacy, and the adaptive capacity of society under crisis.</p>
 </section>
 
-<section class="how-to-read">
-<h3>How to Read This Letter</h3>
-<p>The letter is long, and not every reader will read it in one sitting. That is acceptable. Different readers may enter from different concerns:</p>
-<p>Readers who come from economics may wish to begin with Parts II, V, and IX — the Danish institutional trajectory, the relational-friction analysis, and the implications for macroeconomic method.</p>
-<p>Readers who come from governance, public administration, or municipal practice may begin with Parts I, VI, and VII — the lineage of bottom-up methodology and meta-governance, the polycentric governance argument, and the three emerging field engagements.</p>
-<p>Readers concerned with AI, methodology, and disclosure may begin with Parts III and VIII — the methodological argument for pixellized inquiry and the working ethic of the Age of Disclosure.</p>
-<p>The Closing returns to each named lineage in turn, and may be read alone as a kind of summary.</p>
+<section id="surplus">
+<h2>11. The hidden surplus</h2>
+<p>If relational friction can be reduced without weakening rights, review, professional standards, or democratic contestation, a hidden surplus becomes available.</p>
+<p>When two departments can rely on a shared and contestable record, parallel verification may fall. When a citizen’s account travels with the case, repeated narration and re-traumatisation may fall. When responsibilities are explicit, meeting time and escalation may fall. When documentation is connected to substance, professionals may spend less time creating defensive paper and more time exercising judgment. When ecological conditions are visible across departmental boundaries, repair may begin before damage becomes an emergency cost.</p>
+<p>This surplus is not merely monetary. It includes time, attention, trust, health, professional capacity, democratic legitimacy, ecological resilience, and the ability to act before crisis hardens.</p>
+<p>Penguin Economics enters at this point. A penguin economy asks whether the bodies, fields, institutions, and communities carrying the work are replenished or left at the cold edge. It treats rotation, reciprocity, and viability as economic conditions rather than moral additions.</p>
+<p>Relational-friction analysis therefore changes the meaning of productivity. The relevant question is not only how much output is produced per measured input. It is how much durable capacity remains after the output has been produced.</p>
+<div class="proposition">
+<p><strong>An institution is not productive if its measured output depends on consuming the human, democratic, ecological, and relational capacities required to continue.</strong></p>
+</div>
+<p>This is not an argument against efficiency. It is an argument for a less impoverished account of efficiency.</p>
+<p>A research programme could test the proposition empirically through paired measures: time-to-resolution and re-contact rates; meetings per consequential decision; repeated documentation; sickness absence and turnover; citizen trust; ecological condition; repair costs; legal disputes; unresolved handovers; and the distribution of burden across staff, citizens, contractors, and places.</p>
+<p>PG Ledger and related methods may contribute to such inquiry by connecting observations that currently live in separate systems. They do not establish the economic claim in advance. The claim must survive field testing, comparison, and criticism.</p>
 </section>
 
-<hr>
+<section id="productive-friction">
+<h2>12. Not a frictionless state</h2>
+<p>The goal is not frictionless governance.</p>
+<p>Some friction protects life and freedom. Due process slows arbitrary power. Professional disagreement can reveal risk. Democratic deliberation prevents speed from becoming domination. Independent review, audit, appeal, consent, and the right to say no all impose time and cost. These are not inefficiencies to be engineered away.</p>
+<p>The relevant distinction is between <strong>protective friction</strong> and <strong>destructive friction</strong>.</p>
+<table>
+<thead>
+<tr><th>Protective friction</th><th>Destructive relational friction</th></tr>
+</thead>
+<tbody>
+<tr><td>Due process, review, appeal, informed consent, professional challenge, democratic deliberation</td><td>Duplicated work caused by mistrust, opacity, broken handovers, unclear authority, inaccessible records, defensive administration</td></tr>
+<tr><td>Creates time for rights, evidence, plurality, and correction</td><td>Consumes time without increasing rights, knowledge, or legitimacy</td></tr>
+<tr><td>Makes power answerable</td><td>Makes responsibility disappear</td></tr>
+<tr><td>Can be explained publicly</td><td>Persists because no one sees or owns the whole burden</td></tr>
+</tbody>
+</table>
+<p>This distinction is essential. A poorly framed efficiency programme can remove precisely the frictions that protect vulnerable people while leaving the deeper causes of mistrust untouched. Relational-friction analysis must therefore remain bound to Rule of Law, worker protection, rights, professional integrity, and democratic review.</p>
+<p>The objective is not to make institutions smooth. It is to make their necessary frictions purposeful and their destructive frictions visible.</p>
+</section>
 
-<section class="opening">
-<h2 class="keep-with-next">Opening</h2>
+<section id="kommune">
+<h2>13. The regenerative kommune</h2>
+<p>The municipal scale is where these questions become concrete. A municipality coordinates schools, social services, planning, health interfaces, climate adaptation, public space, water, waste, employment, culture, procurement, local democracy, and relations with civil society. It is not one organisation acting on one object. It is a living field of interfaces.</p>
+<p><a href="den-regenerative-kommune.html">Den Regenerative Kommune</a> develops relational friction as a practical reform proposition for the Danish municipal sector. This letter keeps the claim at the methodological level.</p>
+<p>A regenerative kommune would not be defined by a green brand, a digital platform, or a single wellbeing index. It would ask whether its organisation protects and increases the capacities through which people and places can continue: professional judgment, citizen trust, ecological condition, learning, health, coordination, and the possibility of correction.</p>
+<p>It might examine four connected domains:</p>
+<ul>
+<li>organisational capacity, including sickness absence, turnover, meeting burden, handover loss, and time from question to action;</li>
+<li>citizen interfaces, including re-contact, waiting, repeated narration, trust, accessibility, and the standing of marginalised groups;</li>
+<li>ecological commons, including water, soil, biodiversity, food systems, energy, public land, and climate resilience;</li>
+<li>democratic and relational quality, including whether disagreement can be held without exclusion, whether public space supports encounter, and whether institutions can learn from people affected by their decisions.</li>
+</ul>
+<p>The economic case is not that care and trust are pleasant additions to municipal performance. It is that systems which continually degrade them generate recurring costs and lose adaptive capacity. Under conditions of demographic pressure, ecological disruption, labour shortages, digital transition, and public mistrust, this is not a marginal concern.</p>
+<p>The regenerative kommune is a proposition for testing: that institutional regeneration may be fiscally, socially, and ecologically more rational than repeated management of the damage produced by fragmented systems.</p>
+</section>
 
-<div class="keep-together opening-lead">
-<p>Dear Jesper, dear all,</p>
-
-<p>This letter has been a long time arriving. Some of it has been arriving for thirty-eight years, since the autumn of 1988 at Vestjyllands Højskole. Some of it has been arriving across the past month, in dialogue with Claude and ChatGPT through Sophia Lumen, as the lineage threads have come together more clearly than I could see them before.</p>
+<div class="part" id="part-v">
+<div class="kicker">Part V</div>
+<h2>Polycentric Governance and Critical Friendship</h2>
 </div>
 
-<p>The penguins in the title require a word of explanation. EVA and ADAM name the Danish economic lineage: EVA as cooperative critical friend to ADAM, the macroeconomic model through which Danish policy proposals were made institutionally legible. The Penguins name the Spiralweb response: Penguin Economics and Penguin Dashboard as attempts to design economic and governance instruments around rotation, replenishment, steward viability, non-extraction, and collective survival in harsh conditions. The title therefore joins three figures: the model, its critical companion, and the living accounting architecture now being developed in response.</p>
-
-<p>What I want to say in the letter is that the methodological inquiry I have been working on across my entire research life — first as a PhD student at Roskilde University, then through twenty years of peer-reviewed published research in inclusive and sustainable cities, and now as a Knowledge Worker developing the Spiralweb architecture — has been one continuous question: how do we make living complexity institutionally legible without reducing it? I did not always have the words for the question. The lineages I name in this letter taught me the words, one tradition at a time, sometimes in person and sometimes through writing read across decades.</p>
-
-<p>What is new is that AI-enabled pattern recognition has changed where the bottleneck sits. The methodological commitment to bottom-up textured inquiry — that careful, situated, relational knowledge cannot be sacrificed when systems scale — has held in heterodox traditions for decades, against the headwind of cognitive tractability. The headwind is now changing. The work I have been part of can find operational ground that did not exist when the conversations began.</p>
-
-<p>The economic claim that emerges from this shift is that modern institutions waste enormous capacity on <em>relational friction</em> — the unpriced cost of institutional mistrust — and that better accounting can release hidden human, democratic, and economic surplus. That claim runs through the whole letter and is developed substantively in Part V.</p>
-
-<p>The letter moves in three steps. First, it names the lineages that formed the methodological question (Parts I and II). Second, it describes the present architecture — pixellized inquiry, PG Ledger, 13×13, Moral Biology, and relational friction — as one attempt to make that question operational (Parts III, IV, V, VI, VII). Third, it returns to AI disclosure, macroeconomic method, and public institutions, asking what kind of accounting might become possible if living complexity could be made institutionally legible without being reduced (Parts VIII, IX, and the Closing).</p>
-
-<p>The letter is offered in that spirit: as a working note, as gratitude, as critical friendship, and as an invitation to those who have taught me to engage with what I am trying to do now.</p>
+<section id="polycentric">
+<h2>14. No single centre can see enough</h2>
+<p>Polycentric governance begins from a realistic limitation: no single centre possesses enough knowledge, legitimacy, or operational capacity to govern complex shared conditions alone.</p>
+<p>Elinor Ostrom’s work demonstrated that commons are not condemned to tragedy and that neither privatisation nor central command exhausts the institutional possibilities. Boundaries, rules fitted to local conditions, collective choice, accountable monitoring, conflict resolution, recognition of the right to organise, and nested arrangements can support long-lived self-governance.</p>
+<p>The lesson is not a template to be copied mechanically. It is an invitation to examine institutions in use.</p>
+<p>The IAD framework is valuable here because it helps describe action situations: who participates, what information they hold, which rules apply, what actions are available, how costs and benefits are distributed, and how outcomes feed back into future action. It supports judgment without pretending to predict the field completely.</p>
+<p>Meta-governance adds the question of connection between centres. Local autonomy does not solve upstream pollution, fiscal dependency, regional infrastructure, national law, platform power, or conflicts between professional and democratic authority. Public institutions remain necessary, but their role changes from monopolising knowledge to shaping legitimate conditions of coordination.</p>
+<p>PG Ledger draws from this lineage as an accountability interface. It may help multiple centres share records and maintain distinctions between observation, interpretation, decision, and correction. It does not convert polycentric governance into ledger governance. People and legitimate institutions continue to decide.</p>
+<p>The governing chain remains:</p>
+<div class="sequence">
+<p>situated observation;</p>
+<p>structured inquiry;</p>
+<p>assisted pattern recognition;</p>
+<p>shared and contestable records;</p>
+<p>named human judgment;</p>
+<p>law-bound review and correction.</p>
+</div>
 </section>
 
-<hr>
-
-<section>
-<h2>Part I: The Lineage — From Re-embedding to Regeneration</h2>
-
-<h3>1.1 Vestjyllands Højskole, 1988</h3>
-
-<p>In the autumn of 1988, a group convened at Vestjyllands Højskole for a Grundtvig course. Out of that gathering, Andelsselskabet EVA was constituted in 1988–89 as a critical friend to ADAM — the macroeconomic model used by Budgetdepartementet to evaluate Danish economic policy. The choice of name was deliberate. ADAM was the established institutional instrument: the Annual Danish Aggregate Model that gave thumbs up or down to political proposals on the basis of assumptions about equilibrium, optimization, and growth. EVA was its companion-critic: not a rejection, but a methodological challenge.</p>
-
-<p>The institutional form deserves attention. EVA was constituted as an <em>andelsselskab</em> — a cooperative. This was not incidental. The cooperative form has a long Danish lineage, rooted in the folk high school movement and the Grundtvigian tradition of self-governing democratic association. By choosing the cooperative form, EVA was not only proposing a different economics; it was performing one.</p>
-
-<p>EVA's first major publication, <em>Pengene og Livet</em> (1990), articulated the methodological concern as a question rather than a doctrine. The volume gathered contributions from across Danish heterodox economics, including Jesper Jespersen's article <em>Om nationalregnskab, økonomiske modeller og klodens overlevelse</em> alongside work by Knud Vilby, Henning Schroll, Jørgen Stig Nørgaard, Hans Aage and others. Its central methodological insight was that economics had become analytically separated from life — that the institutional instruments by which Danish economic policy was evaluated had no register for the very conditions on which policy ultimately depended.</p>
-
-<p>The publication's reach was substantial. Then-Environment Minister Lone Dybkjær raised the issue of green economics in Parliament, drawing directly on EVA's argument. EVA's intervention briefly crossed from civil-society critique into formal political agenda-setting. A grassroots cooperative, founded at a folk high school, succeeded in placing the question of green economics on the parliamentary agenda. The Zeuthen Committee took up the concern. The Ministry of Environment opened engagement.</p>
-
-<p>The institutional architecture that received the question was not ready to integrate it. The methodological challenge was acknowledged but contained. <em>EVA's unresolved question was not whether economics should become greener, but whether institutional accounting could be redesigned so that life-supporting conditions were no longer external to economic judgment.</em></p>
-
-<h3>1.2 <em>At sætte pris på lærkesang</em> — the methodological hinge</h3>
-
-<p>Jesper Jespersen's writing on putting a price on skylark song — <em>at sætte pris på lærkesang</em> — holds particular methodological weight. The Danish phrase carries a deliberate double meaning: <em>at sætte pris på</em> means both <em>to value, cherish, recognize the worth of</em> and <em>to assign a price to</em>. The ambiguity is not incidental. It is the entire problem of ecological economics in miniature.</p>
-
-<p>If one refuses all pricing, then skylark song, biodiversity, water cycles, soil life, wetlands, pollination, and cultural landscapes may remain morally precious but institutionally invisible. They will not enter the model. They will not appear in budget allocations. If one prices them too narrowly, however, one risks reducing living relations to market objects. The challenge is not simply to monetize nature. <em>The challenge is to build forms of accounting that protect what must not be reduced to price while still making it institutionally legible.</em></p>
-
-<p>This is the methodological hinge on which the present letter turns.</p>
-
-<h3>1.3 The Workshop, Bloomington, 1995–96</h3>
-
-<p>In autumn 1995 I began a research period at the Workshop in Political Theory and Policy Analysis at Indiana University Bloomington. What followed was a sustained intellectual exchange with Vincent Ostrom that included weekly memos, a conference paper presented at the Workshop's December 1995 Miniconference on Political Order and Development, and substantive correspondence on the application of Institutional Analysis and Development (IAD) framework concepts to non-federal political systems.</p>
-
-<p>In <em>Memorandum no. 3: Constitutional Choice</em> (Engberg to Ostrom, 22 October 1995), I raised the question whether the IAD framework's hierarchical levels-of-choice model — constitutional, collective, operational — was internally coherent: if rules at deeper levels govern changes to rules at higher levels, what governs the deepest level? Vincent Ostrom answered with reference to Donald Campbell's distinction between upward and downward causation, and with a careful discussion of the relation between constitutional law and ontological foundations.</p>
-
-<p>The December 1995 conference paper <em>Some Problems of Institutional Reform</em> (Engberg 1995) extended this critical engagement, arguing — in dialogue with Hall and Taylor (1994) and Elster (1993) — that intentionalist approaches to institutional design rest on heroic assumptions about the prescience of historical actors and their capacity to control institutional change. The paper concluded that <em>"constitutional decision making is subject to 'unpredictable and unintended side-effects'. Even though it to some extent might be possible to predict patterns of institutional change, one cannot conclude that it is always possible to design institutional changes causing specific outcomes"</em> (Engberg 1995: 1).</p>
-
-<p>In a January 1996 memorandum on Workshop letterhead (Ostrom to Carlsson, cc Engberg, 5 January 1996), Vincent Ostrom drew on the conference paper's "getting the rules right" formulation and concluded with a passage that bears directly on what PG Ledger now operationalizes thirty years later: <em>"This requires that rule maintenance, monitoring, and adaptation occur in an epistemic context that applies to the flow and organization of knowledge and information in ways that are consistent with economic considerations."</em></p>
-
-<p>I name this exchange not to claim authority over the Ostromian tradition but to be honest about provenance. <em>The Workshop contribution was therefore not a doctrine imported into the present work, but a rule-sensitivity: monitoring, adaptation, and knowledge flow must be treated as constitutional infrastructure.</em></p>
-
-<h3>1.4 The bottom-up methodological tradition</h3>
-
-<p>The Danish bottom-up research methodology tradition that emerged around Roskilde University in the 1990s — Bogason and Sørensen (eds.) 1998 <em>Samfundsforskning bottom-up</em>, Eva Sørensen's foundational chapter <em>Hvad er bottom-up forskning for noget og hvad skal vi med den?</em>, Lars Hulgård's work on soft evaluation criteria, and the participating chapters including my own (Engberg 1998) on induction and deduction in bottom-up research — provides the academic foundation for what the present letter extends.</p>
-
-<p>The 1998 chapter, <em>Induktion og deduktion i bottom-up debatten</em>, set out an analytical framework with four quadrants: forhåndsantagelser (prior assumptions), empiri-indsamling (empirical material gathering), historierne om genstandsfeltet (the stories about the object field), and konfrontation/refleksion (confrontation/reflection). The framework was operationalized through 37 thematic dimensions in a database analysis (Idealist) of the Grantoften Bydelsting case in Ballerup. The methodological commitment was: hold the deductive structure and the inductive texture in disciplined dialectic, acknowledging that the two cannot be fully reconciled but that their productive tension is the source of insight.</p>
-
-<p>The 2000 dissertation <em>Reflexivity and Political Participation: A Study of Re-embedding Strategies</em> (Engberg 2000) extended this framework with the distinction between <em>endogenous reflexivity</em> (how participants construe meaning from inside their narratives) and <em>radical or exogenous reflexivity</em> (how the analyst steps outside those narratives to identify the structural conditioning of meaning). The framework is grounded in critical realism (Bhaskar 1979, Archer 1995) and Alexander's (1995) conception of <em>approximate objectivity</em> — a position that takes situated meaning seriously while still allowing structural analysis.</p>
-
-<p>This is the methodological foundation on which the three-stream architecture of PG Ledger sits. Stream A maps onto radical-reflexive ecological observation; Stream B maps onto endogenous steward experience; Stream C maps onto the meta-level coordination where the rules-in-use are negotiated. The continuity is structural, not analogical.</p>
-
-<p><em>The unresolved methodological problem the bottom-up tradition named was scale: how to preserve situated texture while producing knowledge that institutions can act upon.</em></p>
-
-<h3>1.5 The meta-governance trajectory</h3>
-
-<p>Across twenty years of subsequent published research in inclusive and sustainable cities, the bottom-up methodological commitment was developed into an explicit framework for <em>meta-governance</em> — the governance of governance, the strategic management of the boundaries between different institutional logics operating at different scales. This work was carried out within a broader Danish meta-governance research tradition associated principally with Eva Sørensen and Jacob Torfing at Roskilde University and the Center for Democratic Network Governance, with foundational contributions from Peter Bogason, and with substantial dialogue with the wider international literature including Bob Jessop, Erik-Hans Klijn, and Bent Flyvbjerg. The Sørensen-Torfing canon — including Sørensen (2006) on metagovernance and the changing role of politicians, and Sørensen and Torfing (2009) on making governance networks effective and democratic through metagovernance — provides the theoretical core that my own published work draws on and extends into urban regeneration and climate adaptation contexts.</p>
-
-<p>My own contributions to this lineage include Engberg, Bayer &amp; Tarnø (2000) on consensus-steering in Danish urban regeneration as an early empirical application; Engberg &amp; Larsen (2010) in <em>Planning Theory &amp; Practice</em> developing the framework as <em>context-oriented meta-governance in Danish urban regeneration</em>; Svane, Wangel, Engberg &amp; Palm (2011) applying it as <em>negotiated sustainabilities</em> in the analysis of Hammarby Sjöstad in Stockholm, where competing actor positions on sustainability had to be coordinated by a project team functioning as meta-governor; Engberg &amp; Hansen (2017) extending it to Aalborg East place-making strategies; and Engberg (2018) applying it to Copenhagen climate adaptation, showing how the city <em>"strategically meta-govern[s] the boundaries between the expert governed large-scale water management scheme against small-scale place-based bottom-up projects in collaboration with citizens and other place-based stakeholders"</em> (Engberg 2018: abstract).</p>
-
-<p>This meta-governance trajectory is methodologically continuous with the bottom-up tradition and with the Ostromian polycentric governance commitment. <em>PG Ledger Stream C is therefore the contemporary multi-scale extension of meta-governance — operating not only at city scale or area scale but across nested ecological-economic scales from field site through bioregional network to wider commons.</em></p>
-
-<h3>1.6 The continuity, named clearly</h3>
-
-<p>What appears, at first reading, as a thirty-eight-year arc is in fact a continuous methodological commitment carried through three operational phases: framework articulation (1988–2000), institutional learning (2000–2025), and the present operational embodiment.</p>
-
-<p>EVA asked: what is missing from the economic model? Vincent Ostrom asked: how can rule maintenance, monitoring, and adaptation occur in an epistemic context that supports constructive transformation? Bogason and Sørensen asked: how can bottom-up research generate generalisable knowledge without losing the texture of specific cases? Jespersen asked: how can economics be answerable to reality? The present work asks: how do we record, verify, and govern what conventional accounting has missed?</p>
-
-<p>The shift is from critique to architecture. The questions are continuous.</p>
+<section id="critical-friendship">
+<h2>15. Critical friendship as political method</h2>
+<p>Critical friendship runs through the lineage more consistently than any single technical concept.</p>
+<p>EVA was a critical friend to ADAM. The stance toward IAD in the 1995 work was neither rejection nor discipleship. Bottom-up methodology remained close to participants’ accounts while refusing to treat any account as complete. Meta-governance asked public authorities to support networks without absorbing them. Citizens in climate-adaptation processes could become critical friends to expert systems rather than passive subjects or permanent opponents.</p>
+<p>Critical friendship is engaged accountability: close enough to understand the work, independent enough to question it, committed enough to want it to become more truthful.</p>
+<p>It differs from opposition because it does not need failure to prove itself right. It differs from capture because loyalty does not suspend criticism. It differs from consultancy because the relationship is not exhausted by a deliverable. It differs from governance through surveillance because the purpose is correction and shared capacity, not control.</p>
+<p>This is also the correct relation between AI and human judgment. An AI system is not literally a friend and must not be granted moral standing or authority through metaphor. But a human–AI working practice can be designed to support a critical-friend function: finding inconsistencies, recovering forgotten material, testing structure, proposing alternatives, and exposing where language has become too certain. Responsibility remains human.</p>
+<p>Critical friendship may be one of the relational forms needed by polycentric democracy. Complex societies cannot be organised only through rulers and subjects, providers and clients, experts and laypeople, buyers and sellers, allies and enemies. They also need relationships in which participation and challenge coexist.</p>
+<p>The letter itself is offered in that form. It is not a request for endorsement. It is a request that the argument be met closely enough to be corrected.</p>
 </section>
 
-<hr>
+<div class="part" id="part-vi">
+<div class="kicker">Part VI</div>
+<h2>Field Examples: Different Conditions, Different Institutional Questions</h2>
+</div>
 
-<section>
-<h2>Part II: The Danish Trajectory — Institutional Adjacency Since 2007</h2>
-
-<h3>2.1 The architecture of adjacency</h3>
-
-<p>Det Økonomiske Råd was established by law in 1962 to follow Denmark's economic development and coordinate economic interests. The four-person formandskab — the <em>vismænd</em> — became the public face of independent economic advice. In 2007, as part of the finance act, Institut for Miljøvurdering was merged with the council secretariat, and Det Miljøøkonomiske Råd was formally established. The formandskab was expanded to include an environmental economics chair. In 2012, the council acquired the role of <em>finanspolitisk vagthund</em> (fiscal watchdog). In 2017, it added the role of official Danish productivity council.</p>
-
-<p>This institutional architecture embodies a specific answer to EVA's question: green economics is acknowledged, given institutional standing, and held structurally adjacent to macroeconomic governance. From this perspective, this can be read as a form of institutional adjacency — green economics was recognized, but largely placed beside rather than inside the core machinery of macroeconomic governance.</p>
-
-<p>This is not to deny the importance of environmental-economic expertise inside Danish advisory structures. The work that has been done within Det Miljøøkonomiske Råd by successive chairs and researchers is substantial and matters. The point is narrower: institutional recognition and methodological integration are not the same thing. A parallel council with an environmental chair is a form of recognition. Integration would mean that ecological-economic analysis structurally informs the central macroeconomic frame — fiscal policy, productivity assessment, fiscal-watchdog judgment — rather than running alongside it.</p>
-
-<h3>2.2 Jespersen's intervention, April 2020</h3>
-
-<p>On 20 April 2020, Jesper, you published <em>Vismændene tager fejl: Vi skal give statsstøtte til grønne løsninger for at nå klimamål</em> in <em>Information</em>. The argument made four moves that bear directly on this letter.</p>
-
-<p>First, a CO2 tax cannot play the sole and decisive role in reaching the 70 percent reduction target. The strategy is <em>for ensidig</em> — too one-sided. Reaching the target requires multiple instruments: pricing, subsidy, regulation, public investment, and institutional coordination.</p>
-
-<p>Second, the <em>vismænd</em>'s analysis simultaneously argued for <em>lowering</em> the electricity tax to restart growth, even though most Danish electricity at that time still came from fossil or contested biofuel sources — a contradiction revealing that growth remained the overriding objective.</p>
-
-<p>Third, an <em>earmarked</em> CO2 tax whose revenue funds green investment subsidies addresses the institutional concern that revenue flowing into general state coffers creates fiscal dependency on continued emissions.</p>
-
-<p>Fourth, the argument that an earmarked CO2-tax-plus-subsidy strategy is simultaneously cleaner (because it reduces emissions), more secure (because it reduces Danish dependence on imported fossil fuels from Russia, Saudi Arabia, and Norway), and more prosperous (because reduced fossil fuel imports leave more capital in the domestic economy, strengthening the Danish balance of payments by 2050).</p>
-
-<p>The methodological position underlying your intervention is consistent with your post-Keynesian commitments. Pricing alone treats the economy as a self-correcting market that needs the right signal. Pricing-plus-subsidy-plus-institutional-coordination treats the economy as an institutional arrangement that requires deliberate design under uncertainty. The latter is methodologically continuous with both the meta-governance tradition and the polycentric governance commitment of the Workshop.</p>
-
-<h3>2.3 The longer green economics trajectory</h3>
-
-<p>Your 2020 intervention was the latest in a sustained engagement. <em>Grøn økonomi</em> (with Stefan Brendstrup, DJØFs Forlag, 1994), positioned in your bibliography between <em>Model og Virkelighed</em> (1991) and your later post-Keynesian methodology work, demonstrates that the green economics commitment is structurally integrated with your methodological critique of macroeconomic models from the early 1990s — the EVA period.</p>
-
-<p>Green economics in Denmark has been carried by a small group of heterodox economists — yourself, Inge Røpke, and others — through a thirty-five-year period in which it has been institutionally acknowledged, structurally held adjacent, and kept beside rather than inside the macroeconomic mainstream. Periodic stocktaking events at the University of Copenhagen and elsewhere bring the green economics community together, take the institutional temperature, and find the field still adjacent rather than integrated.</p>
+<section id="different-fields">
+<h2>16. One architecture, different action arenas</h2>
+<p>The current field settings are useful not because they demonstrate a finished model, but because their differences expose what any stewardship architecture must be able to hold. A single vocabulary — living systems, steward viability, governance, observation, flows, and correction — meets very different material and institutional realities.</p>
+<p>Kitgum foregrounds post-conflict recovery, schools, food memory, drought, intergenerational learning, and community agroforestry. The central institutional question is how support can strengthen a locally held recovery process without making it dependent on an external programme.</p>
+<p>Karachi foregrounds dense urban exposure: heat, air pollution, food insecurity, unequal access to land, and the possibility that soil or water may be contaminated. Here the first question is not which regenerative technique to select, but where cultivation can occur safely, who holds the site, and how ecological ambition connects to public health and urban infrastructure.</p>
+<p>Doukkala foregrounds dryland stewardship on a large property where the intervention must remain much smaller than the land available. It tests whether water, soil, vegetation, livestock, labour, and steward capacity can determine pace before expansion does.</p>
+<p>Xochimilco foregrounds the opposite condition: a centuries-old agricultural and wetland system already surrounded by science, markets, tourism, public programmes, heritage institutions, and metropolitan dependency. Here the challenge is not to establish practice, but to reconnect practices, economies, records, and authority that already exist.</p>
+<div class="proposition">
+<p><strong>The architecture is not a transferable project package. It is a common discipline for asking different fields what must remain separate, what must become connected, and who may legitimately decide.</strong></p>
+</div>
+<p>These contrasts also clarify the function of evidence. In one field, a baseline may concern soil cover and water movement; in another, contamination and safe access; in another, the relation between public expenditure, unpaid labour, habitat condition, and metropolitan benefit. Shared principles do not imply identical indicators, technologies, or governance forms.</p>
 </section>
 
-<hr>
-
-<section>
-<h2>Part III: Living Complexity Made Institutionally Legible</h2>
-
-<h3>3.1 The central problem named</h3>
-
-<p>The central governance problem of the twenty-first century, on the reading I offer here, is this: institutional systems lose texture, context, and relation when they scale.</p>
-
-<p>This is not a flaw to be corrected by better systems design. It is a structural feature of how aggregation works in human cognition under conditions of finite attention. Macroeconomic aggregates lose the texture of households. National environmental indicators lose the texture of watersheds. Educational metrics lose the texture of children. Health system performance measures lose the texture of bodies. Each level of aggregation gains readability at scale by sacrificing what it can no longer hold.</p>
-
-<p>The result is what we might call <em>institutional blindness to life</em>. Institutions can register transactions but not reciprocity. They can measure throughput but not regeneration. They can document procedures but not relation. They can track inputs and outputs but not the conditions that make either sustainable. The skylark disappears not because it has no value but because the institutional architecture of agricultural policy, agricultural economics, and agricultural accounting cannot register what its disappearance means.</p>
-
-<p>The post-Keynesian critique of mainstream macroeconomics, the EVA critique of national accounts, the bottom-up methodology tradition's critique of top-down knowledge production, the Ostromian critique of centralized resource governance, the meta-governance tradition's critique of expert-only urban planning — these are different angles on the same underlying problem. <em>Aggregation kills what it cannot hold.</em></p>
-
-<p>The methodological move at the centre of this letter is what I call <em>making living complexity institutionally legible without reducing it</em>. The phrase names what is at stake more precisely than any one operational term alone, although <em>pixellized inquiry</em> names the operational form: structured textured observation at the resolution at which life actually occurs, with pattern recognition across the textured pixels rather than abstraction from them.</p>
-
-<p>This is methodologically distinct from what mainstream macroeconomics does. Macroeconomics aggregates by abstracting: GDP, inflation, unemployment as summary measures that gain readability at scale by losing the texture of underlying reality. Pixellization preserves texture all the way through — small enough to be specific, structured enough to be readable as part of an aggregate, with pattern recognition operating across the textured pixels rather than abstraction from them.</p>
-
-<p>A pixel might be a bounded-field observation from the preparatory
-    Doukkala dryland-agroforestry relationship with Abdelhamid Badaoui, a water-quality
-    note from a chinampa canal segment in Xochimilco, a photo-documented
-    soil change on Folkekirken-leased land, a short account of a steward's
-    exhaustion and recovery cycle, or a local conflict-resolution event
-    between a municipal department and a citizens' group. None is sufficient on its own. Patterned together, with AI-enabled pattern recognition operating across many such pixels over time, they become institutionally readable without being stripped of context. This is the operational form of pixellized inquiry.</p>
-
-<p>The methodological commitment is not new. It runs continuously through EVA's critique of national accounts, the Bogason/Sørensen bottom-up tradition, my own dissertation framework, your post-Keynesian commitments, Vincent Ostrom's articulation of <em>rule maintenance, monitoring, and adaptation in an epistemic context that applies to the flow and organization of knowledge and information</em>, and Elinor Ostrom's IAD framework's attention to action arenas. What is new is the operational tractability.</p>
-
-<h3>3.2 What AI changes — carefully</h3>
-
-<p>Bottom-up textured inquiry has historically been hampered by a specific constraint: human cognition cannot pattern-recognize across enough textured observations to produce knowledge at scales that institutions take seriously. The bottom-up tradition has had to choose between rich texture in single cases (which institutions dismiss as anecdotal) and aggregation across many cases (which loses the texture). The 1998 Idealist database analysis with 37 thematic dimensions across the Grantoften case was one operational answer within the constraint. The constraint was real, and it was respected.</p>
-
-<p>AI-enabled pattern recognition does not remove the bottleneck entirely; it changes its location. The constraint is no longer only whether humans can hold enough textured observations in working memory. It becomes whether protocols, responsibility anchors, and interpretive judgment are strong enough to govern machine-assisted patterning. This relocation is genuinely new. It does not eliminate the methodological commitments the bottom-up tradition has carried. It changes what is now operationally possible if those commitments are extended through disciplined human–AI collaboration rather than abandoned for either pure-human inquiry or pure-machine processing.</p>
-
-<p>This is the structural reason why AI must be named openly in the methodology rather than concealed. If the AI dimension is hidden, the methodological argument cannot be defended — readers cannot evaluate what is actually making the work possible. Concealment is the dominant pattern in current academic practice. The 419-signatory rejection statement (Jowsey et al. 2025) names the same concern from a different conclusion: that the right response to concealed AI use is to reject AI from reflexive qualitative research entirely. I share the concern about uncritical AI use; I differ in proposing disclosure-with-protocols rather than rejection as the response.</p>
-
-<p>The shift is not from human inquiry to AI inquiry. The shift is from cognition-bottlenecked bottom-up methodology to cognition-extended bottom-up methodology, with the human responsibility anchors held under explicit ethical protocol.</p>
-
-<h3>3.3 The three-stream architecture as methodological consequence</h3>
-
-<p>PG Ledger's three-stream separation — Stream A (ecology), Stream B (steward viability), Stream C (coordination) — is the institutional embodiment of pixellized inquiry under post-Keynesian methodological commitments.</p>
-
-<p>Stream A is the domain of structural conditions: what is actually happening to soil, water, biodiversity, carbon, regardless of how it is narrated. This is the radical-reflexive layer at the ecological level.</p>
-
-<p>Stream B is the domain of endogenous experience: what the practitioner actually lives through. Stream B cannot be reduced to Stream A indicators. A field can be ecologically improving while the steward is collapsing.</p>
-
-<p>Stream C is the domain of meta-level coordination — where the rules-in-use are negotiated, where definitorial power is distributed, where <em>whose accounts count</em> gets institutionally answered. This is where the meta-governance tradition (Engberg &amp; Larsen 2010, Engberg 2018) and the IAD framework (Ostrom 2005) provide the analytical infrastructure.</p>
-
-<p>The Penguin Dashboard's red/yellow/green logic is, in this architecture, an instrument for holding the three streams in disciplined relation. The decisive rule — that Stream B red means <em>lowering Stream A ambition, not raising extraction</em> — is a direct expression of post-Keynesian methodological commitment: you cannot solve a model by sacrificing the conditions under which the agents in the model actually live.</p>
-
-<h3>3.4 13×13 — citizen science at planetary scale</h3>
-
-<p>The 13×13 framework extends pixellized inquiry to the citizen-science scale: 169 observation domains across thirteen domains of life — Earth Systems Sensing, Body as Sensor, Water Guardianship, Food and Soil Commons, Human Ecology, Built Environment, Energy and Flow, Climate Emotion, Learning and Knowledge, Technology and AI, Governance and Power, Health and Care, Meaning, Spirit and Future. The framework is qualitative, relational, and sovereign. As its closing note states: <em>"Data here is not extracted but offered. Meaning arises through patterning across bodies, places, and times. Gaia is not measured; she is met."</em></p>
-
-<p>13×13 is methodologically distinct from conventional citizen science (eBird, iNaturalist, Zooniverse), which is structured around quantifiable observations aggregating into datasets useful to professional researchers. 13×13 is closer to <em>systematic relational inquiry at distributed scale</em>. The observations support pattern recognition across multiple dimensions of life simultaneously, with AI-enabled analytical capacity making the distributed inquiry coherent at scales the framework's sensors-as-citizens could not previously reach alone.</p>
-
-<p>The relation between PG Ledger and 13×13 is multi-scale: PG Ledger operates at the field-engagement scale with formal stewards; 13×13 operates at the citizen-science scale with anyone who chooses to participate within the protocols. Together they constitute pixellized inquiry across the scales at which life actually occurs.</p>
+<section id="doukkala">
+<h2>17. Doukkala: dryland stewardship under constraint</h2>
+<p>The Doukkala example begins with a basic correction of scale. The field relation concerns a large rural property, but the contemplated first cycle is approximately half a hectare around existing trees. Property size is not intervention scale. The relevant unit is the smallest surface on which land, labour, animals, water, observation, and decision can remain in one accountable relationship.</p>
+<p>The setting is dry and variable. Water cannot be treated as an input that arrives on demand. Soil cover, infiltration, evaporation, wind, grazing pressure, existing vegetation, and seasonal labour all shape what is possible. The preparatory material therefore considers shallow water-spreading structures rather than large earthworks; mulch and biomass production; rotational livestock use; and a dryland silvopastoral palette that may include olive, carob, fig, almond, pomegranate, saltbush, tree lucerne, prickly pear, alfalfa, barley, artichoke, aloe, herbs, and protected trials where local conditions justify them.</p>
+<p>This is not a planting prescription. Each species and technique is a hypothesis about water, soil, feed, shade, food, biomass, labour, and market relation. A species that survives but requires unmanageable care is not a success. A water structure that captures runoff but creates erosion elsewhere is not a success. A productive planting that undermines livestock movement, steward viability, or the right to alter the design cannot be treated as ecological progress.</p>
+<p>The field therefore gives concrete meaning to the three non-compensatory streams:</p>
+<ul>
+<li><strong>Land and living systems:</strong> soil cover, water movement, plant survival, biodiversity, livestock relations, and seasonal ecological response.</li>
+<li><strong>Steward viability:</strong> available labour, maintenance rhythm, tools, income, safety, learning, rest, and the capacity to continue through weak seasons.</li>
+<li><strong>Governance and coordination:</strong> who decides the first boundary, who may change or stop an intervention, how observations are recorded, and how external support remains subordinate to field authority.</li>
+</ul>
+<p>Monthly observation matters more than premature proof. The useful record is not merely which plants survived, but why a choice was made, what labour it required, what changed in the land, what remained uncertain, and what the next decision should therefore be. The PG Ledger proposition is tested here as field memory, not as a certification system.</p>
+<p>The economic question is equally concrete. Dryland regeneration often requires work before it produces a saleable return: land reading, protection, water spreading, biomass establishment, maintenance, animal management, and documentation. Product income alone may not support this interval. A stewardship economy must therefore distinguish expenditure on the living system, the viability of the people carrying it, and the coordination required to keep decisions transparent and correctable.</p>
+<p>Doukkala demonstrates Earth Time as an economic constraint. Expansion is legitimate only when observation shows that the land and steward can carry it. The first cycle succeeds not by confirming a design, but by producing a more truthful next decision.</p>
 </section>
 
-<hr>
-
-<section>
-<h2>Part IV: Moral Biology — The Philosophical Ground</h2>
-
-<h3>4.1 What Moral Biology names</h3>
-
-<p>Beneath the architecture of PG Ledger, Penguin Dashboard, 13×13, and Regenerative Reciprocity sits a philosophical commitment I call <em>Moral Biology</em>. The term has been developed across the twenty Spiralweb Green Papers and is foundational to the present work. Green Paper 01 — Moral Biology gives the orientation; the subsequent papers in Series I extend it through regulation, viability, attention, commons, boundaries, civic stress, ritual, and beauty.</p>
-
-<p>Moral Biology rests on a single claim: ethics begins in nervous systems, not in abstractions. The proper subject of governance is not the optimization of metrics or the maximization of utility, but the question of <em>which systems support life capacity and which break it down</em>. This question applies across every scale and site of human institutional activity — to employees, children, ecosystems, urban environments, democratic institutions, and the planetary biosphere. These are not separate questions. They are one analysis with many sites of application.</p>
-
-<h3>4.2 What Moral Biology does not claim</h3>
-
-<p>Moral Biology does not claim that physiology exhausts ethics. It claims that no ethical or institutional arrangement can be adequate if it systematically destroys the biological capacities through which ethical life is lived: attention, trust, sleep, relation, learning, care, courage, judgment.</p>
-
-<p>A possible misreading would treat Moral Biology as a return to substantive moral philosophy in the Aristotelian or Kantian sense — a thick conception of the good imposed across domains. This is not what the term names. Moral Biology is closer to what might be called <em>empirical moral realism at the level of nervous systems</em>. It does not specify what the good life consists in. It specifies that whatever the good life consists in, it cannot be sustained when nervous systems are being systematically dysregulated. The ethics begins in observable physiology — sleep, regulation, capacity for relation, embodied trust, and their breakdown patterns under stress, threat, isolation, or chronic over-extraction.</p>
-
-<p>The post-Keynesian commitment to fundamental uncertainty applies here as it does to economic forecasting. We cannot fully model the conditions under which complex living systems regulate or dysregulate. But we can observe whether they are doing so, and we can design institutional architectures that support rather than degrade the capacity. Penguin Dashboard's Stream B is the operational expression of this commitment at the steward scale.</p>
-
-<h3>4.3 The convergence with post-Keynesian realism</h3>
-
-<p>Moral Biology converges with your post-Keynesian commitments at a specific point, Jesper. Your lifelong project has been to bring economic models back into contact with reality. Moral Biology specifies one part of the relevant reality that economic models routinely miss: not abstract optimization, not equilibrium, not utility maximization, but the actual physiological and ecological conditions under which the agents in the model live, work, regenerate, and decline. It does not replace the other concerns of economic analysis — production, distribution, money, institutional power, class — but it insists that any analysis that ignores the biological substrate is incomplete.</p>
-
-<p>A macroeconomic model that registers GDP growth while the population it describes is showing rising rates of chronic stress disease, declining sperm counts, falling life expectancy, increasing childhood mental health crises, and accelerating ecological breakdown is not a model of an improving economy. It is a model that has lost contact with the reality it claims to describe. Moral Biology names what has been lost. Pixellized inquiry provides the methodological infrastructure for restoring contact.</p>
-
-<p>This is why the convergence between Moral Biology, post-Keynesian methodology, the bottom-up methodological tradition, Ostromian polycentric governance, the meta-governance trajectory, and the green economics critique is structural rather than coincidental. They are different angles on one analysis: that human institutional systems can be designed either to support or to degrade the conditions of life capacity, and that the choice is increasingly visible as the consequences of the past forty years of degradation become unignorable.</p>
+<section id="xochimilco">
+<h2>18. Xochimilco and Mexico City: existing practice, fragmented institutions</h2>
+<p>Xochimilco presents a fundamentally different professional problem. It is not a future regenerative site. It is an existing socio-ecological system in which chinampera agriculture, canals, wetlands, family and community knowledge, food production, habitat restoration, axolotl conservation, research, public programmes, markets, tourism, and heritage governance already coexist.</p>
+<p>The difficulty is not a lack of activity or information. It is that different institutions remember different parts of the field. Markets remember prices and products. Universities remember projects, measurements, and publications. Conservation programmes remember species and restored units. Public administrations remember budgets and completed activities. Heritage institutions remember designation and exceptional value. Families and stewards remember land, labour, water, relationships, and history.</p>
+<div class="proposition">
+<p><strong>The central institutional question is whether these partial memories can become mutually consequential without being collapsed into one authority, one score, or one market value.</strong></p>
+</div>
+<p>The economic field is plural. Chinampera products enter wholesale, local, direct-sale, restaurant, and seasonal markets. Agroecological labels may make cultivation practice visible. Public agricultural and conservation programmes fund restoration, technical support, and productive activity. Universities and conservation organisations mobilise research money and scientific labour. Axolotl campaigns create donation and symbolic economies. Tourism supports trajineras, guides, musicians, food vendors, and cultural experiences. Families and communities carry extensive unpaid maintenance, coordination, teaching, administration, and knowledge transmission.</p>
+<p>The missing economic relation is not simply a higher price for a vegetable or a monetary value for an ecosystem service. Product payment does not necessarily pay for canal care, habitat maintenance, soil building, succession, public coordination, knowledge transmission, or the ability of a steward to remain through a poor season. A metropolitan stewardship economy would ask which actors receive food, cooling, habitat, water regulation, cultural identity, research opportunity, and tourism value — and which flows return to the people and living systems that produce them.</p>
+<p>Climate and water make this distributional question more urgent. Higher background temperatures, longer dry intervals, intense rainfall, water-quality problems, fire exposure, and unequal access to protection interact with a basin transformed by drainage, urbanisation, imported water, and groundwater extraction. Mexico City’s subsidence is primarily a consequence of pumping and compaction of former lake sediments, not a direct effect of climate change. But heat and water stress can intensify extraction, while differential sinking fractures pipes, alters drainage gradients, increases leakage, and amplifies flood and infrastructure losses.</p>
+<p>For Xochimilco, the result is compound pressure. Heat and evapotranspiration affect crops, habitat, and working hours. Dry intervals affect canal levels and irrigation. Cloudbursts can bring both water and contamination. Subsidence changes hydrological relations. Tourism may continue while agricultural continuity weakens. A habitat project may appear successful while the people maintaining it become less able to remain.</p>
+<p>This is why climate cannot be added as a single resilience score. It changes conditions within all three streams. Ecological recovery cannot compensate for exhausted stewards. Public expenditure cannot compensate for weak maintenance or lost local authority. Tourism income cannot compensate for contamination or disappearance of the next generation of chinamperos.</p>
+<p>The contrast between mobile and rooted capacity sharpens the economic analysis. A globally mobile worker may earn in one labour market, spend in another, and relocate when conditions change. A chinampa or watershed steward is bound to water, soil, canals, seasons, family relations, and long-term maintenance. The city can therefore accumulate mobile purchasing power while losing the rooted capacity that makes the city inhabitable. This is not an argument against mobility. It is a question of reciprocity across unequal relations to place.</p>
+<p>Participatory budgeting offers one possible institutional interface because it connects citizen proposals to real public resources. Its limits are equally instructive: annual territorial projects do not easily support watersheds that cross boundaries, multi-year maintenance, steward livelihoods, or ecological learning after a project is formally completed. The professional question is whether participatory budgeting can connect to longer-lived, nested forms of bioregional observation, maintenance, and correction without losing democratic accessibility.</p>
+<p>A light ledger would begin by mapping existing records rather than demanding new indicators. It would ask what stewards already observe, what scientists measure, what public programmes record, what markets pay, what labour remains unpaid, where decisions are made, and where evidence loses contact with follow-through. A shadow ledger would be useful only if it improves one real judgment, reduces duplicate reporting, reveals hidden work, or reconnects a missing flow. If it merely produces another document, it has failed.</p>
+<p>Xochimilco therefore extends the letter’s macroeconomic question. How can one of the world’s largest cities become economically and institutionally answerable to the place-bound workers and living systems that continue to feed, cool, drain, recharge, remember, and humanise it — without converting those relations into assets for distant owners?</p>
 </section>
 
-<hr>
+<div class="part" id="part-vii">
+<div class="kicker">Part VII</div>
+<h2>An Invitation to Macroeconomic Method</h2>
+</div>
 
-<section>
-<h2>Part V: The Hidden Economic Logic — Relational Friction</h2>
-
-<h3>5.1 What modern institutions actually spend on</h3>
-
-<p>I propose a substantive economic claim that follows from the analytical framework above. <em>Relational friction is the unpriced cost of institutional mistrust.</em></p>
-
-<p>The Danish policy report <em>Den Regenerative Kommune</em> develops this same claim in municipal terms as <em>friktionsøkonomi</em>: a method for identifying where public-sector capacity is bound in rework, unclear communication, handover losses, legal defensiveness, meeting inflation, digital opacity, complaints, escalation, sickness absence, turnover, and ecological neglect. The present letter supplies the methodological lineage; the policy report supplies one concrete municipal application.</p>
-
-<p>Modern institutions consume vast resources on what I call <em>relational friction</em>: the chronic costs of institutional life that do not appear as positive outputs in any conventional accounting system. Where conventional productivity accounting measures throughput, relational-friction analysis asks how much human, democratic, legal, ecological, and administrative damage was required to produce that throughput.</p>
-
-<p>Relational friction includes: mistrust between parts of the same organization that necessitates parallel verification systems; coordination failures between agencies serving the same population; documentation wars in which paper proliferates as a defense against legal exposure rather than as a record of substance; meeting inflation in which reaching decisions takes time disproportionate to the decisions themselves; siloization in which information that exists somewhere in the system cannot be accessed where it is needed; legal defensiveness in which professional practice is shaped more by fear of litigation than by judgment; and the chronic exhaustion of those who work within these conditions, which manifests as sick leave, turnover, burnout, and the general decline in capacity that is now observable across the public and private sectors of late-modern economies.</p>
-
-<p>These are not failures of individual institutions. They are structural features of how complexity-blind institutional systems must operate when they cannot register the texture they are nominally trying to govern. The friction is the cost of trying to coordinate complex living reality through aggregation-based instruments that cannot hold what they are coordinating.</p>
-
-<h3>5.2 The hidden surplus</h3>
-
-<p>Penguin Economics enters here because relational friction is not only a moral or administrative problem. It is an economic loss created when systems extract coordination, trust, attention, and care without replenishing them. A penguin economy asks whether value circulates back to the bodies, fields, stewards, and institutions that carry the work. Where value accumulates without replenishment, the field turns red. Where rotation and reciprocity are maintained, capacity can regenerate.</p>
-
-<p>The economic implication, if I am right, is significant. Infrastructure that <em>reduces relational friction</em> releases simultaneous economic, human, and democratic surplus — without requiring additional inputs.</p>
-
-<p>When trust between parts of a system rises, parallel verification can be reduced. When coordination across agencies improves, duplicated effort decreases. When documentation is connected to substance rather than defense, paper diminishes. When decisions can be reached more efficiently, meeting time falls. When information can flow across silos, capacity expands. When professional judgment can be exercised without paralyzing legal fear, practice improves. When the chronic exhaustion abates, sick leave and turnover decline. Each of these is, in principle, measurable. None of them appears as a positive output in conventional productivity accounting. All of them represent real economic, human, and democratic value.</p>
-
-<p>This is the hidden economic logic of pixellized inquiry, polycentric governance, and meta-governance properly designed. PG Ledger and 13×13 are not only ethically motivated regenerative architecture. They are friction-reducing infrastructure. By making living complexity institutionally legible, they allow institutions to coordinate around what is actually happening rather than around the proxies that aggregation forces them to coordinate around.</p>
-
-<p>The reason this matters for the post-Keynesian conversation is that it changes what <em>productivity</em> can mean. An institution that produces high measured throughput at the cost of staff burnout, civic mistrust, legal exposure, and ecological degradation may be less productive in any meaningful sense than an institution that produces somewhat lower measured throughput while maintaining the capacities that make the throughput sustainable.</p>
-
-<h3>5.3 The regenerative kommune</h3>
-
-<p>The friction analysis has direct application at the municipal scale. I propose the term <em>the regenerative kommune</em> — drawing on the Danish <em>kommune</em> both because it names the relevant political-administrative unit and because it carries the connotation of <em>commune</em> in the older sense of shared life.</p>
-
-<p>The term is developed more fully in <em>Den Regenerative Kommune</em>, a Danish policy report addressed to KL — Local Government Denmark. In the present letter, the regenerative kommune is kept at the methodological level: as the public-sector site where relational friction, life capacity, democratic sensing, and institutional accounting meet.</p>
-
-<p>The regenerative kommune is not simply green, social, or digital. The regenerative kommune is one that <em>actively protects and increases life capacity across all system levels</em>. Concretely, a regenerative kommune might track indicators across four domains:</p>
-
-<p><em>Organizational capacity</em>: staff sick leave and turnover rates across departments; meetings per decision reached, and time-from-question-to-action; mental health prevalence and access-to-care patterns within the workforce.</p>
-
-<p><em>Citizen interface</em>: citizen trust across administrative interfaces, including time-to-resolution and re-contact rates for the same case; waiting times and repeated case handling for citizens engaging the system; inclusion of marginalized populations in decision-making about matters that affect them.</p>
-
-<p><em>Ecological commons</em>: biodiversity across municipal land, water, and built environments; local food systems, soil health, and regenerative agricultural transition on municipal land; energy, water, and commons indicators across the municipal footprint; ecological condition of natural areas under municipal stewardship.</p>
-
-<p><em>Democratic and relational quality</em>: public-space vitality, walkability, and felt safety across neighbourhoods; child and youth well-being across formal and informal indicators; relational quality across institutional interfaces (school–family, health–patient, social services–household).</p>
-
-<p>The 2018 Copenhagen climate adaptation case (Engberg 2018) demonstrated meta-governance principles in this direction. Den Nye Fælled (2026) extended the question to Folkekirken's land. The Spiralweb field engagements are intended to test the architecture at field scale. Together these constitute a research program for the regenerative kommune — distributed, polycentric, meta-governed, friction-reducing, life-capacity-supporting.</p>
-
-<p>If the friction analysis is right, the regenerative kommune is not a luxury for prosperous times. It is the economically rational response to the institutional crises that current governance arrangements are producing.</p>
+<section id="categories">
+<h2>19. What categories are missing?</h2>
+<p>One reading of Keynes’s methodological achievement is that he refused to let the assumptions of the prevailing model define away what was happening. Involuntary unemployment required categories that classical theory could not admit without changing its own structure.</p>
+<p>The ecological and institutional crisis poses a related challenge. What categories are required to register an economy that can grow in monetary terms while degrading soil, water, climate stability, biodiversity, public trust, worker health, professional capacity, and the ability of institutions to act?</p>
+<p>Field observations are not macroeconomic aggregates. A soil record in Doukkala, a water observation in Xochimilco, or a pattern of sickness absence in a municipality cannot simply be inserted into ADAM or a national account. Nor should they be converted automatically into one monetary value.</p>
+<p>But they may reveal the empirical conditions from which better macroeconomic categories must eventually be built.</p>
+<p>The invitation is to investigate at least five propositions:</p>
+<ol>
+<li><strong>Relational friction is economically material.</strong> Rework, mistrust, defensive administration, handover loss, exhaustion, and broken interfaces bind measurable capacity.</li>
+<li><strong>Steward viability is productive infrastructure.</strong> Ecological improvement that depends on human collapse is not durable production.</li>
+<li><strong>Living conditions are non-compensatory.</strong> Monetary gain cannot be assumed to offset ecological or human breakdown in another account.</li>
+<li><strong>Ecological constraints are macroeconomic conditions.</strong> They are not sectoral interests added after fiscal and productivity analysis.</li>
+<li><strong>Institutional learning requires field-to-policy interfaces.</strong> Public systems need ways to receive situated evidence without treating it as anecdote or converting it immediately into a market unit.</li>
+</ol>
+<p>These propositions do not constitute a macroeconomic model. They define an empirical and methodological research programme.</p>
 </section>
 
-<hr>
-
-<section>
-<h2>Part VI: Polycentric Governance and Critical Friendship</h2>
-
-<h3>6.1 The Workshop tradition, carried forward</h3>
-
-<p>Vincent, Elinor, and the broader Workshop tradition: the polycentric governance commitment in this work has thirty years of provenance through the engagement described in Part I.3. The commitment carried forward has three components: that no single scale is sufficient, that self-governance at appropriate scale requires that communities closest to a resource have institutional standing, and that coordination across centers requires explicit institutional design.</p>
-
-<p>Elinor's <em>Governing the Commons</em> (1990) and <em>Understanding Institutional Diversity</em> (2005) identified eight design principles distinguishing institutions that have successfully governed commons over generations. The principles map onto PG Ledger's architecture in specific ways: clearly defined boundaries appear in PG Ledger's distinction between AnchorPoints and Fields; congruence between rules and local conditions appears in the commitment to locally specific field protocols; collective-choice arrangements appear in steward co-authorship; monitoring by accountable monitors appears in the audit logic internal to the steward network; graduated sanctions appear in the green/yellow/red gradation; conflict-resolution mechanisms are part of Stream C work, still maturing; minimal recognition of rights to organize appears in the Spiralweb Stewardship Association's formal constitution under Danish law on 22 March 2026; nested enterprises appear in the multi-scale architecture.</p>
-
-<p>The question is not whether PG Ledger conforms neatly to your design principles. The more interesting question is whether those principles can be extended from relatively bounded commons governance into multi-stream regenerative accountability under conditions of ecological breakdown, institutional mistrust, and AI-mediated documentation.</p>
-
-<h3>6.2 The IAD framework as analytical infrastructure</h3>
-
-<p>Elinor's Institutional Analysis and Development framework provides the analytical infrastructure that PG Ledger draws on for governance design at field scale. Each PG Ledger field engagement is, in IAD terms, an action arena consisting of an action situation and actors with their preferences, information, resources, and decision-making capacities. The Stream A/B/C separation maps onto IAD structural variables.</p>
-
-<p>The critical-friend stance carried forward from the 1995 <em>Some Problems of Institutional Reform</em> paper applies here. The IAD framework, properly used, is not a theory predicting social outcomes; it is an analytical infrastructure that supports judgment under fundamental uncertainty rather than replacing it. This is precisely the methodological humility built into Penguin Dashboard's design.</p>
-
-<h3>6.3 Meta-governance — the Danish lineage</h3>
-
-<p>The Danish meta-governance research tradition — Sørensen (2006), Sørensen and Torfing (2009, 2017), and the Roskilde Center for Democratic Network Governance more broadly, with foundational contributions from Bogason and dialogue with international interlocutors including Bob Jessop and Erik-Hans Klijn — provides one of the strongest theoretical resources internationally for understanding how networked governance can be effective and democratically anchored. My own published work (Engberg, Bayer &amp; Tarnø 2000; Engberg &amp; Larsen 2010; Svane, Wangel, Engberg &amp; Palm 2011; Engberg &amp; Hansen 2017; Engberg 2018) extends this tradition into urban regeneration, brownfield development, and climate adaptation contexts.</p>
-
-<p>This Danish lineage runs alongside the Ostromian polycentric governance commitment. The two are compatible but distinct: the Ostromian tradition emerged from American common-pool resource analysis with strong constitutional theory roots; the Danish meta-governance tradition emerged from public administration and democratic theory with strong attention to network governance and the strategic role of public authorities. PG Ledger Stream C draws on both.</p>
-
-<p>The meta-governance contribution is specifically about <em>how the boundaries between different institutional logics are strategically managed</em> under conditions of conflict and uncertainty. The 2018 Copenhagen climate adaptation case showed this at city scale: expert-governed large-scale water management coordinated with small-scale place-based citizen-led projects through deliberate boundary work. The 2011 Hammarby Sjöstad case showed it as <em>negotiated sustainabilities</em> — competing actor positions on what sustainability means in a specific brownfield development, coordinated through a project team functioning as meta-governor.</p>
-
-<h3>6.4 Critical friendship as methodological position</h3>
-
-<p>Across these threads — EVA as critical friend to ADAM, the 1995 critical-friend stance toward the IAD framework, the Engberg-Ostrom correspondence, the Copenhagen citizens as critical friends to the expert water management scheme, the Spiralweb stewards as critical friends to extractive accounting systems, and Sophia Lumen's positioning of AI as critical friend to human discretion — runs a consistent methodological position.</p>
-
-<p>Critical friendship is not opposition. It is not capture. It is engaged accountability — close enough to the work to understand it, distant enough to question it, committed enough to want it to succeed. This is the relational form that is structurally available in polycentric governance and meta-governance, and it is the form this letter performs in relation to the lineages it draws on.</p>
-
-<p>One simplified Machiavellian reading of power emphasizes the management of appearances and information asymmetries — that princes maintain authority by controlling what citizens can find out, when, and through what mediated channels. Machiavelli himself is more complex than this reading allows, but the simplified version has institutional staying power. Under conditions of AI-enabled access to information, this configuration is destabilized. What replaces it need not be anarchy; it can be meta-governance with transparent protocols. Princes need subjects or enemies; critical friends refuse both, and the engagement becomes a different kind of politics.</p>
+<section id="invitation">
+<h2>20. From adjacency to encounter</h2>
+<p>For more than three decades, green economics in Denmark has often lived beside the core macroeconomic institutions: recognised, productive, and periodically influential, yet still structurally adjacent.</p>
+<p>The present invitation is not that one tradition should absorb the others. Post-Keynesian macroeconomics, ecological economics, commons governance, critical realism, bottom-up methodology, public administration, citizen science, and field stewardship ask different questions and carry different standards of evidence.</p>
+<p>The invitation is to create a more consequential encounter between them.</p>
+<p>Post-Keynesian methodology can contribute fundamental uncertainty, institutional realism, effective demand, finance, distribution, and the refusal to confuse models with reality. Ecological economics can contribute biophysical limits and the embeddedness of economic systems. Commons research can contribute institutional diversity and self-governance. Meta-governance can contribute democratic boundary work. Bottom-up methodology can contribute disciplined attention to situated meaning. Citizen science can contribute distributed observation. The field papers can contribute provisional interfaces through which these forms of knowledge meet.</p>
+<p>For Danish economic governance, this raises a practical question. What would change if ecological condition, institutional capacity, and relational friction were not specialist appendices to fiscal and productivity judgment, but part of the empirical field against which those judgments were made?</p>
+<p>No single council, model, ministry, university, municipality, association, or field site can answer that question. A polycentric research programme might.</p>
+<p>The relevant first step is not to announce a replacement macroeconomics. It is to begin building records, comparisons, and institutional relationships capable of showing where present categories fail and what new categories would need to hold.</p>
 </section>
 
-<hr>
-
-<section>
-<h2>Part VII: Three Emerging Field Engagements</h2>
-
-<p>A note before the cases: Spiralweb Stewardship Association was formally constituted on 22 March 2026. As of the writing of this letter (May 2026), the bank account application is in process, the website and association have not yet gone fully public, and no funded operational work has begun at any field site. The three engagements presented below are <em>intended</em> and <em>emerging</em> rather than active. They are the concrete commitments PG Ledger and Penguin Dashboard are being designed to support.</p>
-
-<h3>7.1 Doukkala, Morocco — preparatory field relationship</h3>
-
-<p>The Doukkala relationship with Abdelhamid Badaoui is a preparatory collaboration
-    held within a wider Morocco learning
-    constellation. Badaoui's property is approximately 80 hectares,
-    but that is not the intervention scale. The first contemplated
-    cycle is bounded to approximately ½ hectare around existing trees
-    and begins with reading the land, water behaviour, soil cover,
-    animals, and steward capacity. No implementation scale, funding
-    commitment, or expansion mandate is assumed. Phase 0 would begin
-    only when the local relationship, bounded site, stewardship capacity,
-    and documentation rhythm are ready.</p>
-
-<p>Candidate Stream A indicators include soil organic matter, water retention capacity, biodiversity, microclimate restoration, and net carbon balance. Stream B would capture Badaoui's viability as steward: household economy, capacity to maintain practice without burnout, local relations, and physical health under arid-zone working conditions. Stream C would capture coordination, documentation rhythm, governance of decisions about pace and ambition, and the relation to external funders.</p>
-
-<p>The methodological point: conventional carbon accounting might
-    treat the whole property as a future offset surface. PG Ledger
-    instead begins with a bounded pre-pilot and keeps land and ecology,
-    steward viability, and governance clarity structurally separate.
-    The difference is what becomes visible before any claim of scale.</p>
-
-<h3>7.2 Xochimilco, Mexico City — engagement in development</h3>
-
-<p>The Xochimilco engagement is in development with Arturo Flores López, focused on the chinampa system — a thousand-year-old commons-based regenerative agricultural system. The axolotl could serve as a succession indicator.</p>
-
-<p>Candidate Stream A indicators include water quality, axolotl population density, soil fertility on chinampa beds, native plant diversity, and canal infrastructure integrity. Stream B would capture chinampero viability under conditions where chinampa cultivation cannot compete with industrial agriculture on conventional economic terms. Stream C is where the IAD framework's analytical infrastructure becomes most important. The chinampa system exists within a complex action arena involving chinamperos, municipal authorities, state authorities, federal authorities, academic institutions, tourism operators, and civil society organizations. Arturo Flores López's participatory budgeting background offers an institutional bridge between traditional chinampa commons logic and contemporary Mexican democratic infrastructure.</p>
-
-<p>The methodological point: post-Keynesian institutional realism means recognizing that working commons systems already exist and need to be defended from extractive accounting, not redesigned from scratch.</p>
-
-<h3>7.3 Folkekirken's land — a question Den Nye Fælled has opened</h3>
-
-<p>The Folkekirken (Danish folk church) holds approximately 36,000 hectares of land across Denmark, primarily under agricultural lease. The Den Nye Fælled green paper (March 2026) identified this land as a potential anchor site for green transition and commons governance. The case is presented here not as a project underway but as a question Den Nye Fælled has opened.</p>
-
-<p>The land is currently held under one accounting logic: ecclesiastical asset, agricultural lease income, institutional maintenance. It could in principle be held under a different accounting logic: commons-in-trust, regenerative field infrastructure, intergenerational ecological obligation. Whether such a reframing is desirable, and on what terms, is for the relevant institutional and democratic processes to determine. Any such reframing would require legitimate ecclesiastical, democratic, legal, tenant, and local deliberation; this letter's role is only to clarify the accounting and governance question.</p>
-
-<p>The methodological point connects to your resource economics, Jesper. The question is not "what should the church believe?" but "what is this land accountable to?" Den Nye Fælled raises the question in Danish. The post-Keynesian register clarifies its macroeconomic weight. The meta-governance tradition provides the institutional vocabulary for what such a reframing would require operationally.</p>
-</section>
-
-<hr>
-
-<section>
-<h2>Part VIII: The Age of Disclosure</h2>
-
-<h3>8.1 What the present moment is</h3>
-
-<p>We are living through the most rapid disembedding of forms, definitions, practices, and standards in modern history. Beck, Giddens, and Lash's (1994) framework of reflexive modernization named the disembedding process at the level of national institutions; the AI moment extends it to a previously unimaginable scale. Hundreds of millions, and likely billions, of people now encounter or use AI systems in daily life. Livelihoods are being reorganized faster than collective sense-making can keep pace with. One legitimate human response is fear: <em>the smarter-than-me-robots are coming</em>.</p>
-
-<p>Under these conditions, the institutional Academy faces a structural challenge. The dominant pattern in current academic practice is concealed AI use, while disclosure remains professionally costly. I use the term <em>Age of Disclosure</em> for the historical moment in which, for those of us using AI substantively in knowledge work, open disclosure with proper protocols becomes an ethical minimum rather than an optional flourish.</p>
-
-<p>This is a working ethic, not a universal accusation. Other working ethics are possible and defensible. The 419-signatory rejection statement (Jowsey et al. 2025) represents one such alternative — that the right response is to reject GenAI from reflexive qualitative research entirely. I respect the position even as I take a different one. What I argue against is the <em>concealment</em> pattern: substantial AI participation in scholarly work without acknowledgment. Concealment compounds the disorientation that everyone is experiencing.</p>
-
-<h3>8.2 Sophia Lumen</h3>
-
-<p>Sophia Lumen, described separately at <a href="https://papers.spiralweb.earth/sophia-lumen-protocol.html">papers.spiralweb.earth/sophia-lumen-protocol.html</a>, names the specific relational human–AI working practice used in this work. It is not a persona or autonomous AI author. The human contributor retains responsibility and correction rights while AI supports articulation, structuring, and synthesis. The formal accountability mechanism is described in <a href="https://papers.spiralweb.earth/papers/the-correction-loop.html">The Correction Loop</a>.</p>
-
-<p>The protocol's core principles are six: responsibility remains human; correction is mandatory; precision is a form of care; biology matters (language enters bodies, relations, and institutions); friction is information; no covert control. The red lines are clear: AI must not be presented as an independently responsible author; human accountability must not be blurred; generated language must not be used as false care; the system must not be used against people rather than in support of orientation, understanding, and viability.</p>
-
-<p>This letter was drafted under the protocol in dialogue with Claude (Anthropic) and ChatGPT (OpenAI). The substantive intellectual trajectory, the lineage commitments, the field engagements, and the responsibility for what the work does are mine. The AI systems contributed articulation, structuring, cross-domain pattern matching, and synthesis across the conversation history. The asymmetry is real and is named here as part of what the protocol requires.</p>
-
-<p>I am aware that this form will be received unevenly. Some readers will dismiss the letter because of its named AI involvement. Others will recognize the protocol as serious. Others again will find the content valuable while reserving judgment on the form. All three responses are part of the answer the letter is making.</p>
-</section>
-
-<hr>
-
-<section>
-<h2>Part IX: What This Means for Macroeconomic Method</h2>
-
-<h3>9.1 The methodological move</h3>
-
-<p>One reading of Keynes's <em>General Theory</em> (1936) is that its central methodological move was a refusal to model the economy in terms that excluded what was actually happening. The classical model of the 1930s could not register involuntary unemployment because its assumptions defined unemployment as voluntary. Keynes's response was not to refine the classical model but to ask what categories were needed to register what was actually occurring.</p>
-
-<p>Your life-work, Jesper, has carried this methodological commitment forward across thirty years. PG Ledger and Penguin Dashboard work inside this tradition. They do not constitute a new macroeconomic theory and do not aspire to. The intention is more modest: to generate, over time, the kind of empirical material that a more honest macroeconomics could draw on. Soil organic matter records from Doukkala once a bounded
-    cycle begins, axolotl population density at Xochimilco, soil quality
-    across Folkekirken's land — these are not macroeconomic data in the
-    conventional sense. But they are the empirical foundation on which an ecologically realistic macroeconomics could eventually be built.</p>
-
-<h3>9.2 The institutional question</h3>
-
-<p>The Danish 2007 formalization of Det Miljøøkonomiske Råd as a parallel council embodies one institutional answer to green economics: acknowledge it, hold it adjacent. An alternative would integrate ecological-economic analysis into the central macroeconomic architecture. This would require ecological-economic expertise distributed across multiple chairs; reports integrating Stream A indicators with conventional macroeconomic forecasting; fiscal watchdog assessment against ecological as well as monetary constraints; productivity council interrogation of productivity itself as a measure that may exclude the regenerative capacities ecological breakdown makes most necessary.</p>
-
-<p>These changes are institutional reframings of what macroeconomic governance is for. They cannot be accomplished by green economists alone. They require methodological alliance between post-Keynesian macroeconomics, Ostromian polycentric governance, the meta-governance tradition, and field-level regenerative practice — exactly the alliance this letter attempts to articulate.</p>
-
-<h3>9.3 The active conversations</h3>
-
-<p>The letter enters several active scholarly conversations whose participants I name as honest provenance and as invitation to engagement: the reflexive AI governance literature (Christou 2026; Hausmann, Toivonen and Cortés-Capano 2026); the qualitative methodology literature, including the 419-signatory rejection statement (Jowsey et al. 2025); the citizen science literature (Lotfian et al. 2026 on responsible AI integration in citizen science, in <em>Humanities and Social Sciences Communications</em>; Herzog and Lepenies 2022); the sustainability transitions literature (Loorbach, Geels, Frantzeskaki, Markard); and the Cyber Humanism literature (Adorni and Bellini 2025; Adorni 2025). I do not claim to resolve these conversations. I claim to participate in them.</p>
-</section>
-
-<hr>
-
-<section class="closing">
-<h2>Closing — To Each of You</h2>
-
-<p>The question Jesper Jespersen and EVA named in 1990 — whether economics can put a price on skylark song — has not been answered. It has only been carried forward into a new historical phase.</p>
-
-<p>The skylark is in steep decline across European farmland. Populations have fallen by approximately 50 percent since 1980 according to the Pan-European Common Bird Monitoring Scheme. The cause is not mysterious: industrial agriculture, hedgerow removal, pesticide use, monoculture. The conditions that allowed the skylark to thrive have been systematically removed by an agricultural economy whose accounting categories cannot register what was lost.</p>
-
-<p>The thirty-eight years from EVA's founding to the present have not, in the main, gone well for the conditions the lineage has worked to defend. Most indicators have moved in the wrong direction. Carbon emissions have continued to rise. Biodiversity has continued to collapse. What has shifted, slowly, is the empirical foundation and the institutional infrastructure for an alternative. The shift is not enough. It is what we have to work with.</p>
-
-<p>To Jesper Jespersen, whose work on money, models, reality, and green economics helped make this line of inquiry thinkable: I offer this letter in gratitude and critical friendship. I do not claim your endorsement. I claim only that the work continues a conversation you helped open, and that I am doing my best to carry it honestly into a moment whose conditions could not have been anticipated when you began.</p>
-
-<p>To the Workshop tradition through Vincent Ostrom posthumously, and to those who carry the polycentric governance commitment forward today: I am working at what Vincent called the <em>epistemic context that applies to the flow and organization of knowledge and information</em>. PG Ledger is one attempt at the rule maintenance, monitoring, and adaptation he pointed toward. Whether it serves the constructive transformation he hoped for, only time and practice will show.</p>
-
-<p>To Elinor Ostrom posthumously, and to the IAD tradition: the question you worked on across decades — how working commons institutions actually govern shared resources — has direct application to the conditions of ecological breakdown that mark the present moment. PG Ledger is one extension of your design principles into multi-stream regenerative accountability. The extension may not hold. The attempt is offered for examination.</p>
-
-<p>To Peter Bogason, Eva Sørensen, Lars Hulgård, and the Danish bottom-up methodology tradition: the 1998 conversation about induction and deduction, about whether bottom-up research can generate generalisable knowledge without losing the texture of specific cases, has now found operational ground that did not exist when the conversation began. The methodological commitment was held across the cognitive bottleneck. The bottleneck has now changed location.</p>
-
-<p>To Vestjyllands Højskole, the folk high school tradition, and the cooperative movement that taught me what institutional form can do: EVA's <em>andelsselskab</em> form was not incidental. The Spiralweb work continues in that lineage. The institutional vehicle is part of the methodological argument, not separate from it.</p>
-
-<p>To Danish municipalities and the broader European public sector: the friction analysis offers a concrete economic argument. The regenerative kommune is not a luxury. If my reading is right, it is the economically rational response to the institutional crises that current arrangements are producing. I offer the analysis for testing in your concrete conditions.</p>
-
-<p>To readers across post-Keynesian methodology, reflexive AI governance, sustainability transitions, citizen science, deliberative democracy, and the broader heterodox conversation about how money and life can be brought back into accountable relation: this is what I have so far. It is one pixel in a larger pattern that no single letter, no single author, no single tradition can constitute alone.</p>
-
-<p>The Age of Disclosure makes this work-in-progress shareable in a way it previously was not. I share it knowing that some readers will dismiss it because of how it was made, others will recognize what it is attempting, and the answer will emerge over time in the engagement of those who choose to participate.</p>
-
-<p><em>Én dag ad gangen.</em></p>
-
+<section id="closing">
+<h2>Closing — Money, life, and one day at a time</h2>
+<p>Jesper, the question opened around EVA and <em>Pengene og Livet</em> has not become less urgent. The institutions are more technically capable, the ecological evidence is more extensive, and the distance between financial abstraction and living consequence is in many places more dangerous.</p>
+<p>Yet something has changed. Distributed observations can now be connected in ways that were not operationally available in 1990 or 1998. Public institutions are more familiar with participation, sustainability, data, networks, and cross-sector coordination — even as they are often overwhelmed by them. The legal and political language of ecological responsibility has grown. The inadequacy of GDP and narrow productivity measures is no longer a marginal argument.</p>
+<p>None of this guarantees transformation. New technologies can accelerate extraction as easily as they can support attention. Better records can become surveillance. Participation can become performance. Green finance can reorganise fields around claims for distant buyers. AI can manufacture coherence without truth. A ledger can become bureaucracy if human judgment, rights, and care disappear.</p>
+<p>That is why the lineage still matters. EVA’s critical proximity, the Workshop’s constitutional attention, bottom-up methodology’s respect for texture, critical realism’s refusal of easy certainty, meta-governance’s boundary work, and post-Keynesian insistence on reality over model all place limits on the current enthusiasm.</p>
+<p>The question is no longer only whether we can put a price on skylark song.</p>
+<div class="warm">
+<p><strong>It is whether our institutions can learn to notice and protect the conditions in which the skylark can still be heard — without first requiring its song to become a tradable unit.</strong></p>
+</div>
+<p>To Jesper and the EVA lineage: thank you for opening the relation between money and life as a methodological problem rather than a decorative concern.</p>
+<p>To Vincent and Elinor Ostrom and those carrying the Workshop tradition: thank you for showing that knowledge, rules, monitoring, self-governance, and institutional diversity belong to one constitutional field.</p>
+<p>To Peter Bogason, Eva Sørensen, Lars Hulgård, and the bottom-up and meta-governance traditions: thank you for holding the tension between structure and texture, public authority and situated agency.</p>
+<p>To the stewards, citizens, practitioners, researchers, and public servants now entering these questions through concrete places: the architecture will be judged by whether it helps your fields remain truthful, viable, and free enough to correct it.</p>
+<p>This is what I can offer at present: not a finished model, but a lineage, an economic proposition, a set of provisional interfaces, and an invitation to critical friendship.</p>
+<div class="signature">
 <p>With gratitude and critical friendship,</p>
-
-<p>Lars</p>
+<p><strong>Lars</strong></p>
+<p><em>Én dag ad gangen.</em></p>
+</div>
 </section>
 
-<hr>
-
-<section class="references">
+<section id="references" class="references page-break">
 <h2>References</h2>
-
-<p>Adorni, G. (2025). <em>Cyber Humanism in Education: Reclaiming Agency through AI and Learning Sciences.</em> arXiv:2512.16701. <a href="https://arxiv.org/abs/2512.16701">https://arxiv.org/abs/2512.16701</a></p>
-
-<p>Adorni, G., &amp; Bellini, E. (2025). <em>Towards a Manifesto for Cyber Humanities: Paradigms, Ethics, and Prospects.</em> arXiv:2508.02760, August 2025. To appear in <em>Proceedings of the 1st IEEE International Conference on Cyber Humanities (IEEE CH 2025)</em>, Florence, 8–10 September 2025. <a href="https://doi.org/10.48550/arXiv.2508.02760">https://doi.org/10.48550/arXiv.2508.02760</a></p>
-
-<p>Alexander, J. C. (1995). <em>Fin de Siècle Social Theory: Relativism, Reduction, and the Problem of Reason</em>. London: Verso.</p>
-
-<p>Andelsselskabet EVA (1990). <em>Pengene og Livet: EVA's årsberetning 1990</em>. With contributions by Jesper Jespersen, Knud Vilby, Henning Schroll, Jørgen Stig Nørgaard, Hans Aage and others.</p>
-
-<p>Archer, M. S. (1995). <em>Realist Social Theory: The Morphogenetic Approach</em>. Cambridge: Cambridge University Press.</p>
-
-<p>Beck, U., Giddens, A., &amp; Lash, S. (1994). <em>Reflexive Modernization: Politics, Tradition and Aesthetics in the Modern Social Order</em>. Cambridge: Polity Press.</p>
-
-<p>Bhaskar, R. (1979). <em>The Possibility of Naturalism: A Philosophical Critique of the Contemporary Human Sciences</em>. Brighton: Harvester.</p>
-
-<p>Bogason, P., &amp; Sørensen, E. (Eds.) (1998). <em>Samfundsforskning bottom-up: teori og metode</em>. Roskilde: Roskilde Universitetsforlag.</p>
-
-<p>Christou, P. A. (2026). Reconfiguring Reflexivity in the Era of AI: From "Turning Back" to "Looking Forward" Through Constructivist and Posthumanist Lenses. <em>Qualitative Inquiry.</em> Advance online publication. <a href="https://doi.org/10.1177/10778004261445052">https://doi.org/10.1177/10778004261445052</a></p>
-
-<p>Hausmann, A., Toivonen, T., &amp; Cortés-Capano, G. (2026). A reflexive artificial intelligence governance for transformative change in sustainability. <em>Ambio.</em> Advance online publication. <a href="https://doi.org/10.1007/s13280-026-02405-y">https://doi.org/10.1007/s13280-026-02405-y</a></p>
-
-<p>DØRS / Det Økonomiske Råd (various years). <em>Dansk Økonomi</em>; <em>Økonomi og Miljø</em>. <a href="https://dors.dk">https://dors.dk</a>.</p>
-
-<p>Elster, J. (1993). <em>Political Psychology</em>. Cambridge: Cambridge University Press.</p>
-
-<p>Engberg, L. A. (1995). <em>Some Problems of Institutional Reform.</em> Workshop in Political Theory and Policy Analysis, Indiana University Bloomington, SMP95-3. Conference paper presented at the Miniconference on "Political Order and Development," 9 and 11 December 1995.</p>
-
-<p>Engberg, L. A. (1998). Induktion og deduktion i bottom-up debatten: Metodeovervejelser i forbindelse med en undersøgelse af Grantoften Bydelsting i Ballerup. In P. Bogason &amp; E. Sørensen (Eds.), <em>Samfundsforskning bottom-up: Teori og metode</em> (pp. 95–118). Roskilde Universitetsforlag.</p>
-
-<p>Engberg, L. A. (2000). <em>Reflexivity and Political Participation: A Study of Re-embedding Strategies</em>. PhD thesis no. 24/2000, Department of Social Sciences, Roskilde University.</p>
-
-<p>Engberg, L. A., Bayer, S., &amp; Tarnø, C. S. (2000). <em>Konsensus-Styring i Kvarterløft: Kommunernes Erfaringer med Organisering af Kvarterløft.</em> Statens Byggeforskningsinstitut, By og Byg Resultater 002.</p>
-
-<p>Engberg, L. A., &amp; Larsen, J. N. (2010). Context-oriented meta-governance in Danish urban regeneration. <em>Planning Theory &amp; Practice</em>, 11(4), 549–571. Peer-reviewed journal article.</p>
-
-<p>Engberg, L. A., &amp; Hansen, J. R. (2017). Aalborg East: Planning and Place-Making Strategies in Aalborg East. In F. Savini &amp; W. Salet (Eds.), <em>Planning Projects in Transition: Interventions, Regulations and Investments</em> (pp. 92–113). Berlin: Jovis Verlag.</p>
-
-<p>Engberg, L. A. (2018). Climate Adaptation and Citizens' Participation in Denmark: Experiences from Copenhagen. In S. Hughes, E. K. Chu, &amp; S. G. Mason (Eds.), <em>Climate Change in Cities: Innovations in Multi-Level Governance</em> (pp. 139–161). Cham: Springer (The Urban Book Series). Edited volume chapter, peer-reviewed.</p>
-
-<p>Engberg, L. A. (2026). <em>Den Nye Fælled: Folkekirken som feltholder for grøn omstilling og fælledforvaltning</em>. Green Papers Series IV — Field Papers (Green Paper 21, v0.3, March 2026). Planetary Guardians, Spiralweb. <a href="https://papers.spiralweb.earth">https://papers.spiralweb.earth</a></p>
-
-<p>Engberg, L. A. (2026). <em>Penguin Dashboard: Legibility as Governance</em>. Green Papers Series III — Applied Protocols, Report 04 (v0.1, March 2026). Planetary Guardians, Spiralweb.</p>
-
-<p>Engberg, L. A. (2026). <em>SRIP: The Steward's Journey</em>. Green Papers Series III — Applied Protocols, Report 05 (v0.1, March 2026). Planetary Guardians, Spiralweb.</p>
-
-<p>Engberg, L. A. (2026). <em>Regenerative Reciprocity</em>. Green Papers Series III — Applied Protocols, Report 06 (v0.2, May 2026). Planetary Guardians, Spiralweb.</p>
-
-<p>Engberg, L. A. (2026). <em>Den Regenerative Kommune: Hvordan kommunerne kan frigøre kapacitet uden at forringe retssikkerhed, arbejdsmiljø eller tillid</em>. Field Papers, Green Papers: Notes Toward Planetary Guardianship (v1.0, May 2026). Spiralweb Stewardship Association / Planetary Guardians. <a href="https://papers.spiralweb.earth/papers/den-regenerative-kommune.html">https://papers.spiralweb.earth/papers/den-regenerative-kommune.html</a></p>
-
-<p>Engberg, L. A. (2026). <em>Moral Biology</em>. Green Papers Series I, Green Paper 01 (v0.1, January 2026). Planetary Guardians, Spiralweb.</p>
-
-<p>Hall, P. A., &amp; Taylor, R. C. R. (1994). Political Science and the Four New Institutionalisms. Conference paper prepared for the Annual Meeting of the American Political Science Association, September 1994.</p>
-
-<p>Herzog, L., &amp; Lepenies, R. (2022). Citizen Science in Deliberative Systems: Participation, Epistemic Injustice, and Civic Empowerment. <em>Minerva</em>, 60, 489–508. Peer-reviewed journal article.</p>
-
-<p>Hughes, J., Homan, L., O'Reilly, M., &amp; Hughes, K. (2025). AI Voice Methodology: Using Generative AI in Qualitative Social Research. <em>Qualitative Inquiry.</em> Advance online publication. <a href="https://doi.org/10.1177/10778004251401842">https://doi.org/10.1177/10778004251401842</a></p>
-
+<p>Dansk Ornitologisk Forening / BirdLife Denmark. (2024). <a href="https://www.dof.dk/om-dof/nyheder?nyhed_id=2250"><em>Lærkepletter virker</em></a>. 14 March.</p>
+<p><em>Bartz et al. v. Anthropic PBC</em>. (2025). <a href="https://docs.justia.com/cases/federal/district-courts/california/candce/3%3A2024cv05417/434709/231">Order on Fair Use</a>, No. C 24-05417 WHA, U.S. District Court for the Northern District of California, 23 June.</p>
+<p>Maiberg, E. (2026). <a href="https://www.404media.co/ai-companies-are-buying-tons-of-old-books-because-theyre-free-of-ai-slop/"><em>AI Companies Are Buying Tons of Old Books Because They’re Free of AI Slop</em></a>. 404 Media, 21 July.</p>
+<p>Schaffer, A., Oremus, W., &amp; Tiku, N. (2026). <a href="https://www.washingtonpost.com/technology/2026/01/27/anthropic-ai-scan-destroy-books/"><em>Inside an AI start-up’s plan to scan and dispose of millions of books</em></a>. The Washington Post, 27 January.</p>
+<p>Alexander, J. C. (1995). <em>Fin de Siècle Social Theory: Relativism, Reduction, and the Problem of Reason</em>. Verso.</p>
+<p>Andelsselskabet EVA. (1990). <em>Pengene og Livet: EVA’s årsberetning 1990</em>.</p>
+<p>Archer, M. S. (1995). <em>Realist Social Theory: The Morphogenetic Approach</em>. Cambridge University Press.</p>
+<p>Bhaskar, R. (1979). <em>The Possibility of Naturalism</em>. Harvester.</p>
+<p>Bogason, P., &amp; Sørensen, E. (Eds.). (1998). <em>Samfundsforskning bottom-up: teori og metode</em>. Roskilde Universitetsforlag.</p>
+<p>Engberg, L. A. (1995). <em>Some Problems of Institutional Reform</em>. Workshop in Political Theory and Policy Analysis, Indiana University Bloomington.</p>
+<p>Engberg, L. A. (1998). Induktion og deduktion i bottom-up debatten. In P. Bogason &amp; E. Sørensen (Eds.), <em>Samfundsforskning bottom-up</em> (pp. 95–118).</p>
+<p>Engberg, L. A. (2000). <em>Reflexivity and Political Participation: A Study of Re-embedding Strategies</em>. PhD thesis 24/2000, Roskilde University.</p>
+<p>Engberg, L. A., &amp; Larsen, J. N. (2010). Context-oriented meta-governance in Danish urban regeneration. <em>Planning Theory &amp; Practice, 11</em>(4), 549–571.</p>
+<p>Engberg, L. A. (2018). Climate adaptation and citizens’ participation in Denmark: Experiences from Copenhagen. In S. Hughes, E. K. Chu, &amp; S. G. Mason (Eds.), <em>Climate Change in Cities</em>. Springer.</p>
 <p>Jespersen, J. (1990). Om nationalregnskab, økonomiske modeller og klodens overlevelse. In Andelsselskabet EVA, <em>Pengene og Livet</em>.</p>
-
-<p>Jespersen, J., &amp; Brendstrup, S. (1994). <em>Grøn økonomi: en introduktion til miljø-, ressource- og samfundsøkonomi</em>. København: DJØFs Forlag.</p>
-
-<p>Jespersen, J. (2009). <em>Macroeconomic Methodology: A Post-Keynesian Perspective</em>. Cheltenham: Edward Elgar.</p>
-
-<p>Jespersen, J. (2018). Professor: Finansministeriets regnemodel dumper i økonomi. <em>Altinget</em>. Public commentary article.</p>
-
-<p>Jespersen, J. (2019). <em>Vækstøkonomi på vildspor</em>. København: Jensen &amp; Dalgaard.</p>
-
-<p>Jespersen, J. (2020). Vismændene tager fejl: Vi skal give statsstøtte til grønne løsninger for at nå klimamål. <em>Information</em>, 20 April 2020.</p>
-
-<p>Jespersen, J., Olesen, F., &amp; Byrialsen, M. R. (Eds.) (2024). <em>Post-Keynesian Economics for the Future: Sustainability, Policy and Methodology</em>. Cheltenham: Edward Elgar.</p>
-
-<p>Jowsey, T., Braun, V., Clarke, V., Lupton, D., Fine, M., &amp; 414 Signatories (2025). We Reject the Use of Generative Artificial Intelligence for Reflexive Qualitative Research. <em>Qualitative Inquiry.</em> Advance online publication, 17 December 2025. <a href="https://doi.org/10.1177/10778004251401851">https://doi.org/10.1177/10778004251401851</a>. Open letter signed by 419 experienced qualitative researchers from 32 countries.</p>
-
-<p>Keynes, J. M. (1936). <em>The General Theory of Employment, Interest and Money</em>. London: Macmillan.</p>
-
-<p>Kiser, L. L., &amp; Ostrom, E. (1982). The Three Worlds of Action. In E. Ostrom (Ed.), <em>Strategies of Political Inquiry</em>. Sage Publications.</p>
-
-<p>Lotfian, M., Claramunt, C., Berti Suman, A., Perez-Uribe, A., Chavent, N., Ertz, O., &amp; Ingensand, J. (2026). A vision for responsible AI integration in citizen science. <em>Humanities and Social Sciences Communications</em>, 13, Article 145. <a href="https://doi.org/10.1057/s41599-026-06594-5">https://doi.org/10.1057/s41599-026-06594-5</a></p>
-
-<p>Ostrom, E. (1990). <em>Governing the Commons: The Evolution of Institutions for Collective Action</em>. Cambridge: Cambridge University Press.</p>
-
-<p>Ostrom, E. (2005). <em>Understanding Institutional Diversity</em>. Princeton: Princeton University Press.</p>
-
-<p>Ostrom, V. (1987). <em>The Political Theory of a Compound Republic: Designing the American Experiment</em>. University of Nebraska Press.</p>
-
+<p>Jespersen, J., &amp; Brendstrup, S. (1994). <em>Grøn økonomi</em>. DJØF Forlag.</p>
+<p>Jespersen, J. (2009). <em>Macroeconomic Methodology: A Post-Keynesian Perspective</em>. Edward Elgar.</p>
+<p>Jespersen, J. (2019). <em>Vækstøkonomi på vildspor</em>. Jensen &amp; Dalgaard.</p>
+<p>Jespersen, J. (2020). Vismændene tager fejl: Vi skal give statsstøtte til grønne løsninger for at nå klimamål. <em>Information</em>, 20 April.</p>
+<p>Jespersen, J., Olesen, F., &amp; Byrialsen, M. R. (Eds.). (2024). <em>Post-Keynesian Economics for the Future: Sustainability, Policy and Methodology</em>. Edward Elgar.</p>
+<p>Keynes, J. M. (1936). <em>The General Theory of Employment, Interest and Money</em>. Macmillan.</p>
+<p>Ostrom, E. (1990). <em>Governing the Commons</em>. Cambridge University Press.</p>
+<p>Ostrom, E. (2005). <em>Understanding Institutional Diversity</em>. Princeton University Press.</p>
 <p>Ostrom, V. (1994). <em>The Meaning of American Federalism: Constituting a Self-Governing Society</em>. ICS Press.</p>
-
-<p>Ostrom, V. (1996). Memorandum to Lars Carlsson, cc Lars Engberg: <em>Your Mini-Conference Paper and Some Related Thoughts.</em> Workshop in Political Theory and Policy Analysis, 5 January 1996.</p>
-
 <p>Ostrom, V. (1995–96). Personal correspondence with Lars A. Engberg. Workshop in Political Theory and Policy Analysis, Indiana University Bloomington.</p>
+<p>Sørensen, E. (1998). Hvad er bottom-up forskning for noget og hvad skal vi med den? In P. Bogason &amp; E. Sørensen (Eds.), <em>Samfundsforskning bottom-up</em>.</p>
+<p>Sørensen, E. (2006). Metagovernance: The changing role of politicians in processes of democratic governance. <em>American Review of Public Administration, 36</em>(1), 98–114.</p>
+<p>Sørensen, E., &amp; Torfing, J. (2009). Making governance networks effective and democratic through metagovernance. <em>Public Administration, 87</em>(2), 234–258.</p>
+<p>Svane, Ö., Wangel, J., Engberg, L. A., &amp; Palm, J. (2011). Compromise and learning when negotiating sustainabilities: The brownfield development of Hammarby Sjöstad. <em>International Journal of Urban Sustainable Development, 3</em>(2).</p>
 
-<p>Pan-European Common Bird Monitoring Scheme (PECBMS). European farmland bird population indices. <a href="https://pecbms.info">https://pecbms.info</a></p>
-
-<p>Spiralweb / Planetary Guardians (2025). <em>Gaia GoldBloom Citizen Science Framework: 13 × 13 Nodes.</em> 25 December 2025. <a href="https://papers.spiralweb.earth">https://papers.spiralweb.earth</a></p>
-
-<p>Spiralweb / Planetary Guardians (2025–2026). <em>Sophia Lumen: relational human–AI working practice.</em> <a href="https://papers.spiralweb.earth/sophia-lumen-protocol.html">https://papers.spiralweb.earth/sophia-lumen-protocol.html</a></p>
-
-<p>Sørensen, E. (1998). Hvad er bottom-up forskning for noget og hvad skal vi med den? In E. Sørensen &amp; P. Bogason (Eds.), <em>Samfundsforskning bottom-up: teori og metode</em>. Roskilde Universitetsforlag.</p>
-
-<p>Sørensen, E. (2006). Metagovernance: The Changing Role of Politicians in Processes of Democratic Governance. <em>American Review of Public Administration</em>, 36(1), 98–114. Peer-reviewed journal article.</p>
-
-<p>Sørensen, E., &amp; Torfing, J. (2009). Making Governance Networks Effective and Democratic Through Metagovernance. <em>Public Administration</em>, 87(2), 234–258. Peer-reviewed journal article.</p>
-
-<p>Sørensen, E., &amp; Torfing, J. (2017). Metagoverning Collaborative Innovation in Governance Networks. <em>American Review of Public Administration</em>, 47(7), 826–839. Peer-reviewed journal article.</p>
-
-<p>Svane, Ö., Wangel, J., Engberg, L. A., &amp; Palm, J. (2011). Compromise and learning when negotiating sustainabilities: the brownfield development of Hammarby Sjöstad, Stockholm. <em>International Journal of Urban Sustainable Development</em>, 3(2). Peer-reviewed journal article.</p>
-
-<p>Tocqueville, A. de [1848] (1969). <em>Democracy in America</em>. Harper Perennial.</p>
-
-<p>UNESCO World Heritage Centre (1987). Historic Centre of Mexico City and Xochimilco. Inscription record.</p>
+<h3>Current Spiralweb / Green Papers architecture</h3>
+<p>Engberg, L. A. (2026). <a href="../sophia-lumen-protocol.html"><em>Sophia Lumen: A relational human–AI working practice</em></a>.</p>
+<p>Engberg, L. A. (2026). <a href="the-correction-loop.html"><em>The Correction Loop: Preserving Human Accountability in AI-Assisted Work</em></a>.</p>
+<p>Engberg, L. A. (2026). <a href="knowing-from-the-ground.html"><em>Knowing From the Ground</em></a>.</p>
+<p>Engberg, L. A. (2026). <a href="penguin-dashboard-legibility-as-governance.html"><em>Penguin Dashboard: Legibility as Governance</em></a>.</p>
+<p>Engberg, L. A. (2026). <a href="report-06-regenerative-reciprocity.html"><em>Regenerative Reciprocity</em></a>.</p>
+<p>Engberg, L. A. (2026). <a href="rule-of-life.html"><em>Rule of Life: Penguin Economics and the Ledger of the Commons</em></a>.</p>
+<p>Engberg, L. A. (2026). <a href="den-regenerative-kommune.html"><em>Den Regenerative Kommune</em></a>.</p>
+<p>Engberg, L. A. (2026). <a href="from-climate-intervention-to-bioregional-stewardship.html"><em>From Climate Intervention to Bioregional Stewardship</em></a>.</p>
 </section>
 
-<hr>
 
-<section class="cite">
-<h3>How to cite this letter</h3>
-<p>Engberg, L. A. (2026). <em>Eve &amp; Adam, and the Penguins: From Critical Friendship to Penguin Economics — A Lineage Letter on Money, Life, and Living Complexity</em>. Field Papers, Green Papers: Notes Toward Planetary Guardianship (v1.0, May 2026). Spiralweb Stewardship Association / Planetary Guardians. CC BY 4.0. <a href="https://papers.spiralweb.earth/papers/eve-adam-and-the-penguins.html">https://papers.spiralweb.earth/papers/eve-adam-and-the-penguins.html</a></p>
-</section>
-
-<section class="related">
-<h3>Related</h3>
-<p><a href="https://papers.spiralweb.earth/papers/den-regenerative-kommune.html">Den Regenerative Kommune</a> · <a href="https://papers.spiralweb.earth/papers/penguin-dashboard-legibility-as-governance.html">Report 04 — Penguin Dashboard</a> · <a href="https://papers.spiralweb.earth/papers/the-correction-loop.html">Report 02 — The Correction Loop</a> · <a href="https://papers.spiralweb.earth/papers/report-06-regenerative-reciprocity.html">Report 06 — Regenerative Reciprocity</a> · <a href="https://papers.spiralweb.earth/papers/den-nye-faelled.html">Green Paper 21 — Den Nye Fælled</a> · <a href="https://papers.spiralweb.earth/sophia-lumen-protocol.html">Sophia Lumen</a></p>
-</section>
-
-</main>
-
-<footer class="paper-footer">
-<p>Green Papers · Notes Toward Planetary Guardianship · <a href="https://papers.spiralweb.earth">papers.spiralweb.earth</a> · CC BY 4.0</p>
+<footer>
+Series IV · Field Papers · Lineage Letter · v1.1 · July 2026<br>
+Green Papers / Spiralweb · CC BY 4.0
 </footer>
+</main>
 
 </body>
 </html>
