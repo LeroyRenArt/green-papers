@@ -34,7 +34,8 @@ header{padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:34p
 .crumb{font-size:.86rem;margin-bottom:32px}
 .series{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
 h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:.98;letter-spacing:-.035em;margin:.55rem 0 1rem;text-wrap:balance}
-.subtitle{font-size:clamp(1.2rem,2.4vw,1.65rem);line-height:1.28;margin:0 0 1.5rem;color:#294a40;text-wrap:balance}
+.subtitle{font-size:clamp(1.2rem,2.4vw,1.65rem);line-height:1.28;margin:0 0 1rem;color:#294a40;text-wrap:balance}
+.dedication{font-size:1.02rem;line-height:1.4;margin:0 0 1.35rem;color:var(--muted);font-style:italic;text-wrap:balance}
 .meta{font-size:.88rem;line-height:1.55;color:var(--muted)}
 .status-badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
 .badge{font:700 .72rem/1 Arial,Helvetica,sans-serif;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:7px 10px;background:rgba(255,255,255,.28)}
@@ -115,14 +116,20 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);font-
   .crumb{display:none}
   h1{font-size:31pt}
   .subtitle{font-size:15pt}
+  .dedication{font-size:11.5pt;margin-bottom:1rem}
   h2{font-size:18pt;break-after:avoid}
   h3{font-size:13.5pt;break-after:avoid}
   p,li{orphans:3;widows:3}
   table{font-size:8.4pt;break-inside:auto}
   tr{break-inside:avoid}
-  .part{break-before:page;margin-top:0}
+  .part{
+    break-before:auto;
+    break-after:avoid-page;
+    break-inside:avoid;
+    margin:2.4rem 0 1rem;
+  }
   .toc{
-    break-after:page;
+    break-after:auto;
     padding:.8rem .9rem;
   }
   .toc ol{
@@ -173,9 +180,10 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--line);font-
 <div class="series">Series IV · Field Papers · Lineage Letter</div>
 <h1>Eve &amp; Adam, and the Penguins</h1>
 <p class="subtitle">From Critical Friendship to Penguin Economics: A Lineage Letter on Money, Life, and Living Complexity</p>
+<p class="dedication">A lineage letter to Jesper Jespersen — and to the wider field</p>
 <div class="meta">
 Lars A. Engberg · Knowledge Worker · Green Papers / Spiralweb<br>
-<strong>v1.1 · July 2026</strong> · Public lineage letter · CC BY 4.0
+<strong>v1.1 · August 2026</strong> · Public lineage letter · CC BY 4.0
 </div>
 </header>
 
@@ -259,14 +267,14 @@ Lars A. Engberg · Knowledge Worker · Green Papers / Spiralweb<br>
 <h2>1. EVA beside ADAM</h2>
 <p>Andelsselskabet EVA was constituted in 1988–89 after a Grundtvig course at Vestjyllands Højskole. Its name was deliberate. ADAM — the Annual Danish Aggregate Model — was one of the institutional instruments through which economic proposals became visible to the Danish state. EVA did not position itself as a pure outside. It became a companion-critic to the model and to the wider accounting logic that shaped economic judgment.</p>
 <p>The cooperative form mattered. EVA was not only arguing for a different economic content. It was performing a different institutional relation: association, shared inquiry, democratic initiative, and critical proximity rather than expert monopoly or rhetorical opposition.</p>
-<p><em>Pengene og Livet</em>, published in 1990, gathered a heterogeneous green-economic conversation. Jesper Jespersen’s contribution on national accounts, economic models, and planetary survival spoke directly to the methodological problem. Conventional accounts could describe production and exchange with extraordinary precision while treating the conditions of life as background, externality, or residual concern.</p>
+<p><em>Pengene og Livet</em>, published in 1990, gathered a heterogeneous green-economic conversation. Jesper Jespersen’s article, <em>Om nationalregnskab, økonomiske modeller og klodens overlevelse</em>, spoke directly to the methodological problem. Conventional accounts could describe production and exchange with extraordinary precision while treating the conditions of life as background, externality, or residual concern.</p>
 <p>The intervention reached formal politics. It helped place green economics on the parliamentary and ministerial agenda. Yet recognition was not the same as integration. The question was heard, but the central macroeconomic machinery did not become answerable to the whole field of consequences that EVA had named.</p>
 <p>This is the first continuity I want to preserve. The unresolved issue was never merely whether environmental variables should be added to an existing model. It was whether the categories of economic judgment could be redesigned so that money remained in contact with life.</p>
 </section>
 
 <section id="skylark">
 <h2>2. To value the skylark</h2>
-<p>The Danish expression <em>at sætte pris på lærkesang</em> carries the whole problem in one phrase. <em>At sætte pris på</em> can mean to cherish, appreciate, or recognise worth. It can also mean to assign a price.</p>
+<p>Jespersen’s formulation <em>at sætte pris på lærkesang</em> carries the whole problem in one phrase. In Danish, <em>at sætte pris på</em> can mean to cherish, appreciate, or recognise worth. It can also mean to assign a price.</p>
 <p>The empirical sequence matters. Dansk Ornitologisk Forening’s long-running point counts show that the Danish breeding population of skylarks has more than halved since systematic monitoring began in the mid-1970s. The song remains familiar enough to sound abundant, while the population beneath it has thinned dramatically. The example therefore joins valuation to observation: the loss is measurable, but its meaning is not exhausted by the count.</p>
 <p>If the skylark remains outside institutional accounting, its disappearance may be mourned while agricultural policy, land valuation, fiscal incentives, and productivity analysis continue as if nothing material has been lost. If the skylark is translated too quickly into a price, a credit, or a compensable unit, the living relation may become visible only by being converted into the grammar that threatened it.</p>
 <p>The answer cannot be that nothing should be measured. Nor can it be that everything important must become a market object.</p>
@@ -332,6 +340,8 @@ Lars A. Engberg · Knowledge Worker · Green Papers / Spiralweb<br>
 <div class="proposition">
 <p><strong>The shift is not from human inquiry to AI inquiry. It is from cognition-limited bottom-up inquiry to responsibility-limited, AI-assisted inquiry.</strong></p>
 </div>
+<p>This claim has an uneven empirical status. The underlying practices have longer histories, and PG Ledger has now entered an initial, bounded operational phase in Kitgum, where observations and field records are beginning to be structured in practice. This early use precedes broader field unfolding, comparison across sites, and any claim of validation of the integrated architecture.</p>
+<p>The present claim is therefore not that AI-assisted pattern recognition, 13×13, PG Ledger, correction rights, and funding flows have been demonstrated as a complete system. It is that a central component has begun to meet a real field and can now be corrected by it. Whether the wider architecture can move the bottleneck reliably toward judgment, governance, and correction remains an empirical question.</p>
 <p>This is a genuine expansion of capacity and a genuine expansion of risk. AI can compare, cluster, translate, retrieve, organise, and detect recurrence across materials that would otherwise overwhelm a small team. It can also produce false coherence, amplify what is easiest to encode, conceal uncertainty behind fluent language, and privilege records shaped for machine readability.</p>
 <p>The response cannot be concealment, and it cannot be delegation of judgment. It must be explicit architecture.</p>
 </section>
@@ -362,8 +372,9 @@ Lars A. Engberg · Knowledge Worker · Green Papers / Spiralweb<br>
 <p>That responsibility has two directions. <strong>Downstream disclosure</strong> concerns how an AI system participated in this particular text, which judgments remained human, and who can correct the result. <strong>Upstream disclosure</strong> concerns the material, legal, ecological, and institutional histories built into the systems themselves. A method that discloses the visible interaction while leaving those upstream conditions unexamined remains incomplete.</p>
 
 <h3>Upstream provenance and stopping rules</h3>
-<p>Court records established that Anthropic purchased millions of print books, removed their bindings, scanned every page, and discarded or recycled the paper originals while building a private digital research library. Later reporting described the operation as Project Panama and documented a market for pre-2022 books promoted as AI training material precisely because they were free of AI-generated text. The strongest public evidence concerns mass destructive scanning. Claims that rare or unique antiquarian copies have been destroyed through the same pipeline remain less firmly established and should not be repeated as settled fact.</p>
-<p>The institutional problem is larger than copyright and more exact than the metaphor of book burning. The text is retained as a private computational asset while the physical vessel, provenance, annotations, circulation history, and possibility of later public access may disappear. The missing element is a stopping rule capable of distinguishing an expendable duplicate from a scarce or culturally significant object, and a reciprocity rule requiring that private extraction return something to the knowledge commons on which it depends.</p>
+<p>Court records established that Anthropic purchased millions of print books, removed their bindings, scanned every page, and discarded the paper originals while building a private digital research library. Later reporting described the operation as Project Panama and documented a market for pre-2022 books promoted as AI training material precisely because they were free of AI-generated text. The strongest public evidence establishes industrial-scale destructive scanning. What remains unresolved is how these acquisition pipelines distinguish abundant duplicates from out-of-print, locally scarce, copy-specific, or culturally significant volumes. Booksellers have reported anomalous bulk orders for obscure, foreign-language, and long-unsold titles, and one seller told <em>404 Media</em> that uncommon books were being pulped. These reports do not identify a verified last surviving copy destroyed by an AI company. They do, however, establish a concrete preservation question that requires investigation rather than premature reassurance or amplification.</p>
+<p>The relevant question is not only whether a title is “rare” in the antiquarian market. A particular edition or copy may preserve marginalia, dedications, ownership marks, bindings, inserts, variant states, or evidence of local circulation. A low-market-value work in a minor language may be scarce in public holdings or never adequately digitised. Destructive acquisition therefore requires a preservation gate before the spine is cut: a holdings check, copy-specific inspection, provenance recording, institutional authority to stop, and a public-interest decision about access to the resulting digital object.</p>
+<p>The institutional problem is larger than copyright and more exact than the metaphor of book burning. The text is retained as a private computational asset while the physical vessel, provenance, annotations, circulation history, and possibility of later public access may disappear. The missing element is not certainty after destruction, but a stopping rule before it: a process capable of distinguishing an expendable duplicate from an object whose material or cultural record cannot be reconstructed, and a reciprocity rule requiring that private extraction return something to the knowledge commons on which it depends.</p>
 <p>This is disembedding in material form: the transferable layer is preserved while the conditions that carried it are treated as disposable. The example also shows why disclosure cannot end with a declaration that AI was used. It must open the chain of responsibility far enough to ask what the system drew upon, what was lost in making it available, who benefited, and where a human or institution could still have stopped.</p>
 <p>Disclosure does not establish truth or innocence. It creates the minimum conditions under which claims, methods, dependencies, and consequences can be examined honestly.</p>
 </section>
@@ -585,14 +596,15 @@ Lars A. Engberg · Knowledge Worker · Green Papers / Spiralweb<br>
 </div>
 </section>
 
-<section id="references" class="references page-break">
+<section id="references" class="references">
 <h2>References</h2>
 <p>Dansk Ornitologisk Forening / BirdLife Denmark. (2024). <a href="https://www.dof.dk/om-dof/nyheder?nyhed_id=2250"><em>Lærkepletter virker</em></a>. 14 March.</p>
 <p><em>Bartz et al. v. Anthropic PBC</em>. (2025). <a href="https://docs.justia.com/cases/federal/district-courts/california/candce/3%3A2024cv05417/434709/231">Order on Fair Use</a>, No. C 24-05417 WHA, U.S. District Court for the Northern District of California, 23 June.</p>
 <p>Maiberg, E. (2026). <a href="https://www.404media.co/ai-companies-are-buying-tons-of-old-books-because-theyre-free-of-ai-slop/"><em>AI Companies Are Buying Tons of Old Books Because They’re Free of AI Slop</em></a>. 404 Media, 21 July.</p>
+<p>Rare Book School. (2026). <a href="https://rarebookschool.org/resources/2026/02/cultural-collections-ai-protocol/"><em>A Protocol to Protect Cultural Collections in the Age of AI</em></a>. 24 February.</p>
 <p>Schaffer, A., Oremus, W., &amp; Tiku, N. (2026). <a href="https://www.washingtonpost.com/technology/2026/01/27/anthropic-ai-scan-destroy-books/"><em>Inside an AI start-up’s plan to scan and dispose of millions of books</em></a>. The Washington Post, 27 January.</p>
 <p>Alexander, J. C. (1995). <em>Fin de Siècle Social Theory: Relativism, Reduction, and the Problem of Reason</em>. Verso.</p>
-<p>Andelsselskabet EVA. (1990). <em>Pengene og Livet: EVA’s årsberetning 1990</em>.</p>
+<p>Andelsselskabet EVA. (1990). <em>Pengene og livet: EVA’s årsrapport ’90</em>. Samfundslitteratur.</p>
 <p>Archer, M. S. (1995). <em>Realist Social Theory: The Morphogenetic Approach</em>. Cambridge University Press.</p>
 <p>Bhaskar, R. (1979). <em>The Possibility of Naturalism</em>. Harvester.</p>
 <p>Bogason, P., &amp; Sørensen, E. (Eds.). (1998). <em>Samfundsforskning bottom-up: teori og metode</em>. Roskilde Universitetsforlag.</p>
@@ -601,7 +613,7 @@ Lars A. Engberg · Knowledge Worker · Green Papers / Spiralweb<br>
 <p>Engberg, L. A. (2000). <em>Reflexivity and Political Participation: A Study of Re-embedding Strategies</em>. PhD thesis 24/2000, Roskilde University.</p>
 <p>Engberg, L. A., &amp; Larsen, J. N. (2010). Context-oriented meta-governance in Danish urban regeneration. <em>Planning Theory &amp; Practice, 11</em>(4), 549–571.</p>
 <p>Engberg, L. A. (2018). Climate adaptation and citizens’ participation in Denmark: Experiences from Copenhagen. In S. Hughes, E. K. Chu, &amp; S. G. Mason (Eds.), <em>Climate Change in Cities</em>. Springer.</p>
-<p>Jespersen, J. (1990). Om nationalregnskab, økonomiske modeller og klodens overlevelse. In Andelsselskabet EVA, <em>Pengene og Livet</em>.</p>
+<p>Jespersen, J. (1990). Om nationalregnskab, økonomiske modeller og klodens overlevelse. In Andelsselskabet EVA, <em>Pengene og livet: EVA’s årsrapport ’90</em>. Samfundslitteratur.</p>
 <p>Jespersen, J., &amp; Brendstrup, S. (1994). <em>Grøn økonomi</em>. DJØF Forlag.</p>
 <p>Jespersen, J. (2009). <em>Macroeconomic Methodology: A Post-Keynesian Perspective</em>. Edward Elgar.</p>
 <p>Jespersen, J. (2019). <em>Vækstøkonomi på vildspor</em>. Jensen &amp; Dalgaard.</p>
@@ -630,7 +642,7 @@ Lars A. Engberg · Knowledge Worker · Green Papers / Spiralweb<br>
 
 
 <footer>
-Series IV · Field Papers · Lineage Letter · v1.1 · July 2026<br>
+Series IV · Field Papers · Lineage Letter · v1.1 · August 2026<br>
 Green Papers / Spiralweb · CC BY 4.0
 </footer>
 </main>
