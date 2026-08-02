@@ -171,3 +171,62 @@ a:hover{
   color: inherit;
   text-decoration: none;
 }
+
+/* Detailed publication hierarchy · August 2026
+   Only report and field-paper entries carrying .paper-entry.
+   Compact Series I/II and operational-format lists remain unchanged. */
+
+.papers li.paper-entry {
+  padding: 14px 0 16px;
+}
+
+.papers li.paper-entry > a:first-child {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.papers li.paper-entry > .meta {
+  display: block;
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.papers li.paper-entry > .links {
+  display: block;
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.papers li.paper-entry > .links a {
+  color: var(--link);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.papers li.paper-entry > .links a:hover,
+.papers li.paper-entry > .links a:focus-visible {
+  text-decoration: underline;
+}
+
+.papers li.paper-entry > p.muted {
+  max-width: 74ch;
+  margin: 8px 0 0 !important;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .papers li.paper-entry {
+    padding: 12px 0 14px;
+  }
+
+  .papers li.paper-entry > .links {
+    line-height: 1.8;
+  }
+}
+
