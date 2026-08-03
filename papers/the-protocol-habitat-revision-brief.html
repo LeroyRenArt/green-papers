@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Protocol Habitat - Revision Brief - Spiralweb Green Papers</title><link rel="canonical" href="https://papers.spiralweb.earth/papers/the-protocol-habitat-revision-brief">
+<meta name="description" content="The dated implementation companion to The Protocol Habitat: deliverables, minimum records, sequencing, acceptance tests and stop conditions.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"><style>
+:root{--ink:#1f1c18;--ink-soft:#4a443c;--paper:#faf7f1;--paper-edge:#f0eadf;--gold:#b08d57;--gold-deep:#8c6d3f;--rule:#e3dcce;--maxw:44rem}
+*{box-sizing:border-box}html{font-size:18px;-webkit-text-size-adjust:100%}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Lora",Georgia,"Times New Roman",serif;line-height:1.66;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.wrap{max-width:var(--maxw);margin:0 auto;padding:4.5rem 1.5rem 6rem}.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin:0 0 1.4rem}h1{font-size:2.5rem;line-height:1.12;font-weight:600;margin:0 0 1rem;letter-spacing:-.012em}.dek{font-style:italic;color:var(--ink-soft);font-size:1.12rem;line-height:1.5;margin:0 0 1.8rem}.meta{font-size:.82rem;color:var(--ink-soft);line-height:1.7;padding:1.1rem 0 0;border-top:1px solid var(--rule)}.meta .standalone{display:block;margin-top:.6rem;font-style:italic}.topnav{margin-top:1rem;font-size:.78rem;color:var(--ink-soft)}.topnav a{margin-right:.9rem}hr{border:0;height:1px;background:var(--rule);margin:3rem 0}h2{font-size:1.5rem;font-weight:600;line-height:1.2;margin:3rem 0 1rem;letter-spacing:-.01em}h2::before{content:"";display:block;width:2.2rem;height:2px;background:var(--gold);margin-bottom:1rem;border-radius:1px}h3{font-size:1.16rem;font-weight:600;margin:2.2rem 0 .7rem;color:var(--ink)}h4{font-size:1rem;font-weight:600;margin:1.8rem 0 .55rem;color:var(--ink)}h2+h3{margin-top:1.4rem}p{margin:0 0 1.1rem}strong{font-weight:600}em{font-style:italic}a{color:var(--gold-deep);text-decoration:none;border-bottom:1px solid var(--rule)}a:hover{border-bottom-color:var(--gold)}ul,ol{margin:0 0 1.2rem;padding-left:1.3rem}li{margin:.35rem 0;padding-left:.2rem}li::marker{color:var(--gold)}blockquote{margin:1.4rem 0;padding:1rem 1.2rem;background:var(--paper-edge);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;font-size:.95rem;color:var(--ink-soft)}blockquote p{margin:0}blockquote strong{color:var(--ink)}.table-scroll{overflow-x:auto;margin:1.4rem 0}table{border-collapse:collapse;width:100%;font-size:.88rem;line-height:1.45}th,td{text-align:left;vertical-align:top;padding:.55rem .7rem;border-bottom:1px solid var(--rule)}thead th{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;border-bottom:1.5px solid var(--gold)}code{font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:.84em;background:var(--paper-edge);padding:.1em .35em;border-radius:3px}pre{font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:.74rem;line-height:1.45;background:var(--paper-edge);padding:1rem 1.1rem;border-radius:4px;overflow-x:auto;white-space:pre-wrap;word-break:break-word}pre code{background:transparent;padding:0}.colophon{margin-top:3.5rem;padding-top:1.4rem;border-top:1px solid var(--rule);font-size:.8rem;color:var(--ink-soft);font-style:italic}
+@media print{@page{size:A4;margin:18mm}:root{--paper:#fff}html{font-size:11.2pt}body{background:#fff}.wrap{max-width:none;padding:0}h1{font-size:25pt}h2{page-break-after:avoid}h3,h4{page-break-after:avoid}table,blockquote{page-break-inside:avoid}pre{page-break-inside:auto;font-size:7.8pt}a{color:var(--ink);border-bottom:none}.topnav{display:none}.eyebrow{color:var(--gold-deep)}}
+@media(max-width:640px){html{font-size:17px}.wrap{padding:3rem 1.15rem 4rem}h1{font-size:2rem}}
+</style></head>
+<body><article class="wrap"><header><p class="eyebrow">Spiralweb Green Papers · Protocol Habitat</p><h1>The Protocol Habitat - Revision Brief</h1>
+<p class="dek">A public implementation companion for establishing the Planetary Guardians protocol habitat</p><p class="meta">Revision brief / implementation companion · candidate v0.4 · 3 August 2026<br>Visibility: public · Publication authorises no repository, field, funding or public edit by itself<span class="standalone">Publication is not activation. Final authority remains with named human stewards or legitimate human bodies.</span></p>
+<p class="topnav"><a href="../">Papers index</a><a href="the-protocol-habitat">Architecture Paper</a><a href="srip-the-stewards-journey">Human entry: SRIP</a></p></header><hr><h2>Why this brief is included</h2>
+<p>The Architecture Paper explains what the Protocol Habitat is and what must remain true as it develops. This companion explains how that architecture can become a coherent public field on papers.spiralweb.earth, a reliable status memory, and a safe basis for later records and machine-readable work.</p>
+<p>The brief is included because an architecture becomes trustworthy only when its public names, links, routes, records and status statements agree with it. A strong paper beside a contradictory public surface would not be a baseline. The implementation therefore needs its own visible discipline.</p>
+<p>Readers do not need this brief in order to understand the Architecture Paper. It is offered for board members, collaborators, editors and technical stewards who need to see what will be established, what still requires a decision, how each step will be checked, and where the work must stop rather than guess.</p>
+<p>The two documents have different time horizons:</p>
+<ul>
+<li><strong>Document A - Architecture Paper:</strong> the durable reasoning and architecture.</li>
+<li><strong>Document B - Revision Brief:</strong> the dated work needed to establish and maintain the first public baseline.</li>
+</ul>
+<p>Document B is expected to be completed, revised and eventually superseded. Its temporary character is a strength: implementation detail can change without rewriting the architecture it serves.</p>
+<h2>1. Purpose</h2>
+<p>This brief provides the bounded work programme for establishing the Architecture Paper as the controlling public baseline of the Protocol Habitat.</p>
+<p>It contains:</p>
+<ul>
+<li>the decisions that govern the implementation;</li>
+<li>the choices still requiring explicit approval;</li>
+<li>the public, editorial and technical deliverables;</li>
+<li>minimum record contracts;</li>
+<li>two illustrative record tasks;</li>
+<li>an ordered implementation sequence;</li>
+<li>acceptance tests and stop conditions.</li>
+</ul>
+<p>It does not repeat the architectural argument. Where reasoning is required, the Architecture Paper is the controlling source.</p>
+<h2>2. Implementation objective</h2>
+<p>Establish one source-locked public Protocol Habitat in which:</p>
+<ol>
+<li>foundations, protocols, applications and tools remain distinct;</li>
+<li>publication, maturity, registry state and field activation remain separately visible;</li>
+<li>only a locally authorised place-bound application may be active;</li>
+<li>AnchorPoints hold relationship and continuity without acquiring field authority by definition;</li>
+<li>the PG Ledger records and connects, while named humans govern;</li>
+<li>the public trust claim remains bounded next-step supportability rather than certification;</li>
+<li>open practice remains distinct from organisational review, verified relationship and material support;</li>
+<li>the papers index, public orientation, registry, human-readable records and machine-readable records state the same status;</li>
+<li>the public field offers a clear reading path through Architecture, Human Entry, Institutional Ground, Operational Tools and later approved records.</li>
+</ol>
+<h2>3. Scope</h2>
+<h3>In scope</h3>
+<ul>
+<li>recording the Planetary Guardians route conflict as a separate public-surface dependency;</li>
+<li>publication of the Architecture Paper as a candidate foundation;</li>
+<li>publication of this Revision Brief as its dated implementation companion;</li>
+<li>creation of the Protocol Habitat field on the papers index;</li>
+<li>presentation of Architecture, Human Entry, Institutional Ground and Operational Tools as one coherent public reading field;</li>
+<li>creation of a readable Protocol Habitat orientation;</li>
+<li>creation of a canonical registry skeleton;</li>
+<li>minimum records for protocols, AnchorPoints and applications;</li>
+<li>a decision on the publication form of the Grounding process candidate;</li>
+<li>glossary and methods language required for source-lock;</li>
+<li>two bounded illustrative records: Doukkala and Mexico City / Xochimilco;</li>
+<li>a shared machine schema limited to structural validation and required disclosure;</li>
+<li>cross-links to AnchorPoints, field pages and the human-scale entry guidance in <a href="srip-the-stewards-journey"><em>SRIP: The Steward's Journey</em></a>.</li>
+</ul>
+<h3>Out of scope for this revision</h3>
+<ul>
+<li>activation of any field cycle;</li>
+<li>release or commitment of funding;</li>
+<li>validation of a protocol across places or cultures;</li>
+<li>comprehensive redesign of PG Ledger Formats 1-5;</li>
+<li>public representation of a local field without local review and consent;</li>
+<li>creation of a certification, credit, MRV product or automated authorisation system.</li>
+</ul>
+<h2>4. Related public-surface dependency</h2>
+<p>Verified 3 August 2026:</p>
+<ul>
+<li>the slash route serves the current bounded Planetary Guardians page;</li>
+<li>the same route without the trailing slash serves an outdated and contradictory status page.</li>
+</ul>
+<p>The conflict belongs to the separate Spiralweb public-surface repository, not to the green-papers repository used for the first Protocol Habitat publication batch. It does not block publication of the Architecture Paper, this brief, or the Protocol Habitat field on papers. It does block completion of the wider cross-site integration.</p>
+<p><strong>Required later edit:</strong> redirect the no-slash route to the canonical slash route and verify every deployed surface that can serve either form before the wider integration is declared complete.</p>
+<h2>5. Locked decisions</h2>
+<p>The following decisions govern the implementation unless this brief is formally amended.</p>
+<ol>
+<li><em>The Protocol Habitat</em> is an architecture paper, not a meta-protocol.</li>
+<li>Publication is not activation.</li>
+<li>Only a place-bound application may be active.</li>
+<li>AnchorPoints hold relation, continuity and access; they do not automatically hold protocol or field authority.</li>
+<li>Foundations, protocols, applications and tools remain separate material homes.</li>
+<li>Material type, maturity, visibility, application state, publication state and registry state remain separate axes.</li>
+<li>The shared grammar is binding; observations and indicators remain differentiated by domain and place.</li>
+<li>Applications may translate, limit, challenge, supplement or reject generic protocol claims.</li>
+<li>Citizen science observes; 13 x 13 structures inquiry; AI assists; PG Ledger records and connects; the Dashboard supports judgement; named humans govern.</li>
+<li>The public trust claim is bounded next-step supportability, not certification.</li>
+<li>Admission to the public registry follows explicit review under the Architecture Paper, not category quotas or technical availability.</li>
+<li>Repository history remains technical history; the public field contains only materials deliberately admitted under the current architecture.</li>
+<li>Condition streams and financial streams remain technically distinct.</li>
+<li>Evidence limitations are represented inside <code>evidence_status</code>, together with provenance, strength and uncertainty.</li>
+<li>No schema validates ecological truth, consent, legitimacy or readiness. It validates record structure and required disclosure only.</li>
+<li>Open public practice does not create an organisational case, review obligation or support entitlement.</li>
+<li>Self-starting practice and learning contact do not become AnchorPoints by default; an AnchorPoint requires a verified relationship, continuity and locally grounded correction capacity.</li>
+<li>The no-slash route correction is a separate Spiralweb task and must be complete before the wider cross-site integration is declared complete; it is not a prerequisite for the first papers-only baseline.</li>
+</ol>
+<h2>6. Open decisions requiring approval</h2>
+<p><strong>O1 - Grounding publication form.</strong> Publish a separate operational process candidate, or retain it internally while publishing only the Architecture Paper. Required before the Grounding publication decision.</p>
+<p><strong>O2 - Canonical registry location.</strong> Place the registry on the papers site, on the Spiralweb site, or mirror its display while keeping one canonical source. Required before the registry build.</p>
+<p><strong>O3 - Schema v1 depth.</strong> Begin with envelope and status only, or include claim and evidence objects. Required before schema drafting.</p>
+<p><strong>O4 - Illustrative record visibility.</strong> Keep records internal until local review, or publish them with explicit non-authorising status. Required before the Doukkala and Mexico City records are released.</p>
+<p><strong>O5 - Canonical URL treatment.</strong> Redirect non-canonical public endpoints to the Protocol Habitat orientation, or return a deliberate 410 response where a redirect would preserve a misleading identity. Required before the wider cross-site integration.</p>
+<p><strong>Default if no alternative is approved:</strong> choose the narrower, less public and less authoritative option.</p>
+<h2>7. Required deliverables</h2>
+<p><strong>Architecture Paper v0.4.</strong> Publish as the candidate architecture baseline under the approved title <em>The Protocol Habitat</em>. Completion requires public HTML and PDF with the candidate status intact and a link to the Protocol Habitat field.</p>
+<p><strong>Revision Brief v0.4.</strong> Publish as the dated implementation companion. Completion requires the public status block, a link back to the Architecture Paper and the non-authorisation boundary intact.</p>
+<p><strong>Planetary Guardians route.</strong> Canonicalise the route in the separate Spiralweb repository. This is not part of the first papers-only publication batch. Completion of the wider integration requires slash and no-slash requests to resolve to the same current page.</p>
+<p><strong>Protocol Habitat field on papers.</strong> Establish one public section integrating Architecture, Human Entry, Institutional Ground and Operational Tools, with a clear route to AnchorPoints and later approved records.</p>
+<p><strong>Protocol Habitat orientation.</strong> Create a readable entry point explaining the four material homes, the activation boundary, AnchorPoints, applications, tools and status axes. It must also distinguish open self-starting practice, learning contact, verified relationship and supported relation, following <a href="srip-the-stewards-journey"><em>SRIP: The Steward's Journey</em></a>.</p>
+<p><strong>Canonical registry skeleton.</strong> Create the status memory for current foundations, approved candidates, applications and tools without implying validation.</p>
+<p><strong>Grounding process.</strong> Decide its publication form and edit accordingly. Completion requires Decision O2 to be implemented and the status source-locked.</p>
+<p><strong>Minimum record contracts.</strong> Finalise the Protocol, AnchorPoint, Application and Registry contracts before schema work begins.</p>
+<p><strong>Doukkala illustrative record.</strong> Draft it from the named source materials. It must remain clearly preparatory, non-authorising and subject to local review.</p>
+<p><strong>Mexico City illustrative record.</strong> Draft it from the <em>Mexico City Brief</em> (August 2026) and the current relationship status. It must remain clearly inquiry/pre-application and subject to invitation and local review.</p>
+<p><strong>Shared schema v1.</strong> Create it only after the contracts are approved. It validates required structure and disclosure, not truth or readiness.</p>
+<p><strong>Glossary and methods language.</strong> Revise this last, so the terms match the registry, records and public orientation exactly.</p>
+<p><strong>Public cross-links.</strong> Connect the Architecture Paper, Revision Brief, Constitutional Ground, Rule of Life, Knowing From the Ground, SRIP, the PG Ledger formats, AnchorPoints and the two field examples without implying field activation.</p>
+<h2>8. Minimum record contracts</h2>
+<p>The record contracts below are design baselines. They do not activate protocols, fields or funding.</p>
+<h3>8.1 Protocol Candidate Record</h3>
+<pre><code class="language-text">protocol_id
+title
+version
+material_type
+structure
+scope
+living_function
+purpose
+claim_boundary
+does_not_claim
+maturity
+visibility
+application_status
+publication_state
+registry_state
+canonical_source
+lineage
+grammar_binding
+domain_observations
+claim_register
+evidence_requirements
+local_adaptation_requirements
+consent_and_data_requirements
+risks
+pause_review_stop_conditions
+decision_authority_requirements
+last_impulse
+application_interface
+ledger_interfaces
+prohibited_uses
+known_application_relations
+review_status
+next_bounded_test
+licence
+verified_on
+</code></pre>
+<p>Rules:</p>
+<ul>
+<li>no local baseline in a generic candidate;</li>
+<li>no field activation claim without a named application;</li>
+<li>no unqualified numerical target without source, scope and evidence limitations;</li>
+<li>no automated authorisation;</li>
+<li>known application relations do not constitute validation.</li>
+</ul>
+<h3>8.2 AnchorPoint Record</h3>
+<pre><code class="language-text">anchorpoint_id
+public_name
+place_or_relational_field
+anchorpoint_function
+relationship_holders
+relationship_pathway
+local_steward_or_authority
+bridge_roles
+relationship_status
+continuity_basis
+site_binding_status
+local_authority_status
+consent_scope
+public_visibility
+what_is_alive_now
+what_is_not_active
+next_decision
+application_bindings
+right_to_correct
+right_to_withdraw
+verified_on
+</code></pre>
+<p>Rules:</p>
+<ul>
+<li>a contact or location alone is not an AnchorPoint;</li>
+<li>self-starting practice and learning contact are not AnchorPoints by default;</li>
+<li>the record does not activate a protocol;</li>
+<li>bridge roles do not inherit site authority;</li>
+<li>public description requires the relevant consent scope.</li>
+</ul>
+<h3>8.3 Place-Bound Application Card</h3>
+<pre><code class="language-text">application_id
+public_name
+place
+anchorpoint_bindings
+local_problem_articulation
+local_terms_and_languages
+field_boundary
+protocol_bindings
+local_authority
+affected_people_and_living_systems
+consent_and_withdrawal
+protected_absence
+baseline_status
+evidence_forms_and_standing
+three_stream_reading
+steward_load_and_rotation
+funding_and_flow_status
+what_starts_the_clock
+what_releases_money
+pause_and_stop_rights
+human_accountability_holder
+next_decision
+review_date
+correction_route
+public_claim_boundary
+verified_on
+</code></pre>
+<p>Rules:</p>
+<ul>
+<li><code>unknown</code> remains visible;</li>
+<li>preparation does not start a clock or release money;</li>
+<li>the application must be able to record a correction to any generic protocol it uses;</li>
+<li>public claims cannot exceed local review and consent.</li>
+</ul>
+<h3>8.4 Registry Entry</h3>
+<pre><code class="language-text">record_id
+title
+material_type
+current_version
+canonical_version
+maturity
+visibility
+application_status
+publication_state
+registry_state
+supersedes
+superseded_by
+field_review_status
+verified_on
+canonical_url
+repository_path
+notes
+</code></pre>
+<p>Rules:</p>
+<ul>
+<li>the registry is the public status memory;</li>
+<li>the repository is the technical history;</li>
+<li><code>canonical</code> does not mean <code>validated</code>;</li>
+<li><code>frozen</code> describes version stability, not universal truth.</li>
+</ul>
+<h2>9. Illustrative record tasks</h2>
+<h3>9.1 Doukkala</h3>
+<p>Purpose: test one bounded Grounding Cycle where site, steward relationship and concrete land-water questions already exist.</p>
+<p>Source lineage:</p>
+<ul>
+<li><em>Rehamna / Badaoui - Compréhension pré-pilote et contexte de conception</em>, working v0.6;</li>
+<li><em>Supplementary Note - Working with the Existing Pomegranate Structure</em>, July 2026.</li>
+</ul>
+<p>Required record condition:</p>
+<pre><code class="language-text">relationship_status: established
+site_binding_status: present
+local_authority_status: present_but_not_fully_recorded
+application_status: preparing
+protocol_bindings: not_yet_fixed
+field_cycle_status: not_activated
+funding_status: no_release
+validation_claim: none
+</code></pre>
+<p>Required first-cycle contents:</p>
+<ul>
+<li>one minimal application card;</li>
+<li>one or two evidence passports;</li>
+<li>one preliminary three-stream reading;</li>
+<li>no more than five questions requiring local response;</li>
+<li>one burden note;</li>
+<li>one correction note back to the Grounding process.</li>
+</ul>
+<p>Non-activation boundary: the record starts no clock, releases no money and binds no steward to an area, planting design or timetable.</p>
+<h3>9.2 Mexico City / Xochimilco</h3>
+<p>Purpose: show an inquiry and bridge relation that is not yet a locally held application.</p>
+<p>Source lineage:</p>
+<ul>
+<li><em>Mexico City Brief</em>, August 2026;</li>
+<li>current public Mexico City and AnchorPoints descriptions, verified at drafting;</li>
+<li>any later locally reviewed source added only with consent.</li>
+</ul>
+<p>Required record condition:</p>
+<pre><code class="language-text">relationship_status: active_research_and_bridge_relation
+site_binding_status: none
+local_field_authority_status: not_yet_established
+application_status: inquiry_or_pre_application
+ledger_status: shadow_only_if_invited
+funding_status: no_release
+public_impact_claim: prohibited_before_local_review
+validation_claim: none
+</code></pre>
+<p>The shadow-ledger test is retained only if it improves a real judgement, makes hidden work visible, reduces duplicate documentation or restores a missing feedback loop. If it only produces more documentation, it is changed or stopped.</p>
+<h2>10. Ordered implementation sequence</h2>
+<p>The order below is binding unless an earlier step reveals a stop condition.</p>
+<h3>Step 0 - Approve this brief</h3>
+<p>Resolve O1-O5 or record the approved defaults.</p>
+<p><strong>Output:</strong> approved Revision Brief with named approver and date.</p>
+<h3>Step 1 - Establish the Protocol Habitat field on papers</h3>
+<p>Create the public section that presents Architecture, Human Entry, Institutional Ground and Operational Tools as one coherent reading field. Update the papers index and sitemap, remove materials not admitted to the new public baseline, and preserve repository history without making it part of the public narrative.</p>
+<p><strong>Output:</strong> one clear public field with no contradictory current status claims.</p>
+<h3>Step 2 - Publish the Architecture Paper and Revision Brief</h3>
+<p>Publish candidate HTML and PDF for the Architecture Paper with its status block intact. Publish this brief as the dated implementation companion, clearly subordinate to the Architecture Paper and carrying the non-authorisation boundary.</p>
+<p><strong>Output:</strong> one durable candidate architecture paper and one public implementation companion with distinct functions.</p>
+<h3>Step 3 - Establish the orientation, registry skeleton and cross-links</h3>
+<p>Create the human-readable entry point and canonical status memory. Initial entries should include the Architecture Paper, Revision Brief, Constitutional Ground, Rule of Life, Knowing From the Ground, SRIP, Regenerative Reciprocity, the approved status of the Grounding source, the PG Ledger formats, and later approved applications or tools. Link outward to AnchorPoints and the relevant field pages.</p>
+<p><strong>Output:</strong> a small public habitat with a clear reading path and a source-locked status memory.</p>
+<h3>Step 4 - Finalise the minimum record contracts</h3>
+<p>Review the four contracts in Section 8. Resolve field names, enums, required/optional status and privacy boundaries. Test each contract against Doukkala and Mexico City without filling unknowns by inference.</p>
+<p><strong>Output:</strong> approved record contracts and two validation fixtures.</p>
+<h3>Step 5 - Draft the two illustrative records</h3>
+<p>Draft Doukkala and Mexico City from Section 9. Keep them internal until the visibility decision and relevant local review are complete.</p>
+<p><strong>Output:</strong> two clearly differentiated, non-authorising records.</p>
+<h3>Step 6 - Decide and prepare the Grounding publication form</h3>
+<p>Implement O1. If published as a protocol candidate, separate its operational process from architecture prose and give it a bounded claim, application interface, burden test and next test. If retained internally, state that accurately in the registry.</p>
+<p><strong>Output:</strong> one unambiguous Grounding status.</p>
+<h3>Step 7 - Define shared schema v1</h3>
+<p>Implement O3 after the record contracts are approved. The schema may validate identity, classification, status axes, required claim disclosure, consent fields, authority fields and relationships. It must not validate truth, readiness or legitimacy.</p>
+<p><strong>Output:</strong> schema, examples and structural validation report.</p>
+<h3>Step 8 - Revise glossary, methods and public cross-references</h3>
+<p>Source-lock AnchorPoint, protocol, application, field cycle, core, candidate, canonical, frozen, active and validated-for-defined-use. Remove any public wording that contradicts the registry.</p>
+<p><strong>Output:</strong> one terminology set across both sites.</p>
+<h3>Step 9 - Correct the separate Spiralweb route conflict</h3>
+<p>In the Spiralweb public-surface repository, redirect the no-slash Planetary Guardians route to the canonical slash route. Verify direct requests, internal links, redirects, Worker/Pages behaviour and the custom domain. This step is separate from the papers-only baseline publication.</p>
+<p><strong>Output:</strong> one route, one current body, one status source across the wider public surface.</p>
+<h3>Step 10 - Publish one source-locked integration</h3>
+<p>Publish the orientation, registry, approved records, schema and cross-reference changes as one guarded integration. Verify exact or semantic parity as appropriate, all internal links, sitemap, both route forms and clean repository state across the relevant repositories.</p>
+<p><strong>Output:</strong> one coherent public protocol habitat.</p>
+<h2>11. Acceptance criteria</h2>
+<h3>Related public route - required for final cross-site completion</h3>
+<ul>
+<li>slash and no-slash requests reach the same current page;</li>
+<li>no alternate current status body remains reachable;</li>
+<li>the first papers-only baseline is not represented as having completed this separate task.</li>
+</ul>
+<h3>Public field</h3>
+<ul>
+<li>the Architecture Paper is visibly a candidate foundation;</li>
+<li>the Revision Brief is visibly a dated implementation companion and not a second architecture paper;</li>
+<li>Architecture, Human Entry, Institutional Ground and Operational Tools are presented as one coherent field;</li>
+<li>only materials explicitly admitted under the Architecture Paper appear as current registry entries;</li>
+<li>the public orientation keeps self-starting practice separate from organisational review, verified relationship and support.</li>
+</ul>
+<h3>Registry</h3>
+<ul>
+<li>every entry has separate type, maturity, visibility, application, publication and registry states;</li>
+<li>every current claim includes a verification date;</li>
+<li><code>canonical</code> is never used as a synonym for <code>validated</code>;</li>
+<li>no material is shown as active unless a named application establishes activation.</li>
+</ul>
+<h3>Applications and AnchorPoints</h3>
+<ul>
+<li>Doukkala and Mexico City remain visibly different relation conditions;</li>
+<li>self-starting practice and learning contact are not represented as AnchorPoints;</li>
+<li>neither record starts a clock or releases money;</li>
+<li>bridge authority is not converted into site authority;</li>
+<li>public descriptions do not exceed local review and consent.</li>
+</ul>
+<h3>Schema</h3>
+<ul>
+<li>evidence limitations are carried inside evidence status;</li>
+<li>structural validation cannot produce a readiness, funding or legitimacy decision;</li>
+<li>prohibited uses and human authority requirements remain machine-visible where included in the chosen schema depth.</li>
+</ul>
+<h3>Source-lock</h3>
+<ul>
+<li>Architecture Paper, public orientation, glossary, registry and records use the same definitions;</li>
+<li>Constitutional Ground is classified as a foundation and not as a field procedure;</li>
+<li>the Grounding process has one unambiguous publication and registry state.</li>
+</ul>
+<h3>Repository and deployment</h3>
+<ul>
+<li>only approved files are committed;</li>
+<li>unrelated and untracked files are preserved;</li>
+<li>local and remote repository states are verified;</li>
+<li>public HTML, PDF and machine-readable outputs are checked after deployment.</li>
+</ul>
+<h2>12. Stop conditions</h2>
+<p>Stop without commit or deployment if any of the following occurs:</p>
+<ol>
+<li>the canonical repository or branch cannot be verified;</li>
+<li>a later route correction is attempted without enough understanding for a narrow change;</li>
+<li>an edit would expose protected location, personal or field information;</li>
+<li>a local application statement lacks the relevant review or consent;</li>
+<li>a record requires an unknown value to be fabricated;</li>
+<li>a schema rule would automate a substantive ecological, governance or funding decision;</li>
+<li>the public pages and registry cannot be made semantically consistent;</li>
+<li>unrelated repository changes would be staged;</li>
+<li>a generated PDF or human-readable page fails visual inspection;</li>
+<li>a public URL treatment would silently preserve an outdated status claim;</li>
+<li>a public entry pathway would convert open practice into automatic organisational intake or support expectation.</li>
+</ol>
+<h2>13. Completion definition</h2>
+<p>This revision is complete only when:</p>
+<ol>
+<li>one canonical Planetary Guardians route exists;</li>
+<li>the Architecture Paper is public as a candidate foundation;</li>
+<li>the protocol habitat orientation and registry are live and source-locked;</li>
+<li>the Protocol Habitat field is live on papers, integrating Architecture, Human Entry, Institutional Ground and Operational Tools;</li>
+<li>the minimum record contracts are approved;</li>
+<li>Doukkala and Mexico City records exist in their approved visibility state;</li>
+<li>the Grounding process has one explicit status;</li>
+<li>the shared schema validates structure without claiming truth or authority;</li>
+<li>glossary and methods language match the registry;</li>
+<li>all public surfaces have been verified and the tracked repository is clean.</li>
+</ol>
+<h2>14. Source register</h2>
+<p>Controlling source:</p>
+<ul>
+<li><em>The Protocol Habitat - Architecture Paper</em>, candidate v0.4.</li>
+</ul>
+<p>Primary architectural and constitutional sources:</p>
+<ul>
+<li><em>Constitutional Ground: Stewardship, support, and the pathway from red to green</em>, March 2026;</li>
+<li><em>Spiralweb Protocol Architecture &amp; The Grounding Protocol</em>, v0.3-candidate;</li>
+<li><a href="rule-of-life"><em>Rule of Life</em></a>;</li>
+<li><a href="knowing-from-the-ground"><em>Knowing From the Ground</em></a>;</li>
+<li><a href="the-correction-loop"><em>The Correction Loop</em></a>;</li>
+<li><a href="srip-the-stewards-journey"><em>SRIP: The Steward's Journey</em></a> - human-scale entry, light records, pathway distinctions, the burden test, AnchorPoints, support without capture, pause and dignified incompletion;</li>
+<li><em>Penguin Dashboard: Legibility as Governance</em>;</li>
+<li><a href="report-06-regenerative-reciprocity"><em>Regenerative Reciprocity</em></a> and its five PG Ledger formats;</li>
+<li><em>From Climate Intervention to Bioregional Stewardship</em>.</li>
+</ul>
+<p>Field and application sources:</p>
+<ul>
+<li><em>Rehamna / Badaoui - Compréhension pré-pilote et contexte de conception</em>, working v0.6;</li>
+<li><em>Supplementary Note - Working with the Existing Pomegranate Structure</em>, July 2026;</li>
+<li><em>Mexico City Brief</em>, August 2026;</li>
+<li>current public AnchorPoints and field descriptions, verified when records are drafted.</li>
+</ul>
+<p>Public-surface evidence:</p>
+<ul>
+<li>both Planetary Guardians route forms and their deployed responses, verified 3 August 2026; this evidence belongs to the separate cross-site dependency.</li>
+</ul>
+<hr/>
+<p><strong>No edit, commit, push or deployment is authorised merely by the existence of this brief. Execution begins only after approval of Step 0.</strong></p>
+
+<p class="colophon">Spiralweb Stewardship Association · Planetary Guardians · Protocol Habitat. Developed through AI-assisted dialogue; final authorship and responsibility remain human. Licensed CC BY 4.0.</p></article></body></html>

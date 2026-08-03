@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Protocol Habitat - Spiralweb Green Papers</title><link rel="canonical" href="https://papers.spiralweb.earth/papers/the-protocol-habitat">
+<meta name="description" content="The public architecture for how foundations, protocols, applications and tools relate; how generic material becomes place-bound and answerable to field correction.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"><style>
+:root{--ink:#1f1c18;--ink-soft:#4a443c;--paper:#faf7f1;--paper-edge:#f0eadf;--gold:#b08d57;--gold-deep:#8c6d3f;--rule:#e3dcce;--maxw:44rem}
+*{box-sizing:border-box}html{font-size:18px;-webkit-text-size-adjust:100%}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Lora",Georgia,"Times New Roman",serif;line-height:1.66;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}.wrap{max-width:var(--maxw);margin:0 auto;padding:4.5rem 1.5rem 6rem}.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin:0 0 1.4rem}h1{font-size:2.5rem;line-height:1.12;font-weight:600;margin:0 0 1rem;letter-spacing:-.012em}.dek{font-style:italic;color:var(--ink-soft);font-size:1.12rem;line-height:1.5;margin:0 0 1.8rem}.meta{font-size:.82rem;color:var(--ink-soft);line-height:1.7;padding:1.1rem 0 0;border-top:1px solid var(--rule)}.meta .standalone{display:block;margin-top:.6rem;font-style:italic}.topnav{margin-top:1rem;font-size:.78rem;color:var(--ink-soft)}.topnav a{margin-right:.9rem}hr{border:0;height:1px;background:var(--rule);margin:3rem 0}h2{font-size:1.5rem;font-weight:600;line-height:1.2;margin:3rem 0 1rem;letter-spacing:-.01em}h2::before{content:"";display:block;width:2.2rem;height:2px;background:var(--gold);margin-bottom:1rem;border-radius:1px}h3{font-size:1.16rem;font-weight:600;margin:2.2rem 0 .7rem;color:var(--ink)}h4{font-size:1rem;font-weight:600;margin:1.8rem 0 .55rem;color:var(--ink)}h2+h3{margin-top:1.4rem}p{margin:0 0 1.1rem}strong{font-weight:600}em{font-style:italic}a{color:var(--gold-deep);text-decoration:none;border-bottom:1px solid var(--rule)}a:hover{border-bottom-color:var(--gold)}ul,ol{margin:0 0 1.2rem;padding-left:1.3rem}li{margin:.35rem 0;padding-left:.2rem}li::marker{color:var(--gold)}blockquote{margin:1.4rem 0;padding:1rem 1.2rem;background:var(--paper-edge);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;font-size:.95rem;color:var(--ink-soft)}blockquote p{margin:0}blockquote strong{color:var(--ink)}.table-scroll{overflow-x:auto;margin:1.4rem 0}table{border-collapse:collapse;width:100%;font-size:.88rem;line-height:1.45}th,td{text-align:left;vertical-align:top;padding:.55rem .7rem;border-bottom:1px solid var(--rule)}thead th{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;border-bottom:1.5px solid var(--gold)}code{font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:.84em;background:var(--paper-edge);padding:.1em .35em;border-radius:3px}pre{font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:.74rem;line-height:1.45;background:var(--paper-edge);padding:1rem 1.1rem;border-radius:4px;overflow-x:auto;white-space:pre-wrap;word-break:break-word}pre code{background:transparent;padding:0}.colophon{margin-top:3.5rem;padding-top:1.4rem;border-top:1px solid var(--rule);font-size:.8rem;color:var(--ink-soft);font-style:italic}
+@media print{@page{size:A4;margin:18mm}:root{--paper:#fff}html{font-size:11.2pt}body{background:#fff}.wrap{max-width:none;padding:0}h1{font-size:25pt}h2{page-break-after:avoid}h3,h4{page-break-after:avoid}table,blockquote{page-break-inside:avoid}pre{page-break-inside:auto;font-size:7.8pt}a{color:var(--ink);border-bottom:none}.topnav{display:none}.eyebrow{color:var(--gold-deep)}}
+@media(max-width:640px){html{font-size:17px}.wrap{padding:3rem 1.15rem 4rem}h1{font-size:2rem}}
+</style></head>
+<body><article class="wrap"><header><p class="eyebrow">Spiralweb Green Papers · Protocol Habitat</p><h1>The Protocol Habitat</h1>
+<p class="dek">How Planetary Guardians protocols grow through shared grammar, AnchorPoints, place-bound applications and field correction</p><p class="meta">Foundation / architecture paper · candidate v0.4 · August 2026<br>Steward: Spiralweb Stewardship Association · Application status: not a protocol, field method or activated application<span class="standalone">Publication is not activation. Final authority remains with named human stewards or legitimate human bodies.</span></p>
+<p class="topnav"><a href="../">Papers index</a><a href="the-protocol-habitat-revision-brief">Implementation companion</a><a href="srip-the-stewards-journey">Human entry: SRIP</a></p></header><hr><h3>What this paper is</h3>
+<p>This paper defines the architecture of the Planetary Guardians protocol habitat. It explains how a protocol comes into being, what gives it legitimate standing, how it enters a particular place, and how experience from that place can change the library from which the protocol came.</p>
+<p>It is not a meta-protocol. It activates nothing, releases nothing, and validates no field. It is also not an implementation plan. Record specifications, public-surface corrections and ordered tasks belong in a separate, dated <em>Revision Brief</em>. The distinction is deliberate: an architecture should endure beyond the work order used to establish it.</p>
+<p>This paper is not more mature than the material it synthesises. Its main architectural spine comes from <em>The Grounding Protocol</em>, itself a candidate. Where that foundation remains open to correction, so does this paper.</p>
+<p>The architecture rests on one governing proposition:</p>
+<blockquote>
+<p><strong>A generic protocol offers a bounded and correctable way of investigating and acting. It becomes active only through an explicit place-bound application held by locally legitimate human authority.</strong></p>
+</blockquote>
+<p>Publication is not activation. Technical coherence is not field legitimacy. Repeated use is not universal validity.</p>
+<hr/>
+<h2>Part I - Habitat, not stack</h2>
+<h3>1. Why habitat</h3>
+<p>A stack suggests a vertical order: principles above, protocols beneath, applications below them, and machine files at the bottom. That image can clarify dependencies, but it misrepresents how the material actually develops.</p>
+<p>The architecture matures through several directions at once: published reasoning, field relationships, governance practice, observations, tools, schemas and correction. A field document may become more operationally precise than the generic material that informed it. A foundation may carry a function that was once imagined as a separate protocol. A useful tool may never become a protocol. A relationship may remain alive for years before an application is activated.</p>
+<p>A <strong>habitat</strong> can hold these differences without flattening them into one hierarchy. It can contain:</p>
+<ul>
+<li>distinct material types with distinct permissions;</li>
+<li>several maturity, visibility and review states at once;</li>
+<li>lineage, retirement and later re-emergence;</li>
+<li>relationships that precede formal application;</li>
+<li>tools that assist without becoming sovereign;</li>
+<li>and correction that travels from lived consequence back into generic form.</li>
+</ul>
+<p>The metaphor does not remove structure. It changes its form: from a fixed vertical stack to a versioned and governed ecology.</p>
+<p>The rule governing that ecology is:</p>
+<blockquote>
+<p><strong>Preserve lineage; do not preserve accidental authority.</strong></p>
+</blockquote>
+<p>A material does not become legitimate because it exists, has a name, validates technically or has once been published.</p>
+<hr/>
+<h2>Part II - The material architecture</h2>
+<h3>2. Four material homes</h3>
+<p>Every material in the protocol habitat has one primary home: <strong>Foundation, Protocol, Application or Tool</strong>. A material may relate to many others, but it should not occupy several homes at once.</p>
+<h4>Foundations</h4>
+<p>Foundations hold constitutional, ethical, epistemological and economic orientation. They include such materials as <a href="../kernel/constitutional-ground.pdf"><em>Constitutional Ground</em></a>, <a href="rule-of-life"><em>Rule of Life</em></a>, <a href="knowing-from-the-ground"><em>Knowing From the Ground</em></a>, Moral Biology, Penguin Economics and Regenerative Reciprocity, together with the safeguards surrounding consent, refusal, non-capture, correction and the Last Impulse.</p>
+<p>A foundation may bind practice tightly without becoming a field procedure. It establishes orientation, limits and interpretive commitments. It does not by itself activate a sequence of work in a place.</p>
+<h4>Protocols</h4>
+<p>A protocol is a bounded, versioned and revisable agreement about how a recurring shared concern may be observed, interpreted, brought to decision, met through action and corrected through experience.</p>
+<p>A protocol should make visible:</p>
+<ul>
+<li>its living function and recurring question;</li>
+<li>the observations and claims it can carry;</li>
+<li>the evidence, provenance and uncertainty it requires;</li>
+<li>who holds knowledge, who may be affected and who may decide;</li>
+<li>what local translation is mandatory;</li>
+<li>what can trigger review, pause or stop;</li>
+<li>how disagreement and dissent remain visible;</li>
+<li>and what the protocol must never be used to claim.</li>
+</ul>
+<p>Protocols may carry a structural tag:</p>
+<ul>
+<li><strong>Core</strong> - a basic recurring operational capacity on which other materials may depend;</li>
+<li><strong>Module</strong> - a bounded function that can enter several applications;</li>
+<li><strong>Process</strong> - a sequence connecting inquiry, people, evidence, decisions or action over time.</li>
+</ul>
+<p>These tags describe function. They do not confer maturity or authority.</p>
+<h4>Applications</h4>
+<p>An application is a concrete, place-bound or relation-bound formulation of one or more protocols. It is where generic architecture becomes answerable to reality.</p>
+<p>An application records how a protocol is translated, renamed, limited, supplemented, challenged, partly refused or activated within a defined setting. It connects generic material to local language, climate, hydrology, ecology, tenure, law, institutions, consent, authority, responsibility and review.</p>
+<p>An application is not the implementation of a finished model.</p>
+<blockquote>
+<p><strong>A legitimate application must be able to correct the protocol it uses.</strong></p>
+</blockquote>
+<p>That capacity is not optional. It is the mechanism through which the library learns.</p>
+<h4>Tools</h4>
+<p>Tools organise observation, documentation, comparison, review and coordination without becoming sovereign over them. They include observation sheets, evidence passports, 13 x 13 matrices, three-stream reviews, the five PG Ledger formats, the Penguin Dashboard, schemas, validators, decision logs, maps, scripts and bounded decision-support models.</p>
+<p>A tool may make material legible. It cannot generate truth, consent, local authority or readiness by itself.</p>
+<p>The <strong>13 x 13</strong> is a shared inquiry matrix: thirteen recurring lines of inquiry crossed with thirteen layers of concern, producing a 169-cell resolution for broad but bounded investigation. It structures attention without prescribing one universal set of indicators.</p>
+<h3>3. Status is not type</h3>
+<p>A material's home says what kind of thing it is. It does not say how mature, visible, current or active it is. Those are separate axes.</p>
+<p>At minimum, the habitat distinguishes:</p>
+<ul>
+<li><strong>material type:</strong> foundation, protocol, application, tool;</li>
+<li><strong>structure:</strong> core, module, process;</li>
+<li><strong>scope:</strong> generic, cross-domain, domain, place-bound, relation-bound;</li>
+<li><strong>maturity:</strong> seed, articulated, candidate, field-test, validated for defined use, frozen, retired, legacy;</li>
+<li><strong>visibility:</strong> private, internal, partner-shared, public;</li>
+<li><strong>application state:</strong> not applied, desk-tested, place-bound test, repeated application, validated for defined use;</li>
+<li><strong>publication state;</strong></li>
+<li><strong>registry state:</strong> registered, canonical, superseded, retired, legacy;</li>
+<li><strong>review state;</strong></li>
+<li><strong>field-review state;</strong></li>
+<li>and a <strong>verification date</strong> stating when the record was last known to be true.</li>
+</ul>
+<p>Two distinctions are decisive:</p>
+<ul>
+<li>A version may be <strong>canonical</strong> because it is the current official candidate. That does not make it validated.</li>
+<li>A version may be <strong>frozen</strong> because its text is stable and citable. That does not make its claims universally true.</li>
+</ul>
+<p><strong>Core</strong> is a structural description, not a system-wide status. Only a named application can be activated.</p>
+<hr/>
+<h2>Part III - The living sequence</h2>
+<h3>4. From signal to correction</h3>
+<p>The habitat develops through a sequence of responsibilities:</p>
+<blockquote>
+<p><strong>Signal -&gt; Inquiry -&gt; Relational Grounding -&gt; AnchorPoint -&gt; Place-Bound Application -&gt; Field Cycle -&gt; PG Ledger -&gt; Human Review and Correction</strong></p>
+</blockquote>
+<p>Each step answers a different question and must not silently answer the next one.</p>
+<p>A <strong>signal</strong> is something becoming noticeable: ecological stress, a steward's concern, an institutional gap, a recurring pattern or an opening for repair. A signal does not establish a project.</p>
+<p>An <strong>inquiry</strong> investigates what is known, observed, inferred, disputed, protected and still unknown. It brings plural forms of evidence into relation. An inquiry does not establish local authority.</p>
+<p><strong>Relational grounding</strong> occurs when inquiry meets real people, continuity, lived place and the right to correct or refuse the framing. It cannot be completed from a desk.</p>
+<p>An <strong>AnchorPoint</strong> is the relational and place-based threshold through which Spiralweb touches ground. It may be connected directly to a site or may function as a bridge across language, research, institutions or regional relationships. An AnchorPoint can exist long before any protocol is active.</p>
+<p>A <strong>place-bound application</strong> defines the bounded concern, local authority, consent, protocol bindings, responsibilities, evidence needs, limits and next decision. It may remain preparatory. A record alone starts no clock and releases no money.</p>
+<p>A <strong>field cycle</strong> begins only when a specific action, responsibility structure, observation rhythm and review condition have been activated. A relationship can be active while its field cycle is paused or not yet begun.</p>
+<p>The <strong>PG Ledger</strong> preserves five distinct operational functions: the Monthly Dashboard, Observation Sheet, 30-Day Action Sheet, Governance and Decision Log, and Financial Ledger. They remain connected but are not collapsed into one generic event stream.</p>
+<p><strong>Human review and correction</strong> is where observation becomes interpretation, interpretation becomes working judgement, judgement informs a decision, and later evidence may revise or overturn it.</p>
+<h3>5. The chain of authority</h3>
+<p>The instruments do not govern. The division of function is explicit:</p>
+<blockquote>
+<p>Citizen science observes.<br/>
+The 13 x 13 structures inquiry.<br/>
+AI assists.<br/>
+The PG Ledger records, connects and preserves.<br/>
+The Dashboard supports shared judgement.<br/>
+Named human stewards or legitimate human bodies govern.<br/>
+Rule of Life holds the constitutional horizon, while Constitutional Ground states the association's stewardship and support commitments.</p>
+</blockquote>
+<p>The ledger may structure and constrain the decision space. It does not hold the Last Impulse. Neither does a dashboard colour, an algorithm, a schema or a protocol file.</p>
+<hr/>
+<h2>Part IV - Shared grammar and safeguards</h2>
+<h3>6. One grammar, differentiated domains</h3>
+<p>The library is held together by a shared grammar, not a shared indicator set.</p>
+<p>Land, water, cities and community relations do not require identical observations. They require a common discipline for asking what an observation means, what it can carry, who is affected and who may decide.</p>
+<p>The planetary 13 x 13 and the Gaia GoldBloom observation grid are homologous rather than congruent. They preserve recurring concerns - layer, relation, felt consequence, power, time and correction - while approaching them from different directions.</p>
+<p>Beneath any domain-specific indicators lie the same questions:</p>
+<ul>
+<li>What was observed, by whom, where and under what conditions?</li>
+<li>What is noticed, inferred, known, disputed or unknown?</li>
+<li>Which evidence form and level of standing are involved?</li>
+<li>What can the resulting claim carry, and where does it stop?</li>
+<li>Whose life, work, authority or habitat is affected?</li>
+<li>How are consent, access, refusal and protected absence held?</li>
+<li>Who can contest the interpretation?</li>
+<li>Who may decide?</li>
+<li>What is reversible?</li>
+<li>What triggers review, pause or stop?</li>
+<li>When will the record be revisited?</li>
+</ul>
+<p>A domain protocol maps its observations onto this grammar. It does not reproduce the entire 13 x 13 within every file.</p>
+<h3>7. Four evidence forms</h3>
+<p>The habitat recognises four open evidence forms. They may support one another, but they must not be quietly interchanged.</p>
+<p><strong>Situated evidence</strong> includes lived relation, local practice, oral knowledge, practical judgement, memory and meaning.</p>
+<p><strong>Observed evidence</strong> includes field observations, measurements, photographs, samples, logs and change over time.</p>
+<p><strong>Documentary and comparative evidence</strong> includes research, law, public records, plans, budgets, history and comparable cases.</p>
+<p><strong>Derived evidence</strong> includes calculations, models, classifications, transformed data and AI-assisted synthesis.</p>
+<p>Derived evidence must never silently become field evidence. Every form remains traceable to its provenance, method, limitations and access conditions.</p>
+<h3>8. Claim architecture</h3>
+<p>A single evidence grade cannot carry every kind of statement a protocol makes. Every substantive claim should distinguish:</p>
+<ul>
+<li><strong>claim type:</strong> empirical threshold, causal proposition, working hypothesis, design argument, normative safeguard, constitutional commitment or local interpretation;</li>
+<li><strong>evidence status, including provenance, strength, uncertainty and limitations;</strong></li>
+<li><strong>scope:</strong> how far the claim may travel;</li>
+<li><strong>disposition:</strong> retain, qualify, place-bound hypothesis, review, supersede or remove;</li>
+<li>and <strong>prohibited use:</strong> what the claim cannot legitimately support.</li>
+</ul>
+<p>Numerical targets, fixed thresholds and universal design recommendations require a source-lock audit before they may travel beyond the context that produced them.</p>
+<p>Normative safeguards such as consent, withdrawal and the Last Impulse are not weak empirical claims. They are governance commitments and should be identified as such.</p>
+<h3>9. The trust claim</h3>
+<p>The protocol habitat does not claim sustainability certification, universal ecological validity, additionality, credit eligibility, automatic funding readiness or proof that a field is mature.</p>
+<p>Its legitimate trust claim is narrower and more exacting:</p>
+<blockquote>
+<p><strong>A named human, looking at the record, can see enough local authority, evidence, transparency and capacity for correction to justify one bounded next step - and can see exactly where that judgement would fail.</strong></p>
+</blockquote>
+<p>This is <strong>next-step supportability</strong>.</p>
+<p>It is not a substitute for local judgement. It is a condition for making that judgement inspectable. The machine layer must express both the positive claim and its prohibited uses.</p>
+<h3>10. Three non-compensatory streams</h3>
+<p>Three conditions are read separately:</p>
+<ul>
+<li><strong>Living Systems (Land &amp; Ecology);</strong></li>
+<li><strong>Stewardship &amp; Relations (Steward Viability);</strong></li>
+<li><strong>Governance &amp; Coordination.</strong></li>
+</ul>
+<p>Green, Yellow, Red and Unknown are condition readings within each stream. They are not the streams themselves.</p>
+<p>A green in one stream cannot erase a red in another. Ecological improvement does not compensate for hidden human depletion. Administrative order does not compensate for ecological harm. Unknown is never translated into green.</p>
+<p>The same three purposes may organise financial flows, but financial classifications and condition readings remain technically distinct. Money allocated to land and ecology does not prove that ecological condition is green.</p>
+<p>A red condition is a protection-and-review trigger, not an automated verdict. A protocol may establish a minimum response, but the consequential decision remains human, recorded and open to correction.</p>
+<h3>11. Consent, protected absence and burden</h3>
+<p>Consent is not adequately represented by a single Boolean field. The architecture must be able to distinguish visibility, sensitivity, consent scope, consent holder, date and review, public-summary permission, precise-location permission, retention, withdrawal, protected absence and knowledge that must not be recorded at all.</p>
+<blockquote>
+<p><strong>A blank is not a failure. Silence may be the correct safeguard.</strong></p>
+</blockquote>
+<p>The institution must adapt to the field's consent structure. The field is not required to become legible on institutional terms.</p>
+<p>The same principle governs workload. Documentation must remain proportional to the weight of the claim and the capacity of those carrying the work. A first grounding cycle should be possible without constructing an administrative apparatus that later consumes the field.</p>
+<p>A system has failed if truthful participation becomes impossible through burden, even when every schema validates.</p>
+<h3>12. The Last Impulse</h3>
+<p>AI and automated tools may retrieve, translate, classify, compare, check consistency, recognise patterns, validate schemas and draft. They may not certify readiness, authorise funding, advance a gate, replace local judgement, interpret protected knowledge or make the final consequential decision.</p>
+<p>The Last Impulse requires:</p>
+<ul>
+<li>a named human accountability-holder;</li>
+<li>real authority to change or reject the proposed action;</li>
+<li>access to the relevant evidence;</li>
+<li>a recorded rationale;</li>
+<li>and a correction route available to those affected.</li>
+</ul>
+<p>The central danger is not only a machine visibly deciding. It is responsibility dispersing until no one can locate the final push. The architecture exists to prevent that accountability fog.</p>
+<hr/>
+<h2>Part V - AnchorPoints and library learning</h2>
+<h3>13. What an AnchorPoint is</h3>
+<p>An AnchorPoint exists where enough continuity has formed to hold:</p>
+<ul>
+<li>a real person or group rooted in place or relationship;</li>
+<li>a local context capable of receiving shared inquiry;</li>
+<li>continuity strong enough to carry a next step;</li>
+<li>a right to correct, refuse or withdraw;</li>
+<li>and a bridge between public architecture and lived consequence.</li>
+</ul>
+<p>An AnchorPoint is not merely a contact, a location or a possible project.</p>
+<p>Two functions are recognised.</p>
+<p>A <strong>site AnchorPoint</strong> holds direct continuity around a concrete living place and its stewards.</p>
+<p>A <strong>bridge AnchorPoint</strong> holds relational, linguistic, cultural, research or institutional continuity between practices and places without taking their local authority.</p>
+<p>One application may bind to more than one AnchorPoint.</p>
+<h3>14. Relation states are not a maturity ladder</h3>
+<p>AnchorPoints can hold different legitimate conditions. One may sustain care and readiness through drought. Another may connect a regional constellation without owning a single field. Another may hold an existing practice while a shared inquiry forms. Another may remain a research bridge before direct local application authority exists.</p>
+<p>These conditions are not stages on one universal developmental ladder.</p>
+<p>The word <em>active</em> must not silently combine:</p>
+<ul>
+<li>relationship status;</li>
+<li>local-authority status;</li>
+<li>site binding;</li>
+<li>application status;</li>
+<li>field-cycle status;</li>
+<li>and evidence cadence.</li>
+</ul>
+<p>Each must remain separately visible.</p>
+<h3>15. Learning from both ends</h3>
+<p>The library develops from two directions.</p>
+<p>From the generic side come recurring questions, safeguards, evidence discipline, claim boundaries, interfaces and institutional memory.</p>
+<p>From the place come the actual concern, local language, existing practice, consequence, history, conflict, limits and the right to refuse.</p>
+<p>The bridge is legitimate only when each side can correct the other.</p>
+<blockquote>
+<p><strong>Generic candidate -&gt; AnchorPoint -&gt; Place-bound application -&gt; Field cycle -&gt; Ledgered experience -&gt; Correction -&gt; Revised application -&gt; Possible protocol revision</strong></p>
+</blockquote>
+<p>The learning loop is deliberately asymmetric:</p>
+<blockquote>
+<p><strong>One application may be sufficient to disprove or qualify a generic claim. It is almost never sufficient to validate a universal one.</strong></p>
+</blockquote>
+<p>Repeated applications may reveal a portable function worth abstracting into a module or generic protocol. They do so only when the conditions that made each application work remain visible.</p>
+<hr/>
+<h2>Part VI - How a protocol enters the library</h2>
+<h3>16. A library grows by warranted abstraction</h3>
+<p>The protocol library does not need to begin with a complete catalogue. It may remain small while relationships, applications and evidence mature.</p>
+<p>A recurring concern becomes a protocol candidate only when a bounded operational function can be stated without pretending to represent a place. The candidate must have:</p>
+<ul>
+<li>a recurring question that appears beyond one isolated circumstance;</li>
+<li>a clear living function;</li>
+<li>a defined claim boundary and explicit prohibited uses;</li>
+<li>evidence and uncertainty requirements proportionate to its claims;</li>
+<li>mandatory local translation;</li>
+<li>named decision and correction requirements;</li>
+<li>a feasible documentation burden;</li>
+<li>and a next bounded test through which it can be challenged.</li>
+</ul>
+<p>A vacancy in the library is not a failure. No generic protocol should be created merely to make the library appear complete or symmetrical.</p>
+<h3>17. From candidate to defined use</h3>
+<p>Publication makes a candidate inspectable. It does not make it active.</p>
+<p>A candidate enters a place only through a locally authorised application. Its first uses are tests of defined function, not demonstrations of universal validity. Each application should record what was retained, translated, refused, added or found unusable.</p>
+<p>A protocol may mature toward <strong>validated for defined use</strong> only when repeated applications show that a specific function remains useful under stated conditions, while field corrections and failures remain visible. Validation is always attached to a defined use, evidence basis, setting and review date.</p>
+<p>The library therefore grows slowly on purpose. It does not abstract before relationship, does not generalise before correction, and does not treat range as proof of maturity.</p>
+<hr/>
+<h2>Part VII - Two worked examples</h2>
+<p>The two examples are held together deliberately. Used alone, either could harden one route into a universal sequence. Together, they show that legitimate development begins from different relation conditions.</p>
+<h3>18. Doukkala - a bounded first grounding cycle</h3>
+<p>Doukkala offers the strongest first grounding test because the relationship already includes a concrete place, Abdelhamid Badaoui as local steward, continuity over time, existing pomegranate trees, reservoirs, livestock and bees, and real land-and-water questions that cannot be answered remotely.</p>
+<p>The pre-pilot document establishes the decisive non-activation boundary: nothing starts a clock, releases money or binds the steward to an area, planting design or timetable.</p>
+<p>The first cycle should remain deliberately small: a minimal application record, one or two evidence passports, one preliminary three-stream reading, a short set of questions requiring local answer, one burden note and one correction note back to the Grounding process.</p>
+<p>The test is not whether the record appears comprehensive. It is whether the first pass improves shared judgement without creating an apparatus that the field must later carry.</p>
+<p><strong>Illustrative architectural condition:</strong> relationship established; site binding present; local authority present but not yet fully recorded; application preparing; protocol bindings not yet fixed; field cycle not activated; no funding release; no validation claim.</p>
+<p>The pomegranate question shows how the learning loop should work. Documentary research may qualify an inherited design assumption. Soil, water and the steward's judgement determine whether that qualification becomes action. The result may correct a generic claim about retaining, thinning or replacing existing trees.</p>
+<p>Doukkala may challenge a generic claim. It cannot alone validate a universal one.</p>
+<h3>19. Mexico City / Xochimilco - inquiry before application</h3>
+<p>Mexico City presents the opposite condition. There is a substantive shared inquiry, a research and institutional bridge through Arturo, extensive existing practice and documentation, and a possible metropolitan governance question.</p>
+<p>There is not yet a steward-held chinampa site within the Spiralweb relationship, direct local application authority, an agreed consent-and-data boundary, protocol binding, evidence cadence or active field cycle.</p>
+<p>The appropriate sequence therefore begins by recognising existing practice, mapping the living field, entering one relationship by invitation and, only if useful, testing a shadow ledger that follows existing records without moving money.</p>
+<p>The shadow ledger must improve a real judgement, make hidden work visible, reduce duplicate documentation or restore a missing feedback loop. If it produces only more documents, it should be changed or stopped.</p>
+<p><strong>Illustrative architectural condition:</strong> active research and bridge relation; no site binding; local field authority not yet established; inquiry and pre-application only; shadow-ledger test only if invited; no funding release; public impact claim prohibited before local review; no validation claim.</p>
+<p>Mexico City can test whether the architecture adds connective value where practice and records are already mature. It must not abstract a generic method before one real practice has invited, used and corrected an application.</p>
+<h3>20. The contrast</h3>
+<p><strong>Doukkala</strong> begins with a concrete site and a local steward relationship. Its present condition is application preparation. Protocol bindings are not yet fixed. The appropriate first record is a minimal application record. No money is released. Its main correction risk is that external design hardens into a plan before the field has answered.</p>
+<p><strong>Mexico City / Xochimilco</strong> begins with a bridge relationship and a substantive inquiry, but no concrete site within the Spiralweb relationship. Its present condition is relational grounding and pre-application. The appropriate first record is a field map or, if invited, a shadow-ledger scope. No money is released. Its main correction risk is that a new architecture duplicates or burdens mature existing practice.</p>
+<hr/>
+<h2>Conclusion - A library that grows from the ground</h2>
+<p>The protocol habitat is a commitment to build only what can remain answerable to the places it touches.</p>
+<p>The grammar remains planetary because it keeps asking recurring questions about evidence, consequence, power, consent, burden, time and responsibility. Generic candidates remain generic because they describe recurring operational functions rather than claiming authority over places.</p>
+<blockquote>
+<p>AnchorPoints hold relationship.<br/>
+Applications hold translation.<br/>
+Fields hold consequence.<br/>
+Ledgers hold memory.<br/>
+Humans hold the decision.</p>
+</blockquote>
+<p>The library matures when field experience can travel back into generic form without losing the context that made it meaningful. One place may overturn a universal claim. Repeated places may reveal a portable function. No place is obliged to become an example for the architecture.</p>
+<p>The discipline can be stated in five lines:</p>
+<blockquote>
+<p>Keep the grammar small and shared.<br/>
+Keep generic candidates bounded and slow.<br/>
+Let applications be many, situated and revisable.<br/>
+Let AnchorPoints determine where the library meets reality.<br/>
+Let field correction determine how the library matures.</p>
+</blockquote>
+
+<p class="colophon">Spiralweb Stewardship Association · Planetary Guardians · Protocol Habitat. Developed through AI-assisted dialogue; final authorship and responsibility remain human. Licensed CC BY 4.0.</p></article></body></html>
