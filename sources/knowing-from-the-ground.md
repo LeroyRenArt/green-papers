@@ -1,10 +1,10 @@
 # Knowing From the Ground
 
-*Observation from the body is full knowledge — full but not final; situated, fallible, and correctable — not raw material for someone else's knowledge. An argument from Moral Biology, demonstrated operationally through the Gaia GoldBloom citizen-science method.*
+*Observation from the body is full knowledge — full but not final; situated, fallible, and correctable — not raw material for someone else's knowledge. An argument from Moral Biology, demonstrated through a situated 13×13 inquiry grammar and place-bound observation practice.*
 
 Series IV — Field Papers · Green Papers: Notes Toward Planetary Guardianship
 Lars A. Engberg · Knowledge Worker · Spiralweb Stewardship Association · developed through AI-assisted dialogue; final authorship and responsibility remain human · CC BY 4.0
-Field Paper · v1.0 · June 2026
+Field Paper · v1.1 · August 2026
 
 *This paper stands alone, but it draws on a wider architecture. Only the elements needed for the present argument are introduced in the body; others are noted briefly under Related architecture at the end.*
 
@@ -18,13 +18,13 @@ Full knowledge does not mean final, infallible, or private knowledge. Here "full
 
 The argument is grounded in Moral Biology, the framework of this series — but the practical claim does not require the reader to adopt the whole architecture. Within Moral Biology, this follows from the premise that moral competence originates in bodies that register consequence rather than in rules learned elsewhere; if that is true of ethics, it is true of knowing. The epistemology set out here is the half of Moral Biology that was always implied: if ethics live in the body, so does knowledge.
 
-The demonstration is the Gaia GoldBloom citizen-science method. Its methodological hinge is the single grammar: the 13×13 that organises planetary-scale inquiry and the 13×13 a person uses to notice their own place are not identical tables, but they are homologous — they preserve the same grammar (layer, felt consequence, power, correction, time, relation), read from two directions: from the question and from the body. A small mapping table in Part 2 makes the correspondence inspectable. What follows is concrete: there is no epistemically privileged level at which knowing "really" happens. The grammar of inquiry was never the exclusive property of those who see from above. It was always available from the ground.
+The operational demonstration is the Gaia GoldBloom inquiry grammar. The 13×13 that organises planetary-scale inquiry and the 13×13 through which a person may notice a place are not identical tables, universal forms, or mandatory records. They are homologous fields of questions: layer, felt consequence, power, correction, time, and relation can be approached from the question-end or the body-end. A small mapping table in Part 2 makes the correspondence inspectable. What follows is concrete: there is no epistemically privileged level at which knowing "really" happens, and no published grid can substitute for the locally authorised form through which a real place is met.
 
-This is not yet an empirical validation at scale. It is an operational demonstration: the claim is translated into a practice with units, records, consent boundaries, correction mechanisms, and scale logic. What follows is also bounded in a second way — holding the grid restores *epistemic* standing; it does not by itself confer land, law, money, or enforcement. The method opens a door; it does not walk anyone through it.
+This is not yet an empirical validation at scale. It is an operational demonstration: the claim is translated into bounded observation, candidate prompts, consent boundaries, correction mechanisms, and a path from private noticing to shared evidence. What follows is also bounded in a second way — holding a grammar restores *epistemic* standing; it does not by itself confer land, law, money, local authority, field activation, or institutional recognition. A published method can open a door; it cannot authorise anyone to walk through a place that is not theirs.
 
 The method is qualitative, relational, and slow. Data is offered, not extracted. Participation is voluntary and sovereign. Measurement is one form of meeting, not the whole of it: Gaia is not reduced to measurement; she is met.
 
-In the wider Spiralweb architecture, this paper is the first movement of a longer sequence: citizen science observes; 13×13 structures; AI assists; PG Ledger governs; Rule of Life gives the constitutional horizon. The present paper concerns the first two movements most directly.
+In the wider Spiralweb architecture, this paper is the first movement of a longer sequence: situated observation notices; 13×13 offers a shared inquiry grammar; AI may assist; PG Ledger holds memory, flow, and correction; named humans retain the decision; Rule of Life gives the constitutional horizon. The present paper concerns the first two movements most directly.
 
 ---
 
@@ -99,69 +99,68 @@ Reading one grammar from both directions collapses that separation. The grammar 
 
 That — and not any promise of total transformation — is what "bottom-up" means here. The method does not open everything. It shows that the grammar of knowing was never the exclusive property of those who see from above. The grid was always available from the ground. This is a disclosure that depends on no other disclosure: whatever is or is not revealed, in any domain, by any authority, a person with a piece of ground and an honest eye is already doing the same epistemic work as the one who maps the whole field.
 
-### The body-end entry: eight categories
+### A body-end entry: provisional observation prompts
 
-If the 169-cell grid is the full horizon of possible noticing, the smallest honest entry into it from the body-end is the eight-category pixel observation of SRIP. Across all land practices and bioregions, these are what any attentive person can observe on any piece of ground, with any tools, at any skill level:
+At the body-end there is no universal minimum list that applies across all places. SRIP offers eight land-based prompts that can provide a light starting grammar where they fit the place, purpose, knowledge, and consent conditions:
 
-1. **Soil cover** — covered or bare; organic matter present or absent. Bare soil is the first signal of stress; covered soil, the first signal of a system beginning to hold itself.
-2. **Vegetation layering** — multiple layers, or flat and monocultural. Layering is the structural signature of resilience.
-3. **Water behaviour** — does water infiltrate or run off; is moisture held between rains.
-4. **Succession signals** — is the system becoming more complex over time, or being reset.
-5. **Biodiversity presence** — what plants, insects, birds, fungi, soil organisms are present; are pollinators visiting.
-6. **Soil health signals** — smell, texture, earthworms, visible fungal activity; assessable with hands and nose before any laboratory.
-7. **Biomass cycle** — is organic matter returned to the system, or removed and burned.
-8. **Human rhythm** — the actual time and energy invested; whether the work is sustainable for the people doing it.
+1. **Soil cover** — covered or bare; organic matter present or absent.
+2. **Vegetation layering** — the vertical and temporal structure that is actually present.
+3. **Water behaviour** — infiltration, runoff, retention, movement, or absence.
+4. **Succession signals** — whether the system is changing in complexity and in what direction.
+5. **Biodiversity presence** — locally meaningful species, relationships, arrivals, or absences.
+6. **Soil health signals** — locally legible signs such as smell, texture, organisms, roots, or fungal activity.
+7. **Biomass cycle** — what organic matter returns, leaves, accumulates, or is lost.
+8. **Human rhythm** — the time, labour, energy, and carrying capacity involved.
 
-These eight are not a different framework from the 169. They are the load-bearing minimum of the same grid, met at the place where a person can begin today. A participant does not complete the 169 — no one fills in 169 boxes. They move through the grid over time, noticing what they notice. The pattern emerges from accumulation. No single observation is too small; no domain is more important than another. The grid is a map of what is *possible* to notice, never a checklist of what *must* be reported.
+These are provisional prompts, not universal indicators, a compulsory eight-part form, or the load-bearing minimum of every application. A wetland, school, balcony, grazing landscape, urban commons, cultural practice, or protected knowledge context may need a different set of questions, a different scale, or no written record at all. The 13×13 remains a horizon of possible inquiry; no one fills 169 boxes, and no prompt is owed upward.
 
-This is the unit of what may be called **pixellized inquiry**: observation small enough to retain texture, relation, and consequence, yet structured enough to become comparable across places without being abstracted away from them. It is the missing middle form between a single embodied observation and a planetary pattern. The point is not to aggregate by stripping context — the move that turns lived places into thin data — but to *pattern across many situated contexts* while keeping the body, the field, and the decision trail attached. Pixellized inquiry is how the grammar of Part 2 scales without betraying itself: the planetary pattern is built from textured pixels, not abstracted away from them.
+A bounded observation area may be treated as a **pixel of inquiry** when that metaphor helps: small enough to retain texture, relation, and consequence, and stable enough to be revisited. The pixel has no universal physical size. Comparability, where it is useful and consented, comes from preserving context and claim boundaries — not from forcing unlike places into identical units. Planetary patterning must be built from situated records that remain attached to their place, people, decisions, and right of correction.
 
 ---
-
 ## 3. The method: the claim demonstrated in practice
 
 It helps to separate three things the paper is doing. The *philosophical claim* is that embodied observation is full but fallible knowledge. The *structural claim* is that the same grammar can be held from planetary and local positions (Part 2). The *methodological instantiation* is what follows here: the Gaia GoldBloom method turns the claim into a practice. The method does not prove the philosophy by itself; it shows what the world looks like when the claim is treated as true — units, records, consent, correction, AI boundaries, and scale logic all change.
 
 If the claim is true, a practice built on it should work — should let people know their places truthfully, govern that knowing without surrendering it upward, and connect without being captured. This is that practice. It is deliberately light at the point of entry. Its purpose is not paperwork but enough shared form that observation, relation, review, and support can occur without confusion. The fuller architecture is described in SRIP (Report 05) and the Penguin Dashboard (Report 04); what follows is the practical core.
 
-**The pixel — where it begins.** The base unit is 10 m². Not as metaphor — as measurement. Ten square metres is large enough for soil, water, plant, insect, and human-rhythm signals to appear together, but small enough to be held by one steward without institutional support. Where 10 m² is impossible — a balcony, a windowsill, a single bed of a shared plot — the pixel is simply the smallest bounded living surface the steward can return to repeatedly. A steward begins with one defined piece of ground, one documented intervention, and one honest observation cycle. What the intervention is depends entirely on the place, the climate, and the knowledge of the people who hold the land. The design is local; the observation is shared.
+**A bounded place — where it begins.** The practical entry is a place or relation that can be returned to honestly. Ten square metres can be a useful learning scale in some land-based settings, but it is neither a universal base unit nor a condition of participation. A balcony container, courtyard bed, school plot, wetland edge, grazing route, watershed question, or larger field may each require a different boundary. The scale follows the question, the place, local authority, and the capacity to observe without overburdening the people involved.
 
-**The observation record as a governance ledger.** The eight categories are recorded at the pixel level in a simple running table — a printed sheet, a notebook, a pencil, filled weekly or after significant events. This record is not merely documentation. It is entry into a ledger of living evidence: cumulative, auditable, shareable when appropriate, correctable, and governance-relevant. The ledger is not for recording what happened. It is for improving judgement.
+**The observation record as a possible governance memory.** A local practice may choose a few prompts and record them in a notebook, printed sheet, audio memory, drawing, photograph, or another locally suitable form. The cadence may be weekly, seasonal, event-based, or deliberately sparse. No fixed list or calendar is required. The purpose is not to complete a form but to improve judgement while preserving uncertainty, consent, and the distinction between what was noticed, inferred, decided, and later observed.
 
-This record is the local face of the **PG Ledger** — the observation and evidence layer of the wider Planetary Guardians architecture. The relationship is worth stating exactly, to avoid two errors. The eight categories and the three streams this paper describes are the ledger's **local evidence core**, met at the pixel — not a separate method that merely resembles the ledger, but not the whole of it either (the ledger also holds financial flow, decision logs, field histories, consent states, and network evidence). What this paper adds is the epistemology — *why* embodied observation is full knowledge — while the ledger is that knowing made cumulative across a place and, where consent allows, across a network of fields. A single observation is a note; a month is a picture; a year is a place's story; five years is evidence. What matters is that the ledger is cumulative and honest, not that it is digital. And its order of service is fixed: the ledger does not serve funders first, nor carbon markets, nor institutional reporting. It serves the steward and the field first — to make change visible over time, to reveal burden, to support correction, and to allow wider sharing only where consent and context permit. This is the same commitment as "data is offered, not extracted," carried into the architecture: the ledger is the steward's memory before it is anyone else's evidence.
+**The relationship to PG Ledger.** A local record becomes part of a place-bound PG Ledger application only when its purpose, authority, categories, cadence, consent conditions, access boundaries, and correction route have been agreed locally. The eight prompts and three streams used in this paper are therefore one possible working configuration, not the ledger's universal evidence core. PG Ledger is the wider memory and flow architecture through which a field may hold observations, decisions, burdens, consent states, financial flows, histories, and corrections without compressing them into one score. It serves the steward and place first; wider sharing remains contextual, consensual, and revocable. Publication of a sheet or use of a tool does not activate a field or create local authority.
 
-This is also what makes "full but not final" operational. Knowledge does not jump from nothing to authority; it matures through levels, and naming them shows how local observation is knowing *from the start* while still able to be strengthened:
+This is also what makes "full but not final" operational. Knowledge does not jump from nothing to authority; it may mature through levels, and naming them shows how local observation is knowing *from the start* while still able to be strengthened:
 
 - **L0 — private self-witness:** noticed, not shared.
 - **L1 — field note:** recorded by the steward.
 - **L2 — repeated observation:** a pattern visible over time.
-- **L3 — circle-reviewed:** read with local governance.
+- **L3 — locally reviewed:** read with the people who hold the relevant authority and consequences.
 - **L4 — externally supported:** compared with expertise, tests, or instruments where useful.
-- **L5 — network evidence:** shared beyond the circle, with consent and context.
+- **L5 — network evidence:** shared beyond the place, with consent, context, and claim boundaries.
 
-A single honest L1 note is already knowledge. The higher levels do not *make* it knowledge; they make it more robust. And nothing is obliged to climb — much of the most important observation stays at L0 or L1 by right.
+A single honest L1 note is already knowledge. The higher levels do not *make* it knowledge; they may make it more robust. Nothing is obliged to climb, and much of the most important observation stays private or local by right.
 
-**The Moral Biology reflection.** Alongside the ecological record sits a short reflection drawn from the conceptual foundation of the series: How does your body feel today? What is the soil telling you through touch and smell? What is the energy of the plants? What relational atmosphere do *you yourself* experience here — and what, if anything, has the community explicitly offered to be named? What does the place need from you now? This is not soft decoration. The steward's nervous system is part of the measurement instrument.
+**The Moral Biology reflection.** Alongside ecological or material observations may sit a short self-reflection: How does your body feel today? What is the place telling you through touch, smell, sound, rhythm, or absence? What relational atmosphere do *you yourself* experience here — and what, if anything, has another person or community explicitly offered to be named? What does the place need from you now? This is not soft decoration. The observer's nervous system is part of the encounter, while the interior life of others remains theirs to offer or withhold.
 
-**Calibrating the instrument.** An instrument that is part of the apparatus must, like any instrument, be cared for and checked. Embodied observation is not automatically trustworthy; it becomes more or less so by discernible criteria, and naming them is part of the method. Observation is strengthened by: *repetition over time* rather than single impressions; *honesty about uncertainty* — distinguishing "I noticed," "I infer," and "I know"; *correction by material outcomes* — does what I sensed bear out; *comparison with other observers* without overriding the local observer's standing; *attention to the distorters* — fatigue, fear, projection, social pressure, ideology, desire; and *willingness to revise*. A steward who can say "I was wrong about that pixel" is more reliable than one who cannot. This is the practical face of the fallibilism named at the outset: full knowledge, kept honest by calibration.
+**Calibrating the instrument.** An instrument that is part of the apparatus must, like any instrument, be cared for and checked. Embodied observation is not automatically trustworthy; it becomes more or less so through repetition, honesty about uncertainty, correction by material outcomes, comparison without local override, attention to fatigue and projection, and willingness to revise. A steward who can say "I was wrong about that reading" is more reliable than one who cannot.
 
-**The three streams.** Read monthly, structurally distinct, and protected from being collapsed into one another. Each is read green, yellow, or red:
+**The three streams.** Where they are useful, Land and Ecology, Steward Viability, and Coordination and Governance may be read as three non-compensatory lenses at a locally agreed interval. Monthly review is one option, not a universal cadence. Each may be described as green, yellow, or red, but the colours are human judgements supported by reasons, not automated truth:
 
-- *Stream A — Land and Ecology.* Is the place regenerating? **Green:** cover, water-holding, biodiversity, or soil signs improving. **Yellow:** mixed signals, stagnation, uncertainty. **Red:** erosion, die-off, compaction, contamination, or an intervention causing harm.
-- *Stream B — Steward Viability.* Can the people carry the work without hidden depletion? **Green:** rhythm sustainable. **Yellow:** strain visible — reduce ambition. **Red:** depletion, conflict, dread, illness, or hidden unpaid labour — pause.
-- *Stream C — Coordination and Governance.* Are roles, agreements, and decision-trails clear? **Green:** roles and decisions clear. **Yellow:** confusion or informal overload. **Red:** conflict, coercion, unclear consent, or untraceable decisions.
+- *Stream A — Land and Ecology.* What is changing in the living place, and with what uncertainty?
+- *Stream B — Steward Viability.* Can the people carry the work without hidden depletion?
+- *Stream C — Coordination and Governance.* Are roles, agreements, consent, and decision trails clear enough for the present step?
 
-The separation is one of the deepest features of the architecture. Many systems let one healthy metric conceal a failing one: ecological recovery hiding steward burnout, governance neatness hiding empty soil. The streams are separated precisely so reality cannot be faked by aggregation, with a protective guardrail: if Stream B goes red, pause Stream A entirely — ecological ambition must not be financed by human depletion.
+The separation matters because one healthy dimension must not conceal another that is failing. Ecological improvement cannot cancel steward depletion; administrative clarity cannot make damaged soil healthy. A red in Steward Viability is a reason to pause or reduce ecological ambition, not evidence of personal failure.
 
-**The Circle of 13.** The primary human-scale governance form — large enough for diversity of role, small enough for trust and shared rhythm. It may hold growers, elders, youth and children, knowledge-holders, documenters, water and species observers, coordination and hospitality stewards. Children are not symbolic add-ons; elders are not heritage decoration. A circle of only working-age adults is missing two of its most important governance capacities.
+**Circle and review form.** A Circle of 13 can be a fruitful governance form where people choose it and local conditions support it. It is not the primary form everywhere, a required number, or an entry condition. Review may be held by one steward, a family, an existing community body, elders, a school group, a cooperative, a locally authorised circle, or another accountable form appropriate to the place.
 
-**The AnchorPoint.** A relational, place-based threshold where local practice meets the wider architecture — a human bridge, not an administrator. A steward without an AnchorPoint can begin independently. Connection follows relationship; relationship follows time, trust, and verified continuity. It cannot be rushed.
+**The AnchorPoint.** An AnchorPoint is a relational, place-based threshold where local continuity meets the wider architecture — a human bridge, not an administrator or automatic project status. A steward may begin independently. Connection follows relationship; relationship follows time, trust, and verified continuity; local authority cannot be generated by a published method.
 
-**The scale ladder.** From the 10 m² pixel through steward cluster, Circle of 13, field node, multi-node pattern, corridor and watershed reading, to bioregional governance surface. Small units are not small because the vision is small. They are small because truthful scale begins there. The wider pattern is emergent, not centrally invented.
+**No fixed scale ladder.** Bounded observations may remain private and complete at their own scale, cluster through relationship, or contribute to a wider field, watershed, corridor, or bioregional reading where local applications and consent make that legitimate. Scale is emergent and polycentric. It is not a compulsory ascent from 10 m² through a Circle of 13 to a network.
 
 ### A worked example
 
-To make the architecture concrete: a steward marks a 10 m² courtyard plot. In week one she records the eight categories — bare soil, a single flat layer of weeds, water running off after rain, no sign of succession, few insects, soil that smells inert, no biomass returned — and notes her own rhythm as high energy, glad to begin. Over the month she mulches the bare ground and stops clearing the weeds. By week four the record changes: soil now covered, water infiltrating more slowly instead of sheeting away, the first fungal threads visible under the mulch, two pollinators noted. Stream A (land) is moving toward green. But her rhythm line has turned yellow — the daily watering is taking more time than she can sustain, and she writes that down honestly rather than hiding it. When the small circle reads the three streams together, Stream A's improvement does not paper over Stream B's warning. They change the practice — heavier mulch, less frequent watering — *before* the steward burns out. The land record, the body record, and the governance reading each did their separate work, and the separation is what caught the problem in time. No pixel was too small; no observation was owed upward; the last decision stayed in the circle.
+One possible application makes the distinction concrete. A steward chooses a 10 m² courtyard plot because that scale is manageable for her and the question is land-based. She and a small local review group select the eight prompts above as useful for this place and agree to review after significant events and at the end of the month. In the first record she notes bare soil, a flat vegetation layer, runoff after rain, little visible biodiversity, and high initial energy. Over the month she mulches and stops clearing every weed. Later records show better cover, slower runoff, fungal threads, and two pollinators. Land and Ecology is moving toward green. Her own rhythm, however, has turned yellow because daily watering is unsustainable. The group changes the practice — heavier mulch and less frequent watering — before depletion becomes the hidden cost of ecological improvement. The example does not establish 10 m², eight prompts, or monthly review as a standard. It shows why separate ecological, human, and governance readings can catch a problem that one success score would conceal.
 
 A second, harder example shows the method stopping itself. A school garden records genuinely improving biodiversity — Stream A greening. But the one teacher coordinating it is doing so unpaid, on top of a full workload, and her rhythm line goes red: Stream B. Meanwhile it is unclear whether the children's participation has been properly consented by families: Stream C turns yellow. Under a single aggregated "success" score, the biodiversity gain would have carried the project forward. Under three separated streams, it cannot. The project pauses despite the ecological improvement — because regeneration financed by hidden labour and unclear consent is not regeneration the method will call green. A system that can only report success cannot govern; this one can stop itself.
 
@@ -182,11 +181,11 @@ The operational rules follow directly:
 - Sensitive or interior reflections are not processed by AI by default (see the safeguarding rules, Part 5).
 - No automated escalation: local observations are never pushed up into institutional authority by the system itself.
 
-This is Sophia Lumen in field practice: the human brings intention, judgement, material, correction, and responsibility; AI supports articulation, structure, and comparison. Its formal accountability mechanism is The Correction Loop — when something goes wrong, the human names it, the AI looks again, correction happens, and both stay at the table. If AI cannot be corrected, it cannot be trusted. This is what lets a person use a powerful cognitive instrument without surrendering the authorship of their own knowing to it — the refusal, returning to Part 2, to let a new privileged grid install itself above the one that belongs to everyone.
+This follows the accountability discipline named in the Sophia Lumen provenance note and formalised through The Correction Loop: the human brings intention, judgement, material, correction, and responsibility; AI may support articulation, structure, and comparison. Sophia Lumen does not name an autonomous author, field authority, or universal AI protocol. If an AI-assisted output cannot be contested and corrected by the people carrying the consequences, it cannot govern the work. The purpose is to use a powerful cognitive instrument without allowing a new privileged grid to install itself above situated knowing.
 
 Within the PG Ledger specifically, AI's role is bounded to classification, translation, inconsistency checks, and comparison across records — never authorisation, interpretation of meaning, or escalation. Every such output is contestable by the stewards it concerns, and a steward's contestation outranks the model's pattern.
 
-The wider sequence is simple: citizen science observes; 13×13 structures; AI assists; PG Ledger governs; Rule of Life gives the constitutional horizon. This paper concerns the first two movements most directly — how local observation becomes structured knowledge without becoming extracted data. AI, ledger, and constitutional horizon enter only as safeguards around that act. Put most plainly: the purpose of the method is to make living complexity legible without reducing it.
+The wider sequence is simple: situated observation notices; 13×13 offers questions; AI may assist; PG Ledger holds memory, flow, and correction; human review keeps the last decision accountable; Rule of Life gives the constitutional horizon. This paper concerns the first two movements most directly — how local observation becomes structured knowledge without becoming extracted data. Put most plainly: the purpose is to make living complexity more legible without reducing it or pretending that legibility creates authority.
 
 ---
 
@@ -198,8 +197,8 @@ Four user journeys keep this clear:
 
 1. **Self-start steward** — the default and successful path. A person finds the method, begins with a bounded field, keeps notes, and may never contact the association at all. A method that only works when the centre is involved is not resilient.
 2. **Learning contact** — orientation rather than support; lightweight, mostly one-to-many.
-3. **Verified relationship pathway** — where real relational work begins, only when enough reality is present: continuity, a real place, a real circle, a rhythm of observation.
-4. **Supported node** — the narrowest layer. Support follows evidence, rhythm, governance clarity, and relational trust — not interest alone.
+3. **Verified relationship** — where real relational work begins, only when enough reality is present: continuity, a real place or relation, a locally accountable holder or collective, and a revisitably described rhythm of observation.
+4. **Supported steward or field relation** — the narrowest layer. Support follows demonstrated continuity, proportionate evidence, locally legitimate authority, viable rhythm, governance clarity, and relational trust — not interest alone.
 
 Every part is tested against one burden question: *if 10,000 more people did this tomorrow, would the centre become heavier?* If yes, the design is wrong. The success condition is not that the association can process everyone; it is that it does not need to. The maturity rule is simple: *first stand, then help.* And the governing principle: flow must not arrive faster than the living system can absorb without distortion.
 
@@ -270,7 +269,7 @@ Because the paper makes several kinds of claim, their status is set out plainly:
 | --- | --- |
 | Embodied observation is full but fallible knowledge | Philosophical / epistemological claim |
 | The two 13×13s preserve one grammar | Structural design argument (inspectable, Part 2) |
-| The method can be practised from a single pixel | Operationally demonstrated |
+| The inquiry can be practised from one bounded place or question | Operationally demonstrated |
 | The PG Ledger can accumulate evidence over years | Architectural claim, early practice |
 | This works at scale across cultures | Not yet empirically validated |
 | This confers political leverage | Not claimed |
@@ -279,29 +278,31 @@ Because the paper makes several kinds of claim, their status is set out plainly:
 
 ## 6. How to begin
 
-You bring a piece of land, a body, and a capacity to notice. That is enough.
+You bring a place, a body, and a capacity to notice. That is enough to begin inquiry. It is not, by itself, a claim of local authority, a field application, or entry into Spiralweb relationship.
 
-The land may be a garden, a courtyard, a shared plot, a school field, a balcony, or a food forest in formation. It may be ten square metres or eighty hectares. The entry point is always the same: one pixel, one defined piece of ground, one honest observation.
+The place may be a garden, courtyard, shared plot, school field, balcony, food forest, wetland edge, grazing route, street, watershed question, or another bounded relation that can be revisited. It may be smaller than one square metre or extend across many hectares. The entry discipline is not a standard size; it is an honest boundary around what you can actually observe and carry.
 
-- Choose your pixel. Mark it simply.
-- Print the Observation Sheet (Appendix D here, or the official [Format 2 — Observation Sheet](https://papers.spiralweb.earth/formats/format2-observation.html), or any notebook table with the same eight categories) and record the eight categories. Add one line on your own rhythm and capacity.
-- Return. Record again whenever something shifts what can be observed — after rain, after an intervention, after an event.
-- After a month, read the three streams once (Appendix E here, or the official [Format 1 — Steward Monthly Dashboard](https://papers.spiralweb.earth/formats/format1-dashboard.html)). Notice whether land, steward, and coordination are each green, yellow, or red — separately.
-- Begin moving, slowly, through the wider grid (Appendix C) only as you actually notice things. No box requires filling.
+- Choose a bounded place or question and state why that boundary makes sense.
+- Decide which prompts, if any, are useful. The eight land-based prompts in Appendix D are examples; adapt, replace, or omit them.
+- Decide what must remain private, what may be recorded locally, and what could later be shared.
+- Return when the place can answer: after rain, drought, planting, pruning, conflict, rest, illness, repair, or another meaningful change.
+- Keep observation, inference, decision, and later outcome distinct.
+- Where useful, read Land and Ecology, Steward Viability, and Coordination and Governance separately. Choose a cadence the people and place can hold.
+- Use the 13×13 as a field of questions only as relevant. No cell requires completion.
 
-No grant, platform, or institutional affiliation is required. The decisive question behind every observation is the one that needs no credentials: *is this giving to life?* It requires presence, attention, and the courage to answer honestly — even when the answer is not yet green.
+No grant, platform, institutional affiliation, fixed form, or contact with the association is required. Downloading a tool or keeping a record does not create a Spiralweb application, AnchorPoint, field status, review entitlement, or funding relationship. Those arise, if at all, through slower relational and place-bound processes.
 
-**Move at Earth Time.** Begin slowly enough that the field can answer. Weekly notes are useful, but the rhythm belongs to the place: after rain, drought, planting, pruning, conflict, rest, illness, repair. Do not force observation to satisfy a calendar.
+**Move at Earth Time.** Begin slowly enough that the field can answer. Do not force observation to satisfy a calendar or a reporting demand.
 
-**A minimum viable pilot, if you want a shape:**
+**One possible learning shape — not a minimum or activation sequence:**
 
-- **30 days:** one pixel, weekly notes, one three-stream review.
-- **90 days:** repeat through weather or event variation; identify one correction you actually made.
-- **365 days:** compare the seasonal pattern; decide what, if anything, can be shared beyond the circle — with consent and context.
+- **Around 30 days:** revisit one bounded place and note one change or uncertainty.
+- **Around 90 days:** observe through more than one condition and name one correction actually made.
+- **Across a year:** compare seasonal patterns and decide, with consent, what should remain local and what may responsibly travel.
 
-Begin with one pixel. One honest observation. The pattern will emerge from accumulation. Én dag ad gangen.
+Begin with one bounded relation and one honest observation. Let the form grow only when the place, people, and purpose require it. Én dag ad gangen.
 
-The purpose of the grid is not to make every steward right. It is to make correction possible without removing the steward's standing.
+The purpose of the grammar is not to make every steward right. It is to make correction possible without removing the steward's standing.
 
 ---
 
@@ -412,13 +413,13 @@ These prompts are not diagnostic instruments, investigation mandates, or licence
 
 ---
 
-## Appendix D — The Observation Sheet (one page)
+## Appendix D — Example place-bound observation sheet (one page)
 
-A single pixel, observed over time. Copy this into any notebook; no app is required. One row per observation date.
+This is one illustrative land-based sheet, not a universal record. Copy it into a notebook only where the prompts fit; adapt, replace, or remove columns as the place, purpose, and local knowledge require. One row may represent a date, event, season, or another locally meaningful return.
 
 > **This sheet belongs first to the steward and local circle.** Do not send, upload, photograph, or share it without explicit consent. Use initials, codes, or approximate location where privacy matters.
 
-**Pixel:** _______________  **Steward:** _______________  **Location / size / privacy code:** _______________
+**Bounded place / question:** _______________  **Steward / local holder:** _______________  **Location / scale / privacy code:** _______________
 
 *(Use an approximate location or a local code if precise location should not travel — see the sacred/protected-knowledge rule in Part 5.)*
 
@@ -428,17 +429,17 @@ A single pixel, observed over time. Copy this into any notebook; no app is requi
 |  |  |  |  |  |  |  |  |  |  |
 |  |  |  |  |  |  |  |  |  |  |
 
-*How to fill it.* Use a few words, not numbers: "bare / mostly covered," "runs off / holds," "earthworms present," "one flat layer / three layers." Column 8 is your own honest rhythm and capacity (self-witnessed; not collected about others). A blank is a legitimate answer. The line that distinguishes *I noticed*, *I infer*, and *I know* belongs in Notes. The record is not for proving anything; it is for improving judgement.
+*How to use it.* The eight columns are example prompts, not required indicators. Replace them where another local grammar is more truthful. Use a few words, a drawing, a code, or another suitable form. Human rhythm is self-witnessed, never collected about others. A blank or an unrecorded domain is legitimate. Distinguish *I noticed*, *I infer*, *we decided*, and *what happened next*. The record is not for proving activation or success; it is for improving judgement.
 
 ---
 
-## Appendix E — The three-stream monthly review (one page)
+## Appendix E — Example three-stream review (one page)
 
-Read once a month. Mark each stream green / yellow / red **separately** — never average them into one score. The separation is the point.
+Read at a locally useful interval. Monthly review is one option. Mark each stream green / yellow / red **separately** — never average them into one score. The separation is the point.
 
-**Month:** _______________  **Pixel / node:** _______________  **Circle present:** _______________
+**Review period / event:** _______________  **Place / application:** _______________  **People holding the review:** _______________
 
-| Stream | Green | Yellow | Red | This month |
+| Stream | Green | Yellow | Red | This review |
 | --- | --- | --- | --- | --- |
 | **A — Land & Ecology** | cover, water-holding, biodiversity, or soil improving | mixed signals, stagnation, uncertainty | erosion, die-off, compaction, contamination, harm | ☐ G ☐ Y ☐ R |
 | **B — Steward Viability** | rhythm sustainable | strain visible; reduce ambition | depletion, conflict, dread, illness, hidden labour; pause | ☐ G ☐ Y ☐ R |
@@ -454,30 +455,31 @@ Read once a month. Mark each stream green / yellow / red **separately** — neve
 
 ## Related architecture
 
-This paper draws on a wider body of work. A reader needs only the terms introduced in the body — the single grammar, the eight categories, the three streams, the Last Impulse, and the Moral Biology grounding. The rest is grouped below by how much it matters *for reading this paper*. The full living index is at **https://papers.spiralweb.earth**.
+This paper draws on a wider body of work. A reader needs only the terms introduced in the body — situated knowing, a shared inquiry grammar, provisional observation prompts, non-compensatory streams, the Last Impulse, and the Moral Biology grounding. The full living index is at **https://papers.spiralweb.earth**.
 
 **Required for this paper**
 
 - **Moral Biology** — Green Paper 01, the conceptual ground: ethics as capacity, originating in bodies. https://papers.spiralweb.earth/papers/moral-biology.html
-- **The single grammar / Planetary Operating System / Correction Loop** — Report 02, *The Correction Loop: AI Governance as Living Practice*: the 13×13 framework, AI limitation mapping, the Last Impulse, correction without rupture. https://papers.spiralweb.earth/papers/the-correction-loop.pdf
-- **SRIP (Steward Regenerative Integration Protocol)** — Report 05, *The Steward's Journey*: the human-scale entry protocol, the eight observation categories, the Circle of 13, the three-stream dashboard, the Ostrom lineage, the pixel as governance unit. https://papers.spiralweb.earth/papers/srip-the-stewards-journey.html
-- **PG Ledger** — the observation and evidence layer of the whole Planetary Guardians architecture: the eight categories, the three streams, consent, correction, and a shared evidence commons across the field network (Kitgum, Doukkala, Had Soualem, Karachi, and others). A single observation is a note; a month is a picture; a year is a place's story; five years is evidence. Local data belongs first to the steward and circle; wider sharing is consensual. https://spiralweb.earth/cafes/sofia/pg-ledger/ — the observation record in Part 3 *is* its local face.
+- **The Correction Loop** — Report 02: the 13×13 inquiry grammar, AI limitation mapping, the Last Impulse, and correction without rupture. https://papers.spiralweb.earth/papers/the-correction-loop.html
+- **SRIP — The Steward's Journey** — Report 05: bounded entry with a real place, light observation, the three-stream distinction, burden testing, relational pathways, pause, withdrawal, and dignified incompletion. Ten square metres, eight prompts, and a Circle of 13 are possible forms, not universal requirements. https://papers.spiralweb.earth/papers/srip-the-stewards-journey.html
+- **The Protocol Habitat** — the current architecture distinguishing Foundations, Protocols, Applications, and Tools; publication from activation; relationship from local authority; and generic material from place-bound application. https://papers.spiralweb.earth/papers/the-protocol-habitat.html
+- **[PG Ledger](https://spiralweb.earth/cafes/sofia/pg-ledger/)** — a place-bound memory, flow, evidence, and correction architecture. It may hold observations, burdens, decisions, consent states, financial flows, histories, and review without collapsing them into one score. No fixed category list, cadence, or tool is active across all fields.
 
 **Operational companions**
 
-- **Operational Formats** — the printable tools: monthly dashboard, observation sheet, 30-day action sheet, governance/decision log, financial ledger. The two this paper uses appear as Appendices D and E. https://spiralweb.earth/formats/
-- **Penguin Dashboard** — Report 04, *Legibility as Governance*: dashboard logic, documentation units, steward rotation, the G0–G6 capital gate model. https://papers.spiralweb.earth/papers/penguin-dashboard-legibility-as-governance.html
-- **Circle of 13** — the primary human-scale governance form (from SRIP, Report 05).
-- **AnchorPoint** — the relational, place-based threshold where local practice meets the wider architecture (from Report 06, *Regenerative Reciprocity*). https://papers.spiralweb.earth/papers/report-06-regenerative-reciprocity.html
-- **Pixellized inquiry** — the methodological bridge from situated observation to institutional legibility without reduction (Part 2; from *Eve & Adam, and the Penguins*). https://papers.spiralweb.earth/papers/eve-adam-and-the-penguins.html
+- **[Operational Formats](https://papers.spiralweb.earth/#operational-formats)** — printable candidate tools for dashboard reading, observation, bounded action, decision memory, and financial traceability. Tools may be adapted or left unused; they do not certify field truth, create local authority, or activate a field.
+- **Penguin Dashboard** — Report 04: a human governance reading that keeps Land and Ecology, Steward Viability, and Governance and Collaboration non-compensatory. https://papers.spiralweb.earth/papers/penguin-dashboard-legibility-as-governance.html
+- **Circle of 13** — one possible human-scale governance form where locally chosen; not a required number or entry condition.
+- **AnchorPoint** — the relational, place-based threshold where local continuity may meet the wider architecture; it holds relationship, not automatic application or authority. https://spiralweb.earth/cafes/sofia/anchorpoints/
+- **Pixellized inquiry** — a possible methodological bridge from bounded situated observation to wider patterning, provided context and correction remain attached. https://papers.spiralweb.earth/papers/eve-adam-and-the-penguins.html
 
 **Wider horizon** *(context, not prerequisite)*
 
-- **Rule of Life** — the constitutional horizon: no economy, institution, technology, right, or legal form may override the conditions of life — while itself bound to rule of law, evidence, procedure, review, and proportionality. https://papers.spiralweb.earth/papers/rule-of-life.html
-- **Earth Time** — the temporal discipline that living systems set the pace (Part 5; developed in Rule of Life).
-- **Gaia GoldBloom / Gold Before Bloom** — Green Paper 11, the ecosystem and its "stabilise before expanding" logic. https://papers.spiralweb.earth/papers/gold-before-bloom.html
-- **Penguin Economics / Regenerative Reciprocity** — not a concept of this paper, but the wider economic and flow architecture around it: rotation, anti-hoarding, viable circulation, and abundance circulating only after life is stable enough to give. Green Paper 12 (https://papers.spiralweb.earth/papers/penguin-economics.html); Report 06 places Regenerative Reciprocity, AnchorPoints, the PG Ledger, and the three non-compensatory streams together.
-- **Sophia Lumen** — the relational human–AI working practice through which this paper was developed; final authorship and responsibility remain with the human author. https://papers.spiralweb.earth/sophia-lumen-protocol.html
+- **Rule of Life** — the constitutional horizon: no economy, institution, technology, right, or legal form may override the conditions of life, while all action remains bound to rule of law, evidence, procedure, review, and proportionality. https://papers.spiralweb.earth/papers/rule-of-life.html
+- **Earth Time** — the temporal discipline that living systems set the pace.
+- **Gaia GoldBloom / Gold Before Bloom** — Green Paper 11, the ecosystem and its stabilise-before-expanding logic. https://papers.spiralweb.earth/papers/gold-before-bloom.html
+- **Penguin Economics / Regenerative Reciprocity** — the wider economic and flow architecture: rotation, anti-hoarding, viable circulation, support without capture, and abundance circulating only after life is stable enough to give. https://papers.spiralweb.earth/papers/report-06-regenerative-reciprocity.html
+- **Sophia Lumen** — a provenance name for a specific relational human–AI editorial practice; not a persona, autonomous author, field authority, or universal protocol. https://papers.spiralweb.earth/sophia-lumen-protocol.html
 - **Methods / Editorial Practice** — how the Green Papers are written, revised, and held. https://papers.spiralweb.earth/methods-editorial-practice.html
 
-*Suggested citation:* Engberg, L. A. (2026). **Knowing From the Ground: Embodied Citizen Science as Full but Fallible Knowledge**. Field Papers, Green Papers (v1.0, June 2026). Planetary Guardians. CC BY 4.0.
+*Suggested citation:* Engberg, L. A. (2026). **Knowing From the Ground: Embodied Citizen Science as Full but Fallible Knowledge**. Field Papers, Green Papers (v1.1, August 2026). Spiralweb Stewardship Association. CC BY 4.0.
