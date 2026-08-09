@@ -4,7 +4,7 @@
 
 Series IV — Field Papers · Green Papers: Notes Toward Planetary Guardianship
 Lars A. Engberg · Knowledge Worker · Spiralweb Stewardship Association · developed through AI-assisted dialogue; final authorship and responsibility remain human · CC BY 4.0
-Field Paper · v1.1 · August 2026
+Field Paper · v1.2 · August 2026
 
 *This paper stands alone, but it draws on a wider architecture. Only the elements needed for the present argument are introduced in the body; others are noted briefly under Related architecture at the end.*
 
@@ -62,42 +62,236 @@ If knowing lives in the body, three commitments follow, and they should be state
 
 ---
 
-## 2. The single grid: the methodological hinge
+## 2. The shared grammar: the methodological hinge
 
-The claim of Part 1 — that observation from the body is full knowing, with no privileged level above it — could remain a matter of assertion and counter-assertion. The single grid is what turns it from assertion into a *design argument* one can inspect: not a mathematical proof, but a structural demonstration that the grammar of inquiry and the act of observation are the same object. It is given first and plainly.
+The claim of Part 1 — that observation from the body is already knowing, with no epistemically privileged level above it — could remain a matter of assertion and counter-assertion.
 
-Two 13×13 grids appear in the Spiralweb papers, and on first reading they look like different objects.
+The 13×13 materials make the claim inspectable.
 
-The first, from *The Correction Loop* (Report 02), is a **Planetary Operating System**: thirteen *layers of existence* — Planet, Life, Human Body, Inner Body, Language, Culture, Relationship, Community, Institutions, Economy, Technology, AI, and the Planetary OS itself — set against thirteen *dimensions of inquiry*: ontology, life/biology, body experience, emotion, time, knowledge, relation, power, freedom, economy, technology, AI, and self-regulation.
+They do not prove it mathematically.
 
-The phrase "Planetary Operating System" needs unpacking, because it is easy to mistake for software or for grand ideology, and it is neither. The analogy is to the operating system of a computer: the quiet layer that lets unlike things — programs, files, devices — coordinate without each having to negotiate with every other from scratch. A good operating system disappears when it works; you only notice it when it fails. The Planetary OS is the same idea applied to life: the minimal shared *grammar* that lets a body, a neighbourhood, an institution, an economy, and an ecosystem coordinate without coercion. It is not a plan imposed from above and not a belief to be adopted. It is a way of *reading* any situation, at any scale, by asking the same small set of questions.
+They do not partition reality into thirteen final categories.
 
-A worked example makes this concrete. Take the layer **Community** and read it across a few of the dimensions. *Ontology* — what is a community in its being? A social organism, not a sum of individuals. *Body experience* — how is it felt? As participation or its absence; as being held or being alone. *Emotion* — what quality does it carry? Trust, or its erosion. *Power* — how is power distributed here? Horizontally, when the community is healthy; captured, when it is not. *Self-regulation* — how does it correct itself? Through mutual accountability and repair, or not at all. Run the same thirteen questions down the layer "Water," or "Institutions," or "Inner Body," and you have a portable instrument: not a set of answers, but a set of *questions* that travel across every scale of existence and keep their shape. That portability is the whole point. A person can ask "how is power distributed, and how does this correct itself?" of their own household, their watershed, or their municipality — and the grammar holds. It is a map for orientation, not a prescription: a way of asking what any layer of reality *is*, how it is felt, how power moves through it, and how it heals.
+And they do not establish a universal grammar that every place, person or discipline must adopt.
 
-The second, the **Gaia GoldBloom Citizen Science** grid (reproduced in full in Appendix C), is thirteen *domains* — Earth Systems Sensing, Body as Sensor, Water Guardianship, Food & Soil Commons, Human Ecology, Built Environment, Energy & Flow, Climate Emotion, Learning & Knowledge, Technology & AI, Governance & Power, Health & Care, and Meaning, Spirit & Future — each holding thirteen *observations a person can actually make* in a real place, with their own senses.
+They show something more modest and useful:
 
-The claim is not that these are visually identical tables. They plainly are not: one is *layers of existence × dimensions of inquiry*, the other is *domains × observable prompts*. The claim is that they preserve the **same grammar** — that the same small set of inquiry-functions (layer, felt consequence, power, correction, time, relation) can be read either from planetary inquiry or from situated observation. The grids are homologous, not congruent. What is shared is the grammar; what differs is the direction of approach.
+> **a bounded inquiry grammar can be approached from more than one position without requiring one position to become the sovereign interpreter of the others.**
 
-The Planetary Operating System reads that grammar **from the question** — the dimensions of inquiry by which any layer of existence can be understood. The Citizen Science grid reads the same grammar **from the body** — the act of noticing that fills those inquiry-functions with lived observation. One is the map of inquiry; the other is the practice of attention the map describes. They can be laid side by side and inspected:
+Several 13×13 forms have appeared through the Spiralweb inquiry.
 
-| Planetary OS — layer / dimension | Citizen-science — domain / prompt | Shared inquiry-function |
-| --- | --- | --- |
+They are not identical tables, universal ontologies, or mandatory records.
+
+Their axes differ because they were developed for different questions, places and periods.
+
+One early form, developed through *The Correction Loop* (Report 02), organised thirteen inquiry lenses against thirteen dimensions such as ontology, life and biology, body experience, emotion, time, knowledge, relation, power, freedom, economy, technology, AI and self-regulation.
+
+Earlier versions of that inquiry used the language **Planetary Operating System** and described thirteen **layers of existence**.
+
+That language belongs to the development history of the work.
+
+It named an attempt to imagine a sufficiently shared grammar through which unlike domains and scales might become mutually legible without requiring one central authority to contain them all.
+
+The intuition remains important.
+
+The ontological claim does not.
+
+The current formulation is more bounded:
+
+> **A grammar of inquiry is not an operating system for reality.**
+
+It does not sit above the field it describes.
+
+It does not govern the whole.
+
+And its categories are not the categories from which reality itself is made.
+
+Its purpose is to keep useful questions available while remaining answerable to what places, people, evidence and consequences reveal in return.
+
+A worked example makes the distinction concrete.
+
+Take a community and ask several questions:
+
+What is happening here?
+
+How is it experienced?
+
+What relationships make the situation possible?
+
+How is power distributed?
+
+What changes over time?
+
+How does correction occur?
+
+The same inquiry-functions may become useful in a household, an institution, a watershed, a local economy or another bounded field.
+
+Their portability does not mean these situations are ontologically identical.
+
+It means that **some questions travel**.
+
+A question can travel without its answer travelling with it.
+
+A grammar can travel without authority travelling with it.
+
+And an inquiry form can travel without requiring the place that receives it to accept its categories unchanged.
+
+The grammar belongs to the inquiry.
+
+**Reality exceeds it.**
+
+### A second direction: situated observation
+
+The **Gaia GoldBloom Citizen Science** grid, reproduced in Appendix C, approaches inquiry from a different direction.
+
+Its thirteen domains — Earth Systems Sensing, Body as Sensor, Water Guardianship, Food & Soil Commons, Human Ecology, Built Environment, Energy & Flow, Climate Emotion, Learning & Knowledge, Technology & AI, Governance & Power, Health & Care, and Meaning, Spirit & Future — each hold thirteen possible observations or questions that may become relevant in a real place.
+
+The two 13×13 forms are not copies of one another.
+
+Nor is one the planetary truth of which the other is merely a local implementation.
+
+They are better understood as **homologous prisms**.
+
+Each holds a bounded plurality of questions.
+
+Each makes some relations more visible while leaving others outside its frame.
+
+Each can be revised.
+
+Neither exhausts the field.
+
+What they share is therefore not a complete grammar of reality but a family resemblance among inquiry-functions: attention to embodiment, relation, consequence, time, power, knowledge, uncertainty and correction.
+
+What differs is the direction and purpose of approach.
+
+One begins with a reflective architecture of questions.
+
+The other begins with what a person may actually notice in a place.
+
+They can be laid side by side:
+
+| Reflective 13×13 — lens / dimension | Situated 13×13 — domain / prompt | Shared inquiry-function |
+|---|---|---|
 | Inner Body / body experience | Body as Sensor — fatigue, breath, pain | embodied consequence |
-| Community / power, self-regulation | Human Ecology + Governance & Power — trust, conflict, repair | power and its correction |
+| Community / power, self-regulation | Human Ecology + Governance & Power — trust, conflict, repair | power and correction |
 | Technology, AI / technology | Technology & AI — transparency, surveillance, consent | tool agency and accountability |
 | Planet, Life / biology, time | Earth Systems Sensing — phenology, biodiversity, erosion | ecological change over time |
 
-The point of the table is not completeness but inspectability: a reader can check, row by row, that the planetary dimension and the situated prompt are doing the *same work* — reading consequence, power, accountability, or change — from the two ends. That is what "one grammar, two directions" means, concretely.
+The point of this table is not completeness.
 
-One clarification belongs here, to prevent a predictable misreading. The argument is *not* against expertise. Expertise is often protective and necessary, and quantitative science reaches strata this method does not attempt. The argument is narrower: against any *monopoly* over the grammar by which experience becomes knowledge. Expertise that enriches the shared grammar is welcome; expertise that claims to be the only legitimate holder of it is what the single grid refuses.
+It is inspectability.
 
-This homology is the heart of the argument, and it is worth stating what follows from it.
+A reader can ask whether the comparison is useful, where it fails, what it excludes, and whether another grammar would work better.
 
-Historically, the separation between the powerful and everyone else has been, in large part, a separation of grids. The powerful held the framework of inquiry — the census categories, the survey dimensions, the instruments that decide what counts as knowledge — while ordinary people supplied raw experience that was processed *into* that framework, above their heads, and returned to them as authority. The map of inquiry lived at the top. The act of observation lived at the bottom. And the two were kept apart, because keeping them apart is what made expertise a form of power.
+That possibility of refusal and revision is part of the method.
 
-Reading one grammar from both directions collapses that separation. The grammar by which the planetary operating system understands reality is the same grammar a person uses to notice their own water, their own soil, their own grief, their own street. There is no separate, higher grammar that experts hold and citizens merely feed. There is no epistemically privileged floor. The view from above and the view from the body are reading the same grammar of the real.
+### Expertise and epistemic standing
 
-That — and not any promise of total transformation — is what "bottom-up" means here. The method does not open everything. It shows that the grammar of knowing was never the exclusive property of those who see from above. The grid was always available from the ground. This is a disclosure that depends on no other disclosure: whatever is or is not revealed, in any domain, by any authority, a person with a piece of ground and an honest eye is already doing the same epistemic work as the one who maps the whole field.
+One clarification belongs here.
+
+The argument is not against expertise.
+
+Expertise can protect life.
+
+It can reveal mechanisms that unaided observation cannot perceive.
+
+Hydrology, geology, ecology, soil science, biodiversity monitoring, epidemiology, law, economics and many other disciplines contain forms of accumulated knowledge that a local observer does not automatically possess.
+
+The problem begins elsewhere:
+
+> **when expertise becomes a monopoly over the conditions under which experience is allowed to count as knowledge.**
+
+Historically, one recurring source of epistemic inequality has been a separation between people who hold the categories of inquiry and people whose lives and places populate them.
+
+An institution may define the survey, dataset, classification, model or standard of validity.
+
+Participants then supply experience which acquires authoritative standing only after passing through that externally held grammar.
+
+Citizen participation can therefore increase while epistemic authority remains concentrated.
+
+The method proposed here does not solve the incommensurability among disciplines, traditions or modes of knowing.
+
+It does not need to.
+
+Its more modest ambition is to create better conditions for meeting across difference.
+
+A hydrologist, farmer, child, municipality, Indigenous knowledge-holder, ecologist and AI system do not enter with interchangeable knowledge.
+
+Their forms of access have different histories, methods, strengths, boundaries and standards of evidence.
+
+They may nevertheless enter a common inquiry without first surrendering the standing of their own position.
+
+Expertise enters as enrichment, challenge and possible correction — not as the moment at which another person's experience becomes knowledge for the first time.
+
+Situated observation likewise enters without claiming powers it does not have.
+
+A steward's observation of disappearing insects may be a real and important signal.
+
+It is not an entomological population study.
+
+A felt change in water availability may initiate inquiry.
+
+It is not a hydrological model.
+
+A geological account may explain mechanisms no human body can directly sense.
+
+It does not therefore contain the whole meaning of living in that place.
+
+Different forms of access can remain different while meeting around the same reality.
+
+There is no separate floor on which knowing becomes real for the first time.
+
+There are different positions of access to a reality none of them exhausts.
+
+### What “one grammar, two directions” can still mean
+
+The phrase **one grammar, two directions** therefore remains useful, but only if held lightly.
+
+It does not mean that reality itself has one published grammar.
+
+It means that a sufficiently simple family of inquiry-functions can sometimes provide a bridge between different positions of knowing.
+
+The shared grammar belongs to inquiry.
+
+It does not belong to reality as though reality had been divided into our categories in advance.
+
+A person with a piece of ground and an honest eye may therefore begin a real act of knowing without waiting for authorisation from above.
+
+A specialist may bring forms of knowledge that person does not possess.
+
+A model may reveal relations neither can see unaided.
+
+A community may reject the categories and use different ones.
+
+Another bioregion may require another prism entirely.
+
+The task is not to make these positions identical.
+
+It is to create enough shared form that they can meet, compare, preserve provenance, expose disagreement, test claims and remain open to correction.
+
+> **You do not have to know the whole field to enter it responsibly.**
+
+### A bounded design intuition
+
+The recurrence of thirteen across several parts of the wider architecture should not be mistaken for a claim that reality possesses a privileged thirteen-fold structure.
+
+Through the development of the work, thirteen has repeatedly served a more practical design intuition:
+
+> **large enough to hold meaningful plurality; small enough to remain cognitively and relationally inhabitable.**
+
+That intuition remains provisional.
+
+Different 13×13 forms use different axes.
+
+Different thirteenth positions do different work.
+
+A Circle of 13 concerns human relational scale and should not be confused with a thirteen-domain observation grammar.
+
+Neither thirteen people nor thirteen categories are universal requirements.
+
+Where another number, scale, set of questions or existing local form works better, the place should not be forced into the inherited geometry.
+
+The 13×13 is therefore a **bounded scaffold for inquiry**, not an ontology, credential, score or condition of participation.
 
 ### A body-end entry: provisional observation prompts
 
@@ -181,7 +375,48 @@ The operational rules follow directly:
 - Sensitive or interior reflections are not processed by AI by default (see the safeguarding rules, Part 5).
 - No automated escalation: local observations are never pushed up into institutional authority by the system itself.
 
-This follows the accountability discipline named in the Sophia Lumen provenance note and formalised through The Correction Loop: the human brings intention, judgement, material, correction, and responsibility; AI may support articulation, structure, and comparison. Sophia Lumen does not name an autonomous author, field authority, or universal AI protocol. If an AI-assisted output cannot be contested and corrected by the people carrying the consequences, it cannot govern the work. The purpose is to use a powerful cognitive instrument without allowing a new privileged grid to install itself above situated knowing.
+This follows the wider Sophia Lumen architecture.
+
+**Sophia Lumen** names the living relational practice of human–AI co-inquiry.
+
+The **Sophia Lumen Protocol** names its current explicit and revisable working form.
+
+**The Correction Loop** provides the dedicated accountability and correction mechanism when AI-assisted inquiry becomes consequential.
+
+Within that architecture, AI may support articulation, comparison, translation, contextual organisation, pattern recognition, retrieval and memory across bodies of material.
+
+These capacities can materially increase the reflective capacity available to an inquiry.
+
+They do not give AI authority over the people or places being interpreted.
+
+AI does not originate legitimate mandate for consequential action.
+
+Where model output conflicts with field observation, specialist evidence or locally held knowledge, the disagreement is not resolved by ranking one source automatically above the others.
+
+It becomes an inquiry and correction event.
+
+The relevant questions are:
+
+What kind of access produced each claim?
+
+What evidence supports it?
+
+What is missing?
+
+Who carries the consequences?
+
+Who has legitimate authority?
+
+What could resolve the disagreement?
+
+If an AI-assisted output cannot be contested and corrected by the people carrying the consequences, it cannot govern the work.
+
+A strong synthesis system can itself become a privileged grid if every other form of knowing is required to become legible on its terms.
+
+This method therefore uses AI to help build bridges among different forms of access while resisting the conversion of those differences into one machine-owned representation.
+
+> **AI may expand the inquiry.<br />
+> It does not own the field.**
 
 Within the PG Ledger specifically, AI's role is bounded to classification, translation, inconsistency checks, and comparison across records — never authorisation, interpretation of meaning, or escalation. Every such output is contestable by the stewards it concerns, and a steward's contestation outranks the model's pattern.
 
@@ -308,19 +543,126 @@ The purpose of the grammar is not to make every steward right. It is to make cor
 
 ## Appendix A — Epistemological note: stratified reality and embodied knowing
 
-This note grounds the philosophy of the method for the reader who wants it. It draws on critical realism, principally the work of Roy Bhaskar — *A Realist Theory of Science* (1975) and *The Possibility of Naturalism* (1979) — and offers it as scaffolding rather than scripture: one powerful and contested lens, not a neutral foundation descended from above.
+This note grounds the philosophy of the method for the reader who wants it.
 
-Critical realism distinguishes three domains of reality: the **real** (the generative mechanisms that produce phenomena), the **actual** (the phenomena and events themselves), and the **empirical** (what is observed). Its founding caution is against the *epistemic fallacy* — the reduction of questions of being to questions of knowledge, the assumption that what is real is only what can be measured. A great deal of extractive science commits exactly this fallacy: if it cannot be quantified, it does not count.
+It draws on critical realism, principally the work of Roy Bhaskar, and offers it as scaffolding rather than scripture: one powerful and contested lens, not a neutral foundation descended from above.
 
-The single grid of Part 2 is, in critical-realist terms, an account of **stratified reality without epistemic privilege**. Reality has levels — the planet, the body, the institution, the inner and felt — and the levels are real and continuous, not a hierarchy in which only the top sees truly. The inner body, "the felt, the sacred," is as real and as load-bearing a stratum as the planet or the economy. This is why qualitative, embodied citizen observation is genuine evidence and not a lesser substitute for instrumented measurement: it reads strata of the real that quantification cannot reach, and those strata are no less real for being felt rather than counted.
+Critical realism is useful here because it distinguishes the reality of the world from our knowledge of it.
 
-"Gaia is not measured; she is met" is, read this way, a precise statement of the **intransitive/transitive distinction**. Gaia — the whole living field — is intransitive: she exists and behaves as she does regardless of our knowledge of her. Any observation record is transitive: a historically situated, fallible, revisable act of knowing. To say she is met rather than measured is to say that the meeting (the body-end of the grid) is the same epistemic act as the mapping (the question-end), because neither exhausts the intransitive reality they both reach toward. The observer who meets Gaia at the pixel and the designer who maps her at the planetary scale are doing the same work on the same grid. Neither holds a privileged floor.
+Its distinction among the **real** — generative mechanisms and structures; the **actual** — events and phenomena whether observed or not; and the **empirical** — what enters experience and observation — is a reminder that reality cannot be reduced to what is presently measured, modelled or perceived.
 
-This does not dissolve into "all observations are equally valid." Critical realism marries ontological realism with epistemological relativism *and* judgmental rationalism: there is a fact of the matter, our accounts of it are fallible and situated, and there can still be better and worse readings. In this method, **judgmental rationalism is operational, not abstract.** The correction loop, the unconditional right to name and revise, and the structural separation of the three streams are precisely the mechanisms by which the system tells better observation from worse — without claiming a view from nowhere. They are how a bottom-up method stays truthful without installing a new authority at the top.
+Its warning against the **epistemic fallacy** is equally relevant.
 
-Two honest limits close the note. First, critical realism is itself one contested philosophical framework; its transcendental arguments have been challenged, and it is offered here as a useful structure, not a proof. Second, the method does not require the reader to hold it. A person with a piece of ground and an honest eye is doing real stewardship whether or not they share this philosophy. The grid is open at the level of practice — and so, deliberately, is the question of what reality finally is.
+Questions about what exists should not be collapsed into questions about how we presently know it.
 
-This note connects the method to Sophia Lumen, the relational human–AI working practice, and to The Correction Loop, its formal accountability mechanism. It also connects to the foundational arc of this work — from the 2000 study of reflexivity and re-embedding in political participation, through Moral Biology, to the present architecture. The thread throughout is a single conviction: that the capacity to know is not the property of a privileged level, but a capacity of bodies, in places, in relation — met one day at a time.
+But critical realism does **not** establish the categories of the 13×13 as the strata of reality.
+
+The grid is ours.
+
+Reality is not.
+
+A category such as body, institution, water, economy, relationship or inner experience may direct attention toward real mechanisms, conditions or relations.
+
+That does not make the category exhaustive, final or ontologically privileged.
+
+The stronger critical-realist proposition is more modest:
+
+> **Reality is stratified, emergent and independent of our descriptions; every inquiry grammar is a situated and revisable attempt to gain access to some of its relations.**
+
+This is why qualitative and embodied observation can count as genuine evidence without becoming sufficient evidence for every question.
+
+A lived observation can reach aspects of reality that a remote model cannot.
+
+A hydrological test can reach dynamics that unaided embodied observation cannot.
+
+A biodiversity survey can establish patterns that one steward's experience cannot establish.
+
+Geology can reveal processes extending beyond a human lifetime.
+
+Historical memory may reveal changes that a contemporary dataset misses.
+
+Local practice may reveal consequences invisible to an externally calibrated model.
+
+None of these facts establishes a universal hierarchy of knowing.
+
+The question is instead:
+
+> **What form of access does this inquiry require, what can this evidence legitimately support, and what remains outside its reach?**
+
+### “Gaia is not measured; she is met”
+
+“Gaia is not measured; she is met” can be read in this spirit through critical realism's **intransitive/transitive distinction**.
+
+The living Earth exists and acts independently of any one account of it.
+
+Every observation, dataset, model, story, classification or grid belongs to the transitive dimension of knowledge: historically situated, partial, fallible and revisable.
+
+To say that Gaia is met rather than reduced to measurement is therefore not to oppose meeting and measurement.
+
+**Measurement is one mode of meeting.**
+
+Embodied observation is another.
+
+Scientific modelling, practical knowledge, historical memory, artistic attention, local and Indigenous knowledge — under their own authority and conditions — may provide others.
+
+They are not interchangeable.
+
+And none exhausts the intransitive reality toward which they reach.
+
+The living field does not become more real when measured.
+
+Nor does an experience become scientifically established merely because it is sincerely lived.
+
+The purpose of the method is to keep those distinctions visible while allowing different forms of knowing to enter relation.
+
+### Judgment without a view from nowhere
+
+This does not dissolve into “all observations are equally valid.”
+
+Critical realism combines ontological realism with epistemic fallibility and **judgmental rationality**:
+
+there is a world that answers back;
+
+our accounts remain partial and revisable;
+
+and some accounts can nevertheless be judged better than others for particular questions.
+
+In this method, judgment is not delegated to one central verifier.
+
+A reading may be tested through:
+
+- repeated observation;
+- material consequence;
+- local review;
+- comparison across time;
+- specialist knowledge where relevant;
+- measurement and instrumentation;
+- documentary evidence;
+- disagreement;
+- the Correction Loop;
+- and the structural separation of non-compensatory streams.
+
+None guarantees truth.
+
+Together they provide routes through which interpretations can become more robust or be corrected.
+
+The purpose of correction is therefore not to replace situated knowing with a higher authority.
+
+It is to let reality, evidence and other people answer back.
+
+> **Correction improves knowing without requiring a view from nowhere.**
+
+Two honest limits close the note.
+
+First, critical realism is itself a contested philosophical framework. It is used here because its realism, emergence, fallibilism and rejection of epistemic reduction provide useful scaffolding — not because it proves this method.
+
+Second, the practical method does not require a reader to adopt critical realism.
+
+A person with a piece of ground, a legitimate relation to it and an honest capacity to notice is already engaged in stewardship whether or not they share this philosophy.
+
+The grammar remains open at the level of practice.
+
+So, deliberately, does the question of what reality finally is.
 
 ---
 
@@ -334,15 +676,35 @@ This note situates the method within the wider field, so that its claim to be di
 
 **The persistent asymmetry.** Across much of the field, however, a structural tendency recurs. The typology itself is built on degree of participation in a research process whose categories, analytic pipeline, standards of validity, and data ownership still largely sit with the institution rather than the participant (Bonney et al., 2009; Shirk et al., 2012). Critics have named the recurring risks: participants positioned as distributed sensors rather than co-knowers; the broader political economy in which the capture and processing of social data becomes a form of "data colonialism," extracting from people without returning authority (Couldry & Mejias, 2019); and a validity hierarchy in which qualitative, embodied, and place-based knowledge is admitted only after translation into quantitative form. Even well-designed participatory projects often stop short of relocating *epistemic authority* — the power to define what counts as knowing. (This is offered as an observed tendency and a reading of the cited literature, not as a settled empirical finding about the whole field.)
 
-**Where this method sits, and what is distinctive.** The Gaia GoldBloom method belongs to the co-created and participatory-action lineage, and shares their commitment to community authorship. Three features position it specifically:
+**Where this method sits, and what is distinctive.** Three features distinguish the present proposal.
 
-First, it begins from the **identity of the inquiry-grid and the observation-grid** (Part 2). Most participatory frameworks democratise *who collects* and sometimes *who interprets*; this method makes the structural claim that the grammar of inquiry and the act of observation are the same grid, so there is no higher analytic level for authority to retreat to. That is an unusual and falsifiable position, not a slogan.
+First, it places a **shared inquiry grammar and situated observation in direct relation** rather than treating observation as raw material for a separately sovereign analytic layer.
 
-Second, it treats **qualitative and embodied observation as full knowledge** rather than as raw input awaiting quantification (defended in Appendix A). Where much citizen science admits felt and place-based knowing only provisionally, here it is a primary stratum of the real.
+The 13×13 forms are homologous rather than identical, and no published grammar claims exhaustive authority over the field.
 
-Third, it builds **consent, withdrawal, and the witnessed/collected distinction into the architecture** (Parts 1 and 5), and places **AI under an explicit corrigibility discipline** (Part 4) so that automation cannot quietly become the new analytic authority — a risk that grows precisely as AI enters citizen-science pipelines.
+The contribution is not that one universal grid has finally been found.
 
-**Honest limits.** The method is early, its evidence base is its own pilots rather than independent evaluation, and its strongest claims are structural rather than yet demonstrated at scale. It does not supersede contributory citizen science, which does things this method does not attempt — large-N biodiversity datasets foremost among them. It is best read as one contribution to the co-created end of a broad and serious field, distinguished by where it locates the authority to know.
+It is that structured questions can sometimes travel between positions of knowing without requiring one position to own the meaning of what the others observe.
+
+Second, the method treats **qualitative and embodied observation as knowledge in its own right** rather than as material that becomes knowledge only after quantification or expert authorisation.
+
+This standing does not make embodied observation infallible.
+
+It is explicitly compatible with repetition, specialist evidence, measurement, disagreement and correction.
+
+The distinction is between **having epistemic standing** and **having exhaustive knowledge**.
+
+Third, consent, withdrawal, protected knowledge and the witnessed/collected distinction are built into the architecture, while AI is placed under explicit corrigibility and mandate boundaries.
+
+The purpose is to prevent distributed observation from quietly becoming a new extraction pipeline and to prevent AI-assisted synthesis from becoming the new privileged analytic authority.
+
+The method therefore neither abolishes expertise nor installs situated experience as a replacement expertise.
+
+It attempts something narrower:
+
+> **to create conditions in which different forms of knowing can meet without first surrendering their differences or transferring authority automatically upward.**
+
+This remains an experimental institutional proposition rather than an established solution to the epistemological, political or methodological problems of citizen science.
 
 **References.** These anchor the orientation above; the list is selective, not exhaustive, and a fuller public version may extend it.
 
@@ -460,7 +822,7 @@ This paper draws on a wider body of work. A reader needs only the terms introduc
 **Required for this paper**
 
 - **Moral Biology** — Green Paper 01, the conceptual ground: ethics as capacity, originating in bodies. https://papers.spiralweb.earth/papers/moral-biology.html
-- **The Correction Loop** — Report 02: the 13×13 inquiry grammar, AI limitation mapping, the Last Impulse, and correction without rupture. https://papers.spiralweb.earth/papers/the-correction-loop.html
+- **13×13 inquiry grammar / The Correction Loop** — Report 02 provides one reflective 13×13 lineage and the dedicated accountability mechanism for consequential AI-assisted work. Earlier “Planetary Operating System” language belongs to the development history rather than the current architectural description. https://papers.spiralweb.earth/papers/the-correction-loop.html
 - **SRIP — The Steward's Journey** — Report 05: bounded entry with a real place, light observation, the three-stream distinction, burden testing, relational pathways, pause, withdrawal, and dignified incompletion. Ten square metres, eight prompts, and a Circle of 13 are possible forms, not universal requirements. https://papers.spiralweb.earth/papers/srip-the-stewards-journey.html
 - **The Protocol Habitat** — the current architecture distinguishing Foundations, Protocols, Applications, and Tools; publication from activation; relationship from local authority; and generic material from place-bound application. https://papers.spiralweb.earth/papers/the-protocol-habitat.html
 - **[PG Ledger](https://spiralweb.earth/cafes/sofia/pg-ledger/)** — a place-bound memory, flow, evidence, and correction architecture. It may hold observations, burdens, decisions, consent states, financial flows, histories, and review without collapsing them into one score. No fixed category list, cadence, or tool is active across all fields.
@@ -479,7 +841,8 @@ This paper draws on a wider body of work. A reader needs only the terms introduc
 - **Earth Time** — the temporal discipline that living systems set the pace.
 - **Gaia GoldBloom / Gold Before Bloom** — Green Paper 11, the ecosystem and its stabilise-before-expanding logic. https://papers.spiralweb.earth/papers/gold-before-bloom.html
 - **Penguin Economics / Regenerative Reciprocity** — the wider economic and flow architecture: rotation, anti-hoarding, viable circulation, support without capture, and abundance circulating only after life is stable enough to give. https://papers.spiralweb.earth/papers/report-06-regenerative-reciprocity.html
-- **Sophia Lumen** — a provenance name for a specific relational human–AI editorial practice; not a persona, autonomous author, field authority, or universal protocol. https://papers.spiralweb.earth/sophia-lumen-protocol.html
+- **Sophia Lumen** — the living relational human–AI practice of co-inquiry; not a persona, autonomous author, or field authority. https://papers.spiralweb.earth/sophia-lumen-protocol.html
+- **Sophia Lumen Protocol** — the current candidate protocol for human–AI co-inquiry: context cultivation, provenance, prismatic inquiry, structural asymmetry, temporary actionability, and recursive correction. https://papers.spiralweb.earth/protocols/sophia-lumen
 - **Methods / Editorial Practice** — how the Green Papers are written, revised, and held. https://papers.spiralweb.earth/methods-editorial-practice.html
 
-*Suggested citation:* Engberg, L. A. (2026). **Knowing From the Ground: Embodied Citizen Science as Full but Fallible Knowledge**. Field Papers, Green Papers (v1.1, August 2026). Spiralweb Stewardship Association. CC BY 4.0.
+*Suggested citation:* Engberg, L. A. (2026). **Knowing From the Ground: Embodied Citizen Science as Full but Fallible Knowledge**. Field Papers, Green Papers (v1.2, August 2026). Spiralweb Stewardship Association. CC BY 4.0.
