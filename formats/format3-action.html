@@ -28,12 +28,13 @@
     .r-title { font-size: 13px; font-weight: 600; margin: 0; }
     .reading-body { padding: 7px 10px 9px; display: flex; flex-direction: column; gap: 5px; }
     .signal-label { font-size: 11px; color: var(--muted); }
-    .signal-row { display: flex; gap: 8px; align-items: center; font-size: 11px; font-weight: 600; }
+    .signal-row { display: flex; flex-wrap: wrap; gap: 5px 7px; align-items: center; font-size: 10.5px; font-weight: 600; }
     .signal-option { display: flex; align-items: center; gap: 4px; }
     .dot { width: 14px; height: 14px; border-radius: 999px; border: 1.4px solid #7c847c; flex-shrink: 0; }
     .dot.green  { background: #c8e6c9; border-color: #4caf50; }
     .dot.yellow { background: #fff9c4; border-color: #f9a825; }
     .dot.red    { background: #ffcdd2; border-color: #e53935; }
+    .dot.unknown { background: #eceff1; border-color: #78909c; }
     .oneline { height: 20px; border-bottom: 1px solid var(--line); }
     .action-block { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
     .action-head { background: var(--soft-2); border-bottom: 1px solid var(--line); padding: 7px 10px; }
@@ -88,7 +89,7 @@
   <div class="topbar">
     <div>
       <h1>Bounded Action Sheet</h1>
-      <div class="subtitle">An optional coordination surface for what an agreed review showed and what happens next. Use a locally chosen action period. Keep it specific. Assign everything. Format 3 v1.1 · August 2026.</div>
+      <div class="subtitle">A PG Ledger action record for when bounded action needs to be named. It may follow a Format 1 review, an observation, or a decision; if no action is needed, do not create one. Use a locally chosen action period. Format 3 v1.2 · August 2026 · Candidate tool.</div>
     </div>
     <div class="meta">
       <div class="line-field"><span class="label">Place / node:</span><span class="fill"></span></div>
@@ -99,19 +100,20 @@
   </div>
 
   <div class="instruction">
-    <div><strong>Use after an agreed review.</strong> Choose no more than three real actions for the next bounded period. Assign each clearly.</div>
+    <div><strong>Use when action is needed.</strong> Choose no more than three real actions for the next bounded period. Assign each clearly.</div>
     <div><strong>Rule:</strong> Do not list more than three actions or try to fix everything at once.</div>
   </div>
 
   <div class="reading-row">
     <div class="reading-card">
-      <div class="reading-head"><span class="r-kicker">A</span><h2 class="r-title">Land and Ecology</h2></div>
+      <div class="reading-head"><span class="r-kicker">A</span><h2 class="r-title">Land / Life</h2></div>
       <div class="reading-body">
         <div class="signal-label">Current reading:</div>
         <div class="signal-row">
           <div class="signal-option"><span class="dot green"></span> GREEN</div>
           <div class="signal-option"><span class="dot yellow"></span> YELLOW</div>
           <div class="signal-option"><span class="dot red"></span> RED</div>
+          <div class="signal-option"><span class="dot unknown"></span> UNKNOWN</div>
         </div>
         <div class="signal-label">Key signal:</div>
         <div class="oneline"></div>
@@ -125,19 +127,21 @@
           <div class="signal-option"><span class="dot green"></span> GREEN</div>
           <div class="signal-option"><span class="dot yellow"></span> YELLOW</div>
           <div class="signal-option"><span class="dot red"></span> RED</div>
+          <div class="signal-option"><span class="dot unknown"></span> UNKNOWN</div>
         </div>
         <div class="signal-label">Key signal:</div>
         <div class="oneline"></div>
       </div>
     </div>
     <div class="reading-card">
-      <div class="reading-head"><span class="r-kicker">C</span><h2 class="r-title">Governance and Collaboration</h2></div>
+      <div class="reading-head"><span class="r-kicker">C</span><h2 class="r-title">Governance / Commons</h2></div>
       <div class="reading-body">
         <div class="signal-label">Current reading:</div>
         <div class="signal-row">
           <div class="signal-option"><span class="dot green"></span> GREEN</div>
           <div class="signal-option"><span class="dot yellow"></span> YELLOW</div>
           <div class="signal-option"><span class="dot red"></span> RED</div>
+          <div class="signal-option"><span class="dot unknown"></span> UNKNOWN</div>
         </div>
         <div class="signal-label">Key signal:</div>
         <div class="oneline"></div>
@@ -182,14 +186,15 @@
     <div class="small">
       <strong>Green</strong> may justify a small next step. &nbsp;
       <strong>Yellow</strong> calls for adjustment. &nbsp;
-      <strong>Red</strong> calls for protection, pause, or repair.<br>
-      If a PG Ledger has been locally activated for this inquiry, this sheet may contribute to it — keep, date, and file it according to the agreed evidence practice.
+      <strong>Red</strong> calls for protection, pause, or repair. &nbsp;
+      <strong>Unknown</strong> means the evidence is not sufficient for a reading.<br>
+      This is an action-triggered record, not a monthly duty. If it contributes to an agreed PG Ledger, keep, date, and file it according to the evidence practice.
     </div>
     <div class="tags">
       <span class="tag">add mulch</span>
       <span class="tag">repair water access</span>
       <span class="tag">pause expansion</span>
-      <span class="tag">plant next pixel zone</span>
+      <span class="tag">plant next bounded area</span>
       <span class="tag">invite one new person</span>
     </div>
   </div>

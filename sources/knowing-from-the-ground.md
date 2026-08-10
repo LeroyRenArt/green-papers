@@ -4,7 +4,7 @@
 
 Series IV — Field Papers · Green Papers: Notes Toward Planetary Guardianship
 Lars A. Engberg · Knowledge Worker · Spiralweb Stewardship Association · developed through AI-assisted dialogue; final authorship and responsibility remain human · CC BY 4.0
-Field Paper · v1.2 · August 2026
+Field Paper · v1.2.1 · August 2026
 
 *This paper stands alone, but it draws on a wider architecture. Only the elements needed for the present argument are introduced in the body; others are noted briefly under Related architecture at the end.*
 
@@ -338,11 +338,11 @@ A single honest L1 note is already knowledge. The higher levels do not *make* it
 
 **Calibrating the instrument.** An instrument that is part of the apparatus must, like any instrument, be cared for and checked. Embodied observation is not automatically trustworthy; it becomes more or less so through repetition, honesty about uncertainty, correction by material outcomes, comparison without local override, attention to fatigue and projection, and willingness to revise. A steward who can say "I was wrong about that reading" is more reliable than one who cannot.
 
-**The three streams.** Where they are useful, Land and Ecology, Steward Viability, and Coordination and Governance may be read as three non-compensatory lenses at a locally agreed interval. Monthly review is one option, not a universal cadence. Each may be described as green, yellow, or red, but the colours are human judgements supported by reasons, not automated truth:
+**The three streams.** Where they are useful, Land / Life, Steward Viability, and Governance / Commons may be read as three non-compensatory lenses. For an active field or supported stewardship relationship, Format 1 provides a light monthly default review; local agreement may change the cadence where season, field condition, capacity, or purpose warrants it. In open or exploratory inquiry, cadence remains locally chosen. Each stream may be read as Green, Yellow, Red, or Unknown. Unknown means there is not enough evidence to make the reading and is distinct from Yellow; the readings are human judgements supported by reasons, not automated truth:
 
-- *Stream A — Land and Ecology.* What is changing in the living place, and with what uncertainty?
+- *Stream A — Land / Life.* What is changing in the living place, and with what uncertainty?
 - *Stream B — Steward Viability.* Can the people carry the work without hidden depletion?
-- *Stream C — Coordination and Governance.* Are roles, agreements, consent, and decision trails clear enough for the present step?
+- *Stream C — Governance / Commons.* Are roles, agreements, consent, and decision trails clear enough for the present step?
 
 The separation matters because one healthy dimension must not conceal another that is failing. Ecological improvement cannot cancel steward depletion; administrative clarity cannot make damaged soil healthy. A red in Steward Viability is a reason to pause or reduce ecological ambition, not evidence of personal failure.
 
@@ -354,7 +354,7 @@ The separation matters because one healthy dimension must not conceal another th
 
 ### A worked example
 
-One possible application makes the distinction concrete. A steward chooses a 10 m² courtyard plot because that scale is manageable for her and the question is land-based. She and a small local review group select the eight prompts above as useful for this place and agree to review after significant events and at the end of the month. In the first record she notes bare soil, a flat vegetation layer, runoff after rain, little visible biodiversity, and high initial energy. Over the month she mulches and stops clearing every weed. Later records show better cover, slower runoff, fungal threads, and two pollinators. Land and Ecology is moving toward green. Her own rhythm, however, has turned yellow because daily watering is unsustainable. The group changes the practice — heavier mulch and less frequent watering — before depletion becomes the hidden cost of ecological improvement. The example does not establish 10 m², eight prompts, or monthly review as a standard. It shows why separate ecological, human, and governance readings can catch a problem that one success score would conceal.
+One possible application makes the distinction concrete. A steward chooses a 10 m² courtyard plot because that scale is manageable for her and the question is land-based. She and a small local review group select the eight prompts above as useful for this place and agree to review after significant events and at the end of the month. In the first record she notes bare soil, a flat vegetation layer, runoff after rain, little visible biodiversity, and high initial energy. Over the month she mulches and stops clearing every weed. Later records show better cover, slower runoff, fungal threads, and two pollinators. Land / Life is moving toward green. Her own rhythm, however, has turned yellow because daily watering is unsustainable. The group changes the practice — heavier mulch and less frequent watering — before depletion becomes the hidden cost of ecological improvement. The example does not establish 10 m² or eight prompts as standards, and it does not make monthly review mandatory in every context. It shows why separate ecological, human, and governance readings can catch a problem that one success score would conceal.
 
 A second, harder example shows the method stopping itself. A school garden records genuinely improving biodiversity — Stream A greening. But the one teacher coordinating it is doing so unpaid, on top of a full workload, and her rhythm line goes red: Stream B. Meanwhile it is unclear whether the children's participation has been properly consented by families: Stream C turns yellow. Under a single aggregated "success" score, the biodiversity gain would have carried the project forward. Under three separated streams, it cannot. The project pauses despite the ecological improvement — because regeneration financed by hidden labour and unclear consent is not regeneration the method will call green. A system that can only report success cannot govern; this one can stop itself.
 
@@ -522,7 +522,7 @@ The place may be a garden, courtyard, shared plot, school field, balcony, food f
 - Decide what must remain private, what may be recorded locally, and what could later be shared.
 - Return when the place can answer: after rain, drought, planting, pruning, conflict, rest, illness, repair, or another meaningful change.
 - Keep observation, inference, decision, and later outcome distinct.
-- Where useful, read Land and Ecology, Steward Viability, and Coordination and Governance separately. Choose a cadence the people and place can hold.
+- Where useful, read Land / Life, Steward Viability, and Governance / Commons separately. For an active field or supported stewardship relationship, begin from the light monthly Format 1 default and revise the cadence locally where needed; otherwise choose a rhythm the people and place can hold.
 - Use the 13×13 as a field of questions only as relevant. No cell requires completion.
 
 No grant, platform, institutional affiliation, fixed form, or contact with the association is required. Downloading a tool or keeping a record does not create a Spiralweb application, AnchorPoint, field status, review entitlement, or funding relationship. Those arise, if at all, through slower relational and place-bound processes.
@@ -797,15 +797,15 @@ This is one illustrative land-based sheet, not a universal record. Copy it into 
 
 ## Appendix E — Example three-stream review (one page)
 
-Read at a locally useful interval. Monthly review is one option. Mark each stream green / yellow / red **separately** — never average them into one score. The separation is the point.
+For an active field or supported stewardship relationship, begin with one light review per month unless local agreement sets another rhythm. In other inquiry, choose a locally useful interval. Mark each stream Green / Yellow / Red / Unknown **separately** — never average them into one score. Unknown means not enough evidence for a reading and is distinct from Yellow.
 
 **Review period / event:** _______________  **Place / application:** _______________  **People holding the review:** _______________
 
 | Stream | Green | Yellow | Red | This review |
 | --- | --- | --- | --- | --- |
-| **A — Land & Ecology** | cover, water-holding, biodiversity, or soil improving | mixed signals, stagnation, uncertainty | erosion, die-off, compaction, contamination, harm | ☐ G ☐ Y ☐ R |
-| **B — Steward Viability** | rhythm sustainable | strain visible; reduce ambition | depletion, conflict, dread, illness, hidden labour; pause | ☐ G ☐ Y ☐ R |
-| **C — Coordination & Governance** | roles & decisions clear | confusion, informal overload | conflict, coercion, unclear consent, untraceable decisions | ☐ G ☐ Y ☐ R |
+| **A — Land / Life** | cover, water-holding, biodiversity, or soil improving | mixed signals, stagnation, uncertainty | erosion, die-off, compaction, contamination, harm | ☐ G ☐ Y ☐ R ☐ U |
+| **B — Steward Viability** | rhythm sustainable | strain visible; reduce ambition | depletion, conflict, dread, illness, hidden labour; pause | ☐ G ☐ Y ☐ R ☐ U |
+| **C — Governance / Commons** | roles & decisions clear | confusion, informal overload | conflict, coercion, unclear consent, untraceable decisions | ☐ G ☐ Y ☐ R ☐ U |
 
 **Guardrail.** If Stream B is red, pause Stream A: ecological ambition must not be financed by human depletion. A green in one stream never cancels a red in another.
 
@@ -825,14 +825,14 @@ This paper draws on a wider body of work. A reader needs only the terms introduc
 - **13×13 inquiry grammar / The Correction Loop** — Report 02 provides one reflective 13×13 lineage and the dedicated accountability mechanism for consequential AI-assisted work. Earlier “Planetary Operating System” language belongs to the development history rather than the current architectural description. https://papers.spiralweb.earth/papers/the-correction-loop.html
 - **SRIP — The Steward's Journey** — Report 05: bounded entry with a real place, light observation, the three-stream distinction, burden testing, relational pathways, pause, withdrawal, and dignified incompletion. Ten square metres, eight prompts, and a Circle of 13 are possible forms, not universal requirements. https://papers.spiralweb.earth/papers/srip-the-stewards-journey.html
 - **The Protocol Habitat** — the current architecture distinguishing Foundations, Protocols, Applications, and Tools; publication from activation; relationship from local authority; and generic material from place-bound application. https://papers.spiralweb.earth/papers/the-protocol-habitat.html
-- **[PG Ledger](https://spiralweb.earth/cafes/sofia/pg-ledger/)** — a place-bound memory, flow, evidence, and correction architecture. It may hold observations, burdens, decisions, consent states, financial flows, histories, and review without collapsing them into one score. No fixed category list, cadence, or tool is active across all fields.
+- **[PG Ledger](https://spiralweb.earth/pg-ledger/)** — a place-bound memory, flow, evidence, and correction architecture. It may hold observations, burdens, decisions, consent states, financial flows, histories, and review without collapsing them into one score. No fixed category list, cadence, or tool is active across all fields.
 
 **Operational companions**
 
 - **[Operational Formats](https://papers.spiralweb.earth/#operational-formats)** — printable candidate tools for dashboard reading, observation, bounded action, decision memory, and financial traceability. Tools may be adapted or left unused; they do not certify field truth, create local authority, or activate a field.
-- **Penguin Dashboard** — Report 04: a human governance reading that keeps Land and Ecology, Steward Viability, and Governance and Collaboration non-compensatory. https://papers.spiralweb.earth/papers/penguin-dashboard-legibility-as-governance.html
+- **Penguin Dashboard** — Report 04: the shared reading logic operationalised in Format 1, keeping Land / Life, Steward Viability, and Governance / Commons non-compensatory with Green / Yellow / Red / Unknown readings. https://papers.spiralweb.earth/papers/penguin-dashboard-legibility-as-governance.html
 - **Circle of 13** — one possible human-scale governance form where locally chosen; not a required number or entry condition.
-- **AnchorPoint** — the relational, place-based threshold where local continuity may meet the wider architecture; it holds relationship, not automatic application or authority. https://spiralweb.earth/cafes/sofia/anchorpoints/
+- **AnchorPoint** — the relational, place-based threshold where local continuity may meet the wider architecture; it holds relationship, not automatic application or authority. https://spiralweb.earth/anchorpoints/
 - **Pixellized inquiry** — a possible methodological bridge from bounded situated observation to wider patterning, provided context and correction remain attached. https://papers.spiralweb.earth/papers/eve-adam-and-the-penguins.html
 
 **Wider horizon** *(context, not prerequisite)*
@@ -845,4 +845,4 @@ This paper draws on a wider body of work. A reader needs only the terms introduc
 - **Sophia Lumen Protocol** — the current candidate protocol for human–AI co-inquiry: context cultivation, provenance, prismatic inquiry, structural asymmetry, temporary actionability, and recursive correction. https://papers.spiralweb.earth/protocols/sophia-lumen
 - **Methods / Editorial Practice** — how the Green Papers are written, revised, and held. https://papers.spiralweb.earth/methods-editorial-practice.html
 
-*Suggested citation:* Engberg, L. A. (2026). **Knowing From the Ground: Embodied Citizen Science as Full but Fallible Knowledge**. Field Papers, Green Papers (v1.2, August 2026). Spiralweb Stewardship Association. CC BY 4.0.
+*Suggested citation:* Engberg, L. A. (2026). **Knowing From the Ground: Embodied Citizen Science as Full but Fallible Knowledge**. Field Papers, Green Papers (v1.2.1, August 2026). Spiralweb Stewardship Association. CC BY 4.0.
