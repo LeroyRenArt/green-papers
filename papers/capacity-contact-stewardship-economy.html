@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Green Paper 22 — Capacity, Contact, and the Emerging Stewardship Economy · Spiralweb Green Papers</title>
+  <meta name="description" content="A Green Paper on stewardship viability, plural value, and capacity returning to life without capture." />
+  <meta name="author" content="Lars A. Engberg" />
+  <link rel="canonical" href="https://papers.spiralweb.earth/papers/capacity-contact-stewardship-economy" />
+  <meta property="og:title" content="Green Paper 22 — Capacity, Contact, and the Emerging Stewardship Economy" />
+  <meta property="og:description" content="What happens when expanding technological, financial, and informational capacity loses contact with living consequence? An open inquiry into stewardship viability, plural value, and support without capture." />
+  <meta property="og:type" content="article" />
+  <style>
+:root{
+  --paper:#fbf8f1;
+  --paper-deep:#f2ece0;
+  --ink:#1f1d19;
+  --ink-soft:#4a463f;
+  --quiet:#746d61;
+  --rule:#d8cfbf;
+  --accent:#6f7a4d;
+  --accent-deep:#4f5b34;
+  --note:#f0eadc;
+  --maxw:760px;
+}
+*{box-sizing:border-box}
+html{font-size:18px;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Iowan Old Style","Charter","Cambria","Georgia",serif;
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.sitebar{
+  border-bottom:1px solid var(--rule);
+  background:rgba(242,236,224,.72);
+  padding:1rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  align-items:baseline;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.68rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--quiet);
+}
+.sitebar a{color:var(--quiet);text-decoration:none}
+.paper{max-width:var(--maxw);margin:0 auto;padding:4.4rem 1.5rem 6rem}
+.eyebrow{
+  margin:0 0 .7rem;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+.paper-number{
+  margin:0 0 1.6rem;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  color:var(--quiet);
+}
+h1{
+  margin:0 0 1rem;
+  max-width:16ch;
+  font-size:clamp(2.55rem,7vw,4.35rem);
+  line-height:1.02;
+  font-weight:500;
+  letter-spacing:-.025em;
+}
+.dek{
+  max-width:43rem;
+  margin:0 0 2rem;
+  color:var(--ink-soft);
+  font-size:1.18rem;
+  line-height:1.5;
+  font-style:italic;
+}
+.meta-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem 1.4rem;
+  padding:1.25rem 0;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.78rem;
+  line-height:1.55;
+  color:var(--ink-soft);
+}
+.meta-grid strong{
+  display:block;
+  margin-bottom:.15rem;
+  color:var(--accent-deep);
+  font-size:.62rem;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.stewardship-note{
+  margin:2rem 0 3.4rem;
+  padding:1.1rem 1.25rem;
+  background:var(--note);
+  border-left:3px solid var(--accent);
+  color:var(--ink-soft);
+  font-size:.9rem;
+  line-height:1.58;
+}
+.stewardship-note p{margin:0}
+.stewardship-note a{color:var(--accent-deep)}
+article h2{
+  margin:3.5rem 0 1.1rem;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:1.42rem;
+  line-height:1.25;
+  letter-spacing:-.01em;
+}
+article h2::before{
+  content:"";
+  display:block;
+  width:2.2rem;
+  height:2px;
+  margin-bottom:.9rem;
+  background:var(--accent);
+}
+article h3{
+  margin:2.7rem 0 1rem;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:1rem;
+  line-height:1.3;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+article p{margin:0 0 1.15rem}
+article ul,article ol{margin:0 0 1.3rem;padding-left:1.35rem}
+article li{margin:.42rem 0;padding-left:.15rem}
+article li::marker{color:var(--accent)}
+article hr{border:0;height:1px;background:var(--rule);margin:3.3rem 0}
+article strong{font-weight:600}
+article em{font-style:italic}
+article a{color:var(--accent-deep);text-decoration-thickness:1px;text-underline-offset:.17em}
+article h3 + p strong{color:var(--accent-deep)}
+article figure{
+  margin:2.6rem 0;
+}
+article figure img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+article figcaption{
+  margin-top:.7rem;
+  color:var(--quiet);
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.78rem;
+  line-height:1.5;
+}
+article blockquote{
+  margin:1.8rem 0;
+  padding:.2rem 0 .2rem 1.2rem;
+  border-left:3px solid var(--accent);
+  color:var(--ink-soft);
+}
+article blockquote p{margin:.35rem 0}
+.colophon{
+  margin-top:4rem;
+  padding-top:1.4rem;
+  border-top:1px solid var(--rule);
+  color:var(--quiet);
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.75rem;
+  line-height:1.65;
+}
+.colophon p{margin:.2rem 0}
+.colophon a{color:var(--quiet)}
+@media(max-width:640px){
+  .sitebar{align-items:flex-start;flex-direction:column}
+  .paper{padding:3.1rem 1.15rem 4.5rem}
+  .meta-grid{grid-template-columns:1fr}
+  h1{font-size:2.65rem}
+}
+@page{size:A4;margin:18mm}
+@media print{
+  html{font-size:14px}
+  body{background:#fff;color:#111;line-height:1.5}
+  .sitebar{display:none}
+  .paper{max-width:none;margin:0;padding:0}
+  h1{font-size:31pt;max-width:none;margin-bottom:9pt}
+  .dek{font-size:12pt;margin-bottom:14pt}
+  .eyebrow,.paper-number{font-size:8pt}
+  .meta-grid{font-size:8.5pt;padding:9pt 0;gap:8pt}
+  .meta-grid strong{font-size:6.5pt}
+  .stewardship-note{
+    margin:14pt 0 20pt;
+    padding:9pt 11pt;
+    font-size:8.5pt;
+    line-height:1.45;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  article h2{
+    margin:22pt 0 8pt;
+    font-size:15pt;
+    break-after:avoid-page;
+    page-break-after:avoid;
+  }
+  article h2::before{
+    margin-bottom:7pt;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  article h3{
+    margin:17pt 0 7pt;
+    font-size:10pt;
+    break-after:avoid-page;
+    page-break-after:avoid;
+  }
+  article p,article li{font-size:10.2pt;line-height:1.48}
+  article p{margin-bottom:8pt}
+  article ul,article ol{margin-bottom:9pt}
+  article li{margin:3pt 0}
+  article hr{margin:20pt 0}
+  article figure{break-inside:avoid;page-break-inside:avoid;margin:16pt 0}
+  article figcaption{font-size:8pt}
+  article blockquote{break-inside:avoid;page-break-inside:avoid;margin:12pt 0}
+  .colophon{font-size:8pt;margin-top:24pt}
+  a{color:#111!important;text-decoration:none!important}
+}
+  </style>
+</head>
+<body>
+  <nav class="sitebar" aria-label="Publication navigation">
+    <a href="../index.html">Spiralweb Green Papers</a>
+    <span>Second Spiral · Applied Inquiries</span>
+  </nav>
+
+  <main class="paper">
+    <header>
+      <p class="eyebrow">Second Spiral — Applied Inquiries</p>
+      <p class="paper-number">Green Paper 22</p>
+      <h1>Capacity, Contact, and the Emerging Stewardship Economy</h1>
+      <p class="dek">A Green Paper on stewardship viability, plural value, and capacity returning to life without capture</p>
+
+      <div class="meta-grid">
+        <div><strong>Status</strong>Green Paper · candidate v0.4 · August 2026</div>
+        <div><strong>Public steward</strong>Lars A. Engberg</div>
+        <div><strong>Licence</strong>CC BY 4.0</div>
+      </div>
+
+      <aside class="stewardship-note">
+        <p>Relationally formed through creative inquiry, research, editorial revision, and AI-assisted articulation. Final selection, judgment, public release, and responsibility remain with the named human steward. See the <a href="../methods-editorial-practice">Methods / Editorial Practice</a> and <a href="../sophia-lumen-protocol">Sophia Lumen</a> notes.</p>
+      </aside>
+    </header>
+
+    <article>
+<p><strong>Document function:</strong> thematic diagnosis and open economic inquiry</p>
+<p>This paper does not activate a field, funding relationship, stewardship record or stewardship agreement. Publication is not validation.</p>
+<blockquote>
+<p><strong>How can a civilisation increase its capacity to act without losing contact with the living systems, people and places that give action meaning and consequence?</strong></p>
+</blockquote>
+<h2 id="abstract">Abstract</h2>
+<p>Human societies possess rapidly expanding technological, financial and informational capacity while many living foundations deteriorate and many people carrying restoration, care and commons work remain unpaid, underpaid or exhausted. The problem may therefore be not only insufficient capacity, but <strong>capacity losing contact with consequence</strong>.</p>
+<p>This paper asks whether a plural <strong>stewardship economy</strong> is already forming: livelihoods, institutions and resource flows through which caring for soil, water, food, biodiversity, wildlife, habitat, seeds, communities and shared knowledge can become economically viable without becoming economically ownable.</p>
+<p>Three non-compensatory conditions organise the inquiry: <strong>Land / Life, Steward Viability and Governance / Commons</strong>. Ecological gains cannot justify steward depletion; viable livelihoods cannot compensate for ecological damage; neither can excuse coercive governance. Financial and material support must likewise keep land and ecology, steward livelihood, and coordination visible rather than hiding them inside one project total.</p>
+<p>A local stewardship action may be local in authority and planetary in function. The challenge is to recognise that contribution without converting living places, knowledge or people into assets, datapoints or institutional property.</p>
+<p>The hypothesis is simple and demanding:</p>
+<blockquote>
+<p><strong>Can infrastructures created to support life remain subordinate to life?</strong></p>
+</blockquote>
+<hr />
+<h2 id="position-of-inquiry">Position of Inquiry</h2>
+<p>This paper speaks from a small place. It is written within Spiralweb Stewardship Association, a newly formed Danish non-profit association developing a small number of early relationships with regenerative practitioners and places. It does not speak for those people or places, and none of these relationships validates the propositions that follow.</p>
+<p>The paper asks planetary questions from inside an unfinished practice, not from a clean outside or from authority over the field. Its scale of inquiry is deliberately larger than its present operational reach. That asymmetry should remain visible.</p>
+<hr />
+<h2 id="1-more-capacity-less-contact">1. More Capacity, Less Contact</h2>
+<p>Modern societies can model atmospheric systems, map forests from orbit, sequence genomes, automate production, move capital across continents and retrieve immense bodies of knowledge within seconds.</p>
+<p>Artificial intelligence intensifies this trajectory. Translation, analysis, programming, administration, visual production and research assistance can increasingly be performed or accelerated by machines. Robotics extends similar changes into physical environments.</p>
+<p>The effects on employment will not follow one simple line. Some occupations will disappear, many will change, new ones will arise, and the results will differ by country, class, sector and institution. The International Labour Organization's 2025 refined global index treats occupational exposure to generative AI primarily as potential task and job transformation rather than a direct forecast of replacement.</p>
+<p>There is no automatic path from technological productivity to human freedom. Productivity gains can produce shorter working time and wider public capacity. They can also produce concentration, precarity, surveillance and intensified consumption.</p>
+<p>Beneath that uncertainty lies a more durable question:</p>
+<blockquote>
+<p><strong>What kinds of human contribution do societies choose to recognise and sustain?</strong></p>
+</blockquote>
+<p>Care is one example.</p>
+<p>Stewardship is another.</p>
+<p>There is no shortage of necessary work. Soils require restoration. Watersheds require care. Habitats require protection and reconnection. Seeds require custodians. Species require room to live and move. Food systems require transformation. Cities require cooling, water management and ecological repair. Communities require facilitation, memory and conflict capacity. Young people require credible pathways into meaningful work.</p>
+<p>None of this becomes unnecessary because machines become more capable. Some of it becomes more urgent.</p>
+<p>The paradox is not that humanity is running out of work. It is that the relationship between <strong>socially necessary work, economically recognised work and a viable human life</strong> is becoming increasingly unstable.</p>
+<hr />
+<h2 id="2-capacity-and-contact">2. Capacity and Contact</h2>
+<p>A useful distinction is between <strong>capacity</strong> and <strong>contact</strong>.</p>
+<p>Capacity includes the ability to observe, calculate, communicate, build, finance, coordinate, automate, model, store knowledge and intervene.</p>
+<p>Contact means remaining in consequential relationship with soil, water, climate, species, food, place, community, culture, memory, human limits and the effects of action.</p>
+<p>The distinction is not between modernity and tradition, technology and nature, institutions and communities, or North and South.</p>
+<p>A farmer using satellite imagery may have profound contact with a landscape. A low-technology institution may be deeply detached from local consequence. A global scientific model may reveal a pattern no local observer can see. A precise model may still fail if it displaces those who must live with the decision.</p>
+<p>The question is relational:</p>
+<blockquote>
+<p><strong>Does increased capacity deepen our ability to perceive and respond to living reality, or progressively insulate us from it?</strong></p>
+</blockquote>
+<p>A society can have high capacity and high contact.</p>
+<p>The problem is not capacity itself.</p>
+<p>The problem is <strong>capacity without contact</strong>.</p>
+<p>A conservation programme may produce excellent reporting while exhausting the people responsible for implementation. A funding system may require evidence so burdensome that communities divert scarce capacity away from the work being funded. A machine-learning system may integrate enormous datasets while erasing provenance and uncertainty. A regenerative project may improve vegetation while weakening the people carrying it.</p>
+<p>Each case represents a different form of disconnection.</p>
+<p>The task is therefore not simply to slow development. It is to restore feedback between capacity and consequence.</p>
+<hr />
+<h2 id="3-capacity--contact">3. Capacity × Contact</h2>
+<p>If capacity and contact are treated as separate axes rather than opposites, a different picture of development appears.</p>
+<p>Low capacity and low contact leave people poorly equipped and poorly connected.</p>
+<p>High capacity with low contact can produce sophisticated extraction, blindness and delayed consequence.</p>
+<p>High contact with low capacity can leave communities deeply knowledgeable about place while unable to respond to forces far larger than themselves.</p>
+<p>The interesting horizon is:</p>
+<blockquote>
+<p><strong>greater capacity in deeper contact.</strong></p>
+</blockquote>
+<p>That may mean powerful science combined with local ecological memory. Advanced AI combined with human responsibility. Global communication combined with bioregional intelligence. Capital capable of moving quickly and communities capable of saying no. Sophisticated monitoring combined with the legitimacy of Unknown. Professional stewardship combined with the right to pause.</p>
+<p>This is difficult because capacity tends to scale through abstraction, while contact is often preserved through relationship.</p>
+<p>The question of the coming decades may therefore be less whether to choose scale or place than how larger capacities can remain answerable to particular places without absorbing them.</p>
+<figure>
+  <img src="gp22-capacity-contact.svg" alt="Capacity × Contact: four relational conditions and the horizon of greater capacity in deeper contact." />
+  <figcaption><strong>Figure 1.</strong> Capacity and contact are separate axes, not opposing camps. The desired movement is not simply toward more capacity, but toward greater capacity in deeper contact.</figcaption>
+</figure>
+<hr />
+<h2 id="4-life-as-the-primary-balance-sheet">4. Life as the Primary Balance Sheet</h2>
+<p>Economic systems require abstraction. Budgets, prices, accounts and indicators allow societies to coordinate across distance and time.</p>
+<p>The problem begins when the abstraction becomes more authoritative than the conditions it was intended to represent.</p>
+<p>A regenerative economy therefore requires another ordering principle:</p>
+<blockquote>
+<p><strong>Life is the primary balance sheet.</strong></p>
+</blockquote>
+<p>This is not a proposal for one master ecological indicator. The UN System of Environmental-Economic Accounting — Ecosystem Accounting is an important effort to place ecosystem extent, condition and services beside economic accounts. GP22 makes a related but normative claim: the representation must remain subordinate to the living conditions represented.</p>
+<p>Life includes more than land in a narrow sense. A minimum Land/Life reading may involve four connected registers:</p>
+<h3 id="genetic-life">Genetic life</h3>
+<p>Heirloom seeds, farmers' varieties, landraces, crop wild relatives, local plant material, microbial diversity and the capacity of living populations to reproduce and adapt.</p>
+<h3 id="species-life">Species life</h3>
+<p>Plants, pollinators, birds, insects, soil organisms, aquatic life, wildlife and other locally relevant beings — not only as providers of services to humans, but as participants in living systems with their own requirements for survival and continuity.</p>
+<h3 id="habitat-and-landscape-relation">Habitat and landscape relation</h3>
+<p>Soil, water, vegetation, food webs, nesting and refuge, wetlands, agroecosystems, green and blue corridors, movement routes and the connection or fragmentation between habitats.</p>
+<h3 id="ecological-function">Ecological function</h3>
+<p>Soil formation, pollination, infiltration, cooling, nutrient cycling, water retention, carbon cycling, disturbance recovery and other place-specific processes through which life continues.</p>
+<p>Human societies exist within these conditions. Economics exists within them. Technology and institutions exist within them.</p>
+<p>Three non-compensatory forms of carrying capacity provide a minimum shared reading.</p>
+<h3 id="land--life">Land / Life</h3>
+<p>What is happening to the living place, its species, habitats, reproductive capacity, water, soil, food systems and locally relevant ecological relations?</p>
+<h3 id="steward-viability">Steward Viability</h3>
+<p>What is happening to the people carrying the work? Can they live? Do they have time, health, transport, tools, support and room for an ordinary life? Can they pause, refuse or leave?</p>
+<h3 id="governance--commons">Governance / Commons</h3>
+<p>What is happening to the relationships through which action occurs? Who decides? Who controls resources and records? Can people disagree and correct? Does money purchase authority? Can local participants refuse?</p>
+<p>The dimensions are non-compensatory.</p>
+<p>Ecological improvement cannot justify destroying the people carrying the work. Healthy stewards cannot compensate for ecological destruction. Ecological and human gains cannot excuse coercive or corrupt governance.</p>
+<blockquote>
+<p><strong>No one form of carrying capacity should conceal the degradation of another.</strong></p>
+</blockquote>
+<hr />
+<h2 id="5-the-work-outside-the-balance-sheet">5. The Work Outside the Balance Sheet</h2>
+<p>Much stewardship already happens.</p>
+<p>Farmers read soil and rain. Fishers notice changing waters. Families maintain seeds and food knowledge. Community members care for springs, paths and commons. People raise seedlings, restore wetlands, protect wildlife habitat, plant urban shade, connect fragmented green spaces, teach children, observe species and preserve ecological memory.</p>
+<p>Much of this work is invisible or only partially visible to formal economies.</p>
+<p>Some is paid through agriculture, forestry, conservation, public employment, tourism or research. Some occurs through associations, households, religious communities, schools and informal networks. Some is supported by philanthropy or public programmes. Some is performed because nobody else will do it.</p>
+<p>When stewardship depends primarily on moral commitment, those carrying it subsidise society with their time, income, health and future security.</p>
+<p>That is not a durable economic model.</p>
+<p>A narrow market question asks:</p>
+<blockquote>
+<p>What does contact cost?</p>
+</blockquote>
+<p>That question matters. Contact requires time, travel, translation, wages, patience, memory and responsive institutions.</p>
+<p>But it is incomplete. A whole account must also ask:</p>
+<blockquote>
+<p><strong>What capacity does contact create? What harm does it prevent? Who already subsidises it? And what does disconnection cost?</strong></p>
+</blockquote>
+<p>The challenge is therefore not simply to create more “green jobs”. It is to recognise a wider ecology of <strong>modern stewardship livelihoods</strong>: land and water care, seed custody, biodiversity observation, habitat restoration, food systems, documentation, commons facilitation, youth learning, cultural memory, local adaptation, critical friendship and other forms not yet visible under one name.</p>
+<p>The examples are not a taxonomy.</p>
+<p>The point is that stewardship can become professional, economically viable and socially meaningful without ceasing to be situated.</p>
+<hr />
+<h2 id="6-stewardship-must-become-attractive">6. Stewardship Must Become Attractive</h2>
+<p>A society cannot build an ecological transition primarily on sacrifice.</p>
+<p>Stewardship cannot only be correct. It must become attractive.</p>
+<p>That means more than adequate income. It means work that can be dignified, professionally developmental, intellectually interesting, technologically capable, compatible with family life, connected to place, recognised by institutions and respected by peers.</p>
+<p>The issue is sharpened by a weakening social contract. For many people, especially younger generations and insecure or aspiring middle groups, education, work and conformity no longer reliably lead to housing, stability, voice or a believable future. The pattern is not identical across India, China, the United States, Uganda, Morocco, Pakistan or Europe. Nor does it produce one shared political awakening. It can lead to withdrawal, migration, hypercompetition, protest, mutual aid, polarisation or authoritarian longing.</p>
+<p>The United Nations <em>World Social Report 2025</em> documents growing economic insecurity, inequality and distrust. The ILO's <em>Global Employment Trends for Youth 2026</em> reports continuing barriers to decent work and a large global population of young people outside employment, education or training.</p>
+<p>Stewardship is not a moral programme for correcting young people. It is one possible part of a more credible social settlement: a way for contribution to produce livelihood, competence, belonging, ecological agency and visible consequence.</p>
+<p>If caring for land, food, biodiversity and commons is culturally represented as poorly paid sacrifice while extractive or purely speculative work offers security and status, exhortation will not solve the problem.</p>
+<p>The task is to make stewardship a credible future without making one steward identity compulsory.</p>
+<p>AI may help. It can reduce administration, connect observations with relevant knowledge, translate languages and institutional vocabularies and make specialised information more accessible.</p>
+<p>That could allow a steward to become more capable without becoming less situated — but only if technology remains subordinate to the work.</p>
+<p>The objective is not to turn every steward into a data worker. It is to make sophisticated capacity available without requiring the field to reorganise itself around the machine.</p>
+<hr />
+<h2 id="7-bioregional-intelligence">7. Bioregional Intelligence</h2>
+<p>Neither local knowledge nor scientific knowledge is sufficient alone.</p>
+<p>Local knowledge can be deep, longitudinal and situated while remaining partial or contested. Scientific knowledge can reveal processes invisible to ordinary observation while remaining distant from local conditions. Institutions can preserve memory and coordinate action while becoming detached from both.</p>
+<p>The useful capacity lies in the relationship between them.</p>
+<p>IPBES work on diverse values of nature and Indigenous and local knowledge offers an important precedent for holding multiple knowledge systems without reducing all value to one economic language.</p>
+<p>We use <strong>bioregional intelligence</strong> to describe a society's continuing ability to notice what is happening in its living systems and respond before damage becomes irreversible.</p>
+<p>It may connect:</p>
+<blockquote>
+<p>local observation<br />
+↔︎ ecological and cultural memory<br />
+↔︎ scientific knowledge<br />
+↔︎ instruments and sensing<br />
+↔︎ institutional memory<br />
+↔︎ collective judgement<br />
+↔︎ action<br />
+↔︎ consequence<br />
+↔︎ renewed observation</p>
+</blockquote>
+<p>This is a flow, not merely a stock.</p>
+<p>A community can possess inherited ecological knowledge and still lose bioregional intelligence if conditions change faster than knowledge can adapt or the young see no future in carrying it. A government can possess extensive datasets and still lack bioregional intelligence if institutions cannot translate them into situated action.</p>
+<p>The objective is not to decide which knowledge system dominates. It is to preserve differences while making consequential contact possible.</p>
+<hr />
+<h2 id="8-planet-and-pixel">8. Planet and Pixel</h2>
+<p>Earth-system science can identify planetary processes such as climate change, biosphere integrity, land-system change, freshwater disruption and biogeochemical flows.</p>
+<p>Yet nobody lives at the scale of “the planet”.</p>
+<p>People live somewhere. Water falls somewhere. Soil erodes somewhere. A corridor is broken somewhere. A seed variety disappears somewhere. A decision is made somewhere. A person becomes exhausted somewhere.</p>
+<p>This creates two linked questions:</p>
+<blockquote>
+<p><strong>How does planetary knowledge become relevant where someone can actually act?</strong></p>
+</blockquote>
+<p>And:</p>
+<blockquote>
+<p><strong>How can what happens in one place become visible to larger systems without being stripped of context?</strong></p>
+</blockquote>
+<p>Remote sensing, scientific observation and AI create unprecedented possibilities. A field, neighbourhood, wetland or watershed can potentially be understood through local memory, weather, hydrology, soil, biodiversity, land use, social conditions, scientific literature, regional processes and planetary signals.</p>
+<p>We might call this <strong>pixel precision</strong>.</p>
+<p>But precision is not authority.</p>
+<p>More data does not automatically produce better judgement.</p>
+<p>Increasing resolution should improve relationship with place, not replace place with its digital representation.</p>
+<hr />
+<h2 id="9-a-stewardship-economy-is-already-forming">9. A Stewardship Economy Is Already Forming</h2>
+<p>The term <strong>stewardship economy</strong> should remain provisional.</p>
+<p>It does not describe one sector, profession, funding mechanism or platform.</p>
+<p>It points toward a heterogeneous field in which human labour, knowledge, institutions and resources are directed toward the long-term viability of living systems.</p>
+<p>Restoration programmes, regenerative farms, farmer seed networks, community funds, Indigenous and local stewardship, urban food initiatives, landscape organisations, public authorities, philanthropic institutions, scientists, social enterprises and digital coordination systems already carry pieces of this work.</p>
+<p>They do not form one movement.</p>
+<p>They do not need to.</p>
+<p>Some begin with ecology. Some with livelihood, justice, food, culture, land rights, public governance, climate adaptation, youth or community autonomy.</p>
+<p>The field is heterogeneous because the living world and human societies are heterogeneous.</p>
+<p>What matters is that an economic space is becoming visible around work previously treated as externality, unpaid care or marginal environmental activity.</p>
+<p>This space is not exhausted by money or employment. Fields may become more capable through time, rest, seeds, tools, transport, knowledge, teaching, creativity, frugal innovation, borrowing and sharing, critical friendship, care, cultural meaning, local markets and the power to decide or refuse.</p>
+<p>These are not interchangeable currencies. One may be abundant while another is dangerously scarce.</p>
+<p><strong>Abundance is not a fourth condition stream, universal currency or contribution score.</strong> It is a prismatic way of noticing what allows people and places to receive, combine, learn, give and regenerate without depletion.</p>
+<p>GP22 does not propose to own or define the field.</p>
+<p>It asks whether recognising it helps more capacity return to life.</p>
+<hr />
+<h2 id="10-what-stewardship-holds-and-creates">10. What Stewardship Holds and Creates</h2>
+<p>A stewardship economy cannot be understood through ecological outcomes or paid work alone. Its value is plural because living systems are plural. One situated action may hold or create several forms of capacity at once, without making them interchangeable.</p>
+<p>The following value groups are not a universal measurement framework. They are a way to see more of what ordinary accounts frequently separate or omit.</p>
+<h3 id="living-foundations">Living foundations</h3>
+<p>Soil formation, water retention, watershed health, microclimate, disturbance recovery, ecological fertility and the continuing capacity of a place to support life.</p>
+<h3 id="biodiversity-and-continuity-of-life">Biodiversity and continuity of life</h3>
+<p>Wildlife, habitat, pollinators, soil organisms, aquatic life, food webs, green and blue corridors, locally adapted seeds, landraces, crop wild relatives and the reproductive capacity through which living populations adapt and continue.</p>
+<h3 id="food-and-local-provisioning">Food and local provisioning</h3>
+<p>Food forests, farms, fisheries, agroforestry, urban growing, nurseries, seed exchange, household food security, seasonal knowledge, processing and local market relations.</p>
+<h3 id="human-and-steward-viability">Human and steward viability</h3>
+<p>Livelihood, time, health, safety, transport, tools, learning, professional development, rest, family compatibility, succession and the freedom to pause, refuse or leave.</p>
+<h3 id="relational-and-commons-capacity">Relational and commons capacity</h3>
+<p>Trust, reciprocal care, conflict capacity, local authority, shared governance, access rules, institutional memory, privacy, accountability and the ability to make and correct decisions together.</p>
+<h3 id="knowledge-culture-and-imagination">Knowledge, culture and imagination</h3>
+<p>Situated observation, scientific inquiry, ecological and cultural memory, language, provenance, intergenerational learning, practical creativity, frugal innovation, artistic attention and the capacity to imagine a viable future.</p>
+<h3 id="material-and-economic-abundance">Material and economic abundance</h3>
+<p>Money, wages, grants, public support, tools, land, seeds, infrastructure, exchange, lending, sharing, voluntary contribution, local enterprise, cooperative income and other forms of material support.</p>
+<h3 id="propagation-and-reform-capacity">Propagation and reform capacity</h3>
+<p>Farmer-to-farmer learning, independently reproduced practice, seed and plant circulation, new local markets, changed professional routines, public learning and institutional reform.</p>
+<p>These value groups are not additional condition streams, dashboard categories or reporting requirements. They help articulate what may be held, lost, created or circulated within and across the three non-compensatory conditions.</p>
+<p>These groups overlap. A food forest can hold nutrition, soil formation, shade, genetic diversity, wildlife habitat, learning, livelihood and local exchange. An urban green corridor can cool a neighbourhood, retain water, reconnect habitat, create work and offer young people a practical relationship with place. A seed network can conserve genetic diversity while carrying culture, reciprocity, adaptation and local economic capacity.</p>
+<p>A local stewardship action can therefore be local in authority and planetary in function.</p>
+<p>The fact that its consequences cross boundaries does not transfer ownership upward. Planetary significance does not make a local field the property of a global organisation, donor, scientific institution or narrative.</p>
+<p>It creates a question of <strong>regenerative reciprocity</strong>:</p>
+<blockquote>
+<p><strong>How can wider societies recognise and support locally held functions upon which shared planetary conditions depend, without purchasing the place, the knowledge or the authority?</strong></p>
+</blockquote>
+<p>This is one route toward re-embedding externalities in a larger householding. The aim is not to give everything a price, nor to preserve every present condition. It is to keep soil loss, species decline, unpaid stewardship, exhausted communities and weakened trust visible in economic and institutional decisions so that damage can be prevented, reduced or reversed.</p>
+<p>The planetary commons is therefore not only a global institution. It is also the cumulative consequence of local places remaining alive enough to continue their functions.</p>
+<hr />
+<h2 id="11-money-must-learn-to-move-differently">11. Money Must Learn to Move Differently</h2>
+<p>If stewardship is to become viable, resources must move toward it.</p>
+<p>But funding introduces power.</p>
+<p>The question is not simply:</p>
+<blockquote>
+<p>How can more money reach regenerative projects?</p>
+</blockquote>
+<p>It is:</p>
+<blockquote>
+<p><strong>How can resources support stewardship without purchasing authority over the field?</strong></p>
+</blockquote>
+<p>One minimum distinction keeps three financial and material resource flows visible.</p>
+<h3 id="a--land-and-ecology">A — Land and Ecology</h3>
+<p>Resources for ecological activity, materials, seeds, tools, infrastructure, restoration and observation.</p>
+<h3 id="b--steward-viability">B — Steward Viability</h3>
+<p>Resources enabling the people carrying situated stewardship work to live, learn, travel, rest and continue.</p>
+<h3 id="c--coordination-and-governance">C — Coordination and Governance</h3>
+<p>Resources for administration, facilitation, accounting, translation, accountability, learning, privacy, public communication and institutional continuity.</p>
+<p>The three flows are not departments, fixed percentages or competing moral claims. They show different functions inside one living economy.</p>
+<p>A single initiative may require expenditure across all three. A nursery may require seeds and irrigation, paid steward time, bookkeeping and local decisions about access. The purpose of separation is not to split the nursery into three projects, but to prevent one visible expenditure from hiding the work and governance that make it possible.</p>
+<p>The flows also differ from the three condition readings. Resource flows show where money or material support is directed. Land/Life, Steward Viability and Governance/Commons ask what is actually happening. Expenditure in a category is not evidence of a healthy condition.</p>
+<p>Keeping the flows visible does not produce balance by itself.</p>
+<p>It makes imbalance harder to hide.</p>
+<hr />
+<h2 id="12-institutions-have-a-metabolism-too">12. Institutions Have a Metabolism Too</h2>
+<p>Stewardship does not happen only in fields. Associations, public authorities, cooperatives, research bodies, funders and other intermediaries also perform necessary work. They employ people, hold contracts, translate knowledge, maintain records, raise resources, provide legal accountability and sustain relationships over time.</p>
+<p>This work is not unreal because it is called administration. Nor is it legitimate merely because an institution performs it.</p>
+<p>The useful question is not what percentage an organisation is morally permitted to “take”. It is whether cost, function, authority and consequence remain visible.</p>
+<p>There is therefore no universal correct overhead percentage. A fixed ratio can obscure both underfunded coordination and institutional excess.</p>
+<p>More informative questions are:</p>
+<ul>
+<li>What work or capacity is being funded?</li>
+<li>Who performs it and bears its real cost?</li>
+<li>Which living or relational function does it support?</li>
+<li>What authority does not move with the money?</li>
+<li>What becomes stronger, and what might become weaker?</li>
+<li>Can the arrangement be corrected, reduced or left?</li>
+</ul>
+<p>Professional wages, local livelihoods, administration, materials and governance are all legitimate costs when they correspond to necessary work. The discipline is to keep institutional metabolism answerable to purpose and consequence — not to pretend that coordination is free, and not to allow coordination to become self-justifying.</p>
+<p>Institutional metabolism does not create a fourth condition. The viability of people carrying institutional work remains part of Steward Viability; institutional authority and accountability remain part of Governance / Commons.</p>
+<hr />
+<h2 id="13-economic-recognition-without-economic-ownership">13. Economic Recognition Without Economic Ownership</h2>
+<p>Once stewardship becomes economically visible, it can be captured.</p>
+<p>It could become another asset class. Local observers could become gig workers. Communities could be paid per datapoint. Ecological records could become proprietary. Universal steward scores could shape opportunity. Algorithms could allocate resources through simplified indicators. Biodiversity could become valuable mainly because it generates financial claims. Platforms could acquire power over places by controlling the support infrastructure.</p>
+<p>The attempt to recognise stewardship could detach it from the relations that give it meaning.</p>
+<p>A stewardship economy must therefore distinguish:</p>
+<blockquote>
+<p><strong>economic recognition from economic ownership.</strong></p>
+</blockquote>
+<p>Money can support stewardship.</p>
+<p>It must not automatically purchase authority, data, consent, ecological claims, community representation or future control.</p>
+<p>Before consequential support moves, three questions expose much of the capture risk:</p>
+<ol type="1">
+<li>Does the support purchase or silently shift authority and control?</li>
+<li>Does it obtain rights over data, stories, representation, claims or future production beyond the bounded purpose?</li>
+<li>Does it impose tempo, dependency, hosting or reporting work that the field cannot freely carry or later leave?</li>
+</ol>
+<p>These questions do not replace legal, financial or local review. They show where support may need to be narrowed, amended, delayed or refused.</p>
+<p>This is why the field cannot be reduced to an investment thesis.</p>
+<p>Regenerative finance may matter. So may public finance, ordinary wages, philanthropy, procurement, cooperative income, memberships, fellowships, local enterprise, householding, reciprocity and community funds.</p>
+<p>Plurality is both practical reality and safeguard.</p>
+<hr />
+<h2 id="14-legibility-without-extraction">14. Legibility Without Extraction</h2>
+<p>Money requires accountability. Learning requires memory. Scientific collaboration requires evidence. Public institutions require documentation.</p>
+<p>The answer cannot be to reject legibility.</p>
+<p>But legibility has a cost.</p>
+<p>Every form, indicator, photograph, meeting and spreadsheet consumes human capacity. A regenerative infrastructure can become extractive by asking too many reasonable questions.</p>
+<blockquote>
+<p><strong>Require no more legibility than the consequence justifies — but no less accountability than the consequence requires.</strong></p>
+</blockquote>
+<p>A small, reversible field inquiry does not need the assurance architecture of a multimillion-euro programme. A large resource flow cannot responsibly rely on a few photographs and goodwill.</p>
+<p>The burden should scale with resources, risk, claims, consequences and reversibility.</p>
+<p>This is not weak evidence.</p>
+<p>It is <strong>proportionate evidence</strong>.</p>
+<hr />
+<h2 id="15-memory-before-metrics">15. Memory Before Metrics</h2>
+<p>A stewardship record should not begin by asking how a field scores.</p>
+<p>It should begin by remembering what happened.</p>
+<p>What was observed? By whom? Under what conditions? What remained uncertain? What decision followed? What resources moved? Who disagreed? What happened next? What changed, failed or was corrected?</p>
+<p>This is especially important for relations that ordinary accounts forget: a seed's provenance, a bird's return, a steward's exhaustion, a decision not to plant, a conflict over access, a corridor that begins to function or a local practice that spreads independently.</p>
+<p>Such memory can later serve different purposes. A scientist may require one subset, a funder another, a community another and a public authority another.</p>
+<p>The aspiration is:</p>
+<blockquote>
+<p><strong>Speak once, translate many times.</strong></p>
+</blockquote>
+<p>Not because one record satisfies every epistemology. It cannot.</p>
+<p>But people closest to a field should not repeatedly reconstruct the same reality because institutions use different reporting grammars.</p>
+<p>Translation should occur at the interface and preserve provenance.</p>
+<p>The objective is:</p>
+<blockquote>
+<p><strong>translation without capture.</strong></p>
+</blockquote>
+<p>A stewardship ledger can hold this memory through a simple sequence:</p>
+<blockquote>
+<p>observation → interpretation → hypothesis → action → later result or unresolved condition</p>
+</blockquote>
+<p>It is not formal accounting, although it may reference formal transactions. It is not a universal database. It is a place-bound memory through which consequences normally externalised from a transaction can return to judgement.</p>
+<hr />
+<h2 id="16-a-shared-reading-is-not-a-score">16. A Shared Reading Is Not a Score</h2>
+<p>Memory alone does not produce judgement.</p>
+<p>People must periodically ask:</p>
+<blockquote>
+<p>What does this mean?</p>
+</blockquote>
+<p>A shared reading might examine Land / Life, Steward Viability and Governance / Commons through Green, Yellow, Red or Unknown.</p>
+<p>These are not scores and should not be aggregated.</p>
+<p>Unknown is not failure. It means that available standing is insufficient for responsible judgement.</p>
+<p>There is a prior distinction. Sometimes no bounded field condition or legitimate reading purpose exists. In that case the streams should not be coloured at all.</p>
+<p><strong>No reading in scope</strong> is not a fifth colour and not the same as Unknown. It prevents a relationship, open inquiry or whole place from being rated merely because an institution can see it.</p>
+<p>The purpose is not to calculate whether a field is regenerative. It is to notice what requires attention and identify no more than a few bounded next actions.</p>
+<p>Then reality answers.</p>
+<hr />
+<h2 id="17-correction-is-part-of-the-economy">17. Correction Is Part of the Economy</h2>
+<p>Conventional project systems often treat correction as evidence that planning failed.</p>
+<p>Living systems suggest the opposite.</p>
+<p>Conditions, people, weather and knowledge change. Actions produce unexpected consequences.</p>
+<p>A regenerative economy must be able to say:</p>
+<blockquote>
+<p>We were wrong.<br />
+We do not know.<br />
+This is not working.<br />
+Stop.<br />
+Wait.<br />
+Ask someone who knows more.<br />
+Try something smaller.<br />
+Leave this alone.</p>
+</blockquote>
+<p>Non-action can be consequential. Planting may need to wait for rain. A relationship may remain quiet. A field may decline funding. A steward may need rest. A programme may need to stop.</p>
+<p>Low visible activity is not a single condition. It may reflect ecological timing, responsible pause, livelihood pressure, unresolved authority, loss of contact or actual breakdown. These conditions require different responses. Resource-constrained latency should not be mistaken for field failure; nor should silence be romanticised when it conceals crisis. The task is to distinguish them before activity is demanded or support is withdrawn.</p>
+<p>Inactivity is not inherently responsible. Accuracy matters more than an aesthetics of incompletion.</p>
+<p>The point is that an architecture capable only of producing activity will eventually produce activity when activity is harmful.</p>
+<p>The operational grammar is simple:</p>
+<blockquote>
+<p><strong>action → consequence → observation → memory → shared reading → correction → next action</strong></p>
+</blockquote>
+<p>Correction is completed only when something returns: an altered action, clarified responsibility, changed record, refusal, pause or learning that helps another inquiry ask a better question.</p>
+<p>Recording correction without returning consequence preserves institutional memory while leaving contact unchanged.</p>
+<hr />
+<h2 id="18-ai-robotics-and-the-revaluation-of-human-work">18. AI, Robotics and the Revaluation of Human Work</h2>
+<p>AI and robotics sharpen the economic question because they challenge a long-standing assumption: that socially useful contribution, paid employment and demand for human labour will continue to track one another closely.</p>
+<p>They may not.</p>
+<p>Productivity gains may concentrate among capital owners. New consumption may be created to sustain conventional employment. Working hours may fall. Public transfers may grow. New occupations may emerge around technology. These possibilities can coexist.</p>
+<p>Another possibility deserves attention:</p>
+<blockquote>
+<p><strong>What if some expanding productive capacity sustains human time devoted to stewardship, care, commons, culture, learning and ecological repair?</strong></p>
+</blockquote>
+<p>This paper proposes no single redistribution mechanism. It does not assume automation automatically creates a public surplus. Nor does it suggest replacing disappearing jobs with one profession called Steward.</p>
+<p>The point is more basic.</p>
+<p>As the relation between employment and contribution becomes less stable, societies must decide what forms of human presence are worth sustaining.</p>
+<p>Stewardship belongs in that conversation — not as consolation work after machines become productive, but as work living systems have needed all along.</p>
+<hr />
+<h2 id="19-plural-livelihoods-not-one-steward-model">19. Plural Livelihoods, Not One Steward Model</h2>
+<p>A stewardship economy should not produce a universal profession.</p>
+<p>People and places differ too much.</p>
+<p>Livelihoods may combine employment, farming, cooperative enterprise, public contracts, municipal work, fellowships, grants, community finance, tourism, education, restoration, memberships, research, cultural work, care and other forms.</p>
+<p>A seed custodian, watershed observer, agroforestry farmer, youth mentor, biodiversity steward, urban corridor facilitator, public planner and local market organiser may all contribute to stewardship without belonging to one occupational category.</p>
+<p>The objective is not uniformity.</p>
+<p>It is sufficient stability for stewardship to remain possible.</p>
+<p>Professionalisation should not automatically mean bureaucratisation. Some work requires formal expertise and certification. Some requires intimate knowledge accumulated through decades of living somewhere. Some requires both.</p>
+<p>A plural economy must recognise these differences without forcing them into one hierarchy.</p>
+<hr />
+<h2 id="20-intelligence-must-return-to-the-ground">20. Intelligence Must Return to the Ground</h2>
+<p>AI can connect a local observation with scientific literature, satellite information, historical records, funding requirements, legal frameworks and learning from other fields.</p>
+<p>This can dramatically increase capacity.</p>
+<p>It also creates epistemic danger. Fluent synthesis can conceal uncertainty. Machine confidence can exceed evidence. Complexity can become recommendation faster than humans can examine the assumptions underneath it.</p>
+<p>The appropriate response is neither rejection nor surrender.</p>
+<p>UNESCO's Recommendation on the Ethics of Artificial Intelligence places human dignity, prevention of harm, transparency and human oversight at the centre of AI governance. Applied to situated consequence, this means that assistance may expand while final mandate and responsibility remain human.</p>
+<p>AI can participate in inquiry.</p>
+<p>It should not hold the final mandate.</p>
+<p>The decision to act, publish, fund, intervene, stop or accept responsibility remains human.</p>
+<p>The question is never only:</p>
+<blockquote>
+<p>What can the machine infer?</p>
+</blockquote>
+<p>It is also:</p>
+<blockquote>
+<p>Who has standing?<br />
+Who bears the consequence?<br />
+Who can refuse?<br />
+Who remains responsible?</p>
+</blockquote>
+<p>Increasing intelligence is useful only insofar as it deepens contact rather than replacing it.</p>
+<hr />
+<h2 id="21-interfaces-not-empire">21. Interfaces, Not Empire</h2>
+<p>Because the stewardship economy is plural, the design problem is not how to build one platform large enough to contain it.</p>
+<p>It is <strong>interface</strong>.</p>
+<p>A community funder may know how to move small amounts through trust. A landscape organisation may hold long-term restoration. An Earth-system research community may understand processes beyond local observation. A local association may know who is trusted and what is changing. A public authority may hold democratic mandate. A technology community may develop useful coordination. A farmer may know something none of them know.</p>
+<p>The question becomes:</p>
+<blockquote>
+<p><strong>Can these capacities meet without one absorbing the others?</strong></p>
+</blockquote>
+<p>Good interfaces preserve difference.</p>
+<p>A relational funding process should not automatically become a trust score. Local knowledge should not automatically become open data. Scientific measurement should not become a local decision because it is precise. A donor should not gain authority because money moved.</p>
+<p>Sometimes a small adapter is enough.</p>
+<p>Sometimes the correct relationship is <strong>no integration</strong>.</p>
+<p>The invitation is not:</p>
+<blockquote>
+<p>Join our system.</p>
+</blockquote>
+<p>It is:</p>
+<blockquote>
+<p><strong>What are you already carrying?</strong></p>
+</blockquote>
+<p>And:</p>
+<blockquote>
+<p><strong>Is there a place where what you carry and what we carry could make something else more capable?</strong></p>
+</blockquote>
+<p>The beneficiary may be a watershed, neighbourhood, forest, seed network, species, community or future generation.</p>
+<p>An interface has its own carrying capacity. An intermediary can lose contact by accepting more relationships, questions and promised responses than named people can hold.</p>
+<blockquote>
+<p><strong>Who holds the relationship — and who holds the holder?</strong></p>
+</blockquote>
+<p>Records are cheap. Promised responses are work. A responsible interface must narrow or pause intake when human capacity, governance or response horizon is insufficient.</p>
+<hr />
+<h2 id="22-the-danger-of-success">22. The Danger of Success</h2>
+<p>The stewardship economy may be most vulnerable if it succeeds.</p>
+<p>Visibility attracts capital, visitors, volunteers, researchers, media, partners and requests for access. Legibility attracts standardisation. Professionalisation attracts accreditation. Data attracts platforms. Positive outcomes attract replication.</p>
+<p>This can help.</p>
+<p>It can also transform a living field into a product category.</p>
+<p>Attention is a resource flow. It can bring care, knowledge and opportunity. It can also create hosting work, exposure, interruption and pressure to represent more than the field knows.</p>
+<blockquote>
+<p><strong>A field's ability to attract attention must not be confused with its capacity or desire to receive it.</strong></p>
+</blockquote>
+<p>Public visibility confers neither physical access nor support entitlement. A field, steward or local community must be able to regulate arrival, refuse integration, remain quiet and grow at an absorbable pace.</p>
+<p>The danger is managed neither by rejecting money nor by rejecting scale. It is managed through boundaries:</p>
+<ul>
+<li>Who owns the record?</li>
+<li>Who can refuse?</li>
+<li>Who defines success?</li>
+<li>Who interprets evidence?</li>
+<li>Who benefits?</li>
+<li>Who bears hosting and reporting work?</li>
+<li>Who may pause or leave?</li>
+<li>Can support continue without purchasing authority?</li>
+<li>Can a successful structure remain repairable?</li>
+</ul>
+<p>These are economic questions because they concern power as much as money.</p>
+<hr />
+<h2 id="23-a-different-picture-of-progress">23. A Different Picture of Progress</h2>
+<p>Conventional development often imagines progress as increased throughput: more production, investment, infrastructure and technological capacity.</p>
+<p>Ecological critique responds by emphasising limits.</p>
+<p>Both matter.</p>
+<p>A living-system perspective adds another axis:</p>
+<blockquote>
+<p><strong>capacity × contact.</strong></p>
+</blockquote>
+<p>Capacity without contact can become destructive. Contact without capacity can leave people unable to respond to larger forces.</p>
+<p>The objective is neither technological acceleration nor romantic localisation.</p>
+<p>It is greater capacity in deeper contact.</p>
+<p>Progress then appears not as the maximum a society can do, but as the capability it can hold <strong>while remaining answerable to the living consequences of its use</strong>.</p>
+<p>The same standard changes how scaling is understood.</p>
+<p>Replication is not the only growth. A field may grow through deeper soil, stronger wildlife habitat, more viable stewards, distributed seed, improved local judgement, a new market relation, an institutional correction or independent adoption by neighbours.</p>
+<p>The relevant movement may be propagation rather than expansion:</p>
+<blockquote>
+<p><strong>not more of the organisation, but more capacity for life.</strong></p>
+</blockquote>
+<hr />
+<h2 id="24-an-open-economic-field">24. An Open Economic Field</h2>
+<p>The phrase <strong>stewardship economy</strong> may prove useful or be replaced.</p>
+<p>The field matters more than the name.</p>
+<p>Many questions remain:</p>
+<ul>
+<li>Who decides what deserves support?</li>
+<li>How are local claims tested?</li>
+<li>What happens when livelihood and ecological limits conflict?</li>
+<li>How is local and Indigenous knowledge protected?</li>
+<li>How much documentation is enough?</li>
+<li>Who owns records?</li>
+<li>Can institutions fund uncertain outcomes?</li>
+<li>Can a donor support without acquiring influence?</li>
+<li>Can AI increase capability without becoming authority?</li>
+<li>Can a system reward stewardship without producing performance for the system?</li>
+<li>Can a field stop, leave or remain Unknown?</li>
+<li>Can a local contribution be recognised as planetary without becoming globally owned?</li>
+<li>Can intermediary viability and field viability strengthen one another rather than compete?</li>
+</ul>
+<p>The hypothesis must also be able to fail.</p>
+<p>Warning signs include:</p>
+<ul>
+<li>stewards spending more time feeding the system than caring for the field;</li>
+<li>relationship records exceeding human holder capacity;</li>
+<li>memory existing only on intermediary-controlled infrastructure;</li>
+<li>money purchasing tempo, data or authority;</li>
+<li>recurring updates becoming compulsory proof of commitment;</li>
+<li>wildlife, seeds or culture being recorded only when they support a financial claim;</li>
+<li>public stories moving faster than local consent and evidence;</li>
+<li>fields becoming dependent on an intermediary to remain themselves;</li>
+<li>coordination growing while land and steward viability weaken.</li>
+</ul>
+<p>If these patterns persist and cannot be corrected, the supporting infrastructure is not remaining subordinate to life.</p>
+<p>We do not yet know whether it can.</p>
+<hr />
+<h2 id="25-capacity-returning-to-life">25. Capacity Returning to Life</h2>
+<p>Humanity has accumulated extraordinary capacity. The coming decades may multiply it.</p>
+<p>AI and robotics could make knowledge, production and coordination cheaper. Earth observation may become extraordinarily precise. Capital may become increasingly programmable. Networks may connect almost anyone to almost anything.</p>
+<p>None of this guarantees regeneration.</p>
+<p>The decisive question is what these capacities become connected to.</p>
+<p>They can deepen extraction, concentration, consumption and insulation from consequence.</p>
+<p>Or some can return toward another task:</p>
+<blockquote>
+<p><strong>restoring the capacity of people and places to notice, care, act, learn and continue.</strong></p>
+</blockquote>
+<p>That does not require one global architecture.</p>
+<p>The planet is already full of intelligence distributed through ecosystems, communities, sciences, cultures, institutions, practices and people.</p>
+<p>The challenge may be less to create intelligence than to restore the conditions under which different forms of intelligence can meet without destroying one another.</p>
+<p>Less to organise life than to become answerable to it.</p>
+<p>Less to invent more work than to recognise the work already waiting to be done.</p>
+<p>Less to make every place legible than to ensure that increasing capacity does not sever contact with consequence.</p>
+<p>If a stewardship economy is emerging, its purpose may be simple:</p>
+<blockquote>
+<p><strong>to make it possible for more human capacity to return to the work of life.</strong></p>
+</blockquote>
+<p>Not because humans stand outside the living world as its guardians.</p>
+<p>Because we are already inside it.</p>
+<p>And because an economy that cannot sustain the conditions of its own existence has misunderstood what an economy is for.</p>
+<hr />
+<h2 id="closing-proposition">Closing Proposition</h2>
+<blockquote>
+<p><strong>The challenge of the next economy may not be finding enough work for humans after machines become more capable.</strong></p>
+<p><strong>It may be learning to recognise, support and dignify the immense amount of human work that living systems have needed all along.</strong></p>
+<p><strong>The test is whether increasing capacity can return into contact — with soil, water, species, seeds, community, consequence and life — without capturing what it touches.</strong></p>
+</blockquote>
+<p><strong>Life remains the primary balance sheet.</strong></p>
+<p><strong>Reality gets the last word.</strong></p>
+<hr />
+<h2 id="selected-references-and-practice-lineages">Selected References and Practice Lineages</h2>
+<p>These sources locate parts of the inquiry in established research, public standards and adjacent practice. They do not validate the argument.</p>
+<ul>
+<li>International Labour Organization and NASK. <a href="https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure"><em>Generative AI and Jobs: A Refined Global Index of Occupational Exposure</em></a>, 2025.</li>
+<li>International Labour Organization. <a href="https://www.ilo.org/publications/major-publications/global-employment-trends-youth-2026"><em>Global Employment Trends for Youth 2026</em></a>, 2026.</li>
+<li>United Nations Department of Economic and Social Affairs. <a href="https://desapublications.un.org/publications/world-social-report-2025-new-policy-consensus-accelerate-social-progress"><em>World Social Report 2025: A New Policy Consensus to Accelerate Social Progress</em></a>, 2025.</li>
+<li>UNESCO. <a href="https://www.unesco.org/en/legal-affairs/recommendation-ethics-artificial-intelligence"><em>Recommendation on the Ethics of Artificial Intelligence</em></a>, adopted 2021.</li>
+<li>IPBES. <a href="https://ict.ipbes.net/ipbes-ict-guide/data-and-knowledge-management/citations-of-ipbes-assessments/values-assessment"><em>Methodological Assessment Report on the Diverse Values and Valuation of Nature</em></a>, 2022.</li>
+<li>IPBES. <a href="https://zenodo.org/records/15082544"><em>Thematic Assessment Report on the Interlinkages among Biodiversity, Water, Food and Health</em></a>, 2024.</li>
+<li>IPBES. <a href="https://files.ipbes.net/ipbes-web-prod-public-files/2022-12/221212_ipbes_updated_guidelines.pdf"><em>Updated Living Guidelines for Working With Indigenous and Local Knowledge in IPBES</em></a>, 2022.</li>
+<li>Food and Agriculture Organization of the United Nations. <a href="https://www.fao.org/4/i2624e/i2624e00.pdf"><em>Second Global Plan of Action for Plant Genetic Resources for Food and Agriculture</em></a>, 2011.</li>
+<li>United Nations Environment Programme. <a href="https://www.unep.org/news-and-stories/story/counter-climate-change-colombian-cities-weave-nature-back-their-urban-fabric"><em>To counter climate change, Colombian cities weave nature back into their urban fabric</em></a>, 2024.</li>
+<li>Global Indigenous Data Alliance. <a href="https://www.gida-global.org/careprinciples"><em>CARE Principles for Indigenous Data Governance</em></a>.</li>
+<li>United Nations Statistics Division. <a href="https://seea.un.org/en/methodology/ecosystem-accounting"><em>System of Environmental-Economic Accounting — Ecosystem Accounting</em></a>, adopted as an international statistical standard in 2021.</li>
+<li>Ostrom, Elinor. <a href="https://doi.org/10.1017/CBO9780511807763"><em>Governing the Commons: The Evolution of Institutions for Collective Action</em></a>. Cambridge University Press, 1990.</li>
+<li>World Resources Institute and partners. <a href="https://www.wri.org/initiatives/locally-led-adaptation/principles-locally-led-adaptation"><em>Principles for Locally Led Adaptation</em></a>.</li>
+<li>Food and Agriculture Organization of the United Nations. <a href="https://www.fao.org/farmer-field-schools/en"><em>Global Farmer Field School Platform</em></a>.</li>
+</ul>
+<hr />
+<p><em>This paper continues the Second Spiral — Applied Inquiries. Publication opens an inquiry; it does not validate a model, activate a field relationship or confer standing on the Association.</em></p>
+<p><em>Licensed CC BY 4.0. Please cite the version line (candidate v0.4, August 2026) when re-using. Verify empirical claims for your own context before formal use.</em></p>
+<p><strong>Suggested citation:</strong> Engberg, Lars A. (2026). <em>Capacity, Contact, and the Emerging Stewardship Economy</em>. Green Paper 22, candidate v0.4. Spiralweb Stewardship Association. <a href="https://papers.spiralweb.earth/papers/capacity-contact-stewardship-economy">https://papers.spiralweb.earth/papers/capacity-contact-stewardship-economy</a></p>
+<p>papers.spiralweb.earth · spiralweb.earth</p>
+    </article>
+
+    <footer class="colophon">
+      <p><strong>Green Paper 22 — Capacity, Contact, and the Emerging Stewardship Economy</strong></p>
+      <p>Second Spiral — Applied Inquiries · candidate v0.4 · August 2026</p>
+      <p>Public steward: Lars A. Engberg · Creative Commons Attribution 4.0 International (CC BY 4.0)</p>
+      <p><a href="../index.html">Spiralweb Green Papers index</a> · <a href="https://spiralweb.earth/">spiralweb.earth</a></p>
+    </footer>
+  </main>
+</body>
+</html>

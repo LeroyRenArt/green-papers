@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Capacity by Contact</title>
+  <desc id="desc">A two by two diagram. Low capacity and low contact means poorly equipped and poorly connected. High capacity and low contact means sophisticated extraction and delayed consequence. Low capacity and high contact means situated knowledge with insufficient means. High capacity and high contact means capability answerable to life.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfaf6; }
+      .grid { stroke: #81785f; stroke-width: 2; }
+      .axis { fill: #4e5938; font: 700 23px Arial, sans-serif; letter-spacing: 2px; }
+      .dir { fill: #6f6a5c; font: 18px Arial, sans-serif; }
+      .quad { fill: #20201e; font: 700 27px Georgia, serif; }
+      .body { fill: #4c4941; font: 20px Georgia, serif; }
+      .horizon { fill: #4e5938; font: italic 700 25px Georgia, serif; }
+      .small { fill: #6f6a5c; font: 16px Arial, sans-serif; letter-spacing: 1px; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="820"/>
+
+  <text x="600" y="54" text-anchor="middle" class="axis">CAPACITY × CONTACT</text>
+  <text x="600" y="86" text-anchor="middle" class="small">TWO SEPARATE AXES · FOUR RELATIONAL CONDITIONS</text>
+
+  <rect x="178" y="135" width="844" height="560" fill="#ffffff" stroke="#81785f" stroke-width="2"/>
+  <rect x="600" y="135" width="422" height="280" fill="#eef0e6"/>
+  <rect x="178" y="415" width="422" height="280" fill="#f2f0e9"/>
+  <line x1="600" y1="135" x2="600" y2="695" class="grid"/>
+  <line x1="178" y1="415" x2="1022" y2="415" class="grid"/>
+
+  <text x="224" y="182" class="quad">High capacity</text>
+  <text x="224" y="216" class="quad">Low contact</text>
+  <text x="224" y="266" class="body">Sophisticated extraction,</text>
+  <text x="224" y="298" class="body">blindness and delayed consequence.</text>
+
+  <text x="646" y="182" class="quad">High capacity</text>
+  <text x="646" y="216" class="quad">High contact</text>
+  <text x="646" y="266" class="body">Capability answerable to life,</text>
+  <text x="646" y="298" class="body">place and consequence.</text>
+  <text x="646" y="354" class="horizon">Greater capacity in deeper contact</text>
+
+  <text x="224" y="462" class="quad">Low capacity</text>
+  <text x="224" y="496" class="quad">Low contact</text>
+  <text x="224" y="546" class="body">Poorly equipped and</text>
+  <text x="224" y="578" class="body">poorly connected.</text>
+
+  <text x="646" y="462" class="quad">Low capacity</text>
+  <text x="646" y="496" class="quad">High contact</text>
+  <text x="646" y="546" class="body">Situated knowledge and relation,</text>
+  <text x="646" y="578" class="body">with insufficient means to respond.</text>
+
+  <text x="600" y="755" text-anchor="middle" class="axis">CONTACT</text>
+  <text x="178" y="783" text-anchor="start" class="dir">less consequential relationship</text>
+  <text x="1022" y="783" text-anchor="end" class="dir">deeper consequential relationship</text>
+
+  <g transform="translate(76,415) rotate(-90)">
+    <text x="0" y="0" text-anchor="middle" class="axis">CAPACITY</text>
+  </g>
+  <text x="112" y="686" text-anchor="middle" class="dir" transform="rotate(-90 112 686)">less ability to act</text>
+  <text x="112" y="160" text-anchor="middle" class="dir" transform="rotate(-90 112 160)">greater ability to act</text>
+</svg>
