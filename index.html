@@ -28,6 +28,20 @@
 
   <link rel="icon" href="assets/identity/spiralweb-reading-room-organic-v1.png" />
   <link rel="stylesheet" href="reading-room.css" />
+  <style>
+    .orientation-feature{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:38px;margin:0 0 16px;padding:34px;border:1px solid rgba(109,91,125,.24);border-radius:16px;background:linear-gradient(135deg,rgba(109,91,125,.09),rgba(138,179,154,.09));text-decoration:none;transition:transform .18s ease,background .18s ease}
+    .orientation-feature:hover{transform:translateY(-2px);background:linear-gradient(135deg,rgba(109,91,125,.13),rgba(138,179,154,.13))}
+    .orientation-feature>div>span{font:600 11px/1.25 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--plum)}
+    .orientation-feature h3{font-size:clamp(32px,3.2vw,46px);line-height:1.06;margin:10px 0}
+    .orientation-feature .orientation-subtitle{font:italic 18px/1.45 var(--display);color:#56675e;margin:0}
+    .orientation-feature p{color:var(--ink-soft);margin:0 0 12px}
+    .orientation-feature strong{display:inline-block;margin-top:5px;color:var(--moss);font-size:14px}
+    .shelf-grid{grid-template-columns:repeat(5,1fr)}
+    .shelf a{font-weight:600;text-decoration:none}.shelf a:hover{text-decoration:underline}
+    .architecture-note{max-width:92ch;margin:20px 0 0;color:var(--ink-soft)}
+    @media(max-width:900px){.shelf-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.orientation-feature,.shelf-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
 <div class="reading-room">
@@ -49,7 +63,11 @@
 </section>
 
 <section class="surface-section" id="start">
-  <div class="section-heading"><div><p class="eyebrow">Orientation</p><h2>Start here</h2></div><p>Four current entry points introduce the ethical ground, human accountability, practical governance, and knowing from place.</p></div>
+  <div class="section-heading"><div><p class="eyebrow">Orientation</p><h2>Start here</h2></div><p>Begin with the whole figure, or enter through the ethical ground, human accountability, practical governance, and knowing from place.</p></div>
+  <a class="orientation-feature" href="papers/the-spiral-of-hypotheses">
+    <div><span>Current orientation</span><h3>The Spiral of Hypotheses</h3><p class="orientation-subtitle">The founding field: nine working wagers for living infrastructure in formation</p></div>
+    <div><p>A current synthesis of the public inquiry: nine corrigible wagers connecting ethics as capacity, situated knowledge, support without capture, human accountability and the association’s own formation. The food-forest figure presents the architecture as layered succession rather than a finished model.</p><p>Spiralweb Stewardship Association is treated as the first bounded field in which the supporting conditions must become answerable. People and places are not experimental subjects, and publication activates nothing.</p><strong>Read the founding synthesis →</strong></div>
+  </a>
   <div class="start-grid">
     <a class="start-card" href="papers/moral-biology"><span>Ethical ground</span><h3>Moral Biology</h3><p>Why care, regulation, and ethical capacity depend on conditions.</p></a>
     <a class="start-card" href="papers/the-correction-loop"><span>Human accountability</span><h3>The Correction Loop</h3><p>How AI-assisted work remains provisional, correctable, and answerable to people.</p></a>
@@ -61,11 +79,13 @@
 <section class="surface-section" id="architecture">
   <div class="section-heading"><div><p class="eyebrow">One inquiry, distinct forms</p><h2>How the canon fits together</h2></div><p>Different public forms carry different parts of one developing inquiry. The shelves are connected; they are not a ladder of importance.</p></div>
   <div class="shelf-grid">
+    <article class="shelf"><span class="shelf-number">00</span><h3>Founding synthesis</h3><p><strong><a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses.</a></strong> The current figure across constitutional, applied, operational, and situated work.</p></article>
     <article class="shelf"><span class="shelf-number">01</span><h3>Constitutional ground</h3><p><strong>First Spiral.</strong> Capacity, care, commons, limits, habitat, and guardianship.</p></article>
     <article class="shelf"><span class="shelf-number">02</span><h3>Applied inquiries</h3><p><strong>Second Spiral.</strong> Constitutional ideas encountering institutional, civic, and ecological questions.</p></article>
     <article class="shelf"><span class="shelf-number">03</span><h3>Operational architecture</h3><p><strong>Reports + Protocol Habitat.</strong> Correction, governance, reciprocity, ledgers, dashboards, and bounded tools.</p></article>
     <article class="shelf"><span class="shelf-number">04</span><h3>Situated stewardship</h3><p><strong>Field Papers.</strong> Where the architecture meets actual places, institutions, and shared ground.</p></article>
   </div>
+  <p class="architecture-note">A spiral is not a sequence that leaves earlier work behind. It names return with changed understanding: later inquiry, field experience and correction may revise the ground from which the work began. The First and Second Spirals are publication cycles within that wider movement, not maturity levels.</p>
 </section>
 
 <section class="surface-section" id="status">
@@ -84,9 +104,22 @@
       <ul class="papers">
 
         <li>
+          <h3>Founding synthesis</h3>
+          <p class="muted">
+            The current cross-canon orientation: the figure beneath the inquiry, stated as wagers that remain open to correction.
+          </p>
+        </li>
+        <li class="paper-entry">
+          <a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses</a>
+          <span class="meta">candidate v0.2 · 20 August 2026 · Foundation paper · current orientation</span>
+          <span class="links"><a href="papers/the-spiral-of-hypotheses">HTML</a> · <a href="papers/the-spiral-of-hypotheses.pdf">PDF</a></span>
+          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">Nine working wagers connecting ethics as capacity, situated knowledge, support without capture, human accountability, the association as a bounded founding field, and a deliberately incomplete food-forest figure of layered establishment.</p>
+        </li>
+
+        <li>
           <h3>First Spiral — Constitutional Cycle</h3>
           <p class="muted">
-            Twenty foundational Green Papers held in two connected series.
+            Twenty foundational Green Papers held in two connected series. They remain public in their dated versions; some formulations have since been narrowed or corrected. Read them alongside the current founding synthesis, and use current architecture and status pages for operational interpretation.
           </p>
         </li>
 
@@ -256,11 +289,21 @@
       <h2>Protocol Habitat</h2>
       <p class="muted">The public field for how Spiralweb foundations, protocols, applications and tools relate — and how generic material becomes answerable to real places. Publication is not activation.</p>
 
+      <h3>Founding orientation</h3>
+      <ul class="papers">
+        <li class="paper-entry">
+          <a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses</a>
+          <span class="meta">candidate v0.2 · 20 August 2026 · Foundation paper · founding synthesis / current orientation</span>
+          <span class="links"><a href="papers/the-spiral-of-hypotheses">HTML</a> · <a href="papers/the-spiral-of-hypotheses.pdf">PDF</a></span>
+          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">The founding figure beneath the public architecture: nine corrigible wagers, the association as its first bounded field of accountability, and the relation between grounding, rooting, propagation and return.</p>
+        </li>
+      </ul>
+
       <h3>Architecture</h3>
       <ul class="papers">
         <li class="paper-entry">
           <a href="papers/the-protocol-habitat">The Protocol Habitat</a>
-          <span class="meta">candidate v0.5 · August 2026 · Foundation / architecture paper</span>
+          <span class="meta">candidate v0.5.1 · 20 August 2026 · Foundation / architecture paper</span>
           <span class="links"><a href="papers/the-protocol-habitat">HTML</a> · <a href="papers/the-protocol-habitat.pdf">PDF</a></span>
           <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">The baseline architecture for foundations, protocols, applications and tools; the path from signal and relational grounding to place-bound application; and the return of field correction into the library.</p>
         </li>
