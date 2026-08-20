@@ -36,11 +36,16 @@
     .orientation-feature .orientation-subtitle{font:italic 18px/1.45 var(--display);color:#56675e;margin:0}
     .orientation-feature p{color:var(--ink-soft);margin:0 0 12px}
     .orientation-feature strong{display:inline-block;margin-top:5px;color:var(--moss);font-size:14px}
+    .new-reader-door{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:38px;margin:0 0 44px;padding:30px 34px;border-left:3px solid var(--sage);background:rgba(138,179,154,.08)}
+    .new-reader-door h2{margin:8px 0 0}
+    .new-reader-door p{margin:0 0 12px;color:var(--ink-soft)}
+    .new-reader-door p:last-child{margin-bottom:0}
+    .new-reader-door a{font-weight:600}
     .shelf-grid{grid-template-columns:repeat(5,1fr)}
     .shelf a{font-weight:600;text-decoration:none}.shelf a:hover{text-decoration:underline}
     .architecture-note{max-width:92ch;margin:20px 0 0;color:var(--ink-soft)}
     @media(max-width:900px){.shelf-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:620px){.orientation-feature,.shelf-grid{grid-template-columns:1fr}}
+    @media(max-width:620px){.new-reader-door,.orientation-feature,.shelf-grid{grid-template-columns:1fr}.new-reader-door{gap:18px;padding:26px 24px}}
   </style>
 </head>
 <body>
@@ -63,21 +68,25 @@
 </section>
 
 <section class="surface-section" id="start">
-  <div class="section-heading"><div><p class="eyebrow">Orientation</p><h2>Start here</h2></div><p>Begin with the whole figure, or enter through the ethical ground, human accountability, practical governance, and knowing from place.</p></div>
+  <div class="new-reader-door">
+    <div><p class="eyebrow">New here?</p><h2>Two sites, one living inquiry.</h2></div>
+    <div><p><a href="https://spiralweb.earth">Spiralweb.earth</a> shows the living work: places, relationships, methods and ways to participate. This Green Papers site holds the public ideas, reports, protocols and tools behind that work.</p><p>You do not need to read the library in order or understand the whole architecture. Begin with the question closest to you — or start with <em>The Spiral of Hypotheses</em> for the whole figure.</p></div>
+  </div>
+  <div class="section-heading"><div><p class="eyebrow">Choose a question</p><h2>Where do you want to enter?</h2></div><p>Each document stands on its own. No reading order is required.</p></div>
   <a class="orientation-feature" href="papers/the-spiral-of-hypotheses">
-    <div><span>Current orientation</span><h3>The Spiral of Hypotheses</h3><p class="orientation-subtitle">The founding field: nine working wagers for living infrastructure in formation</p></div>
-    <div><p>A current synthesis of the public inquiry: nine corrigible wagers connecting ethics as capacity, situated knowledge, support without capture, human accountability and the association’s own formation. The food-forest figure presents the architecture as layered succession rather than a finished model.</p><p>Spiralweb Stewardship Association is treated as the first bounded field in which the supporting conditions must become answerable. People and places are not experimental subjects, and publication activates nothing.</p><strong>Read the founding synthesis →</strong></div>
+    <div><span>The whole figure</span><h3>The Spiral of Hypotheses</h3><p class="orientation-subtitle">The founding field: nine working wagers for living infrastructure in formation</p></div>
+    <div><p>Start here for the whole picture. Nine revisable wagers connect ethics as capacity, knowledge from place, support without control, human accountability and the association’s own formation. The food-forest parallel shows the architecture becoming established in layers rather than arriving as a finished model.</p><p>Spiralweb Stewardship Association is treated as the first bounded field in which these conditions must become answerable. People and places are not experimental subjects, and publication activates nothing.</p><strong>Read the founding synthesis →</strong></div>
   </a>
   <div class="start-grid">
-    <a class="start-card" href="papers/moral-biology"><span>Ethical ground</span><h3>Moral Biology</h3><p>Why care, regulation, and ethical capacity depend on conditions.</p></a>
-    <a class="start-card" href="papers/the-correction-loop"><span>Human accountability</span><h3>The Correction Loop</h3><p>How AI-assisted work remains provisional, correctable, and answerable to people.</p></a>
-    <a class="start-card" href="papers/penguin-dashboard-legibility-as-governance"><span>Practical governance</span><h3>Penguin Dashboard</h3><p>How ecology, steward viability, and governance remain visible without compensating for one another.</p></a>
-    <a class="start-card" href="papers/knowing-from-the-ground"><span>Knowing from place</span><h3>Knowing From the Ground</h3><p>How embodied, situated observation becomes public knowledge without pretending to be universal truth.</p></a>
+    <a class="start-card" href="papers/moral-biology"><span>Ethical ground</span><h3>Moral Biology</h3><p>Why does ethical action depend on human, relational and institutional capacity?</p></a>
+    <a class="start-card" href="papers/the-correction-loop"><span>Human accountability</span><h3>The Correction Loop</h3><p>How can AI-assisted work remain accountable and open to correction?</p></a>
+    <a class="start-card" href="papers/penguin-dashboard-legibility-as-governance"><span>Practical governance</span><h3>Penguin Dashboard</h3><p>How can land, people and governance be read together without collapsing into one score?</p></a>
+    <a class="start-card" href="papers/knowing-from-the-ground"><span>Knowing from place</span><h3>Knowing From the Ground</h3><p>How can knowledge from a place become public without pretending to be universal?</p></a>
   </div>
 </section>
 
 <section class="surface-section" id="architecture">
-  <div class="section-heading"><div><p class="eyebrow">One inquiry, distinct forms</p><h2>How the canon fits together</h2></div><p>Different public forms carry different parts of one developing inquiry. The shelves are connected; they are not a ladder of importance.</p></div>
+  <div class="section-heading"><div><p class="eyebrow">For readers who want the map</p><h2>How the canon fits together</h2></div><p>This map is optional. Different public forms carry different parts of one developing inquiry; the shelves are connected, not a ladder of importance.</p></div>
   <div class="shelf-grid">
     <article class="shelf"><span class="shelf-number">00</span><h3>Founding synthesis</h3><p><strong><a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses.</a></strong> The current figure across constitutional, applied, operational, and situated work.</p></article>
     <article class="shelf"><span class="shelf-number">01</span><h3>Constitutional ground</h3><p><strong>First Spiral.</strong> Capacity, care, commons, limits, habitat, and guardianship.</p></article>
@@ -89,7 +98,7 @@
 </section>
 
 <section class="surface-section" id="status">
-  <div class="section-heading"><div><p class="eyebrow">Trust grammar</p><h2>How to read status</h2></div><p>Trust depends on keeping several different kinds of status apart.</p></div>
+  <div class="section-heading"><div><p class="eyebrow">When browsing the canon</p><h2>A small status key</h2></div><p>You do not need this key to begin. It helps keep several different kinds of status apart when you browse the library.</p></div>
   <div class="legend-grid">
     <article><h3>Document type</h3><p>What kind of public object this is: Green Paper, Report, Field Paper, architecture paper, protocol, or tool.</p></article>
     <article><h3>Version</h3><p>The specific public edition you are reading.</p></article>
