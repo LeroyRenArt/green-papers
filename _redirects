@@ -18,3 +18,8 @@
 # Sophia Lumen relation page — canonical route
 /sophia-lumen-protocol /sophia-lumen 301
 /sophia-lumen-protocol.html /sophia-lumen 301
+
+# Retired dated Protocol Habitat implementation work order
+/papers/the-protocol-habitat-revision-brief /papers/the-protocol-habitat 301
+/papers/the-protocol-habitat-revision-brief.html /papers/the-protocol-habitat 301
+/papers/the-protocol-habitat-revision-brief.pdf /papers/the-protocol-habitat 301
