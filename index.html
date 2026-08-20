@@ -362,7 +362,7 @@
   <div class="about-grid">
     <article><span>Methods</span><h3>Editorial practice</h3><p>The Green Papers are held as a slow, versioned public inquiry under explicit human stewardship and responsibility.</p><a href="methods-editorial-practice">Read the methods note →</a></article>
     <article><span>Human–AI practice</span><h3>Sophia Lumen</h3><p>A relational human–AI practice of co-inquiry: memory, comparison, reflection and correction without transferring situated human responsibility.</p><a href="sophia-lumen">Read the relation and lineage →</a><br /><a href="protocols/sophia-lumen">Open the candidate protocol →</a></article>
-    <article><span>Public memory</span><h3>Citation &amp; provenance</h3><p>Versioned public texts remain traceable and citable while revision remains possible.</p><a href="#full-notes">Read the full notes ↓</a></article>
+    <article><span>Public memory</span><h3>Citation &amp; provenance</h3><p>Versioned public texts remain traceable and citable while revision remains possible.</p><a href="#full-notes" data-open-details="full-notes">Open the full notes ↓</a></article>
   </div>
   <details class="full-notes" id="full-notes"><summary>Read the full current editorial, methods, Sophia Lumen, and citation notes</summary><div class="full-notes-inner"><section class="block">
       <h2>Editorial Note</h2>
@@ -448,5 +448,31 @@
   <div><a href="mailto:contact@spiralweb.earth">contact@spiralweb.earth</a> · <a href="https://spiralweb.earth/privacy/">Privacy</a><br />CC BY 4.0 · Living public canon · August 2026</div>
 </footer>
 </div>
+<script id="full-notes-disclosure-behaviour">
+  (() => {
+    const link = document.querySelector('[data-open-details="full-notes"]');
+    const notes = document.getElementById('full-notes');
+    if (!link || !notes) return;
+
+    const summary = notes.querySelector('summary');
+    const syncState = () => {
+      link.setAttribute('aria-expanded', String(notes.open));
+    };
+
+    link.setAttribute('aria-controls', 'full-notes');
+    syncState();
+
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      notes.open = true;
+      syncState();
+      history.replaceState(null, '', '#full-notes');
+      notes.scrollIntoView({ block: 'start' });
+      if (summary) summary.focus({ preventScroll: true });
+    });
+
+    notes.addEventListener('toggle', syncState);
+  })();
+</script>
 </body>
 </html>
