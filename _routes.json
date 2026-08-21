@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "include": [
+    "/papers/*.pdf",
+    "/pdf/*.pdf",
+    "/formats/*.pdf",
+    "/kernel/*.pdf",
+    "/protocols/*.pdf"
+  ],
+  "exclude": []
+}
