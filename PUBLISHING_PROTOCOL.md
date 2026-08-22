@@ -60,9 +60,9 @@ with Sophia Lumen / AI (ChatGPT v5.2)
 
 ---
 
-## Canonical Public Surface and Retirement
+## Current Public Surface and Retirement
 
-The public site is an edited living canon, not a deployment of
+The public site is an edited living library, not a deployment of
 every working stage.
 
 1. **Current publications are foregrounded**
@@ -77,12 +77,12 @@ every working stage.
 
 3. **Old public routes retain continuity**
    - A removed legitimate URL receives a permanent redirect to
-     its canonical successor where one exists.
+     its current successor where one exists.
    - A redirect must not conceal an unrelated missing page.
 
-4. **The sitemap contains current canonical pages**
+4. **The sitemap contains current public pages**
    - Retired sketch URLs are excluded.
-   - Canonical extensionless HTML routes are preferred.
+   - Extensionless HTML routes are preferred.
 
 5. **PDFs follow HTML**
    - HTML remains the source of truth.
