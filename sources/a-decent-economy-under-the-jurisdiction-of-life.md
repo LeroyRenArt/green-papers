@@ -840,9 +840,9 @@ This may be Spiralweb’s economic task.
 
 ## Process, Responsibility, and Suggested Citation
 
-The paper is human-led and AI-assisted. Final editorial responsibility rests with the author.
+The paper is human-led and AI-assisted. Final editorial responsibility is held by a named human knowledge steward.
 
-**Suggested citation:** Engberg, L. A. (2026). *A Decent Economy Under the Jurisdiction of Life: Money, Stewardship, and Responsible Passage Through Living Fields*. Green Paper 23, Second Spiral — Applied Inquiries, candidate v0.2, English working translation of the Danish original. Spiralweb Stewardship Association. CC BY 4.0.
+**Suggested citation:** Engberg, L. A. (2026). *A Decent Economy Under the Jurisdiction of Life: Money, Stewardship, and Responsible Passage Through Living Fields*. Green Paper 23, Second Spiral — Applied Inquiries, candidate v0.2, English working translation of the Danish original. Spiralweb Papers. CC BY 4.0.
 
 ---
 

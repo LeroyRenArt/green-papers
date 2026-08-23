@@ -841,9 +841,9 @@ Det er måske Spiralwebs økonomiske opgave.
 
 ## Proces, ansvar og foreslået citation
 
-Teksten er menneskeligt ledet og AI-assisteret. Det endelige redaktionelle ansvar bæres af forfatteren.
+Teksten er menneskeligt ledet og AI-assisteret. Det endelige redaktionelle ansvar bæres af en navngiven menneskelig videnssteward.
 
-**Foreslået citation:** Engberg, L. A. (2026). *En anstændig økonomi under livets jurisdiktion: Penge, stewardship og ansvarlig passage gennem levende felter*. Green Paper 23, Second Spiral — Applied Inquiries, candidate v0.2. Spiralweb Stewardship Association. CC BY 4.0.
+**Foreslået citation:** Engberg, L. A. (2026). *En anstændig økonomi under livets jurisdiktion: Penge, stewardship og ansvarlig passage gennem levende felter*. Green Paper 23, Second Spiral — Applied Inquiries, candidate v0.2. Spiralweb Papers. CC BY 4.0.
 
 ---
 
