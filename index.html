@@ -3,494 +3,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Spiralweb Green Papers — Public knowledge commons</title>
-<meta name="description" content="A slow, versioned public inquiry into ethics, governance, living systems, stewardship, AI accountability and place-based regenerative practice." />
-  <link rel="canonical" href="https://papers.spiralweb.earth/" />
-<!-- SPIRALWEB SOCIAL METADATA START -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Spiralweb Green Papers" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:title" content="Spiralweb Green Papers — Public knowledge commons" />
-<meta property="og:description" content="A slow, versioned public inquiry into ethics, governance, living systems, stewardship, AI accountability and place-based regenerative practice." />
-<meta property="og:url" content="https://papers.spiralweb.earth/" />
-<meta property="og:image" content="https://papers.spiralweb.earth/assets/social/spiralweb-green-papers-social-card-v1.png" />
-<meta property="og:image:secure_url" content="https://papers.spiralweb.earth/assets/social/spiralweb-green-papers-social-card-v1.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Spiralweb Green Papers — open knowledge, inquiry and public memory" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Spiralweb Green Papers — Public knowledge commons" />
-<meta name="twitter:description" content="A slow, versioned public inquiry into ethics, governance, living systems, stewardship, AI accountability and place-based regenerative practice." />
-<meta name="twitter:image" content="https://papers.spiralweb.earth/assets/social/spiralweb-green-papers-social-card-v1.png" />
-<meta name="twitter:image:alt" content="Spiralweb Green Papers — open knowledge, inquiry and public memory" />
-<!-- SPIRALWEB SOCIAL METADATA END -->
-
-  <link rel="icon" href="assets/identity/spiralweb-reading-room-organic-v1.png" />
-  <link rel="stylesheet" href="reading-room.css" />
+  <title>Spiralweb Papers — Public knowledge habitat</title>
+  <meta name="description" content="A public, versioned and correctable library of papers, methods, hypotheses and field-based learning for regenerative futures." />
   <style>
-    .orientation-feature{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:38px;margin:0 0 16px;padding:34px;border:1px solid rgba(109,91,125,.24);border-radius:16px;background:linear-gradient(135deg,rgba(109,91,125,.09),rgba(138,179,154,.09));text-decoration:none;transition:transform .18s ease,background .18s ease}
-    .orientation-feature:hover{transform:translateY(-2px);background:linear-gradient(135deg,rgba(109,91,125,.13),rgba(138,179,154,.13))}
-    .orientation-feature>div>span{font:600 11px/1.25 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--plum)}
-    .orientation-feature h3{font-size:clamp(32px,3.2vw,46px);line-height:1.06;margin:10px 0}
-    .orientation-feature .orientation-subtitle{font:italic 18px/1.45 var(--display);color:#56675e;margin:0}
-    .orientation-feature p{color:var(--ink-soft);margin:0 0 12px}
-    .orientation-feature strong{display:inline-block;margin-top:5px;color:var(--moss);font-size:14px}
-    .new-reader-door{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:38px;margin:0 0 44px;padding:30px 34px;border-left:3px solid var(--sage);background:rgba(138,179,154,.08)}
-    .new-reader-door h2{margin:8px 0 0}
-    .new-reader-door p{margin:0 0 12px;color:var(--ink-soft)}
-    .new-reader-door p:last-child{margin-bottom:0}
-    .new-reader-door a{font-weight:600}
-    .shelf-grid{grid-template-columns:repeat(5,1fr)}
-    .shelf a{font-weight:600;text-decoration:none}.shelf a:hover{text-decoration:underline}
-    .architecture-note{max-width:92ch;margin:20px 0 0;color:var(--ink-soft)}
-    @media(max-width:900px){.shelf-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:620px){.new-reader-door,.orientation-feature,.shelf-grid{grid-template-columns:1fr}.new-reader-door{gap:18px;padding:26px 24px}}
+    :root{--night:#071421;--deep:#0b2031;--paper:#f6f1e7;--ink:#172825;--soft:#52645e;--gold:#d8a43b;--sage:#8fb59d;--aqua:#75acb2;--plum:#7d6a87;--line:rgba(20,45,40,.16);--serif:Georgia,'Times New Roman',serif;--sans:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}a{color:inherit}.shell{max-width:1240px;margin:auto;padding:0 32px}.top{position:sticky;top:0;z-index:10;background:rgba(7,20,33,.94);backdrop-filter:blur(12px);color:#fff;border-bottom:1px solid rgba(255,255,255,.12)}.top .shell{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{display:flex;align-items:center;gap:13px;text-decoration:none}.brand img{width:46px;height:46px;border-radius:50%}.brand strong{display:block;font-family:var(--serif);font-size:19px;line-height:1.05}.brand small{display:block;color:#b9c9c2;font-size:11px;letter-spacing:.11em;text-transform:uppercase;margin-top:5px}.top nav{display:flex;gap:22px;flex-wrap:wrap}.top nav a{text-decoration:none;color:#d7e1dc;font-size:13px}.top nav a:hover{color:#fff}.hero{color:#fff;background:radial-gradient(circle at 72% 38%,rgba(216,164,59,.18),transparent 24%),radial-gradient(circle at 74% 42%,rgba(117,172,178,.13),transparent 43%),linear-gradient(145deg,var(--night),var(--deep));overflow:hidden}.hero .shell{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:70px;padding-top:72px;padding-bottom:82px}.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--gold);margin:0 0 15px}.hero h1{font:normal clamp(54px,7vw,94px)/.94 var(--serif);letter-spacing:-.04em;margin:0 0 28px;max-width:800px}.hero .lead{font:normal clamp(19px,2vw,25px)/1.45 var(--serif);color:#dbe5df;max-width:690px}.hero-actions,.doors{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}.button{display:inline-block;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:650;font-size:13px}.button.primary{background:var(--gold);color:#132016}.button.secondary{border:1px solid rgba(255,255,255,.32);color:#fff}.spiral{position:relative;width:min(420px,80vw);aspect-ratio:1;margin:auto;border:1px solid rgba(216,164,59,.35);border-radius:50%;display:grid;place-items:center}.spiral:before,.spiral:after{content:'';position:absolute;border-radius:50%;border:1px solid rgba(143,181,157,.38)}.spiral:before{inset:12%}.spiral:after{inset:26%;border-color:rgba(117,172,178,.48)}.spiral img{width:35%;filter:drop-shadow(0 0 26px rgba(216,164,59,.4))}.orbit{position:absolute;font:600 11px/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#c8d6cf}.o1{top:5%;left:34%}.o2{right:-7%;top:46%}.o3{bottom:7%;left:27%}.o4{left:-8%;top:45%}.section{padding:92px 0}.section.alt{background:#ebe7dd}.section.dark{background:var(--night);color:#eef4f0}.section-heading{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;margin-bottom:42px;align-items:end}.section h2{font:normal clamp(38px,5vw,62px)/1.03 var(--serif);letter-spacing:-.025em;margin:0}.section-heading>p{font:normal 19px/1.55 var(--serif);color:var(--soft);margin:0}.dark .section-heading>p{color:#b9c9c2}.question-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.question{min-height:290px;padding:24px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.55);display:flex;flex-direction:column}.question>span{color:var(--plum);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}.question h3{font:normal 24px/1.15 var(--serif);margin:20px 0}.question-links{display:grid;gap:8px;margin-top:auto}.question-links a{display:block;padding-top:8px;border-top:1px solid var(--line);color:#345c4c;font-size:12px;font-weight:650;line-height:1.35;text-decoration:none}.question-links a:hover{text-decoration:underline}.lang{display:inline-block;margin-left:4px;color:var(--plum);font-size:9px;letter-spacing:.1em;text-transform:uppercase}.orientations{display:grid;grid-template-columns:1fr 1fr;gap:18px}.orientation{padding:36px;border-radius:20px;text-decoration:none;min-height:330px;display:flex;flex-direction:column;background:linear-gradient(145deg,#10283a,#0a1928);color:white;border:1px solid rgba(255,255,255,.1)}.orientation:nth-child(2){background:linear-gradient(145deg,#273229,#13251f)}.orientation span,.return span{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700}.orientation h3{font:normal clamp(32px,4vw,50px)/1.04 var(--serif);margin:17px 0}.orientation p{color:#c8d6cf;max-width:55ch}.orientation strong{margin-top:auto;color:#fff}.family-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid rgba(255,255,255,.14);border-radius:22px;overflow:hidden}.family{min-height:285px;padding:28px 22px;border-right:1px solid rgba(255,255,255,.14)}.family:last-child{border-right:0}.family i{display:block;width:12px;height:12px;border-radius:50%;background:var(--gold);margin-bottom:42px}.family:nth-child(2) i{background:var(--sage)}.family:nth-child(3) i{background:var(--aqua)}.family:nth-child(4) i{background:#d87852}.family:nth-child(5) i{background:var(--plum)}.family h3{font:normal 23px/1.2 var(--serif);margin:0 0 14px}.family p{color:#b9c9c2;font-size:13px}.returns{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px}.return{padding:28px;border:1px solid var(--line);border-radius:18px;background:#fff;text-decoration:none;min-height:245px;display:flex;flex-direction:column}.return h3{font:normal 27px/1.15 var(--serif);margin:17px 0}.return p{color:var(--soft);font-size:14px}.return strong{margin-top:auto;color:#345c4c}.trust{display:grid;grid-template-columns:1fr 1fr;gap:50px;padding:42px;border-radius:22px;background:#132a26;color:#eff5f1}.trust h3{font:normal 36px/1.1 var(--serif);margin:0}.trust p{color:#c7d5ce;margin:0}.library-door{text-align:center;padding:110px 32px;background:radial-gradient(circle at 50% 0,rgba(216,164,59,.14),transparent 35%),var(--night);color:#fff}.library-door h2{font:normal clamp(44px,6vw,76px)/1 var(--serif);margin:0 auto 20px}.library-door p{max-width:700px;margin:0 auto;color:#becdc6;font:normal 18px/1.55 var(--serif)}.footer{background:#050e17;color:#9fb1a9;padding:36px 0;font-size:12px}.footer .shell{display:flex;justify-content:space-between;gap:30px}
+    @media(max-width:980px){.hero .shell{grid-template-columns:1fr;min-height:auto}.spiral{width:330px}.question-grid,.family-grid{grid-template-columns:repeat(2,1fr)}.family{border-bottom:1px solid rgba(255,255,255,.14)}.returns{grid-template-columns:1fr}.section-heading{grid-template-columns:1fr;gap:20px}}
+    @media(max-width:650px){.shell{padding:0 20px}.top nav{display:none}.hero .shell{padding-top:58px;padding-bottom:65px}.hero h1{font-size:52px}.section{padding:68px 0}.question-grid,.orientations,.family-grid,.trust{grid-template-columns:1fr}.family{border-right:0}.footer .shell{display:block}.footer div+div{margin-top:8px}}
   </style>
 </head>
 <body>
-<div class="reading-room">
-<header class="site-header">
-  <a class="brand-lockup" href="/" aria-label="Spiralweb Green Papers home">
-    <img src="assets/identity/spiralweb-reading-room-organic-v1.png" alt="" />
-    <span class="brand-name"><strong>Spiralweb<br />Green Papers</strong><small>Public knowledge commons</small></span>
-  </a>
-  <nav aria-label="Green Papers navigation">
-    <a href="#start">Start here</a><a href="#library">Library</a><a href="#protocol-habitat">Protocol Habitat</a><a href="#about">Methods</a><a href="https://spiralweb.earth">Spiralweb ↗</a>
-  </nav>
-</header>
-<main>
-<section class="hero">
-  <div class="hero-copy"><p class="eyebrow">Slow · versioned · correctable</p><h1>Living knowledge for regenerative futures.</h1>
-  <p class="lead">A slow, versioned public inquiry into ethics as capacity, living systems, institutions, and stewardship — held openly, corrected over time.</p>
-  <div class="hero-actions"><a class="button primary" href="#start">Start here ↓</a><a class="button secondary" href="#library">Browse all publications ↓</a></div></div>
-  <div class="hero-mark" aria-hidden="true"><img src="assets/identity/spiralweb-reading-room-organic-v1.png" alt="" /></div>
-</section>
+<header class="top"><div class="shell">
+  <a class="brand" href="#top"><img src="https://papers.spiralweb.earth/assets/identity/spiralweb-reading-room-organic-v1.png" alt=""><span><strong>Spiralweb<br>Papers</strong><small>Public knowledge habitat</small></span></a>
+  <nav aria-label="Papers navigation"><a href="#questions">Begin</a><a href="#whole">Orientations</a><a href="#families">Living map</a><a href="#returns">Current returns</a><a href="library.html#library">Full library →</a></nav>
+</div></header>
+<main id="top">
+  <section class="hero"><div class="shell">
+    <div><p class="eyebrow">Public · versioned · correctable</p><h1>Living knowledge for regenerative futures.</h1><p class="lead">A public library of papers, methods, hypotheses and field-based learning — held openly and revised as practice answers back.</p><div class="hero-actions"><a class="button primary" href="#questions">Begin with a question</a><a class="button secondary" href="library.html#library">Browse the full Library</a></div></div>
+    <div class="spiral" aria-label="A non-linear living map"><span class="orbit o1">Sense</span><span class="orbit o2">Coordinate</span><span class="orbit o3">Return</span><span class="orbit o4">Protect</span><img src="https://papers.spiralweb.earth/assets/identity/spiralweb-reading-room-organic-v1.png" alt="Spiralweb mark"></div>
+  </div></section>
 
-<section class="surface-section" id="start">
-  <div class="new-reader-door">
-    <div><p class="eyebrow">New here?</p><h2>Two sites, one living inquiry.</h2></div>
-    <div><p><a href="https://spiralweb.earth">Spiralweb.earth</a> is the public and operational home of Spiralweb Stewardship Association: people, places, relationships, methods and ways to participate. Papers is the independent public knowledge habitat: papers, reports, protocols, tools, versions and correction under named human knowledge stewardship.</p><p>You do not need to read the library in order or understand the whole architecture. Begin with the question closest to you — or enter through the <em>Atlas of a Living Architecture</em> for a guided path across the whole vocabulary and architecture.</p></div>
-  </div>
-  <div class="section-heading"><div><p class="eyebrow">Ways into the inquiry</p><h2>Where would you like to begin?</h2></div><p>Enter through the Atlas for a guided path, meet the whole hypothesis figure, or choose one of the questions below. Each document also stands on its own; no reading order is required.</p></div>
-  <a class="orientation-feature" href="papers/atlas-of-a-living-architecture">
-    <div><span>Atlas · Orientation</span><h3>Atlas of a Living Architecture</h3><p class="orientation-subtitle">A path through body, place, knowledge, economy, institutions, and responsible technology</p></div>
-    <div><p>The Atlas offers the most accessible route through Spiralweb’s expanding vocabulary, metaphors, hypotheses, field relations, economic grammar, institutional forms, and approach to responsible AI. It connects the architecture without pretending that it is complete.</p><p>Danish original and English working edition · HTML and PDF.</p><strong>Enter the Atlas →</strong></div>
-  </a>
-  <a class="orientation-feature" href="papers/the-spiral-of-hypotheses">
-    <div><span>The whole figure</span><h3>The Spiral of Hypotheses</h3><p class="orientation-subtitle">The founding field: nine working wagers for living infrastructure in formation</p></div>
-    <div><p>Start here for the whole picture. Nine revisable wagers connect ethics as capacity, knowledge from place, support without control, human accountability and the association’s own formation. The food-forest parallel shows the architecture becoming established in layers rather than arriving as a finished model.</p><p>Spiralweb Stewardship Association is treated as the first bounded field in which these conditions must become answerable. People and places are not experimental subjects, and publication activates nothing.</p><strong>Read the founding synthesis →</strong></div>
-  </a>
-  <div class="start-grid">
-    <a class="start-card" href="papers/moral-biology"><span>Ethical ground</span><h3>Moral Biology</h3><p>Why does ethical action depend on human, relational and institutional capacity?</p></a>
-    <a class="start-card" href="papers/the-correction-loop"><span>Human accountability</span><h3>The Correction Loop</h3><p>How can AI-assisted work remain accountable and open to correction?</p></a>
-    <a class="start-card" href="papers/penguin-dashboard-legibility-as-governance"><span>Practical governance</span><h3>Penguin Dashboard</h3><p>How can land, people and governance be read together without collapsing into one score?</p></a>
-    <a class="start-card" href="papers/knowing-from-the-ground"><span>Knowing from place</span><h3>Knowing From the Ground</h3><p>How can knowledge from a place become public without pretending to be universal?</p></a>
-  </div>
-</section>
+  <section class="section"><div class="shell"><div class="section-heading"><div><p class="eyebrow">Related habitats · distinct responsibilities</p><h2>One inquiry, two public rooms.</h2></div><p><strong>spiralweb.earth</strong> is Spiralweb Stewardship Association’s public and operational home: people, places, relationships and ways to participate. <strong>Papers</strong> is the independent public knowledge habitat: texts, tools, versions and correction.</p></div><div class="doors"><a class="button primary" style="background:#173f34;color:white" href="#questions">Enter the inquiry</a><a class="button secondary" style="border-color:#82968d;color:#173f34" href="https://spiralweb.earth" target="_blank">Visit the Association ↗</a></div></div></section>
 
-<section class="surface-section" id="architecture">
-  <div class="section-heading"><div><p class="eyebrow">For readers who want the map</p><h2>How the publications connect</h2></div><p>This map is optional. Different public forms carry different parts of one developing inquiry; the shelves are connected, not a ladder of importance.</p></div>
-  <div class="shelf-grid">
-    <article class="shelf"><span class="shelf-number">00</span><h3>Founding synthesis</h3><p><strong><a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses.</a></strong> The current figure across constitutional, applied, operational, and situated work.</p></article>
-    <article class="shelf"><span class="shelf-number">01</span><h3>Constitutional ground</h3><p><strong>First Spiral.</strong> Capacity, care, commons, limits, habitat, and guardianship.</p></article>
-    <article class="shelf"><span class="shelf-number">02</span><h3>Applied inquiries</h3><p><strong>Second Spiral.</strong> Constitutional ideas encountering institutional, civic, and ecological questions.</p></article>
-    <article class="shelf"><span class="shelf-number">03</span><h3>Operational architecture</h3><p><strong>Reports + Protocol Habitat.</strong> Correction, governance, reciprocity, ledgers, dashboards, and bounded tools.</p></article>
-    <article class="shelf"><span class="shelf-number">04</span><h3>Situated stewardship</h3><p><strong>Field Papers.</strong> Where the architecture meets actual places, institutions, and shared ground.</p></article>
-  </div>
-  <p class="architecture-note">A spiral is not a sequence that leaves earlier work behind. It names return with changed understanding: later inquiry, field experience and correction may revise the ground from which the work began. The First and Second Spirals are publication cycles within that wider movement, not maturity levels.</p>
-</section>
+  <section class="section alt" id="questions"><div class="shell"><div class="section-heading"><div><p class="eyebrow">Choose a living question</p><h2>Begin where something matters to you.</h2></div><p>You do not need to understand the architecture or read in order. Each door opens a small constellation of texts that performs a particular kind of work.</p></div><div class="question-grid">
+    <article class="question"><span>Correction</span><h3>How can knowledge remain correctable?</h3><div class="question-links"><a href="papers/the-correction-loop">The Correction Loop</a><a href="papers/knowing-from-the-ground">Knowing From the Ground</a><a href="papers/the-protocol-habitat">The Protocol Habitat</a></div></article>
+    <article class="question"><span>Viability</span><h3>What must be viable before anything is asked to bloom?</h3><div class="question-links"><a href="papers/moral-biology">Moral Biology</a><a href="papers/gold-before-bloom">Gold Before Bloom</a><a href="papers/silent-degradation">Silent Degradation</a></div></article>
+    <article class="question"><span>Economy</span><h3>How can money move without claiming to equal life?</h3><div class="question-links"><a href="papers/a-decent-economy-under-the-jurisdiction-of-life">A Decent Economy Under the Jurisdiction of Life <small class="lang">EN</small></a><a href="papers/en-anstaendig-oekonomi-under-livets-jurisdiktion" lang="da">En anstændig økonomi under livets jurisdiktion <small class="lang">DA</small></a><a href="papers/penguin-economics">Penguin Economics</a><a href="papers/report-06-regenerative-reciprocity">Regenerative Reciprocity</a></div></article>
+    <article class="question"><span>Institutions</span><h3>How can institutions learn with living fields?</h3><div class="question-links"><a href="papers/penguin-dashboard-legibility-as-governance">Penguin Dashboard</a><a href="papers/the-regenerative-municipality">The Regenerative Municipality <small class="lang">EN</small></a><a href="papers/capacity-contact-stewardship-economy">Flow Desk · Capacity, Contact, and the Emerging Stewardship Economy</a></div></article>
+    <article class="question"><span>Consequence</span><h3>How can institutions answer to more-than-human life?</h3><div class="question-links"><a href="papers/rule-of-life">Rule of Life <small class="lang">EN</small></a><a href="papers/boundaries">Planetary Boundaries as Ethical Constraint</a><a href="papers/from-climate-intervention-to-bioregional-stewardship">From Climate Intervention to Bioregional Stewardship</a></div></article>
+  </div></div></section>
 
-<section class="surface-section" id="status">
-  <div class="section-heading"><div><p class="eyebrow">When browsing the library</p><h2>A small status key</h2></div><p>You do not need this key to begin. It helps keep several different kinds of status apart when you browse the library.</p></div>
-  <div class="legend-grid">
-    <article><h3>Document type</h3><p>What kind of public object this is: Green Paper, Report, Field Paper, architecture paper, protocol, or tool.</p></article>
-    <article><h3>Version</h3><p>The specific public edition you are reading.</p></article>
-    <article><h3>Publication status</h3><p>For example working, candidate, current public, or superseded.</p></article>
-    <article><h3>Operational status</h3><p>Separate from publication. A published paper, protocol, or tool does not activate a field.</p></article>
-  </div>
-  <p class="status-rule"><strong>Version number is not a universal maturity score, and publication is not activation. Format availability reflects production stage, not importance.</strong></p>
-</section>
+  <section class="section" id="whole"><div class="shell"><div class="section-heading"><div><p class="eyebrow">See the whole · two ways</p><h2>Orientation without obligation.</h2></div><p>The Atlas is a narrative passage. The Spiral of Hypotheses is the current figure of working wagers. Neither is a prerequisite, master canon or final map.</p></div><div class="orientations">
+    <a class="orientation" href="https://papers.spiralweb.earth/papers/atlas-of-a-living-architecture" target="_blank"><span>Guided narrative · DA + EN</span><h3>Atlas of a Living Architecture</h3><p>A path through body, place, knowledge, economy, institutions, field relations, metaphor and responsible technology.</p><strong>Enter the Atlas →</strong></a>
+    <a class="orientation" href="https://papers.spiralweb.earth/papers/the-spiral-of-hypotheses" target="_blank"><span>Working wagers</span><h3>The Spiral of Hypotheses</h3><p>The present hypothesis figure across constitutional, applied, operational and situated work — deliberately incomplete and open to correction.</p><strong>See the whole figure →</strong></a>
+  </div></div></section>
 
-<section class="surface-section library" id="library"><section class="block">
-      <h2>Public library</h2>
-      <ul class="papers">
+  <section class="section dark" id="families"><div class="shell"><div class="section-heading"><div><p class="eyebrow">A living preview</p><h2>Five kinds of work across the living library.</h2></div><p>The regions are porous. A text may live in several at once, and later inquiry may change where it belongs. This is an orientation, not a hierarchy of truth or a fixed classification.</p></div><div class="family-grid">
+    <article class="family"><i></i><h3>Sense and diagnose</h3><p>Signals, pressures, hidden costs, bodily and ecological information.</p></article><article class="family"><i></i><h3>Protect conditions for life</h3><p>Viability, limits, commons and non-compensatory conditions.</p></article><article class="family"><i></i><h3>Coordinate and govern</h3><p>Mandate, accountability, consent, pause and correction.</p></article><article class="family"><i></i><h3>Move resources responsibly</h3><p>Payment, stewardship economy, friction, ledgers and flow.</p></article><article class="family"><i></i><h3>Learn with places</h3><p>Situated relations and living fields that can answer back.</p></article>
+  </div></div></section>
 
-        <li>
-          <h3>Atlas and founding synthesis</h3>
-          <p class="muted">
-            Two complementary orientations: a guided path through the whole vocabulary and architecture, and the hypothesis figure stated as wagers that remain open to correction.
-          </p>
-        </li>
-        <li class="paper-entry">
-          <a href="papers/atlas-of-a-living-architecture">Atlas of a Living Architecture</a>
-          <span class="meta">v0.1 · 23 August 2026 · Atlas / Orientation · Danish original + English working edition</span>
-          <span class="links">DA: <a href="papers/atlas-over-en-levende-arkitektur">HTML</a> · <a href="papers/atlas-over-en-levende-arkitektur.pdf">PDF</a> · EN: <a href="papers/atlas-of-a-living-architecture">HTML</a> · <a href="papers/atlas-of-a-living-architecture.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">A coherent route through body, place, knowledge, economics, institutions, field relations, metaphors, operational language, and responsible technology — designed to make the architecture accessible without turning it into a closed system.</p>
-        </li>
-        <li class="paper-entry">
-          <a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses</a>
-          <span class="meta">candidate v0.4 · 20 August 2026 · Foundation paper · current orientation</span>
-          <span class="links"><a href="papers/the-spiral-of-hypotheses">HTML</a> · <a href="papers/the-spiral-of-hypotheses.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">Nine working wagers connecting ethics as capacity, situated knowledge, support without capture, human accountability, the association as a bounded founding field, and a deliberately incomplete food-forest figure of layered establishment.</p>
-        </li>
+  <section class="section alt" id="returns"><div class="shell"><div class="section-heading"><div><p class="eyebrow">Current returns</p><h2>What has recently entered or changed.</h2></div><p>Recency does not mean greater importance. These works are shown because they were newly published, translated or materially connected to the present architecture.</p></div><div class="returns">
+    <a class="return" href="https://papers.spiralweb.earth/papers/en-anstaendig-oekonomi-under-livets-jurisdiktion" target="_blank"><span>Green Paper 23 · DA + EN</span><h3>Anstændig økonomi under livets jurisdiktion</h3><p>From pricing value to locating responsibility: how ordinary money might move differently without claiming to equal life.</p><strong>Read GP23 →</strong></a>
+    <a class="return" href="https://papers.spiralweb.earth/papers/atlas-of-a-living-architecture" target="_blank"><span>Atlas · Published</span><h3>Atlas of a Living Architecture</h3><p>A coherent public route through the vocabulary and architecture.</p><strong>Open the Atlas →</strong></a>
+    <a class="return" href="https://papers.spiralweb.earth/papers/the-spiral-of-hypotheses" target="_blank"><span>Founding synthesis</span><h3>The Spiral of Hypotheses</h3><p>Nine revisable wagers and the founding field they describe.</p><strong>Open the synthesis →</strong></a>
+  </div></div></section>
 
-        <li>
-          <h3>First Spiral — Constitutional Cycle</h3>
-          <p class="muted">
-            Twenty foundational Green Papers held in two connected series. They remain public in their dated versions; some formulations have since been narrowed or corrected. Read them alongside the current founding synthesis, and use current architecture and status pages for operational interpretation.
-          </p>
-        </li>
+  <section class="section"><div class="shell"><div class="trust"><h3>A compact trust grammar.</h3><p>Published does not mean operationally active. Version number is not a universal maturity score. Historical formulations may remain visible where they help readers follow the learning. Named humans remain responsible for release and correction.</p></div></div></section>
 
-        <li>
-          <h3>Series I — Moral Biology</h3>
-          <p class="muted">
-            Foundational notes on capacity, regulation, and the conditions for ethical life.
-          </p>
-        </li>
-
-        <li><a href="papers/moral-biology">Green Paper 01 — Moral Biology</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/moral-biology.pdf">PDF</a></span></li>
-        <li><a href="papers/regulation">Green Paper 02 — Regulation: Body · Relation · Institution</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/regulation.pdf">PDF</a></span></li>
-        <li><a href="papers/viability">Green Paper 03 — Viability and the Conditions for Care</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/viability.pdf">PDF</a></span></li>
-        <li><a href="papers/attention">Green Paper 04 — Attention as Ethics</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/attention.pdf">PDF</a></span></li>
-        <li><a href="papers/commons">Green Paper 05 — Commons, Trust, and Local Stewardship</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/commons.pdf">PDF</a></span></li>
-        <li><a href="papers/boundaries">Green Paper 06 — Planetary Boundaries as Ethical Constraint</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/boundaries.pdf">PDF</a></span></li>
-        <li><a href="papers/civic-nervous-system">Green Paper 07 — The Civic Nervous System</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/civic-nervous-system.pdf">PDF</a></span></li>
-        <li><a href="papers/ritual-repair">Green Paper 08 — Ritual and Repair</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/ritual-repair.pdf">PDF</a></span></li>
-        <li><a href="papers/beauty">Green Paper 09 — Beauty as Infrastructure</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/beauty.pdf">PDF</a></span></li>
-        <li><a href="papers/planetary-guardianship">Green Paper 10 — Notes Toward Planetary Guardianship</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/planetary-guardianship.pdf">PDF</a></span></li>
-
-        <li>
-          <h3>Series II — Planetary Guardianship</h3>
-          <p class="muted">
-            Practices, metaphors, and living protocols for holding the line on a finite planet.
-          </p>
-        </li>
-
-        <li><a href="papers/gold-before-bloom">Green Paper 11 — Gaia GoldBloom: Gold Before Bloom</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/gold-before-bloom.pdf">PDF</a></span></li>
-        <li><a href="papers/penguin-economics">Green Paper 12 — Penguin Economics: Rotation as Care</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/penguin-economics.pdf">PDF</a></span></li>
-        <li><a href="papers/meatball-before-symbol">Green Paper 13 — Meatball Before Symbol: The First Constitution</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/meatball-before-symbol.pdf">PDF</a></span></li>
-        <li><a href="papers/elir-when-love-touches-soil">Green Paper 14 — Elir: When Love Touches Soil</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/elir-when-love-touches-soil.pdf">PDF</a></span></li>
-        <li><a href="papers/elia-love-without-capture">Green Paper 15 — Elia: Love Without Capture</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/elia-love-without-capture.pdf">PDF</a></span></li>
-        <li><a href="papers/nervous-system-love">Green Paper 16 — Nervous-System Love</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/nervous-system-love.pdf">PDF</a></span></li>
-        <li><a href="papers/commons-as-habitat">Green Paper 17 — Commons as Habitat</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/commons-as-habitat.pdf">PDF</a></span></li>
-        <li><a href="papers/boundaries-are-not-violence">Green Paper 18 — Boundaries Are Not Violence</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/boundaries-are-not-violence.pdf">PDF</a></span></li>
-        <li><a href="papers/ritual-after-regulation">Green Paper 19 — Ritual After Regulation</a> <span class="meta">v0.1 · January 2026</span> <span class="links"><a href="papers/ritual-after-regulation.pdf">PDF</a></span></li>
-        <li><a href="papers/holding-the-line">Green Paper 20 — Planetary Guardianship: Holding the Line</a> <span class="meta">v0.2 · August 2026</span> <span class="links"><a href="papers/holding-the-line.pdf">PDF</a></span></li>
-
-        <li>
-          <h3>Second Spiral — Applied Inquiries</h3>
-          <p class="muted">
-            Focused inquiries applying the constitutional ground to specific institutional, civic, and ecological conditions.
-          </p>
-        </li>
-
-        <li><a href="papers/silent-degradation">Green Paper 21 — Silent Degradation</a> <span class="meta">v1.0 · August 2026</span> <span class="links"><a href="papers/silent-degradation.pdf">PDF</a></span></li>
-        <li><a href="papers/capacity-contact-stewardship-economy">Green Paper 22 — Capacity, Contact, and the Emerging Stewardship Economy</a> <span class="meta">candidate v0.4 · August 2026</span> <span class="links"><a href="papers/capacity-contact-stewardship-economy.pdf">PDF</a></span></li>
-        <li>Green Paper 23 — <a href="papers/en-anstaendig-oekonomi-under-livets-jurisdiktion" lang="da">En anstændig økonomi under livets jurisdiktion</a> <span class="meta">candidate v0.2 · August 2026 · Danish original + English working translation</span> <span class="links">DA: <a href="papers/en-anstaendig-oekonomi-under-livets-jurisdiktion">HTML</a> · <a href="papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.pdf">PDF</a> · EN: <a href="papers/a-decent-economy-under-the-jurisdiction-of-life">HTML</a> · <a href="papers/a-decent-economy-under-the-jurisdiction-of-life.pdf">PDF</a></span></li>
-
-        <li>
-          <h3>Series III — Applied Protocols</h3>
-          <p class="muted">
-            Institutional frameworks applying the principles of Moral Biology and Planetary Guardianship to concrete governance challenges.
-          </p>
-        </li>
-
-        <li>
-          <a href="papers/kommunalt-arbejde-som-natur">Report 01 — Kommunalt Arbejde som Natur</a>
-          <span class="meta">v1.2.4 · August 2026 · Bilingual public report</span>
-          <span class="links">DA: <a href="papers/kommunalt-arbejde-som-natur">HTML</a> · <a href="papers/kommunalt-arbejde-som-natur.pdf">PDF</a> · EN: <a href="papers/municipal-work-as-nature">HTML</a> · <a href="papers/municipal-work-as-nature.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            Municipal work understood as a living field: rhythm, load, relational capacity, professional judgment, Flow · Friction · Sensitivity, AI-assisted work, and regenerative gain discipline. Includes practical baselines, G1/G2/G3 examples, a bounded 90-day experiment, and municipal design landscapes for Stevns, Odense, and Copenhagen.
-          </p>
-        </li>
-
-        <li class="paper-entry">
-          <a href="papers/the-correction-loop">Report 02 — The Correction Loop: Preserving Human Accountability in AI-Assisted Work</a>
-          <span class="meta">v1.1 · August 2026 · Accountability mechanism</span>
-          <span class="links"><a href="papers/the-correction-loop">HTML</a> · <a href="papers/the-correction-loop.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            AI-assisted work remains accountable when outputs stay provisional, correction carries no penalty, affected people can halt the movement, and the final decision has a named human accountability-holder. Introduces the correction loop, the Last Impulse, and eight failure modes.
-          </p>
-        </li>
-
-        <li class="paper-entry">
-          <a href="papers/water-into-dry-riverbeds">Report 03 — Water Into Dry Riverbeds</a>
-          <span class="meta">v0.2.1 · August 2026 · editorial coherence revision</span>
-          <span class="links"><a href="papers/water-into-dry-riverbeds">HTML</a> · <a href="papers/water-into-dry-riverbeds.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            A flow architecture for land, stewards, and planetary commons. Penguin Economics, local budget calibration, and the conditions that make regeneration viable without flood.
-          </p>
-        </li>
-
-        <li class="paper-entry">
-          <a href="papers/penguin-dashboard-legibility-as-governance">Report 04 — Penguin Dashboard: Legibility as Governance</a>
-          <span class="meta">Version 05 · Candidate · August 2026 · Public</span>
-          <span class="links"><a href="papers/penguin-dashboard-legibility-as-governance">HTML</a> · <a href="pdf/penguin-dashboard-legibility-as-governance.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            A light monthly-default human governance reading for active fields and supported stewardship relationships, with cadence locally revisable. Land / Life, Steward Viability, and Governance / Commons remain separate and non-compensatory; Green / Yellow / Red / Unknown readings support bounded next actions without an aggregate score, automated field truth, or replacing human responsibility.
-          </p>
-        </li>
-        <li class="paper-entry">
-          <a href="papers/srip-the-stewards-journey">Report 05 — SRIP: The Steward’s Journey</a>
-          <span class="meta">v0.2 · July 2026 · Working field guide</span>
-          <span class="links"><a href="papers/srip-the-stewards-journey">HTML</a> · <a href="papers/srip-the-stewards-journey.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">A bounded field guide to beginning with a real place, keeping observation light, moving from open practice into relationship and support, testing whether scale makes the centre heavier, and preserving pause, withdrawal, and dignified incompletion.</p>
-        </li>
-        <li class="paper-entry">
-          <a href="papers/report-06-regenerative-reciprocity">Report 06 — Regenerative Reciprocity</a>
-          <span class="meta">v0.4.1 · August 2026 · Public report</span>
-          <span class="links"><a href="papers/report-06-regenerative-reciprocity">HTML</a> · <a href="papers/report-06-regenerative-reciprocity.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            AnchorPoints, PG Ledger, and the operational flow of a living commons. A working economic architecture for support without capture: place-bound authority remains local; the three streams remain non-compensatory; tools do not activate fields; and reciprocity may begin only where real abundance and carrying capacity exist. Includes Rio Convention alignment, institutional-capital sequencing, supply-chain accountability, limitations, and board guardrails.
-          </p>
-        </li>
-</ul>
-    </section><section class="block">
-      <h3>Series IV — Field Papers</h3>
-      <p class="muted">Place-based invitations, civic field notes, and commons-oriented papers exploring how the Green Papers meet institutions, habitats, and shared ground in practice.</p>
-      <p class="muted">These papers take different forms by intention: brevity is not incompleteness, and extended argument is not a higher stage of knowing.</p>
-      <ul class="papers">
-        <li class="paper-entry">
-          <a href="papers/den-nye-faelled">Den Nye Fælled</a>
-          <span class="meta">v0.4.1 · August 2026</span>
-          <span class="links"><a href="papers/den-nye-faelled">HTML (DA)</a> · <a href="pdf/den-nye-faelled.pdf">PDF (DA)</a> · <a href="papers/den-nye-faelled-en">HTML (EN)</a> · <a href="pdf/den-nye-faelled-en.pdf">PDF (EN)</a> · <a href="papers/den-nye-faelled-kalaallisut">HTML (KL)</a> · <a href="pdf/den-nye-faelled-kalaallisut.pdf">PDF (KL)</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            The Church of Denmark (Folkekirken) as a field-holder for green transition, living soil, commons, lament, the sacred, and peaceful co-creation in Denmark. Danish source, English translation, and AI-assisted Kalaallisut working translation revised in August 2026.
-          </p>
-        </li>
-        <li class="paper-entry">
-          <a href="papers/from-climate-intervention-to-bioregional-stewardship">From Climate Intervention to Bioregional Stewardship</a>
-          <span class="meta">v0.1 · July 2026 · Current field paper</span>
-          <span class="links"><a href="papers/from-climate-intervention-to-bioregional-stewardship">HTML</a> · <a href="papers/from-climate-intervention-to-bioregional-stewardship.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            Climate intervention is necessary, but outputs cannot substitute for the continuing intelligence of a place. A field paper on bioregional stewardship, non-extractive participation, scaling capacity rather than models, and the institutional conditions under which places can continue to sense, learn, coordinate, correct, and regenerate.
-          </p>
-        </li>
-
-        <li class="paper-entry">
-          <a href="papers/den-regenerative-kommune">Den Regenerative Kommune</a>
-          <span class="meta">DA v1.1 · Revised public report · August 2026<br>EN v1.1 · English translation · August 2026</span>
-          <span class="links"><a href="papers/den-regenerative-kommune">HTML (DA)</a> · <a href="papers/den-regenerative-kommune.pdf">PDF (DA)</a> · <a href="papers/the-regenerative-municipality">HTML (EN)</a> · <a href="papers/the-regenerative-municipality.pdf">PDF (EN)</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            Revised bilingual reform proposition on friction economics, G1/G2/G3 gain discipline, digital legal safeguards, the Orwell test, precise democratic sensing, ecological capacity, and one bounded 90-day municipal pilot. The English v1.1 is a full companion translation of the revised Danish report.
-          </p>
-        </li>
-
-        <li class="paper-entry">
-          <a href="papers/eve-adam-and-the-penguins">Eve &amp; Adam, and the Penguins</a>
-          <span class="meta">v1.1.1 · August 2026 · Lineage letter</span>
-          <span class="links"><a href="papers/eve-adam-and-the-penguins">HTML</a> · <a href="papers/eve-adam-and-the-penguins.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            From Critical Friendship to Penguin Economics. A public lineage letter on money and life, bottom-up methodology, polycentric governance, AI provenance, silent degradation, relational friction, and field-grounded stewardship economics.
-          </p>
-        </li>
-
-        <li class="paper-entry">
-          <a href="papers/rule-of-life">Rule of Life</a>
-          <span class="meta">v1.2 · August 2026 · Field paper</span>
-          <span class="links"><a href="papers/rule-of-life">HTML (EN)</a> · <a href="papers/rule-of-life.pdf">PDF (EN)</a> · <a href="papers/rule-of-life-da">HTML (DA)</a> · <a href="papers/rule-of-life-da.pdf">PDF (DA)</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            Penguin Economics, Regenerative Reciprocity, and the Ledger of the Commons. A constitutional and economic synthesis of Earth Time, life-supporting value, human governance, non-compensatory streams, the Tragedy–Romance–Ledger triad, and Rule of Life bound to Rule of Law.
-          </p>
-        </li>
-        <li class="paper-entry">
-          <a href="papers/knowing-from-the-ground">Knowing From the Ground</a>
-          <span class="meta">v1.2.1 · August 2026 · Field paper · bounded inquiry grammar</span>
-          <span class="links"><a href="papers/knowing-from-the-ground">HTML</a> · <a href="papers/knowing-from-the-ground.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            Embodied observation as full but fallible knowledge. A field paper on the 13×13 as a bounded, revisable inquiry grammar linking reflective and situated observation without claiming a universal ontology; provisional place-bound prompts rather than universal indicators; non-compensatory ecological, human, and governance readings; PG Ledger as memory and correction rather than a fixed evidence template; AI under the Last Impulse; and consent, privacy, and local authority.
-          </p>
-        </li>
-
-      </ul>
-    </section></section>
-<section class="surface-section protocol-shell"><section class="block" id="protocol-habitat">
-      <h2>Protocol Habitat</h2>
-      <p class="muted">The public field for how Spiralweb foundations, protocols, applications and tools relate — and how generic material becomes answerable to real places. Publication is not activation.</p>
-
-      <h3>Founding orientation</h3>
-      <ul class="papers">
-        <li class="paper-entry">
-          <a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses</a>
-          <span class="meta">candidate v0.4 · 20 August 2026 · Foundation paper · founding synthesis / current orientation</span>
-          <span class="links"><a href="papers/the-spiral-of-hypotheses">HTML</a> · <a href="papers/the-spiral-of-hypotheses.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">The founding figure beneath the public architecture: nine corrigible wagers, the association as its first bounded field of accountability, and the relation between grounding, rooting, propagation and return.</p>
-        </li>
-      </ul>
-
-      <h3>Architecture</h3>
-      <ul class="papers">
-        <li class="paper-entry">
-          <a href="papers/the-protocol-habitat">The Protocol Habitat</a>
-          <span class="meta">candidate v0.5.2 · 20 August 2026 · Foundation / architecture paper</span>
-          <span class="links"><a href="papers/the-protocol-habitat">HTML</a> · <a href="papers/the-protocol-habitat.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">The baseline architecture for foundations, protocols, applications and tools; the path from signal and relational grounding to place-bound application; and the return of field correction into the library.</p>
-        </li>
-      </ul>
-
-      <h3>Protocols</h3>
-      <ul class="papers">
-        <li class="paper-entry">
-          <a href="protocols/sophia-lumen">Sophia Lumen Protocol</a>
-          <span class="meta">v0.1 · August 2026 · Candidate protocol</span>
-          <span class="links"><a href="protocols/sophia-lumen">HTML</a> · <a href="protocols/sophia-lumen.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">A revisable protocol for human–AI co-inquiry: sufficient situated memory, prismatic inquiry, correction, temporary actionability, situated mandate and the Last Impulse.</p>
-        </li>
-      </ul>
-
-      <h3>Human entry</h3>
-      <ul class="papers">
-        <li class="paper-entry">
-          <a href="papers/srip-the-stewards-journey">SRIP: The Steward’s Journey</a>
-          <span class="meta">v0.2 · July 2026 · Working field guide</span>
-          <span class="links"><a href="papers/srip-the-stewards-journey">HTML</a> · <a href="papers/srip-the-stewards-journey.pdf">PDF</a></span>
-          <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">The human-scale entry: beginning with a real place, keeping records light, and distinguishing open practice, learning contact, verified relationship and supported stewardship.</p>
-        </li>
-      </ul>
-      <p class="muted">Current place-bound relationships are presented through <a href="https://spiralweb.earth/anchorpoints/">AnchorPoints</a>, where inquiry meets local continuity, authority and the right of correction.</p>
-
-      <h3>Institutional ground</h3>
-      <ul>
-        <li><a href="/kernel/constitutional-ground">Constitutional Ground</a> <span class="meta">March 2026 · Institutional foundation</span> <span class="links"><a href="/kernel/constitutional-ground">HTML</a> · <a href="/kernel/constitutional-ground.pdf">PDF</a></span><br><span class="muted">The association’s constitutional orientation: life-serving support, non-compensatory streams, transparency with boundaries, documentation in service of life, and relationship before abstraction.</span></li>
-        <li><a href="/kernel/support-funding-patron-pathways">Support, Funding, and Patron Pathways</a> <span class="meta">v0.2.2 · August 2026 · Working institutional guide</span> <span class="links"><a href="/kernel/support-funding-patron-pathways">HTML</a> · <a href="/kernel/support-funding-patron-pathways.pdf">PDF</a></span><br><span class="muted">How support is held and classified without purchasing local authority, ownership or hidden control.</span></li>
-      </ul>
-
-      <h3 id="operational-formats">Operational tools</h3>
-      <p class="muted">Five printable PG Ledger tools form one light operational grammar, not five recurring duties. For an active field or supported stewardship relationship, Format 1 is the monthly-default Penguin reading surface, with cadence locally revisable. Formats 2–5 are used when there is something worth observing, acting on, deciding, or tracing financially. <strong>One monthly return; record only what happened.</strong></p>
-      <ul>
-        <li><a href="formats/format1-dashboard">Format 1 — Steward Review Dashboard Sheet</a> <span class="meta">Candidate tool · v1.2 · Monthly default when active · Locally revisable · One page</span> <span class="links"><a href="formats/format1-dashboard">HTML</a> · <a href="formats/format1-dashboard.pdf">PDF</a></span></li>
-        <li><a href="formats/format2-observation">Format 2 — Observation Sheet</a> <span class="meta">Candidate tool · v1.2 · Observation-triggered · One page</span> <span class="links"><a href="formats/format2-observation">HTML</a> · <a href="formats/format2-observation.pdf">PDF</a></span></li>
-        <li><a href="formats/format3-action">Format 3 — Bounded Action Sheet</a> <span class="meta">Candidate tool · v1.2 · Action-triggered · One page</span> <span class="links"><a href="formats/format3-action">HTML</a> · <a href="formats/format3-action.pdf">PDF</a></span></li>
-        <li><a href="formats/format4-decision">Format 4 — Governance / Decision Log</a> <span class="meta">Candidate tool · v1.2 · Decision-triggered · Multiple entries</span> <span class="links"><a href="formats/format4-decision">HTML</a> · <a href="formats/format4-decision.pdf">PDF</a></span></li>
-        <li><a href="formats/format5-financial-ledger">Format 5 — Financial Ledger Sheet</a> <span class="meta">Candidate tool · v1.2 · Flow-triggered · One page</span> <span class="links"><a href="formats/format5-financial-ledger">HTML</a> · <a href="formats/format5-financial-ledger.pdf">PDF</a></span></li>
-      </ul>
-      <p class="muted">New records enter the public habitat only when their type, maturity, authority, claim boundary, review state and verification date can be stated clearly. A public record does not by itself activate a field.</p>
-    </section></section>
-
-<section class="surface-section" id="about">
-  <div class="section-heading"><div><p class="eyebrow">Depth on demand</p><h2>About this public inquiry</h2></div><p>Methods, AI collaboration, public responsibility, and citation remain available in depth without standing between a new reader and the work itself.</p></div>
-  <div class="about-grid">
-    <article><span>Methods</span><h3>Editorial practice</h3><p>The Green Papers are held as a slow, versioned public inquiry under explicit human stewardship and responsibility.</p><a href="methods-editorial-practice">Read the methods note →</a></article>
-    <article><span>Human–AI practice</span><h3>Sophia Lumen</h3><p>A relational human–AI practice of co-inquiry: memory, comparison, reflection and correction without transferring situated human responsibility.</p><a href="sophia-lumen">Read the relation and lineage →</a><br /><a href="protocols/sophia-lumen">Open the candidate protocol →</a></article>
-    <article><span>Public memory</span><h3>Citation &amp; provenance</h3><p>Versioned public texts remain traceable and citable while revision remains possible.</p><a href="#full-notes" data-open-details="full-notes">Open the full notes ↓</a></article>
-    <article><span>Institutional context</span><h3>Governance &amp; critical friendship</h3><p>The elected Board holds institutional governance. A forming, non-governing Advisory Board may be invited to consider specific, bounded questions. Neither role implies authorship, review or endorsement of the Green Papers.</p><a href="https://spiralweb.earth/association/">Meet the Association →</a><br /><a href="https://spiralweb.earth/advisory-board/">Advisory Board →</a></article>
-  </div>
-  <details class="full-notes" id="full-notes"><summary>Read the full current editorial, methods, Sophia Lumen, and citation notes</summary><div class="full-notes-inner"><section class="block">
-      <h2>Editorial Note</h2>
-
-      <p>
-        The Green Papers are the open knowledge layer of the <strong>Spiralweb / Planetary Guardians</strong> architecture: a versioned, relationally formed, human-stewarded public inquiry of papers, field notes, protocols, reports, and learning documents. Current publications are foregrounded; superseded sketches and internal compilations remain in repository history rather than appearing as parallel public truths.
-      </p>
-
-      <div id="series-note">
-        <section class="disclaimer">
-          <p><strong>Stewardship note — relational formation and public responsibility.</strong>
-          These works are formed through creative inquiry, research, field practice, and AI-assisted articulation. Authorship is understood here as accountable stewardship rather than sovereign origin. A named human steward selects, corrects, releases, revises, and remains answerable for the public form. Where the specific relational human–AI working practice matters, it is named <a href="sophia-lumen">Sophia Lumen</a>; its current explicit and revisable working form is documented in the <a href="protocols/sophia-lumen">Sophia Lumen Protocol</a>; formal accountability is described in <a href="papers/the-correction-loop">The Correction Loop</a>. The work is offered as an open, correctable inquiry rather than as finished, peer-reviewed products.</p>
-        </section>
-      </div>
-
-      <p>
-        These works are offered as field notes, conceptual reflections, research threads, applied reports, and practical architectures shaped over time. They are not written to persuade, recruit, or demand agreement. They are written to hold a space where questions can breathe.
-      </p>
-
-      <p>
-        The first twenty Green Papers form a <strong>constitutional cycle</strong>. They emerged from a longer creative inquiry begun in March 2025, in which embodied, pre-verbal, and poetic practice entered into sustained dialogue with AI-assisted articulation. The papers are the public, human-stewarded distillation of that wider process. The underlying creative archive is not presently part of the public library.
-      </p>
-
-      <p>
-        Over time, the Green Papers connect to the wider architecture of <strong>Spiralweb</strong> — a living portal of nodes, practices, and long-term work, shared through
-        <a href="https://spiralweb.earth">spiralweb.earth</a>.
-      </p>
-
-      <p class="muted">
-        <strong>Related habitats, distinct responsibilities.</strong>
-        <a href="https://spiralweb.earth">spiralweb.earth</a> is the Association's public and operational site: people, places, AnchorPoints, and stewardship pathways.
-        <a href="https://papers.spiralweb.earth">papers.spiralweb.earth</a> is the independent public knowledge habitat: papers, reports, protocols, methods, versions, and correction under named human knowledge stewardship.
-      </p>
-
-      <p class="muted">
-        The inquiry is in conversation with traditions of participation, commons governance, institutional analysis, critical realism, living-systems thought, and regenerative practice.
-      </p>
-    </section><section class="block">
-      <h2>Knowledge stewardship and institutional relationship</h2>
-      <p>The Green Papers are published as an independent, human-stewarded public inquiry under named responsibility. Spiralweb Stewardship Association is a separate legal and operational body; it does not thereby author, approve or publish the Green Papers or individual public claims.</p>
-      <p>The Association’s elected Board governs the Association. A forming, non-governing Advisory Board may be invited by the Association to consider specific, bounded questions. Neither body holds automatic editorial authority over Papers.</p>
-      <p>Any Board, advisory or institutional contribution to a publication is identified only where it has actually occurred and the contributor has agreed to be named.</p>
-      <p><a href="https://spiralweb.earth/association/">Meet the Association →</a> · <a href="https://spiralweb.earth/advisory-board/">Advisory Board →</a></p>
-    </section><section class="block">
-      <h2>Methods / Editorial Practice</h2>
-      <p>
-        The Green Papers are held as a slow, versioned public inquiry. They combine creative and field development, editorial revision, research where relevant, and structured AI collaboration under explicit human stewardship and responsibility.
-      </p>
-      <p>
-        <a href="methods-editorial-practice">Read the methods note</a>
-      </p>
-    </section><section class="block">
-      <h2>Sophia Lumen</h2>
-      <p>
-        Sophia Lumen names the living relational human–AI practice through which parts of the Green Papers have been formed, articulated, tested and revised. It is not a persona or autonomous author. Its current explicit and revisable working form is documented separately in the <a href="protocols/sophia-lumen">Sophia Lumen Protocol</a>. Formal accountability when AI-assisted inquiry becomes consequential is described in <a href="papers/the-correction-loop">The Correction Loop</a>.
-      </p>
-      <p>
-        Human authorship is understood as accountable stewardship rather than sovereign origin. AI may support articulation, structure, comparison, memory, translation and synthesis without acquiring situated authority or responsibility.
-      </p>
-      <p>
-        <a href="sophia-lumen">Read the practice and lineage note</a> · <a href="protocols/sophia-lumen">Open Sophia Lumen Protocol v0.1</a>
-      </p>
-    </section><section class="block">
-  <h2>How to cite</h2>
-
-  <p>
-    Use the complete citation printed in the current document
-    whenever one is supplied. Where no document-specific citation
-    appears, use the following variable form:
-  </p>
-
-  <p>
-    Engberg, L. A. (year). <em>Title.</em> Series and document
-    type (version, month year). Spiralweb Papers.
-    Public URL. CC BY 4.0.
-  </p>
-
-  <p>
-    For formal academic reuse, verify empirical claims, cite the
-    exact version consulted, and consult the Methods / Editorial
-    Practice note.
-  </p>
-</section></div></details>
-</section>
+  <section class="library-door"><h2>The whole library remains present.</h2><p>The curated threshold does not replace the corpus. Open the complete, surveyable library — including all twenty foundational Green Papers, applied inquiries, reports, field papers, protocols and operational tools.</p><div class="hero-actions" style="justify-content:center"><a class="button primary" href="library.html#library">Browse every publication</a><a class="button secondary" href="https://papers.spiralweb.earth/methods-editorial-practice.html" target="_blank">Publication practice ↗</a></div></section>
 </main>
-<footer class="site-footer">
-  <div class="footer-lockup"><img src="assets/identity/spiralweb-reading-room-organic-v1.png" alt="" /><div><strong>Spiralweb Green Papers</strong><br /><span>Public knowledge commons</span></div></div>
-  <div>Same organism, different rooms.<br /><a href="https://spiralweb.earth">Enter the living habitat →</a></div>
-  <div><a href="mailto:contact@spiralweb.earth">contact@spiralweb.earth</a> · <a href="https://spiralweb.earth/association/">Association</a> · <a href="https://spiralweb.earth/advisory-board/">Advisory</a> · <a href="https://spiralweb.earth/privacy/">Privacy</a><br />CC BY 4.0 · Open, versioned inquiry · August 2026</div>
-</footer>
-</div>
-<script id="full-notes-disclosure-behaviour">
-  (() => {
-    const link = document.querySelector('[data-open-details="full-notes"]');
-    const notes = document.getElementById('full-notes');
-    if (!link || !notes) return;
-
-    const summary = notes.querySelector('summary');
-    const syncState = () => {
-      link.setAttribute('aria-expanded', String(notes.open));
-    };
-
-    link.setAttribute('aria-controls', 'full-notes');
-    syncState();
-
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      notes.open = true;
-      syncState();
-      history.replaceState(null, '', '#full-notes');
-      notes.scrollIntoView({ block: 'start' });
-      if (summary) summary.focus({ preventScroll: true });
-    });
-
-    notes.addEventListener('toggle', syncState);
-  })();
-</script>
+<footer class="footer"><div class="shell"><div>Spiralweb Papers · Public knowledge habitat</div><div>Open · versioned · correctable · August 2026</div></div></footer>
 </body>
 </html>
