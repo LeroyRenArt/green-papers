@@ -24,7 +24,7 @@ Tilsammen gør de en generisk figur synlig:
 
 > **Spiralweb undersøger, hvordan almindelige penge kan bevæges gennem en anden etisk, relationel og institutionel grammatik, så de beskytter livsbærende kapacitet uden at gøre livet til en vare, en finansiel ækvivalent eller et aktiv.**
 
-Denne undersøgelse fører den etiske stance fra Green Paper 20, *Planetary Guardianship: Holding the Line*, ind i økonomien. Guardianship beskytter uden at gøre krav på det beskyttede. GP23 spørger derfor, hvilke grænser der må gælde, når støtte, kontrakter og finansiering træder ind i relationen:
+Denne undersøgelse fører den etiske position i Green Paper 20, *Planetary Guardianship: Holding the Line*, ind i økonomien. Guardianship beskytter uden at gøre krav på det beskyttede. GP23 spørger derfor, hvilke grænser der må gælde, når støtte, kontrakter og finansiering træder ind i relationen:
 
 > **Penge kan støtte det, de ikke får ret til at eje.**
 
@@ -258,7 +258,7 @@ Der kan være pris, kontrakt, leverance, kvalitet, rettigheder og reklamation. M
 
 Men betalingen dækker det, som faktisk er aftalt. Den må ikke stiltiende tages til indtægt for hele det levende, kulturelle og institutionelle system, som gjorde produktet muligt.
 
-**Product payment is not stewardship payment.**
+**Produktbetaling er ikke stewardship-betaling.**
 
 ### 11.2 Betaling for stewardship-arbejde
 

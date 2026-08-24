@@ -845,4 +845,4 @@ This paper draws on a wider body of work. A reader needs only the terms introduc
 - **Sophia Lumen Protocol** — the current candidate protocol for human–AI co-inquiry: context cultivation, provenance, prismatic inquiry, structural asymmetry, temporary actionability, and recursive correction. https://papers.spiralweb.earth/protocols/sophia-lumen
 - **Methods / Editorial Practice** — how the Green Papers are written, revised, and held. https://papers.spiralweb.earth/methods-editorial-practice.html
 
-*Suggested citation:* Engberg, L. A. (2026). **Knowing From the Ground: Embodied Citizen Science as Full but Fallible Knowledge**. Field Papers, Green Papers (v1.2.1, August 2026). Spiralweb Stewardship Association. CC BY 4.0.
+*Suggested citation:* Engberg, L. A. (2026). **Knowing From the Ground: Embodied Citizen Science as Full but Fallible Knowledge**. Field Papers, Spiralweb Papers (v1.2.1, August 2026). CC BY 4.0.
