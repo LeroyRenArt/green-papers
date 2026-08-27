@@ -321,7 +321,29 @@
         margin: 0;
       }
     }
-  </style>
+  
+    .ledger-row{min-height:78px}.class-cell{font-size:8.8px}.return-block{border:1px solid var(--line);border-radius:10px;overflow:hidden}.return-head{background:var(--soft-2);padding:7px 10px;display:flex;justify-content:space-between;align-items:baseline}.return-head h2{font-size:15px;margin:0}.return-head span{font-size:10.5px;color:var(--muted)}.return-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;padding:8px 10px;font-size:11.5px}.twolines{height:34px;background-image:linear-gradient(to bottom,transparent 16px,var(--line) 16px,var(--line) 17px,transparent 17px);background-size:100% 17px}
+
+@media screen and (max-width: 820px) {
+  body { padding: 10px; }
+  .reading-room-nav { margin: 8px auto; padding: 0 4px; gap: 8px 10px; }
+  .sheet { width: 100%; min-height: 0; margin: 0; padding: 22px 16px; gap: 12px; box-shadow: none; }
+  .topbar { display: block; }
+  .subtitle { max-width: none; }
+  .meta { grid-template-columns: 1fr; min-width: 0; margin-top: 14px; }
+  .instruction { display: grid; grid-template-columns: 1fr; }
+  .grid, .obs-grid, .reading-row, .basis-grid, .safety-grid,
+  .decision-grid, .people-grid, .review-grid, .rulebox,
+  .full-body, .return-grid { grid-template-columns: 1fr; }
+  .card { min-height: 0; }
+  .field-block.span2 { grid-column: auto; }
+  .footer { align-items: flex-start; flex-direction: column; }
+  .examples, .tags { justify-content: flex-start; }
+  .ledger-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .ledger-head, .ledger-row { min-width: 720px; }
+}
+
+</style>
 <style id="reading-room-nav-style">
 .reading-room-nav{
   max-width:860px;
@@ -340,206 +362,17 @@
 </head>
 <body>
 <nav class="reading-room-nav" aria-label="Reading room navigation">
-  <a href="/">← Spiralweb Papers</a>
-  <span class="sep" aria-hidden="true">·</span>
-  <a href="/library#operational-formats">Full Library</a>
-  <span class="sep" aria-hidden="true">·</span>
+  <a href="/">← Spiralweb Papers</a><span class="sep" aria-hidden="true">·</span>
+  <a href="/library#operational-formats">Full Library</a><span class="sep" aria-hidden="true">·</span>
   <a href="https://spiralweb.earth/formats/">Operational Formats in Spiralweb</a>
 </nav>
-
-  <div class="sheet">
-    <div class="topbar">
-      <div>
-        <h1>Financial Ledger Sheet</h1>
-        <div class="subtitle">
-          A PG Ledger financial traceability record for when a relevant financial flow occurs and should remain connected to field reality.
-          Record source, recipient, legal classification, purpose, evidence, and lived effect; this is not a monthly duty.
-          Report 06 companion · Format 5 v1.2 · August 2026 · Candidate tool.
-        </div>
-      </div>
-      <div class="meta">
-        <div class="line-field"><span class="label">Place / node:</span><span class="fill"></span></div>
-        <div class="line-field"><span class="label">Period:</span><span class="fill"></span></div>
-        <div class="line-field"><span class="label">Base currency:</span><span class="fill"></span></div>
-        <div class="line-field"><span class="label">Sheet reviewed by:</span><span class="fill"></span></div>
-      </div>
-    </div>
-
-    <div class="instruction">
-      <div><strong>Use when a relevant financial flow occurs:</strong> Record each in-scope transaction with amount and currency/FX, source, recipient, legal classification, purpose, method/evidence, observed effect, and any privacy or review note.</div>
-      <div><strong>Rule:</strong> Use the classification supported by the underlying record. Do not guess; mark <em>other</em> and log a question. Formal accounting remains separate.</div>
-    </div>
-
-    <div class="ledger-table">
-      <div class="ledger-head">
-        <div>#</div>
-        <div>Date</div>
-        <div>Amount · Currency / FX</div>
-        <div>Source category / Recipient · Purpose · Method / Evidence</div>
-        <div>Legal classification</div>
-        <div>Stream</div>
-        <div>Observed effect · Consent / Privacy · Reviewed by</div>
-      </div>
-
-      <div class="ledger-row">
-        <div class="row-num">1</div>
-        <div class="lined-cell"></div>
-        <div class="lined-cell"></div>
-        <div class="lined-cell"></div>
-        <div class="class-cell">
-          <div>☐ donation</div>
-          <div>☐ grant</div>
-          <div>☐ membership</div>
-          <div>☐ service payment</div>
-          <div>☐ salary</div>
-          <div>☐ reimbursement</div>
-          <div>☐ reciprocity contribution</div>
-          <div>☐ other / question</div>
-        </div>
-        <div class="stream-options">
-          <span><span class="checkbox a"></span> A</span>
-          <span><span class="checkbox b"></span> B</span>
-          <span><span class="checkbox c"></span> C</span>
-        </div>
-        <div class="lined-cell"></div>
-      </div>
-
-      <div class="ledger-row">
-        <div class="row-num">2</div>
-        <div class="lined-cell"></div>
-        <div class="lined-cell"></div>
-        <div class="lined-cell"></div>
-        <div class="class-cell">
-          <div>☐ donation</div>
-          <div>☐ grant</div>
-          <div>☐ membership</div>
-          <div>☐ service payment</div>
-          <div>☐ salary</div>
-          <div>☐ reimbursement</div>
-          <div>☐ reciprocity contribution</div>
-          <div>☐ other / question</div>
-        </div>
-        <div class="stream-options">
-          <span><span class="checkbox a"></span> A</span>
-          <span><span class="checkbox b"></span> B</span>
-          <span><span class="checkbox c"></span> C</span>
-        </div>
-        <div class="lined-cell"></div>
-      </div>
-
-      <div class="ledger-row">
-        <div class="row-num">3</div>
-        <div class="lined-cell"></div>
-        <div class="lined-cell"></div>
-        <div class="lined-cell"></div>
-        <div class="class-cell">
-          <div>☐ donation</div>
-          <div>☐ grant</div>
-          <div>☐ membership</div>
-          <div>☐ service payment</div>
-          <div>☐ salary</div>
-          <div>☐ reimbursement</div>
-          <div>☐ reciprocity contribution</div>
-          <div>☐ other / question</div>
-        </div>
-        <div class="stream-options">
-          <span><span class="checkbox a"></span> A</span>
-          <span><span class="checkbox b"></span> B</span>
-          <span><span class="checkbox c"></span> C</span>
-        </div>
-        <div class="lined-cell"></div>
-      </div>
-
-      <div class="ledger-row">
-        <div class="row-num">4</div>
-        <div class="lined-cell"></div>
-        <div class="lined-cell"></div>
-        <div class="lined-cell"></div>
-        <div class="class-cell">
-          <div>☐ donation</div>
-          <div>☐ grant</div>
-          <div>☐ membership</div>
-          <div>☐ service payment</div>
-          <div>☐ salary</div>
-          <div>☐ reimbursement</div>
-          <div>☐ reciprocity contribution</div>
-          <div>☐ other / question</div>
-        </div>
-        <div class="stream-options">
-          <span><span class="checkbox a"></span> A</span>
-          <span><span class="checkbox b"></span> B</span>
-          <span><span class="checkbox c"></span> C</span>
-        </div>
-        <div class="lined-cell"></div>
-      </div>
-
-      <div class="ledger-row">
-        <div class="row-num">5</div>
-        <div class="lined-cell"></div>
-        <div class="lined-cell"></div>
-        <div class="lined-cell"></div>
-        <div class="class-cell">
-          <div>☐ donation</div>
-          <div>☐ grant</div>
-          <div>☐ membership</div>
-          <div>☐ service payment</div>
-          <div>☐ salary</div>
-          <div>☐ reimbursement</div>
-          <div>☐ reciprocity contribution</div>
-          <div>☐ other / question</div>
-        </div>
-        <div class="stream-options">
-          <span><span class="checkbox a"></span> A</span>
-          <span><span class="checkbox b"></span> B</span>
-          <span><span class="checkbox c"></span> C</span>
-        </div>
-        <div class="lined-cell"></div>
-      </div>
-    </div>
-
-    <div class="legend">
-      <div class="legend-item"><span class="checkbox a"></span> Stream A — Land / Life</div>
-      <div class="legend-item"><span class="checkbox b"></span> Stream B — Steward Viability</div>
-      <div class="legend-item"><span class="checkbox c"></span> Stream C — Governance / Commons</div>
-    </div>
-
-    <div class="rulebox">
-      <div class="panel">
-        <h2>Important rule</h2>
-        <p>
-          When this three-stream frame is used, the streams are non-compensatory. A strong reading in one stream does not justify weakness in another.
-        </p>
-        <p>
-          <strong>Stream A</strong> records Land / Life flows.<br>
-          <strong>Stream B</strong> records Steward Viability flows.<br>
-          <strong>Stream C</strong> records Governance / Commons flows.
-        </p>
-      </div>
-
-      <div class="panel">
-        <h2>Consent and care</h2>
-        <p>
-          Reference the receipt or evidence where available. Where photographs, names, schools, or minors are involved, note privacy or consent. Consent is ongoing and revisable.
-        </p>
-        <p>
-          If a transfer crosses an internal threshold, record the reviewed-by identifier and ensure dual review. If anything is unclear, log it as a question rather than as a fact.
-        </p>
-      </div>
-    </div>
-
-    <div class="footer">
-      <div class="small">
-        <strong>Remember:</strong> Connect source to recipient, purpose, evidence, and lived effect. One line per transaction. This sheet does not itself activate a PG Ledger or replace formal accounting.
-      </div>
-      <div class="examples">
-        <span class="tag">water pipe installed</span>
-        <span class="tag">monthly stipend</span>
-        <span class="tag">tree nursery materials</span>
-        <span class="tag">translation work</span>
-        <span class="tag">field day food</span>
-        <span class="tag">documentation support</span>
-      </div>
-    </div>
-  </div>
+<div class="sheet"><div class="topbar"><div><h1>Financial Ledger Sheet</h1><div class="subtitle">A financial traceability record connecting an in-scope flow with its lawful classification, intended use, evidence and later return. Formal accounting remains separate. Report 06 companion · Format 5 v1.3 · August 2026 · Candidate tool.</div></div>
+<div class="meta"><div class="line-field"><span class="label">Place / node:</span><span class="fill"></span></div><div class="line-field"><span class="label">Period:</span><span class="fill"></span></div><div class="line-field"><span class="label">Base currency:</span><span class="fill"></span></div><div class="line-field"><span class="label">Sheet reviewed by:</span><span class="fill"></span></div></div></div>
+<div class="instruction"><div><strong>At transaction:</strong> record amount/currency/FX, source, recipient, lawful classification, intended use, method and evidence. Do not present an expected effect as an observed result.</div><div><strong>Classification:</strong> use the underlying record. “Reciprocity” may describe purpose or relation; it is not automatically a legal or accounting category.</div></div>
+<div class="ledger-table"><div class="ledger-head"><div>#</div><div>Date</div><div>Amount · Currency / FX</div><div>Source / recipient · Intended use · Method / Evidence</div><div>Legal classification</div><div>Stream</div><div>Consent / Privacy · Reviewed by · Return ref.</div></div><div class="ledger-row"><div class="row-num">1</div><div class="lined-cell"></div><div class="lined-cell"></div><div class="lined-cell"></div><div class="class-cell"><div>☐ donation</div><div>☐ grant</div><div>☐ membership</div><div>☐ service</div><div>☐ salary</div><div>☐ reimbursement</div><div>☐ other / question</div></div><div class="stream-options"><span><span class="checkbox a"></span> A</span><span><span class="checkbox b"></span> B</span><span><span class="checkbox c"></span> C</span></div><div class="lined-cell"></div></div><div class="ledger-row"><div class="row-num">2</div><div class="lined-cell"></div><div class="lined-cell"></div><div class="lined-cell"></div><div class="class-cell"><div>☐ donation</div><div>☐ grant</div><div>☐ membership</div><div>☐ service</div><div>☐ salary</div><div>☐ reimbursement</div><div>☐ other / question</div></div><div class="stream-options"><span><span class="checkbox a"></span> A</span><span><span class="checkbox b"></span> B</span><span><span class="checkbox c"></span> C</span></div><div class="lined-cell"></div></div><div class="ledger-row"><div class="row-num">3</div><div class="lined-cell"></div><div class="lined-cell"></div><div class="lined-cell"></div><div class="class-cell"><div>☐ donation</div><div>☐ grant</div><div>☐ membership</div><div>☐ service</div><div>☐ salary</div><div>☐ reimbursement</div><div>☐ other / question</div></div><div class="stream-options"><span><span class="checkbox a"></span> A</span><span><span class="checkbox b"></span> B</span><span><span class="checkbox c"></span> C</span></div><div class="lined-cell"></div></div></div>
+<div class="legend"><div class="legend-item"><span class="checkbox a"></span> A — Land / Life</div><div class="legend-item"><span class="checkbox b"></span> B — Steward Viability</div><div class="legend-item"><span class="checkbox c"></span> C — Governance / Commons</div><div class="legend-item">Purpose / relation tag: __________________</div></div>
+<div class="return-block"><div class="return-head"><h2>Later observed return</h2><span>Complete only when something has actually been encountered or documented.</span></div><div class="return-grid"><div><strong>Transaction # / return date</strong><div class="twolines"></div></div><div><strong>What was observed—and by whom?</strong><div class="twolines"></div></div><div><strong>Evidence / source reference</strong><div class="twolines"></div></div><div><strong>Uncertainty, correction or next review</strong><div class="twolines"></div></div></div></div>
+<div class="rulebox"><div class="panel"><h2>Trace without capture</h2><p>Keep Land / Life, Steward Viability and Governance / Commons separately visible. A benefit in one stream cannot cancel harm or depletion in another.</p></div><div class="panel"><h2>Consent and accounting</h2><p>Protect names, schools, minors, sensitive places and records. Consent remains revisable. Apply dual review where required. Questions remain questions until resolved.</p></div></div>
+<div class="footer"><div class="small"><strong>Remember:</strong> One flow per row. Link intended use to the transaction; link later observed return to evidence and date. This sheet does not activate a PG Ledger, create a relationship or replace formal accounting.</div><div class="examples"><span class="tag">receipt</span><span class="tag">transfer ref.</span><span class="tag">purpose tag</span><span class="tag">later return</span></div></div></div>
 </body>
 </html>
