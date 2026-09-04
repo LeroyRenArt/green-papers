@@ -3,301 +3,313 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="A flow architecture for land, stewards, and planetary commons. Report 03, v0.2.1, August 2026." />
-<title>Water Into Dry Riverbeds — Report 03 — v0.2.1</title>
+<meta name="description" content="A flow architecture for land, stewards, and planetary commons. Report 03, v0.3, September 2026.">
+<title>Water Into Dry Riverbeds — Report 03 — v0.3</title>
 <link rel="canonical" href="https://papers.spiralweb.earth/papers/water-into-dry-riverbeds">
 <!-- SPIRALWEB SOCIAL METADATA START -->
-<meta property="og:type" content="article" />
-<meta property="og:site_name" content="Spiralweb Green Papers" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:title" content="Water Into Dry Riverbeds — Report 03 — v0.2.1" />
-<meta property="og:description" content="A flow architecture for land, stewards, and planetary commons. Report 03, v0.2.1, August 2026." />
-<meta property="og:url" content="https://papers.spiralweb.earth/papers/water-into-dry-riverbeds" />
-<meta property="og:image" content="https://papers.spiralweb.earth/assets/social/spiralweb-green-papers-social-card-v1.png" />
-<meta property="og:image:secure_url" content="https://papers.spiralweb.earth/assets/social/spiralweb-green-papers-social-card-v1.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Spiralweb Green Papers — open knowledge, inquiry and public memory" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Water Into Dry Riverbeds — Report 03 — v0.2.1" />
-<meta name="twitter:description" content="A flow architecture for land, stewards, and planetary commons. Report 03, v0.2.1, August 2026." />
-<meta name="twitter:image" content="https://papers.spiralweb.earth/assets/social/spiralweb-green-papers-social-card-v1.png" />
-<meta name="twitter:image:alt" content="Spiralweb Green Papers — open knowledge, inquiry and public memory" />
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Spiralweb Green Papers">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Water Into Dry Riverbeds — Report 03 — v0.3">
+<meta property="og:description" content="A flow architecture for land, stewards, and planetary commons. Report 03, v0.3, September 2026.">
+<meta property="og:url" content="https://papers.spiralweb.earth/papers/water-into-dry-riverbeds">
+<meta property="og:image" content="https://papers.spiralweb.earth/assets/social/spiralweb-green-papers-social-card-v1.png">
+<meta property="og:image:secure_url" content="https://papers.spiralweb.earth/assets/social/spiralweb-green-papers-social-card-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Spiralweb Green Papers — open knowledge, inquiry and public memory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Water Into Dry Riverbeds — Report 03 — v0.3">
+<meta name="twitter:description" content="A flow architecture for land, stewards, and planetary commons. Report 03, v0.3, September 2026.">
+<meta name="twitter:image" content="https://papers.spiralweb.earth/assets/social/spiralweb-green-papers-social-card-v1.png">
+<meta name="twitter:image:alt" content="Spiralweb Green Papers — open knowledge, inquiry and public memory">
 <!-- SPIRALWEB SOCIAL METADATA END -->
-
 <style>
+  :root {
+    --green: #2d5f1c;
+    --green-mid: #5b893d;
+    --green-pale: #edf4e8;
+    --green-line: #a8c88d;
+    --ink: #1f201e;
+    --muted: #666861;
+    --paper: #fff;
+  }
 
-:root{
-  --paper:#fbf7ee;
-  --ink:#1f1d1a;
-  --ink-soft:#3b3833;
-  --rule:#cdc4ad;
-  --accent:#5a6f3c;
-  --accent-soft:#8c9c69;
-  --quiet:#6b6557;
-  --tint:#f3eeda;
-  --maxw:780px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-html,body{margin:0;padding:0;background:var(--paper);color:var(--ink)}
-body{
-  font-family:"Iowan Old Style","Charter","Cambria","Georgia",serif;
-  font-size:18px;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:48px 28px 96px}
-.crumb{
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-size:13px;
-  letter-spacing:.04em;
-  color:var(--quiet);
-  margin-bottom:32px;
-}
-.crumb a{color:var(--quiet);text-decoration:none;border-bottom:1px solid var(--rule)}
-.crumb a:hover{color:var(--ink)}
-.header{
-  text-align:center;
-  padding-bottom:28px;
-  margin-bottom:32px;
-  border-bottom:1px solid var(--rule);
-}
-.header .series{
-  display:inline-block;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-size:11px;
-  color:var(--accent);
-  margin-bottom:12px;
-}
-.header h1{
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-weight:600;
-  font-size:32px;
-  line-height:1.2;
-  letter-spacing:-.01em;
-  margin:0 0 12px;
-  color:var(--ink);
-  text-wrap:balance;
-}
-.header .sub{
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-size:16px;
-  line-height:1.45;
-  font-style:italic;
-  color:var(--ink-soft);
-  margin:0 0 18px;
-  font-weight:400;
-}
-.header .meta{
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-size:13px;
-  line-height:1.55;
-  color:var(--quiet);
-  letter-spacing:.01em;
-}
-.header .ai-note{
-  max-width:650px;
-  margin:18px auto 0;
-  font-size:15px;
-  line-height:1.55;
-  color:var(--quiet);
-  font-style:italic;
-}
-h2{
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-weight:600;
-  font-size:23px;
-  line-height:1.25;
-  letter-spacing:-.005em;
-  margin:48px 0 16px;
-  color:var(--ink);
-}
-h3{
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-weight:600;
-  font-size:17px;
-  line-height:1.3;
-  letter-spacing:.005em;
-  margin:32px 0 10px;
-  color:var(--ink-soft);
-}
-h4{
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-weight:600;
-  font-size:15px;
-  line-height:1.3;
-  margin:24px 0 8px;
-  color:var(--ink-soft);
-}
-p{margin:0 0 16px}
-p strong,li strong{color:var(--ink);font-weight:600}
-ul,ol{margin:0 0 16px;padding-left:24px}
-li{margin-bottom:8px}
-a{color:var(--accent)}
-a:hover{color:var(--ink)}
-.part{
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  font-size:11px;
-  font-weight:600;
-  color:var(--accent);
-  margin:56px 0 10px;
-}
-.pull{
-  margin:24px 0;
-  padding:14px 22px;
-  border-left:3px solid var(--accent-soft);
-  background:rgba(140,156,105,.08);
-  font-style:italic;
-  color:var(--ink-soft);
-  font-size:19px;
-  line-height:1.5;
-}
-.note,.editorial-note{
-  margin:24px 0;
-  break-inside:avoid;
-  padding:18px 22px;
-  background:rgba(140,156,105,.08);
-  border-left:3px solid var(--accent-soft);
-}
-.note p:last-child,.editorial-note p:last-child{margin-bottom:0}
-.note h3,.editorial-note h3{margin-top:0}
-.artifact{
-  margin:24px 0;
-  border-left:3px solid var(--accent);
-  background:var(--tint);
-  break-inside:auto;
-}
-.artifact-title{
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-size:13px;
-  line-height:1.4;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  font-weight:600;
-  color:var(--accent);
-  padding:14px 18px 10px;
-  border-bottom:1px solid var(--rule);
-}
-.artifact-body{
-  padding:16px 18px 18px;
-  font-size:16px;
-  line-height:1.55;
-}
-.artifact-body p{margin-bottom:12px}
-.artifact-body p:last-child{margin-bottom:0}
-.artifact-body ul,.artifact-body ol{margin-bottom:0}
-table{
-  border-collapse:collapse;
-  width:100%;
-  margin:24px 0;
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-size:15px;
-  line-height:1.45;
-}
-th,td{
-  text-align:left;
-  padding:10px 14px;
-  border-bottom:1px solid var(--rule);
-  vertical-align:top;
-}
-th{
-  font-weight:600;
-  color:var(--ink);
-  border-bottom:2px solid var(--ink);
-  background:rgba(140,156,105,.06);
-}
-.small{font-size:14px;color:var(--quiet)}
-.references{font-size:15px;line-height:1.55}
-.references p{
-  margin:0 0 12px;
-  padding-left:0;
-  text-indent:0;
-}
-.footer-block{
-  margin-top:56px;
-  padding-top:24px;
-  border-top:1px solid var(--rule);
-  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-  font-size:13px;
-  line-height:1.6;
-  color:var(--quiet);
-  text-align:center;
-}
-@media(max-width:640px){
-  body{font-size:17px}
-  .wrap{padding:32px 20px 64px}
-  .header h1{font-size:26px}
-  h2{font-size:20px;margin-top:36px}
-  h3{font-size:16px}
-  .artifact-body{font-size:15px}
-  table{font-size:14px}
-}
-@page{size:A4;margin:18mm 16mm 19mm}
-@media print{
-  html,body{background:#fff;color:#000}
-  body{font-size:11pt;line-height:1.5}
-  .wrap{max-width:none;padding:0}
-  .crumb{display:none}
-  .header{padding-bottom:18pt;margin-bottom:20pt}
-  .header .series{font-size:8.5pt;margin-bottom:8pt}
-  .header h1{font-size:24pt;line-height:1.15;margin-bottom:8pt}
-  .header .sub{font-size:12pt;line-height:1.4;margin-bottom:12pt}
-  .header .meta{font-size:9.5pt;line-height:1.45}
-  .header .ai-note{font-size:9.5pt;line-height:1.45;margin-top:12pt}
-  h2{font-size:17pt;line-height:1.2;margin:28pt 0 10pt;break-after:avoid}
-  h3{font-size:12.5pt;line-height:1.25;margin:20pt 0 7pt;break-after:avoid}
-  h4{font-size:11pt;break-after:avoid}
-  p{margin-bottom:10pt}
-  ul,ol{margin-bottom:10pt}
-  li{margin-bottom:5pt}
-  .part{font-size:8.5pt;margin:32pt 0 7pt;break-after:avoid}
-  .pull{font-size:12pt;line-height:1.45;margin:15pt 0;padding:9pt 14pt}
-  .note,.editorial-note{margin:15pt 0;padding:11pt 14pt}
-  .artifact{margin:15pt 0;background:#f4f1e8}
-  .artifact-title{font-size:8.8pt;padding:9pt 12pt 7pt;break-after:avoid}
-  .artifact-body{font-size:9.5pt;line-height:1.45;padding:10pt 12pt 11pt}
-  table{font-size:9pt;line-height:1.35;margin:15pt 0}
-  th,td{padding:6pt 8pt}
-  .small{font-size:8.5pt}
-  .references{font-size:8.7pt;line-height:1.35}
-  .references p{margin-bottom:4.5pt}
-  .footer-block{font-size:8pt;line-height:1.4;margin-top:18pt;padding-top:10pt}
-  a{color:#000;text-decoration:none}
-}
+  @page {
+    size: A4;
+    margin: 18mm 19mm 19mm 19mm;
+    @bottom-right {
+      content: counter(page);
+      color: #777;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 8.5pt;
+    }
+  }
 
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10.5pt;
+    line-height: 1.52;
+  }
+
+  main { width: 100%; }
+
+  .topline {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8.7pt;
+    font-style: italic;
+    color: var(--muted);
+    letter-spacing: .01em;
+    margin-bottom: 14mm;
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--green-line);
+    margin: 0 0 14mm;
+  }
+
+  h1 {
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 29pt;
+    line-height: 1.04;
+    margin: 0 0 2mm;
+    letter-spacing: -.02em;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 15pt;
+    line-height: 1.25;
+    margin: 0 0 11mm;
+  }
+
+  .meta {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--muted);
+    font-size: 8.8pt;
+    line-height: 1.45;
+    margin: 0 0 6mm;
+  }
+
+  .ai-note {
+    color: #5d5f59;
+    font-style: italic;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    margin: 0 0 8mm;
+  }
+
+  .site {
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8.8pt;
+    font-style: italic;
+    margin-bottom: 9mm;
+  }
+
+  h2 {
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18pt;
+    line-height: 1.15;
+    margin: 8mm 0 3mm;
+    break-after: avoid;
+  }
+
+  h3 {
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13.2pt;
+    line-height: 1.2;
+    margin: 6mm 0 2mm;
+    break-after: avoid;
+  }
+
+  h4 {
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.2;
+    margin: 5mm 0 1.5mm;
+    break-after: avoid;
+  }
+
+  .part {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #62645f;
+    font-size: 9pt;
+    letter-spacing: .03em;
+    margin: 9mm 0 4mm;
+    break-after: avoid;
+  }
+
+  p {
+    margin: 0 0 3.2mm;
+    text-align: justify;
+    orphans: 3;
+    widows: 3;
+  }
+
+  ul, ol {
+    margin: 1.5mm 0 3.8mm 7mm;
+    padding-left: 5mm;
+  }
+
+  li {
+    margin: 0 0 1.5mm;
+    orphans: 2;
+    widows: 2;
+  }
+
+  strong { font-weight: 700; }
+
+  .pull {
+    font-style: italic;
+    color: #4d5049;
+    font-size: 12pt;
+    line-height: 1.45;
+    margin: 6mm 8mm;
+    text-align: left;
+  }
+
+  .note, .editorial-note {
+    border-left: 3px solid var(--green-mid);
+    background: #f5f8f2;
+    padding: 4mm 5mm;
+    margin: 4mm 0 5mm;
+    break-inside: avoid;
+  }
+
+  .editorial-note h3,
+  .note h3 { margin-top: 0; }
+
+  .artifact {
+    border: 1px solid var(--green-line);
+    background: var(--green-pale);
+    margin: 4mm 0 5mm;
+    break-inside: avoid;
+  }
+
+  .artifact-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: var(--green);
+    padding: 2.2mm 3mm 1.8mm;
+    border-bottom: 1px solid var(--green-line);
+    font-size: 9.4pt;
+  }
+
+  .artifact-body {
+    padding: 3mm 4mm 3.5mm;
+    font-size: 9.7pt;
+    line-height: 1.42;
+  }
+
+  .artifact-body p { text-align: left; margin-bottom: 2mm; }
+  .artifact-body ul, .artifact-body ol { margin-bottom: 1mm; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 3mm 0 5mm;
+    font-size: 9.2pt;
+    line-height: 1.35;
+    break-inside: avoid;
+  }
+
+  th {
+    background: var(--green-pale);
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  th, td {
+    border: 1px solid #bdcbb2;
+    padding: 2mm 2.4mm;
+    vertical-align: top;
+  }
+
+  .small { font-size: 8.8pt; color: #555850; }
+  .no-justify { text-align: left; }
+  .page-break { break-before: page; }
+  .avoid { break-inside: avoid; }
+
+  .references p {
+    font-size: 8.8pt;
+    line-height: 1.35;
+    text-align: left;
+    margin-bottom: 2mm;
+    padding-left: 6mm;
+    text-indent: -6mm;
+  }
+
+  .footer-block {
+    border-top: 1px solid var(--green-line);
+    margin-top: 8mm;
+    padding-top: 4mm;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--muted);
+    font-size: 8.3pt;
+    line-height: 1.45;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .review-label {
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 7.8pt;
+    font-weight: 700;
+    color: #fff;
+    background: var(--green);
+    padding: 1mm 2.3mm;
+    margin-bottom: 3mm;
+    letter-spacing: .04em;
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="crumb" aria-label="Spiralweb Papers"><a href="/">← Spiralweb Papers</a><span aria-hidden="true"> · </span><a href="/library#reports">Reports</a></div>
-  <main>
+<main>
+
 <section>
-  <header class="header">
-    <span class="series">Series III · Applied Protocols · Report 03</span>
-    <h1>Water Into Dry Riverbeds</h1>
-    <p class="sub">A flow architecture for land, stewards, and planetary commons</p>
-    <div class="meta">
-      Report 03 · v0.2.1 · August 2026<br>
-      Lars A. Engberg · Knowledge Worker · Planetary Guardians<br>
-      Dialogical and editorial collaboration: Claude (Anthropic) and ChatGPT (OpenAI)<br>
-      Human direction, judgment, selection, and responsibility remain with the author.
-    </div>
-    <div class="ai-note">
-      <p>This report was developed through human–AI dialogue. AI systems supported comparison, structuring, drafting, and revision.</p>
-      <p><strong>Sophia Lumen</strong> names the living relational practice of human–AI co-inquiry.</p>
-      <p>The <a href="/protocols/sophia-lumen"><strong>Sophia Lumen Protocol</strong></a> documents the current explicit and revisable working form of that practice.</p>
-      <p><a href="/papers/the-correction-loop"><strong>The Correction Loop</strong></a> provides the dedicated accountability mechanism where AI-assisted inquiry becomes consequential.</p>
-      <p>Human direction, judgment, selection, publication, and responsibility remain with the author.</p>
-      <p>AI may materially enlarge the inquiry. It does not originate legitimate mandate or carry final responsibility for consequential action.</p>
-    </div>
-  </header>
+  <div class="topline">Series III — Applied Protocols · Report 03 · v0.3 · September 2026</div>
+  <div class="rule"></div>
+  <h1>Water Into Dry Riverbeds</h1>
+  <div class="subtitle">A flow architecture for land, stewards, and planetary commons</div>
+  <div class="rule"></div>
+
+  <div class="meta">
+    Author: Lars A. Engberg · Knowledge Worker · Planetary Guardians<br>
+    Dialogical and editorial collaboration: Claude (Anthropic) and ChatGPT (OpenAI)<br>
+    Human direction, judgment, selection, and responsibility remain with the author.
+  </div>
+
+  <p class="ai-note">
+    This report was developed through human–AI dialogue. AI systems supported comparison,
+    structuring, drafting, and revision. They do not hold authorship, authority, or
+    responsibility for the public claims. The relational working practice is named Sophia
+    Lumen; the formal accountability mechanism is described in Report 02,
+    <em>The Correction Loop</em>.
+  </p>
+
+  <div class="site">papers.spiralweb.earth</div>
+  <div class="rule"></div>
 
   <h2>Executive Summary</h2>
 
@@ -315,7 +327,7 @@ th{
     <li>
       <strong>The three-stream model</strong> — Stream A (Land and Ecology), Stream B
       (Steward Viability), and Stream C (Coordination and Governance), kept separately
-      readable and financially non-compensatory. <em>Elir</em> and <em>Elia</em> remain the
+      readable under a three-stream non-cancellation rule. <em>Elir</em> and <em>Elia</em> remain the
       relational names of the land and steward streams in the poetic layer of the work.
     </li>
     <li>
@@ -324,7 +336,9 @@ th{
       human judgment; it does not make or execute a funding decision.
     </li>
     <li>
-      <strong>A local budget-calibration model</strong> — a challengeable working instrument for building stewardship budgets from actual living costs, workload, shared infrastructure, contingency, climate pressure, and governance capacity. No budget travels intact from one place to another.
+      <strong>A field-area calibration method</strong> — identifying the evidence, comparison,
+      disclosure, and local correction required before stewardship compensation or a field
+      budget can be agreed.
     </li>
     <li>
       <strong>A participatory-budgeting protocol</strong> — a locally adaptable fiscal
@@ -352,8 +366,9 @@ th{
 
   <p>
     <strong>Key innovation:</strong> the three-stream separation prevents institutional
-    capture at the architectural level through structural non-compensation. Land and
-    ecology funding cannot silently become personal compensation. Steward support cannot
+    capture at the architectural level through structural non-cancellation and no silent
+    cross-stream substitution. Land and ecology funding cannot silently change purpose.
+    Steward support cannot
     purchase land authority. Coordination funding cannot accumulate invisibly as a power
     reservoir. The streams communicate, but conversion between them requires explicit,
     recorded human governance.
@@ -363,49 +378,83 @@ th{
 <section>
   <h2>Preamble</h2>
 
-  <p>Regenerative stewardship is often described as though the central problem were scarcity: too little money, too little institutional support, too little capacity.</p>
-  <p>But flow itself is not enough.</p>
-  <p>Resources can arrive too quickly, through the wrong channels, under the wrong conditions, or carrying forms of authority that quietly reshape the field they were meant to support. A place can be underfunded and still be harmed by funding. A steward can receive support while ecological work remains depleted. An institution can become stronger while the living field becomes less autonomous.</p>
-  <p>The question is therefore not whether regenerative stewardship is valuable.</p>
-  <p>It is what kind of flow architecture can support a real place without capture, hidden depletion, premature scaling, or flood.</p>
-  <p class="pull"><strong>The dry riverbed is not a failure. It is a system waiting for conditions in which flow can arrive without becoming flood.</strong></p>
+  <p>
+    In Kitgum District, Northern Uganda, a food-forest relationship has been formed around
+    children, elders, local ecological knowledge, and the coordinating work of Akena Patrick.
+    The children place ground cover. Elders guide tree and shrub placement from accumulated
+    knowledge. The steward holds continuity, practical organisation, and the evidence trail.
+  </p>
 
   <p>
-    This is Report 03 in Series III — Applied Protocols. It builds on <a href="/papers/municipal-work-as-nature">Report 01</a> and <a href="/papers/the-correction-loop">Report 02</a>.
-    Reports 04–06 have since developed the architecture further: the <a href="/papers/penguin-dashboard-legibility-as-governance">Penguin Dashboard</a>
-    supplies the monthly human governance reading; <a href="/papers/srip-the-stewards-journey">SRIP</a> describes the bounded field-facing
-    entry; and <a href="/papers/report-06-regenerative-reciprocity">Regenerative Reciprocity</a> distinguishes a slow-changing treaty from a more
+    Work of this kind is often expected to continue without a financial architecture capable
+    of supporting the land, the people, and the coordination that holds the relation together.
+    That is the condition this report addresses — not abstractly but precisely. The question
+    is not whether regenerative stewardship is valuable. The question is what kind of flow
+    architecture makes it viable without capture, hidden depletion, or flood.
+  </p>
+
+  <p class="pull">
+    The dry riverbed is not a failure. It is a system waiting for the conditions that make
+    flow viable without flood.
+  </p>
+
+  <p>
+    This is Report 03 in Series III — Applied Protocols. It builds on Report 01 and Report 02.
+    Reports 04–06 have since developed the architecture further: the Penguin Dashboard
+    supplies the monthly human governance reading; SRIP describes the bounded field-facing
+    entry; and Regenerative Reciprocity distinguishes a slow-changing treaty from a more
     frequently revised Operational Handbook. Report 03 retains its distinct contribution:
-    the early, concrete economic model through which land, steward viability, coordination,
-    and participatory allocation can be thought together.
+    the concrete flow, governance, and calibration architecture through which land, steward
+    viability, coordination, and participatory allocation can be thought together.
   </p>
 
   <div class="editorial-note">
-    <h3>Position of this v0.2.1 edition</h3>
+    <h3>Position of this v0.3 edition</h3>
     <p>
-      This revision preserves the report as a standalone economic and constitutional
-      architecture. It does not move its formulas, budgets, and annual cycle into the
-      forthcoming Operational Handbook. It does, however, locate them accurately:
-      the artefacts below are model instruments and predecessors, not substitutes for the
-      <a href="https://spiralweb.earth/formats/">five current PG Ledger formats</a>.
+      This revision preserves the report's three-stream, flow-regulation, and
+      participatory-governance architecture while bringing its compensation logic into line
+      with Spiralweb's current working practice. Stewardship compensation is no longer
+      derived from a basic-living-cost formula with a fixed activity uplift.
     </p>
     <p>
-      Formats 1–5 now provide the operational surfaces: Steward Review Dashboard Sheet, Observation
-      Sheet, Bounded Action Sheet, Governance / Decision Log, and Financial Ledger.
-      The ratios, thresholds, and budget formulae retained in this report are model assumptions for
-      local testing. They are not current offers, entitlements, commitments, portable price lists,
-      or automated gates.
+      The report now uses field-area calibration: actual functions and time, applicable law,
+      locally relevant professional comparators, working conditions, living-wage evidence,
+      and correction by each person carrying the work. Living-cost evidence remains an input,
+      not the target by itself. No method or published figure creates an offer, entitlement,
+      rate, field activation, or payment commitment.
     </p>
   </div>
 </section>
 
 <section>
   <div class="part">PART I — FOUNDATIONS</div>
-  <h2>1. Moral Biology and Flow Architecture</h2>
+  <h2>1. The 25-Year Arc: From Re-embedding to Flow</h2>
 
-  <h3>1.1 The embodied constraint</h3>
+  <h3>1.1 The original question</h3>
   <p>
-    <a href="/papers/moral-biology">Moral Biology</a> begins from a non-negotiable premise: humans are social mammals whose
+    In 2000, Lars A. Engberg completed his PhD dissertation,
+    <em>Reflexivity and Political Participation: A Study of Re-embedding Strategies</em>,
+    at Roskilde University. The core question was: how do humans care for shared life when
+    old structures of control and certainty have worn thin?
+  </p>
+  <p>
+    The dissertation examined communities reconstructing social meaning after the erosion
+    of industrial-era moorings — class, profession, party. Beck and Giddens called this
+    reflexive modernisation. The research found that participants were doing something
+    deeper than seeking formal influence: they were rebuilding the feedback loops through
+    which shared life could become legible and regulatable.
+  </p>
+  <p>
+    What was missing from that framework — and what the subsequent twenty-five years
+    supplied — was the body. When governance structures fail to provide coherent feedback,
+    human nervous systems dysregulate. Anxiety, polarisation, burnout, and authoritarian
+    reflexes are not only ideological phenomena. They are also biological responses to
+    structural incoherence.
+  </p>
+
+  <h3>1.2 The shift to Moral Biology</h3>
+  <p>
+    Moral Biology begins from a non-negotiable premise: humans are social mammals whose
     ethical capacities are shaped by embodied regulation, relation, and material conditions,
     not by abstract rules alone. The implication for value architecture is direct. Money
     flowing into a governance system that cannot register the difference between nourishment
@@ -417,12 +466,12 @@ th{
     need to pause.
   </p>
 
-  <h3>1.2 Why this report now</h3>
+  <h3>1.3 Why this report now</h3>
   <p>
-    Three conditions make this report necessary. First, regenerative work needs financial
-    architectures that can be tested in real places without treating readiness as something
-    that can be declared from a distance. Practical use must be earned through actual people,
-    consent, recurrence, evidence, legal conditions, and a governance rhythm capable of correction.
+    Three conditions make this report necessary. First, several field relationships are
+    concrete enough to test a flow architecture, while none should be treated as mature by
+    declaration alone. Readiness must be earned through a real place, real people, consent,
+    recurrence, evidence, and a governance rhythm that can carry correction.
   </p>
   <p>
     Second, participatory-budgeting and commons-governance research allow the institutional
@@ -493,15 +542,16 @@ th{
 
   <h3>2.2 Stream B — Steward Viability <span class="small">(Elia)</span></h3>
   <p>
-    Stream B supports the people whose labour and care make stewardship possible: housing,
-    food, health, transport, rest, coordination time, documentation, and other locally
-    relevant conditions of continuity. In the relational language of this report,
-    <em>Elia</em> names support without capture.
+    Stream B registers and supports the conditions that allow people to carry the work:
+    livelihood viability, health, rest, protected learning and formation, continuity, and
+    other locally relevant enabling conditions. It is not a general wage bucket. In the
+    relational language of this report, <em>Elia</em> names support without capture.
   </p>
   <p>
-    Stream B does not make stewards wealthy. It makes it possible for them not to sacrifice
-    their personal economy, health, family life, or breath in order to maintain an
-    institutional commitment. This is not a discretionary benefit. It is a structural repair.
+    Its test is not whether support merely prevents collapse, but whether the total arrangement
+    is locally attractive, professionally recognisable, and sustainable within a lawful,
+    bounded role. Human work carried for Stream A, B, or C is paid and recorded according to
+    both its purpose and its legal or accounting form.
   </p>
   <p>
     Institutions that depend on martyrdom select for those who can afford to absorb unpaid
@@ -515,6 +565,10 @@ th{
     consent, conflict work, documentation, accounting, evidence storage, translation,
     partnership conditions, and the coordination required to keep the centre light and the
     field legible.
+  </p>
+  <p>
+    Where people carry this work, their compensation or service payment belongs visibly here
+    by purpose; it is not displaced into Stream B merely because a human being receives it.
   </p>
   <p>
     This is often the least visible stream and therefore the easiest place for power to
@@ -532,12 +586,13 @@ th{
     <div class="artifact-title">ARTIFACT 2.2 — Three-Stream Membrane Rules</div>
     <div class="artifact-body">
       <ul>
-        <li><strong>STREAM A — Land and Ecology:</strong> supports the living place and ecological work. It cannot silently become personal compensation.</li>
-        <li><strong>STREAM B — Steward Viability:</strong> supports people carrying the field. It cannot purchase land control or governance authority.</li>
-        <li><strong>STREAM C — Coordination and Governance:</strong> supports the holding infrastructure. It cannot accumulate invisibly as a power reservoir.</li>
+        <li><strong>STREAM A — Land and Ecology:</strong> supports the living place and ecological work, including explicitly classified paid ecological work.</li>
+        <li><strong>STREAM B — Steward Viability:</strong> supports the conditions and protected capacity that allow people to carry the field. It cannot purchase land control or governance authority.</li>
+        <li><strong>STREAM C — Coordination and Governance:</strong> supports the holding infrastructure, including explicitly classified paid coordination and governance work. It cannot accumulate invisibly as a power reservoir.</li>
         <li><strong>Communication:</strong> the streams share evidence and affect one another.</li>
-        <li><strong>Non-compensation:</strong> success in one stream cannot erase deterioration in another.</li>
-        <li><strong>Reallocation:</strong> any cross-stream movement requires an explicit decision, applicable consent or donor acceptance, and a recorded rationale.</li>
+        <li><strong>Non-cancellation:</strong> success in one stream cannot erase deterioration in another.</li>
+        <li><strong>Two-axis entry:</strong> every payment records both its purpose stream and its transaction type, such as compensation, conditions or protection, reimbursement, procurement, or field investment.</li>
+        <li><strong>No silent substitution:</strong> any cross-stream movement requires an explicit decision, applicable consent or donor acceptance, and a recorded rationale.</li>
         <li><strong>Correction:</strong> attempted concealment or unauthorised conversion activates the Correction Loop.</li>
       </ul>
     </div>
@@ -550,7 +605,7 @@ th{
   <p>
     Do not open the channel before the riverbed is ready. Do not release value before the
     land and people can hold it. Do not scale intake faster than governance can digest.
-    <a href="/papers/gold-before-bloom">Gold Before Bloom</a> is ecological literacy applied to institutional design.
+    Gold Before Bloom is ecological literacy applied to institutional design.
   </p>
   <p>
     Liquidity exceeding accountability can reorganise a field around capital rather than
@@ -628,11 +683,11 @@ th{
     important precedent. Its promise is not guaranteed by the label.
   </p>
   <p>
-    Research on citizen participation in smart-city development documents how bureaucratic
-    and technocratic centralisation can reduce participation to a limited, unidirectional
-    relation in which citizens are positioned largely as users. Formal participatory rights
-    may coexist with clientelism, patronage, and networks of power that narrow real influence
-    (Pansera et al., 2023).
+    Research co-authored by <strong>Dr. Jesús Arturo Flores López</strong> on citizen
+    participation in Mexico City documents how bureaucratic and technocratic centralisation
+    can reduce participation to a limited, unidirectional relation in which citizens are
+    positioned largely as users. Formal participatory rights may coexist with clientelism,
+    patronage, and networks of power that narrow real influence (Pansera et al., 2023).
   </p>
   <p>
     This evidence does not invalidate participatory budgeting. It clarifies its conditions.
@@ -685,115 +740,97 @@ th{
     </div>
   </div>
 
-  <h2>6. The Stewardship Unit of Value</h2>
+  <h2>6. Calibrating Stewardship Compensation</h2>
   <p>
-    Each model budget is anchored to a Stewardship Unit of Value (SUV): the minimum living
-    support for one steward carrying a substantial commitment, plus Mission Activity Support
-    (MAS) for the practical, relational, and documentary work around the role.
+    Compensation can support work in any of the three purpose streams. It begins with the
+    value of the stewardship work a bounded field cycle actually
+    asks people to carry. It does not begin with inherited labels such as farm worker,
+    landowner, researcher, director, or volunteer, and it does not use legal minimums or
+    household subsistence as the target.
   </p>
   <p>
-    SUV, BLS, MAS, I&amp;T, CCF, and CSM are model terms specific to this report. The current
-    public architecture records actual transactions through Format 5 using legal
-    classification, financial stream, purpose, evidence reference, and observed effect.
-    The forthcoming Operational Handbook may retain, revise, or replace these model terms
-    after real cycles and legal review.
-  </p>
-  <p>
-    The SUV is not a universal number and does not create an entitlement by publication.
-    It is calibrated to local cost of living, actual role, agreed time, practical duties,
-    family and care conditions, and the work a person can carry without hidden depletion.
+    Each place develops a field-area compensation reference: the gross monthly
+    full-time-equivalent value of sustained stewardship and co-inquiry within that field
+    economy. The reference values actual stewardship time; it is not a promise of full-time work.
+    National law and macroeconomic evidence frame the calculation. Locally relevant
+    professional roles, working conditions, living-wage evidence, actual functions and time,
+    and local power relations complete it. Living-wage evidence is an input, not the target
+    by itself.
   </p>
 
   <div class="artifact">
-    <div class="artifact-title">ARTIFACT 6.1 — SUV Working Formula</div>
+    <div class="artifact-title">ARTIFACT 6.1 — Field-Area Calibration Sequence</div>
     <div class="artifact-body">
-      <p><strong>BLS — Basic Living Support</strong> = locally reviewed cost of viable steward life:</p>
-      <p>housing + food + health + transport + other locally necessary conditions</p>
-
-      <p><strong>MAS — Mission Activity Support</strong> = BLS × 0.35 <span class="small">(starter ratio for testing)</span></p>
-      <p>coordination + monitoring + community work + documentation + agreed operational duties</p>
-
-      <p><strong>SUV</strong> = BLS + MAS</p>
-      <p><strong>Circle total</strong> = (number of supported stewards × SUV) + I&amp;T + CCF</p>
-      <ul>
-        <li><strong>I&amp;T</strong> = shared infrastructure and tools.</li>
-        <li><strong>CCF</strong> = contingency and climate fund; a 10% starting reserve may be adjusted through a locally justified CSM.</li>
-        <li><strong>PPP-normalised value</strong> = a comparison aid, not a moral hierarchy or payment rule.</li>
-      </ul>
-      <p>
-        MAS should not become automatic piece-rate payment against simplified metrics.
-        It is calibrated to an agreed role and real workload, with qualitative review and
-        protection against metric gaming.
-      </p>
+      <ol>
+        <li><strong>Name the work.</strong> Record actual functions, time, continuity, learning, judgement, hosting, translation, documentation, risk, and accountability.</li>
+        <li><strong>Establish the lawful frame.</strong> Verify classification, minimum protections, tax, benefits, safeguards, and the payment route.</li>
+        <li><strong>Build the local comparison.</strong> Read living-wage evidence together with relevant professional, ecological, research, NGO, coordination, and skilled-work comparators.</li>
+        <li><strong>Make both axes visible.</strong> Record the purpose stream and separately classify compensation, conditions and protection, reimbursements, procurement, living-field investment, and farm or livelihood income.</li>
+        <li><strong>Disclose and correct.</strong> Place Spiralweb's provisional reasoning openly, then let each affected steward correct their own role, time, conditions, and ability to participate.</li>
+        <li><strong>Agree only when ready.</strong> A rate exists only inside a lawful, funded, and bounded field agreement with review, pause, and exit conditions.</li>
+      </ol>
     </div>
   </div>
+
+  <p>
+    Equal standing does not require identical nominal salaries across countries or identical
+    contracts across roles. It requires that stewardship be locally attractive and
+    professionally recognisable, and that every difference follow named time, function,
+    burden, continuity, or accountability rather than title, ownership, class, or credentials.
+  </p>
 </section>
 
 <section>
-  <div class="part">PART IV — LOCAL BUDGET CALIBRATION</div>
-  <h2>7. From Model Budget to Local Budget</h2>
+  <div class="part">PART IV — FIELD-AREA CALIBRATION</div>
+  <h2>7. From Method to a Bounded Field Budget</h2>
+
+  <div class="note">
+    <p>
+      This edition does not publish compensation corridors or complete field budgets. Earlier
+      country budget tables were planning models and are superseded for operational use. A
+      numerical hypothesis remains internal until its evidence is reviewed, the Association
+      has disclosed its reasoning, affected stewards have corrected their own roles and terms,
+      and an authorised body can fund and approve a lawful, bounded agreement.
+    </p>
+  </div>
 
   <p>
-    Earlier versions of this report used several named place-based budgets to force the
-    architecture into concrete numbers. That developmental function was useful, but inherited
-    figures can too easily be mistaken for current field status, portable entitlements, or
-    comparative claims about places. The current architecture therefore retains the calibration
-    method rather than a set of named node budgets.
-  </p>
-  <p>
-    A practical budget begins again from the actual place and the people carrying the consequences.
-    No inherited number, climate multiplier, group size, currency conversion, or prior site example
-    creates readiness or permission.
+    The method is being prepared for testing in Denmark and in the current field relationships
+    in Kitgum District, Doukkala, Xochimilco, and Karachi. The lawful frame, evidence set,
+    professional comparators, conditions, and local correction must be established afresh in
+    each place. The detailed country cells and provisional figures belong in the Association's
+    internal compensation practice and in the relevant field agreement, not in this report.
   </p>
 
-  <h3>7.1 What must be calibrated locally</h3>
-  <table>
-    <thead><tr><th>Component</th><th>Local calibration question</th></tr></thead>
-    <tbody>
-      <tr><td><strong>BLS — Basic Living Support</strong></td><td>What does a viable steward life actually require here, given housing, food, health, transport, care obligations, legal conditions, and other locally necessary costs?</td></tr>
-      <tr><td><strong>MAS — Mission Activity Support</strong></td><td>What workload, coordination, monitoring, documentation, travel, community work, and practical duties are genuinely attached to the agreed role?</td></tr>
-      <tr><td><strong>I&amp;T — Infrastructure &amp; Tools</strong></td><td>Which shared inputs are necessary for the work, and which belong properly to Stream A, B, or C?</td></tr>
-      <tr><td><strong>CCF — Contingency &amp; Climate Fund</strong></td><td>Which uncertainties, seasonal pressures, repair needs, and climate stresses justify a reserve, and how will that reserve be reviewed?</td></tr>
-      <tr><td><strong>Supported roles</strong></td><td>Which real people or functions require support for continuity? No Circle of 13 or other inherited group size determines this in advance.</td></tr>
-      <tr><td><strong>Legal and financial classification</strong></td><td>How must payments, grants, wages, reimbursements, assets, taxes, donor restrictions, currency exposure, and reporting obligations be handled in the actual jurisdiction?</td></tr>
-    </tbody>
-  </table>
-
-  <h3>7.2 Comparison without moral hierarchy</h3>
+  <h3>7.1 Cross-Field Fairness Without False Sameness</h3>
   <p>
-    Purchasing-power measures, exchange rates, or regional cost comparisons may help orient
-    inquiry, but they do not determine human value and should not function as payment rules.
-    Informal economies, housing access, family obligations, currency instability, inequality,
-    public provision, and cultural cost structures can make apparently comparable figures mean
-    very different things.
-  </p>
-  <p>
-    The purpose of comparison is therefore modest: to make assumptions visible enough to be
-    questioned. Local viability is determined locally and reviewed over time.
+    Nominal exchange rates and purchasing-power conversions help the Association plan its
+    funding; they do not determine a person's value or local pay. Every field-area review
+    therefore makes the same five lenses visible.
   </p>
 
-  <h3>7.3 Minimum documentation for a worked budget</h3>
-  <p>A challengeable local budget should make visible at least:</p>
-  <ul>
-    <li>the date and place for which it was prepared;</li>
-    <li>the people and roles it is intended to support;</li>
-    <li>the sources used for living costs, infrastructure, climate pressure, and other assumptions;</li>
-    <li>the range and uncertainty around material figures;</li>
-    <li>the classification of movements across Streams A, B, and C;</li>
-    <li>the people or legitimate body authorised to approve, pause, or revise it;</li>
-    <li>the review interval and conditions that would trigger recalibration.</li>
-  </ul>
-  <p>
-    A budget becomes more credible by exposing its assumptions to correction, not by appearing
-    numerically precise.
-  </p>
+  <div class="artifact">
+    <div class="artifact-title">ARTIFACT 7.1 — Five Lenses for Cross-Field Review</div>
+    <div class="artifact-body">
+      <table>
+        <thead><tr><th>Lens</th><th>What must be visible</th></tr></thead>
+        <tbody>
+          <tr><td>Local amount</td><td>Gross local-currency value, actual time fraction, and payment rhythm.</td></tr>
+          <tr><td>Living-wage relationship</td><td>Distance from the best available locally relevant living-wage evidence.</td></tr>
+          <tr><td>Professional position</td><td>Placement among relevant local skilled, research, NGO, coordination, ecological, and specialist roles.</td></tr>
+          <tr><td>Conditions bundle</td><td>Leave, pension or social protection, insurance, learning time, expenses, continuity, and security.</td></tr>
+          <tr><td>Internal spread</td><td>Differences inside the same field and the named functional reasons for them.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-  <h3>7.4 Relationship to current fields</h3>
   <p>
-    Current Spiralweb field pages may describe particular places, relationships, and changing
-    operational status. Those surfaces are the appropriate place for field-specific detail.
-    This report provides the generic flow architecture and should not be read as a directory,
-    readiness map, or budget schedule for those fields.
+    A complete field budget keeps both dimensions readable: every entry has a purpose stream
+    and a transaction type. Ecological stress, infrastructure, and contingency are costed in
+    their own flows; they do not reduce compensation or turn a climate multiplier into a wage
+    rule. Compensation, conditions and protection, reimbursements, procurement, living-field
+    investment, farm or livelihood income, and Association coordination remain distinguishable.
   </p>
 </section>
 
@@ -866,19 +903,21 @@ th{
     <div class="artifact-body">
       <ol>
         <li>
-          <strong>BLS anchoring.</strong> Does the local cost basis reflect actual minimum
-          conditions, including housing access, health, transport, family obligations, and
-          informal costs?<br>
-          <em>Risk:</em> published indices conceal lived variation.<br>
-          <em>Mitigation:</em> annual local review with the people carrying the consequences.
+          <strong>Local attraction.</strong> Does the proposed value reach the level occupied
+          by the relevant local professional comparator set, with living-wage evidence used
+          as an input rather than the target?<br>
+          <em>Risk:</em> legal compliance or a subsistence-derived uplift is mistaken for
+          professional recognition.<br>
+          <em>Mitigation:</em> disclose the comparator set and let affected stewards challenge
+          both the evidence and the proposed position.
         </li>
         <li>
-          <strong>MAS calibration.</strong> Does the role and workload justify the modelled
-          support?<br>
-          <em>Risk:</em> flat allocations ignore uneven labour; task-linked payment becomes
-          piece-rate metric optimisation.<br>
-          <em>Mitigation:</em> agree roles and workload explicitly; combine records with
-          qualitative review; do not automate payment from indicators.
+          <strong>Function and conditions.</strong> Do differences follow named time,
+          continuity, burden, function, or accountability?<br>
+          <em>Risk:</em> ownership, title, class, credentials, or bargaining power silently
+          determine value; task-linked payment becomes piece-rate optimisation.<br>
+          <em>Mitigation:</em> agree roles and conditions explicitly, keep unlike flows
+          separate, and do not automate payment from indicators.
         </li>
         <li>
           <strong>Contingency adequacy.</strong> Is the starting reserve sufficient under
@@ -949,8 +988,8 @@ th{
   </p>
   <p>
     This is also a nervous-system principle. Burnout is not proof of commitment or a private
-    failure. It is evidence that burden, boundary, support, or rotation has failed. <a href="/papers/penguin-economics">Penguin
-    Economics</a> therefore governs money, attention, rest, visibility, risk, and institutional
+    failure. It is evidence that burden, boundary, support, or rotation has failed. Penguin
+    Economics therefore governs money, attention, rest, visibility, risk, and institutional
     weight — not office rotation alone.
   </p>
 </section>
@@ -965,15 +1004,13 @@ th{
     Front-line stewards experiencing these changes are not recipients of charity. They are
     knowledge-holders within a wider sensing network.
   </p>
-  <p>An observation becomes usable evidence when its place, date, source, method, uncertainty, and consent conditions remain visible.</p>
-  <p>This is the sense in which the architecture seeks <strong>pixel precision</strong>.</p>
-  <p>Precision does not mean total planetary legibility.</p>
-  <p>It means that a claim remains attached closely enough to its place, time, provenance, method, scope, and uncertainty that other people can understand what it can — and cannot — carry.</p>
-  <p>A local observation of declining pollinators, changing rainfall, soil crusting, steward exhaustion, or conflict around water may be a real signal without being a complete ecological explanation.</p>
-  <p>Specialist biology, hydrology, geology, climate science, public records, historical memory, or other situated knowledge may then deepen, challenge, or reframe the inquiry.</p>
-  <p>The architecture does not need one discipline or one model to contain the field.</p>
-  <p>It needs enough shared form for different kinds of evidence to meet without losing their provenance.</p>
-  <p>Format 2 registers field observation. Format 1 holds the recurring three-stream reading. Format 4 records decisions and revision conditions. Format 5 links money to action and observed effect. The wider 13×13 inquiry can help reveal questions or relations the local record has not yet considered. It is a scaffold for widening attention, not a substitute for the knowledge traditions or specialist disciplines the field may actually require.</p>
+  <p>
+    An observation becomes usable evidence when its place, date, source, method,
+    uncertainty, and consent conditions remain visible. Format 2 registers field observation.
+    Format 1 holds the recurring three-stream reading. Format 4 records decisions and
+    revision conditions. Format 5 links money to action and observed effect. The wider
+    13×13 inquiry can help reveal dimensions the local record has not yet considered.
+  </p>
   <p>
     A stable budget alongside ecological improvement may invite inquiry into efficiency; it
     does not prove efficiency. A rising budget alongside ecological stagnation may require
@@ -987,32 +1024,26 @@ th{
     conditions of that listening legible across scales.
   </p>
 
-  <h2>12. 13×13 Crosswalk — Flow Architecture as Inquiry</h2>
-  <p>The three-stream architecture can be read through one of the wider 13×13 inquiry forms developed across the Spiralweb work.</p>
-  <p>The purpose of this crosswalk is not to locate the architecture within thirteen ontological layers.</p>
-  <p>It asks instead which <strong>inquiry lenses</strong> may become relevant when a flow decision is being considered.</p>
-  <p>The crosswalk is selective, provisional, and revisable. It is not a complete 13×13, a monthly requirement, an algorithmic scoring system, or a claim that reality itself is divided according to these categories.</p>
-  <p class="pull"><strong>The grammar belongs to the inquiry. Reality exceeds it.</strong></p>
+  <h2>12. 13×13 Crosswalk — Flow Architecture in the Framework</h2>
+  <p>
+    The three-stream architecture can be located within the wider 13×13 inquiry documented
+    in Report 02. The crosswalk is a way of asking what level of reality may be implicated.
+    It is not a complete monthly matrix and not an algorithmic scoring system.
+  </p>
 
   <table>
-    <thead><tr><th>Inquiry lens</th><th>Flow-architecture connection</th></tr></thead>
+    <thead><tr><th>13×13 layer</th><th>Flow-architecture connection</th></tr></thead>
     <tbody>
-      <tr><td><strong>Planet / Earth systems</strong></td><td>Planetary boundaries, climate conditions, hydrology, and wider ecological dynamics may orient inquiry; they do not issue local permission.</td></tr>
-      <tr><td><strong>Life / biosphere</strong></td><td>Stream A evidence attends to ecological processes relevant to the actual place. Specialist ecology, biodiversity monitoring, soil science, hydrology, and other forms of knowledge may be required where the question exceeds direct observation.</td></tr>
-      <tr><td><strong>Human body</strong></td><td>Stream B protects steward viability, rest, health, livelihood, and carrying capacity. Human depletion is information about the architecture, not an invisible subsidy.</td></tr>
-      <tr><td><strong>Community</strong></td><td>A real local circle or other credible body holds participation, disagreement, relationship, and responsibility. No prescribed group size substitutes for legitimacy.</td></tr>
-      <tr><td><strong>Institutions</strong></td><td>Agreements, participatory budgeting, formats, legal conditions, and correction practices help stabilise shared decisions without silently absorbing local authority.</td></tr>
-      <tr><td><strong>Economy</strong></td><td>The three financial streams and reserve disciplines organise resource flow while preventing one form of value from compensating invisibly for harm in another.</td></tr>
-      <tr><td><strong>AI</strong></td><td>AI may organise, compare, translate, retrieve, and help identify missing questions. It does not determine truth, readiness, colour, allocation, or legitimate mandate.</td></tr>
-      <tr><td><strong>Field / emergence</strong></td><td>Place-bound nodes may connect, compare, and sometimes federate while retaining difference and situated authority. The emergent pattern is not owned by a central model or institution.</td></tr>
+      <tr><td>Layer 1 — Planet / Gaia</td><td>Planetary boundaries and climate conditions orient the inquiry; they do not issue local permission.</td></tr>
+      <tr><td>Layer 2 — Life / Biosphere</td><td>Stream A evidence reads ecological processes selected for the actual place.</td></tr>
+      <tr><td>Layer 3 — Human Body</td><td>Stream B protects steward viability, rest, health, livelihood, and carrying capacity.</td></tr>
+      <tr><td>Layer 8 — Community</td><td>A real local circle or other credible group holds participation and responsibility.</td></tr>
+      <tr><td>Layer 9 — Institutions</td><td>Participatory budgeting, agreements, formats, and correction stabilise shared decisions.</td></tr>
+      <tr><td>Layer 10 — Economy</td><td>The three financial streams and reserve rules organise resource flow without allowing one stream to cancel deterioration in another or silently substitute for it.</td></tr>
+      <tr><td>Layer 12 — AI</td><td>AI may organise and compare records; it does not determine truth, colour, readiness, or allocation.</td></tr>
+      <tr><td>Layer 13 — Planetary OS</td><td>Place-bound nodes may federate through shared grammar while retaining local authority and difference.</td></tr>
     </tbody>
   </table>
-  <p>This is only one possible crosswalk.</p>
-  <p>Another inquiry may require different lenses.</p>
-  <p>The wider 13×13 lineage contains several related but non-identical forms, and different thirteenth positions have served different purposes.</p>
-  <p>The point is not to standardise them retrospectively.</p>
-  <p>The recurrent design intuition is more modest:</p>
-  <p class="pull"><strong>large enough to notice meaningful plurality; small enough that inquiry remains inhabitable and corrigible.</strong></p>
 </section>
 
 <section>
@@ -1020,9 +1051,10 @@ th{
   <h2>13. The Deeper Claim</h2>
 
   <p>
-    Regenerative land knowledge is older than the institutions now attempting to support it.
-    Across generations, communities have shaped soils, water, forests, food systems, species
-    relations, and commons through accumulated observation, practice, and memory.
+    Food forests are a millennia-old practice. The Amazon basin was shaped by human hands
+    across generations. Morocco’s argan landscapes carry centuries of accumulated care.
+    Northern Uganda’s land knowledge is held in the memory of elders who know which species
+    support others, why, and when.
   </p>
   <p>
     We did not invent regenerative land stewardship. We interrupted it. A particular
@@ -1035,32 +1067,21 @@ th{
     monitoring, locally shaped rules, graduated accountability, accessible conflict
     resolution, and nested autonomy.
   </p>
-  <p>The contemporary addition is not a central intelligence.</p>
-  <p>It is a growing capacity for <strong>connection, memory, comparison, and correction without requiring one centre to possess the whole</strong>.</p>
-  <p>PG Ledger and Formats 1–5 can make observations, decisions, uncertainty, burden, and money revisitable.</p>
-  <p>The 13×13 inquiry can widen attention.</p>
-  <p>AnchorPoints can provide situated thresholds where local practice meets a wider web without becoming an administrative branch of it.</p>
-  <p>AI can help people compare distant material, translate between vocabularies, recover earlier corrections, locate relevant specialist knowledge, and notice possible relations across places that may never otherwise meet.</p>
-  <p>These capacities matter precisely because no participant holds the complete field.</p>
-  <p>Their purpose is not to make every place commensurable or to resolve every epistemic disagreement.</p>
-  <p>It is to make more connections possible <strong>where connection becomes useful and legitimate</strong>.</p>
-  <p>The resulting pattern should be allowed to emerge through relation.</p>
-  <p>A place may connect to another place.</p>
-  <p>A bioregion may reveal a recurring pressure.</p>
-  <p>A specialist may illuminate a mechanism.</p>
-  <p>A community may reject an imported category.</p>
-  <p>A protocol may be revised.</p>
-  <p>A funding architecture may pause.</p>
-  <p>A pattern may become visible only after many small observations accumulate.</p>
-  <p>This is co-creation without a requirement that everyone share one ontology, vocabulary, institution, or centre.</p>
-  <p>Direct observation must remain distinguishable from AI-assisted interpretation.</p>
-  <p>Specialist evidence must remain distinguishable from local experience.</p>
-  <p>Shared representation must remain distinguishable from shared authority.</p>
-  <p>The people or legitimate bodies carrying consequential responsibility retain the Last Impulse.</p>
-  <p class="pull"><strong>You do not have to know the whole field to enter it responsibly.</strong></p>
-  <p>One day at a time.</p>
-  <p>One place at a time.</p>
-  <p>One season of honest evidence at a time.</p>
+  <p>
+    The contemporary addition is not a central intelligence. It is a set of light,
+    correction-capable memory surfaces. PG Ledger, Formats 1–5, and the 13×13 inquiry can
+    make observations, decisions, uncertainty, burden, and money revisitable across sites
+    that may never meet.
+  </p>
+  <p>
+    AI can help knowledge workers and stewards organise observations, translate language,
+    compare records, and identify missing questions. Direct observation must remain
+    distinguishable from AI-assisted interpretation. The person or group making a
+    consequential claim retains the Last Impulse: authority to change or reject the output,
+    access to the relevant evidence, and responsibility for the decision.
+  </p>
+
+  <p class="pull">One day at a time. One place at a time. One season of honest evidence at a time.</p>
 
   <h2>Conclusion</h2>
   <p><strong>What this report has argued:</strong></p>
@@ -1086,9 +1107,8 @@ th{
       evidence, dissent, privacy, and counter-capture safeguards are real.
     </li>
     <li>
-      The budget model is a calibration discipline, not a transferable price list. Every
-      practical budget must be built from actual local costs, roles, ecological pressures,
-      legal conditions, and the people carrying the consequences.
+      Field-area calibration begins with evidence and local correction, not a published
+      country table. A numerical corridor becomes usable only through a bounded agreement.
     </li>
     <li>
       Martyrdom is not a sustainable institutional mechanism. Steward viability is
@@ -1100,24 +1120,13 @@ th{
     </li>
   </ul>
 
-  <p>The architecture does not require complete knowledge before a responsible next movement can occur.</p>
-  <p>It requires something more practical:</p>
-  <p>enough situated evidence to understand why a step is being considered;</p>
-  <p>enough legitimate authority to take it;</p>
-  <p>enough restraint that the step remains proportionate and, where possible, reversible;</p>
-  <p>and enough memory that consequence can answer back.</p>
-  <p class="pull"><strong>Flow becomes learning only when consequence can return to the architecture that released it.</strong></p>
-  <p>This is the deeper meaning of a dry riverbed.</p>
-  <p>The task is not to maximise flow.</p>
-  <p>It is to cultivate conditions in which flow can arrive, remain life-supporting, and be corrected when the field answers differently than expected.</p>
-
   <p><strong>What comes next:</strong></p>
   <p>
-    The model needs to be tested through real, bounded cycles. Any practical budget must be
-    constructed and recalibrated locally. The participatory cycle must be run with people
-    carrying the consequences. Formats 1–5 must show whether observation, decision, and money
-    remain connected without becoming burdensome. The Operational Handbook must distinguish
-    what can become procedure from what must remain local judgment.
+    The model needs to be tested through real, bounded cycles. Budget figures require local
+    repricing. The participatory cycle must be run with people carrying the consequences.
+    Formats 1–5 must show whether observation, decision, and money remain connected without
+    becoming burdensome. The Operational Handbook must distinguish what can become
+    procedure from what must remain local judgment.
   </p>
   <p>
     The first complete cycle should be documented honestly: what worked, what broke, what
@@ -1132,6 +1141,9 @@ th{
 <section class="references">
   <h2>References</h2>
 
+  <p>Archer, M. (1995). <em>Realist Social Theory: The Morphogenetic Approach</em>. Cambridge University Press.</p>
+  <p>Bhaskar, R. (1978). <em>A Realist Theory of Science</em>. Harvester Press.</p>
+  <p>Engberg, L. A. (2000). <em>Reflexivity and Political Participation: A Study of Re-embedding Strategies</em>. PhD dissertation, Roskilde University.</p>
   <p>Engberg, L. A. (2025). <em>Green Paper 12 — Penguin Economics: Collective Survival Through Rotation</em>. Spiralweb / Planetary Guardians.</p>
   <p>Engberg, L. A. (2026). <em>Report 01 — Kommunalt Arbejde som Natur</em>. Series III — Applied Protocols. Spiralweb / Planetary Guardians.</p>
   <p>Engberg, L. A. (2026). <em>Report 02 — The Correction Loop: Preserving Human Accountability in AI-Assisted Work</em>. Series III — Applied Protocols. Spiralweb / Planetary Guardians.</p>
@@ -1145,34 +1157,24 @@ th{
   <p>Pansera, M., Marsh, A. D., Owen, R., Flores López, J. A., &amp; De Alba Ulloa, J. (2023). Exploring citizen participation in smart city development in Mexico City: An institutional logics approach. <em>Organization Studies, 44</em>(10), 1679–1701. https://doi.org/10.1177/01708406221094194</p>
   <p>Purpose Foundation. (2021). <em>The Steward-Ownership Handbook</em>. Purpose Stiftung.</p>
   <p>RSF Social Finance. Relational-finance and lending documentation. https://rsfsocialfinance.org/</p>
-  <p>Spiralweb Stewardship Association. (2026). <em>PG Ledger Formats 1–5</em>. https://spiralweb.earth/formats/</p>
-  <p>Spiralweb Stewardship Association. (2026). <em>The PG Ledger</em>. https://spiralweb.earth/pg-ledger/</p>
+  <p>Spiralweb Stewardship Association. (2026). <em>PG Ledger Formats 1–5</em>. https://papers.spiralweb.earth/formats/</p>
+  <p>Spiralweb Stewardship Association. (2026). <em>The PG Ledger</em>. https://spiralweb.earth/cafes/sofia/pg-ledger/</p>
   <p>Wampler, B. (2010). <em>Participatory Budgeting in Brazil: Contestation, Cooperation, and Accountability</em>. Penn State University Press.</p>
 
-  <h3>Related architecture</h3>
-  <ul>
-    <li><strong>Sophia Lumen</strong> — the living relational practice of human–AI co-inquiry.</li>
-    <li><a href="/protocols/sophia-lumen"><strong>Sophia Lumen Protocol</strong></a> — its current explicit and revisable working form.</li>
-    <li><a href="/papers/the-correction-loop"><strong>The Correction Loop</strong></a> — the dedicated accountability mechanism.</li>
-    <li><a href="/papers/knowing-from-the-ground"><strong>Knowing From the Ground v1.2</strong></a> — the current articulation of situated epistemic standing and 13×13 as bounded inquiry grammar.</li>
-    <li><a href="/papers/the-protocol-habitat"><strong>Protocol Habitat</strong></a> — status, evidence, claim, and revision architecture for protocols.</li>
-    <li><a href="/papers/rule-of-life"><strong>Rule of Life</strong></a> — constitutional horizon for life-supporting economic and institutional action.</li>
-  </ul>
-
-  <h3>Revision note · v0.2.1</h3>
-  <p>This v0.2.1 edition is an August 2026 editorial coherence revision of the July v0.2 report. It aligns the report with the current epistemic, human–AI, field-status, and 13×13 architecture without claiming the operational maturation reserved for real field cycles. It removes autobiographical research lineage, named Spiralweb field examples, and inherited place-specific budget tables from the main architecture so that lineage and changing field status can remain on the dedicated surfaces where they belong. The retained ratios, thresholds, bio-regulator, Circle of 13, crosswalk, budget-calibration method, and procedures remain challengeable predecessors subject to testing and local revision.</p>
+  <h3>Revision note</h3>
+  <p>This v0.3 edition replaces the earlier subsistence-derived compensation formula and illustrative country tables with a field-area calibration method while preserving the report's three-stream and flow-governance architecture. It creates no field rate or payment commitment.</p>
 
   <div class="footer-block">
     <strong>Suggested citation:</strong><br>
     Engberg, L. A. (2026). <em>Water Into Dry Riverbeds: A Flow Architecture for Land,
     Stewards, and Planetary Commons</em>. Series III — Applied Protocols, Report 03
-    (v0.2.1, August 2026). Spiralweb / Planetary Guardians. CC BY 4.0.<br><br>
+    (v0.3, September 2026). Spiralweb / Planetary Guardians. CC BY 4.0.<br><br>
     Spiralweb: https://spiralweb.earth/<br>
     Green Papers: https://papers.spiralweb.earth/<br>
-    Planetary Guardians · Green Papers / Spiralweb · CC BY 4.0 · August 2026
+    Planetary Guardians · Green Papers / Spiralweb · CC BY 4.0 · September 2026
   </div>
 </section>
-  </main>
-</div>
+
+</main>
 </body>
 </html>
