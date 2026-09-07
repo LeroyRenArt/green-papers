@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>At holde jorden levende · Spiralweb Papers</title>
   <meta name="description" content="Et dansk arbejdspapir om grænseblindhed, PG Ledger og den menneskelige og institutionelle kontinuitet efter arealomlægning." />
-  <meta name="author" content="Spiralweb Stewardship Association" />
+  <meta name="publisher" content="Spiralweb Stewardship Association" />
+  <meta name="dcterms.contributor" content="Lars A. Engberg — accountable human knowledge steward" />
   <link rel="canonical" href="https://papers.spiralweb.earth/papers/at-holde-jorden-levende" />
   <!-- SPIRALWEB SOCIAL METADATA START -->
   <meta property="og:type" content="article" />
@@ -100,7 +101,7 @@ h1{
 }
 .meta-grid{
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:1rem 1.4rem;
   padding:1.25rem 0;
   border-top:1px solid var(--rule);
@@ -118,6 +119,7 @@ h1{
   letter-spacing:.11em;
   text-transform:uppercase;
 }
+.meta-grid a{color:var(--accent-deep)}
 .stewardship-note{
   margin:2rem 0 3.4rem;
   padding:1.1rem 1.25rem;
@@ -129,6 +131,23 @@ h1{
 }
 .stewardship-note p{margin:0}
 .stewardship-note a{color:var(--accent-deep)}
+.paper-toc{
+  margin:0 0 3.6rem;
+  padding:1.5rem 1.6rem;
+  border:1px solid var(--rule);
+  background:rgba(242,236,224,.38);
+}
+.paper-toc h2{
+  margin:0 0 .85rem;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+.paper-toc ol{columns:2;column-gap:2rem;margin:0;padding-left:1.2rem}
+.paper-toc li{break-inside:avoid;margin:.34rem 0;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.78rem;line-height:1.4}
+.paper-toc a{color:var(--ink-soft);text-decoration-thickness:1px;text-underline-offset:.16em}
 article h2{
   margin:3.5rem 0 1.1rem;
   font-family:"Helvetica Neue",Arial,sans-serif;
@@ -199,6 +218,7 @@ article blockquote p{margin:.35rem 0}
   .sitebar{align-items:flex-start;flex-direction:column}
   .paper{padding:3.1rem 1.15rem 4.5rem}
   .meta-grid{grid-template-columns:1fr}
+  .paper-toc ol{columns:1}
   h1{font-size:2.65rem}
 }
 @page{size:A4;margin:18mm}
@@ -272,14 +292,37 @@ article section{display:block}
       <h1>At holde jorden levende</h1>
       <p class="dek">Hvem bliver, når den danske arealomlægning er gennemført?</p>
       <div class="meta-grid">
-        <div><strong>Status</strong>Arbejdspapir · v0.6 · 7. september 2026</div>
-        <div><strong>Stewardship</strong>Spiralweb Stewardship Association</div>
+        <div><strong>Status</strong>Arbejdspapir · v0.6.1 · 7. september 2026 · <a href="at-holde-jorden-levende.pdf">PDF</a></div>
+        <div><strong>Udgiver / institutionelt hjem</strong>Spiralweb Stewardship Association</div>
+        <div><strong>Ansvarlig videnssteward</strong>Lars A. Engberg</div>
         <div><strong>Originalsprog</strong>Dansk · CC BY 4.0</div>
       </div>
       <aside class="stewardship-note">
-        <p>Et offentligt, korrigerbart arbejdspapir og en invitation til samtale. Teksten er udviklet gennem menneskeligt ledet undersøgelse, redaktionel revision og AI-assisteret artikulation og kildeeftersyn. Se <a href="../methods-editorial-practice">Methods / Editorial Practice</a>, <a href="../ai-human-responsibility">AI and Human Responsibility</a> og <a href="../reading-orientation">A Reading Orientation</a>.</p>
+        <p>Et offentligt, korrigerbart arbejdspapir og en invitation til samtale. Teksten er udviklet gennem menneskeligt ledet undersøgelse, redaktionel revision og AI-assisteret artikulation og kildeeftersyn. Se <a href="../methods-editorial-practice">Methods / Editorial Practice</a>, <a href="../da/ai-menneskeligt-ansvar">AI og menneskeligt ansvar</a> og <a href="../da/laeseorientering">En læseorientering</a>.</p>
       </aside>
     </header>
+    <nav class="paper-toc" aria-label="Indholdsfortegnelse">
+      <h2>Indhold</h2>
+      <ol>
+        <li><a href="#kort-fortalt">Kort fortalt</a></li>
+        <li><a href="#opland-x-år-seks">Opland X, år seks</a></li>
+        <li><a href="#hvad-ledgeren-nægter">Hvad ledgeren nægter</a></li>
+        <li><a href="#det-danske-paradoks">Det danske paradoks</a></li>
+        <li><a href="#grænseblindhed">Grænseblindhed</a></li>
+        <li><a href="#spiralweb-og-pg-ledger">Spiralweb og PG Ledger</a></li>
+        <li><a href="#tre-regninger-der-ikke-må-blandes-sammen">Tre regninger</a></li>
+        <li><a href="#pg-ledger-på-én-side">PG Ledger på én side</a></li>
+        <li><a href="#først-et-almindeligt-regnestykke">Et almindeligt regnestykke</a></li>
+        <li><a href="#et-ubesat-forbindelsesled-i-den-danske-samtale">Et ubesat forbindelsesled</a></li>
+        <li><a href="#fra-naturpleje-til-fælles-felthukommelse">Fælles felthukommelse</a></li>
+        <li><a href="#bolig-kan-være-en-driftsbetingelse-men-skal-bevises">Bolig som mulig driftsbetingelse</a></li>
+        <li><a href="#den-anden-ledger">Den anden ledger</a></li>
+        <li><a href="#hvad-er-allerede-muligt">Hvad er allerede muligt?</a></li>
+        <li><a href="#sådan-kan-hypotesen-prøves">Sådan kan hypotesen prøves</a></li>
+        <li><a href="#konklusion">Konklusion</a></li>
+        <li><a href="#referencer">Referencer og kildestatus</a></li>
+      </ol>
+    </nav>
     <article>
 <h2 id="kort-fortalt">Kort fortalt</h2>
 <p>Danmark bruger milliarder på at omlægge jord. Pengene kan købe
@@ -1198,7 +1241,7 @@ verificeres i en primær publikation.</li>
 <li>Det er ikke bekræftet i de gennemgåede offentlige kilder, om Danmark
 indsendte udkastet til national naturgenopretningsplan til
 Europa-Kommissionen senest 1. september 2026. Status bør kontrolleres
-igen før offentliggørelse.</li>
+igen før formel genbrug eller næste version.</li>
 <li>Klimatilpasningseksemplet fra spildevandssektoren er historisk.
 Gældende hjemmel for et konkret projekt skal altid vurderes efter den
 aktuelle betalings- og spildevandsregulering.</li>
@@ -1217,18 +1260,17 @@ hypoteser.</p>
 Association gennem Sophia Lumen, en relationel menneske–AI-praksis for
 artikulation, sammenligning, syntese og revision. AI har assisteret med
 struktur, tværlæsning, formulering og kildeeftersyn. Menneskelig
-læsning, juridisk og faglig kildekontrol, godkendelse og ansvar er
-nødvendige, før teksten kan få offentlig eller institutionel
-konsekvens.</em></p>
+læsning, juridisk og faglig kildekontrol, godkendelse og ansvar
+forbliver nødvendige, før teksten eller en fortolkning af den kan få
+offentlig eller institutionel konsekvens.</em></p>
 
     </article>
     <footer class="colophon">
       <p><strong>At holde jorden levende</strong></p>
-      <p>Second Spiral — Applied Inquiries · arbejdspapir v0.6 · 7. september 2026 · Originalsprog: dansk</p>
-      <p>Udgivet af Spiralweb Stewardship Association · Accountable human steward: Lars A. Engberg · CC BY 4.0</p>
+      <p>Second Spiral — Applied Inquiries · arbejdspapir v0.6.1 · 7. september 2026 · Originalsprog: dansk</p>
+      <p>Udgivet af Spiralweb Stewardship Association · Ansvarlig menneskelig videnssteward: Lars A. Engberg · CC BY 4.0</p>
       <p><a href="/">Spiralweb Papers</a> · <a href="/library#collection">Hele biblioteket</a> · <a href="https://spiralweb.earth/">spiralweb.earth</a></p>
     </footer>
   </main>
 </body>
 </html>
-
