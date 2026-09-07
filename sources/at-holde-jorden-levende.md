@@ -2,7 +2,9 @@
 
 ## Hvem bliver, når den danske arealomlægning er gennemført?
 
-**Artikeludkast v0.6 · 7. september 2026 · Spiralweb Stewardship Association**
+**Arbejdspapir v0.6.1 · 7. september 2026**
+
+**Udgivet af Spiralweb Stewardship Association · Ansvarlig menneskelig videnssteward: Lars A. Engberg**
 
 ---
 
@@ -436,7 +438,7 @@ Alle webkilder er kontrolleret 6. september 2026. Hvor papiret udleder et spørg
 
 - Det tidligere udkasts oplysning om 62 lavbundsprojekter på knap 15.000 hektar i Herning-Ikast og næsten ingen erhvervet erstatningsjord er udeladt. Den kunne ikke føres sikkert tilbage til en tilgængelig primærkilde ved dette kildeeftersyn.
 - Tallet om en mulig mangel på op mod 300.000 græssende dyr er ligeledes udeladt. Det optræder i nyere brancheomtale, men den bagvedliggende beregning og dens præcise forudsætninger kunne ikke verificeres i en primær publikation.
-- Det er ikke bekræftet i de gennemgåede offentlige kilder, om Danmark indsendte udkastet til national naturgenopretningsplan til Europa-Kommissionen senest 1. september 2026. Status bør kontrolleres igen før offentliggørelse.
+- Det er ikke bekræftet i de gennemgåede offentlige kilder, om Danmark indsendte udkastet til national naturgenopretningsplan til Europa-Kommissionen senest 1. september 2026. Status bør kontrolleres igen før formel genbrug eller næste version.
 - Klimatilpasningseksemplet fra spildevandssektoren er historisk. Gældende hjemmel for et konkret projekt skal altid vurderes efter den aktuelle betalings- og spildevandsregulering.
 
 ## Arbejdsgrundlag
@@ -445,4 +447,4 @@ Udkastet bygger desuden på de interne studier *Land, Ledger and the Vadested*, 
 
 ---
 
-*Tilblivelsesnote: Udkastet er udviklet i Spiralweb Stewardship Association gennem Sophia Lumen, en relationel menneske–AI-praksis for artikulation, sammenligning, syntese og revision. AI har assisteret med struktur, tværlæsning, formulering og kildeeftersyn. Menneskelig læsning, juridisk og faglig kildekontrol, godkendelse og ansvar er nødvendige, før teksten kan få offentlig eller institutionel konsekvens.*
+*Tilblivelsesnote: Udkastet er udviklet i Spiralweb Stewardship Association gennem Sophia Lumen, en relationel menneske–AI-praksis for artikulation, sammenligning, syntese og revision. AI har assisteret med struktur, tværlæsning, formulering og kildeeftersyn. Menneskelig læsning, juridisk og faglig kildekontrol, godkendelse og ansvar forbliver nødvendige, før teksten eller en fortolkning af den kan få offentlig eller institutionel konsekvens.*
