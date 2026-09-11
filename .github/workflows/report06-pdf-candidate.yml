@@ -1,0 +1,46 @@
+name: Build Report 06 PDF candidate
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build-report-06:
+    if: github.head_ref == 'editorial/report06-realign-20260911'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out candidate
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build Report 06 PDF
+        run: node scripts/print_one_pdf.mjs papers/report-06-regenerative-reciprocity.html papers/report-06-regenerative-reciprocity.pdf
+
+      - name: Verify PDF
+        run: |
+          test -s papers/report-06-regenerative-reciprocity.pdf
+          pdfinfo papers/report-06-regenerative-reciprocity.pdf | grep -q 'Page size:.*A4'
+
+      - name: Upload isolated candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: report06-pdf-candidate
+          path: papers/report-06-regenerative-reciprocity.pdf
+          if-no-files-found: error
+          retention-days: 1
