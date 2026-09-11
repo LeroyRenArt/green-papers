@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Penguin Dashboard as a shared reading surface</title>
+  <desc id="desc">A grounded governance diagram showing three non-compensatory streams informing shared human judgment, bounded next actions, and correction through consequence. Wider knowledge remains connected without being absorbed into a central system.</desc>
+  <defs>
+    <style>
+      .label { font-family: Arial, Helvetica, sans-serif; fill: #183c31; }
+      .caps { font-size: 20px; font-weight: 700; letter-spacing: 3px; }
+      .title { font-size: 46px; font-weight: 600; }
+      .subtitle { font-size: 22px; fill: #536a61; }
+      .stream-title { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+      .stream-copy { font-size: 20px; fill: #304c42; }
+      .stage { font-size: 22px; font-weight: 700; letter-spacing: 1.4px; }
+      .small { font-size: 17px; fill: #536a61; }
+      .relation { font-size: 18px; font-weight: 600; fill: #345247; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#587469"/>
+    </marker>
+  </defs>
+
+  <rect x="16" y="16" width="1368" height="968" rx="24" fill="#f7f4ec" stroke="#bdcbc3" stroke-width="2"/>
+
+  <text class="label caps" x="700" y="78" text-anchor="middle">PENGUIN DASHBOARD</text>
+  <text class="label title" x="700" y="132" text-anchor="middle">A living field, read together</text>
+  <text class="label subtitle" x="700" y="169" text-anchor="middle">A small governance instrument - not a total model</text>
+
+  <rect x="420" y="200" width="560" height="48" rx="24" fill="#eef1ea" stroke="#b8c5bd"/>
+  <text class="label caps" x="700" y="231" text-anchor="middle" style="font-size:16px; letter-spacing:2px;">EVIDENCE · UNCERTAINTY · DISSENT</text>
+
+  <path d="M273 335 C340 335, 352 360, 405 370" fill="none" stroke="#89a096" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M273 430 C340 430, 352 405, 405 397" fill="none" stroke="#89a096" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M1127 335 C1060 335, 1048 360, 995 370" fill="none" stroke="#89a096" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M1127 430 C1060 430, 1048 405, 995 397" fill="none" stroke="#89a096" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <rect x="72" y="302" width="205" height="65" rx="32" fill="#fbfaf6" stroke="#9caea4" stroke-width="2"/>
+  <text class="label relation" x="174.5" y="330" text-anchor="middle">Local and Indigenous</text>
+  <text class="label relation" x="174.5" y="353" text-anchor="middle">knowledge</text>
+  <rect x="72" y="399" width="205" height="65" rx="32" fill="#fbfaf6" stroke="#9caea4" stroke-width="2"/>
+  <text class="label relation" x="174.5" y="438" text-anchor="middle">Historical records</text>
+
+  <rect x="1123" y="302" width="205" height="65" rx="32" fill="#fbfaf6" stroke="#9caea4" stroke-width="2"/>
+  <text class="label relation" x="1225.5" y="341" text-anchor="middle">Specialist science</text>
+  <rect x="1123" y="399" width="205" height="65" rx="32" fill="#fbfaf6" stroke="#9caea4" stroke-width="2"/>
+  <text class="label relation" x="1225.5" y="438" text-anchor="middle">Art and perception</text>
+
+  <rect x="390" y="282" width="620" height="282" rx="24" fill="#fffdf8" stroke="#7f988c" stroke-width="2.5"/>
+  <text class="label caps" x="700" y="319" text-anchor="middle" style="font-size:16px; letter-spacing:2px;">SHARED READING SURFACE</text>
+
+  <rect x="420" y="344" width="174" height="165" rx="18" fill="#e5f0e8" stroke="#5a8a70" stroke-width="2"/>
+  <circle cx="507" cy="378" r="10" fill="#4d8065"/>
+  <text class="label stream-title" x="507" y="416" text-anchor="middle">LAND / LIFE</text>
+  <text class="label stream-copy" x="507" y="451" text-anchor="middle">How is the living</text>
+  <text class="label stream-copy" x="507" y="477" text-anchor="middle">place doing?</text>
+
+  <rect x="613" y="344" width="174" height="165" rx="18" fill="#f3e9df" stroke="#a66b4f" stroke-width="2"/>
+  <circle cx="700" cy="378" r="10" fill="#a05e42"/>
+  <text class="label stream-title" x="700" y="407" text-anchor="middle" style="font-size:18px;">STEWARD</text>
+  <text class="label stream-title" x="700" y="430" text-anchor="middle" style="font-size:18px;">VIABILITY</text>
+  <text class="label stream-copy" x="700" y="463" text-anchor="middle" style="font-size:18px;">How are the people</text>
+  <text class="label stream-copy" x="700" y="487" text-anchor="middle" style="font-size:18px;">carrying the work?</text>
+
+  <rect x="806" y="344" width="174" height="165" rx="18" fill="#e4edf0" stroke="#5c7f8e" stroke-width="2"/>
+  <circle cx="893" cy="378" r="10" fill="#547888"/>
+  <text class="label stream-title" x="893" y="407" text-anchor="middle" style="font-size:17px;">GOVERNANCE /</text>
+  <text class="label stream-title" x="893" y="430" text-anchor="middle" style="font-size:17px;">COMMONS</text>
+  <text class="label stream-copy" x="893" y="463" text-anchor="middle" style="font-size:18px;">How are relationships</text>
+  <text class="label stream-copy" x="893" y="487" text-anchor="middle" style="font-size:18px;">holding it?</text>
+
+  <line x1="604" y1="363" x2="604" y2="490" stroke="#9aac9f" stroke-width="1.5"/>
+  <line x1="796" y1="363" x2="796" y2="490" stroke="#9aac9f" stroke-width="1.5"/>
+  <text class="label small" x="700" y="542" text-anchor="middle">No stream compensates for another.</text>
+
+  <path d="M700 565 L700 607" fill="none" stroke="#587469" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="460" y="620" width="480" height="72" rx="36" fill="#dce8df" stroke="#688778" stroke-width="2"/>
+  <text class="label stage" x="700" y="665" text-anchor="middle">SHARED HUMAN JUDGMENT</text>
+
+  <path d="M700 693 L700 735" fill="none" stroke="#587469" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="500" y="748" width="400" height="72" rx="16" fill="#183c31"/>
+  <text x="700" y="793" text-anchor="middle" style="font-family:Arial,Helvetica,sans-serif; font-size:22px; font-weight:700; letter-spacing:1.3px; fill:#fffdf8;">1-3 BOUNDED NEXT ACTIONS</text>
+
+  <path d="M700 821 L700 859" fill="none" stroke="#587469" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="480" y="870" width="440" height="58" rx="29" fill="#fbfaf6" stroke="#879d92" stroke-width="2"/>
+  <text class="label stage" x="700" y="907" text-anchor="middle" style="font-size:19px;">CONSEQUENCE · CORRECTION ↺</text>
+
+  <path d="M479 899 C355 899, 328 775, 391 689" fill="none" stroke="#89a096" stroke-width="2" stroke-dasharray="7 9"/>
+  <path d="M921 899 C1045 899, 1072 775, 1009 689" fill="none" stroke="#89a096" stroke-width="2" stroke-dasharray="7 9"/>
+
+  <text class="label small" x="700" y="960" text-anchor="middle">Open to wider knowledge. Correctable through consequence.</text>
+</svg>
