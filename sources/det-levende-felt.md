@@ -3,6 +3,7 @@
 ## Spiralweb som læringsarkitektur: partiel viden, kritisk venskab og bevægelsen gennem spiralen
 
 **Positioneringspaper · offentlig dansk kandidat v0.7 · 9. september 2026**  
+**Sprog:** Dansk paralleludgave · originalsprog: engelsk · CC BY 4.0  
 **Status:** En selvstændig, versioneret formulering af Spiralwebs læringsarkitektur, praksisindgang og åbne institutionelle hypotese.
 
 ## Kort orientering
