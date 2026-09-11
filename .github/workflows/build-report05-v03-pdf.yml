@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - editorial/report05-v03-20260911
+  pull_request:
+    branches:
+      - main
+    paths:
+      - papers/srip-the-stewards-journey.html
+      - .github/workflows/build-report05-v03-pdf.yml
   workflow_dispatch:
 
 permissions:
