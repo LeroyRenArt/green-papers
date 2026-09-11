@@ -1,0 +1,28 @@
+name: Build Report 05 v0.3 PDF candidate
+
+on:
+  push:
+    branches:
+      - editorial/report05-v03-20260911
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/print_one_pdf.mjs papers/srip-the-stewards-journey.html papers/srip-the-stewards-journey.pdf
+      - uses: actions/upload-artifact@v4
+        with:
+          name: report05-v03-pdf-candidate
+          path: papers/srip-the-stewards-journey.pdf
+          if-no-files-found: error
