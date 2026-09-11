@@ -131,7 +131,7 @@ Den del, som meningsfuldt kan opgøres i kroner, kan samles i et afgrænset **kr
 
 M er et delregnskab, ikke en beslutningsregel og ikke en samlet score. Et positivt kroneresultat kan ikke opveje økologisk forringelse, menneskelig udtømning, manglende legitimitet eller væsentlige forskydninger. Omvendt kan et negativt kroneresultat ikke alene afgøre sagen, hvis alternativerne har forskellige lovbundne mål eller væsentlige virkninger, som ikke bør prissættes.
 
-Vurderingen må derfor ske i to bevægelser. Først prøves hvert alternativ mod selvstændige økologiske, menneskelige og institutionelle grænser samt direkte forskydninger uden for området. Kun alternativer, der består disse prøver, kan sammenlignes videre. Dernæst læses kroneregnskabet sammen med fysiske resultater, fordelingsvirkninger og usikkerhed. Ingen af disse spor får lov til at gøre de andre usynlige. § 11 viser denne ikke-kompensation som tre adskilte strømme og en lille anden ledger.
+Vurderingen må derfor ske i to bevægelser. Først prøves hvert alternativ mod selvstændige økologiske, menneskelige og institutionelle grænser samt direkte forskydninger uden for området. Kun alternativer, der består disse prøver, kan sammenlignes videre. Dernæst læses kroneregnskabet sammen med fysiske resultater, fordelingsvirkninger og usikkerhed. Ingen af disse spor får lov til at gøre de andre usynlige. § 11 viser, hvordan denne ikke-kompensation undersøges gennem Dashboardets tre læsninger, paperets tre økonomiske ledger-spor og en lille anden ledger.
 
 Nye job er heller ikke automatisk en samfundsøkonomisk nettogevinst. Løn, udstyr og uddannelse er reelle ressourceomkostninger, mens skatter og overførsler hovedsageligt beskriver fordeling. Gevinsten ligger i det, arbejdet frembringer: bedre naturvirkning, lavere risiko, en mere holdbar drift eller brug af menneskelig kapacitet, som ellers ikke fandt en frivillig og produktiv anvendelse. Jobtal må derfor ikke lægges oven i værdien af resultaterne, hvis den samme virkning allerede er medregnet.
 
@@ -281,7 +281,9 @@ Den spørger:
 
 > **Hvad blev observeret? Hvad blev fortolket? Hvad blev aftalt og finansieret? Hvem traf beslutningen? Hvad skete der bagefter? Og hvad blev korrigeret?**
 
-PG Ledger holder tre regninger adskilt:
+**Forholdet til Penguin Dashboard.** De følgende A/B/C-spor er dette papers økonomiske ledger-spor. De er ikke en omdøbning af Dashboardets tre ikke-kompenserbare læsninger: Land/Life, Steward Viability og Governance/Commons. Dashboardet bruges til en dokumenteret læsning af den aktuelle situation; ledger-sporene følger her ressourcer, menneskelig levedygtighed og fælles handlekapacitet over tid. Land/Life-tilstanden skal fortsat læses særskilt og kan ikke reduceres til udgifterne i Strøm A.
+
+I dette paper holder PG Ledger tre økonomiske regninger adskilt:
 
 - **Strøm A — jord og arbejde:** jord, kompensation, anlæg, hegn, dyr, maskiner, prøver, faglige ydelser, løn, transport, kapital og risiko;
 - **Strøm B — menneskelig levedygtighed:** kun de betingelser, som viser sig nødvendige for, at en økologisk funktion kan fortsætte frivilligt uden skjult privat subsidiering, efter at Strøm A er gjort redelig;

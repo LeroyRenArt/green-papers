@@ -3,6 +3,7 @@
 ## Spiralweb as a learning architecture: partial knowledge, critical friendship and movement through the spiral
 
 **Position paper · public English-language candidate v0.7 · 9 September 2026**  
+**Language:** English · original language · parallel Danish edition · CC BY 4.0  
 **Status:** A self-standing, versioned articulation of Spiralweb's learning architecture, entry into practice, and open institutional hypothesis.
 
 ## A brief orientation
@@ -170,7 +171,7 @@ An institutional relationship should therefore begin with reading, not influence
 
 Spiralweb does not seek to teach a state what it should be, or to turn a place into an institution's programme. A bridge becomes relevant when an actual public or professional capacity can meet a living question without displacing place-based authority — and when learning can move both ways.
 
-The association is itself situated within a national institutional habitat. It was founded in Denmark and works from an environment around Copenhagen where agricultural transition, rewilding, ecological restoration, local communities, public responsibilities and the economy of the welfare state are already living and contested concerns. The field paper [*At holde jorden levende*](https://papers.spiralweb.earth/papers/at-holde-jorden-levende) (*Keeping the Soil Alive*), the letters to the Church of Denmark and the municipalities, and the association's own governance all form part of this Danish inquiry. Spiralweb does not represent Denmark; it participates from here as one small field within a wider planetary process.
+The association is itself situated within a national institutional habitat. It was founded in Denmark and works from an environment around Copenhagen where agricultural transition, rewilding, ecological restoration, local communities, public responsibilities and the economy of the welfare state are already living and contested concerns. The field paper [*At holde jorden levende*](https://papers.spiralweb.earth/papers/at-holde-jorden-levende) (*Keeping the Land Alive*), the letters to the Church of Denmark and the municipalities, and the association's own governance all form part of this Danish inquiry. Spiralweb does not represent Denmark; it participates from here as one small field within a wider planetary process.
 
 ## One habitat, different public spaces
 
