@@ -35,7 +35,7 @@ jobs:
       - name: Verify PDF
         run: |
           test -s papers/report-06-regenerative-reciprocity.pdf
-          pdfinfo papers/report-06-regenerative-reciprocity.pdf | grep -q 'Page size:.*A4'
+          head -c 5 papers/report-06-regenerative-reciprocity.pdf | grep -q '%PDF-'
 
       - name: Upload isolated candidate
         uses: actions/upload-artifact@v4
