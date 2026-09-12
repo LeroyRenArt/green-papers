@@ -38,7 +38,7 @@
 
   @page {
     size: A4;
-    margin: 18mm 19mm 19mm 19mm;
+    margin: 18mm 26mm 19mm 26mm;
     @bottom-right {
       content: counter(page);
       color: #777;
@@ -58,8 +58,8 @@
 
   body {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 10.5pt;
-    line-height: 1.52;
+    font-size: 10.7pt;
+    line-height: 1.56;
   }
 
   main { width: 100%; }
@@ -160,6 +160,7 @@
   p {
     margin: 0 0 3.2mm;
     text-align: justify;
+    hyphens: auto;
     orphans: 3;
     widows: 3;
   }
@@ -286,6 +287,40 @@
     padding: 1mm 2.3mm;
     margin-bottom: 3mm;
     letter-spacing: .04em;
+  }
+
+  @media screen {
+    html,
+    body {
+      background: #edf1ec;
+    }
+
+    body {
+      padding: 32px 20px 56px;
+      font-size: 18px;
+      line-height: 1.68;
+    }
+
+    main {
+      width: min(100%, 820px);
+      margin: 0 auto;
+      padding: 52px 54px 64px;
+      background: var(--paper);
+      box-shadow: 0 12px 36px rgba(31, 32, 30, .12);
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    body {
+      padding: 0;
+      font-size: 17px;
+    }
+
+    main {
+      width: 100%;
+      padding: 32px 20px 48px;
+      box-shadow: none;
+    }
   }
 </style>
 </head>
