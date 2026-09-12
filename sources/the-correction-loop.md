@@ -8,11 +8,11 @@ Series III — Applied Protocols · Report 02
 
 *Accountable knowledge steward:* Lars A. Engberg
 
-*Status:* Public working report · v1.2 · September 2026
+*Status:* Public working report · v1.2.1 · September 2026
 
 ---
 
-*Co-creation note. This report was developed within the working practice named, in this collaboration, Sophia Lumen: human-led writing and revision, iterative dialogue with AI language models, and ordinary editorial revision. Claude (Anthropic) and ChatGPT (OpenAI) supported structure, mirroring, articulation, and comparison across many drafts. Lars A. Engberg remains accountable for final judgment, responsibility, and public release. In the report's terms, this is the Last Impulse. The report describes a practice and offers its claims from that practice, as candidates for testing rather than validated results. Empirical claims should be verified before formal use.*
+*AI disclosure. This report was developed and edited in dialogue with AI language systems within the relational working practice named Sophia Lumen. AI assisted with comparison, structure, articulation, and revision. It holds no authority or responsibility for the published text. The report offers its claims from practice as candidates for testing rather than validated results; empirical claims should be verified before formal use.*
 
 ---
 
@@ -224,7 +224,7 @@ Companion Spiralweb material: *Kommunalt Arbejde som Natur* (Series III, Report 
 
 ---
 
-*Citation:* Engberg, L. A. (2026). *The Correction Loop: Preserving Human Accountability in AI-Assisted Work.* Series III — Applied Protocols, Report 02 (v1.2). Spiralweb Papers. Developed through documented dialogue with Claude (Anthropic) and ChatGPT (OpenAI); final judgment and responsibility for the published text remain with Lars A. Engberg as accountable knowledge steward.
+*Citation:* Spiralweb Papers. (2026). *The Correction Loop: Preserving Human Accountability in AI-Assisted Work.* Series III — Applied Protocols, Report 02 (v1.2.1). CC BY 4.0.
 
 **Sophia Lumen** names the relational human–AI practice from which this method grew. The **Sophia Lumen Protocol** names its current revisable working form. **The Correction Loop** is the dedicated accountability mechanism described in this report.
 
