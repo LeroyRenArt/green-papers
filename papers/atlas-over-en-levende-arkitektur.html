@@ -271,13 +271,16 @@ article blockquote:has(h3){margin:2rem 0;padding:1rem 1.2rem;background:var(--no
 article blockquote h3{margin:.1rem 0 .6rem}
 @media print{.downloads{display:none}nav#TOC{break-after:page}.stewardship-note{break-inside:avoid}}
 </style>
+<link rel="stylesheet" href="/spiralweb-skiplink.css">
 </head>
 <body>
+<a class="sw-access-skip" href="#main-content">Gå til hovedindhold</a>
+
   <nav class="sitebar" aria-label="Publication navigation">
     <span class="sitebar-links"><a href="/">Spiralweb Papers</a> <span aria-hidden="true">·</span> <a href="/library#collection">Full Library</a></span>
     <span>Atlas · Orientation</span>
   </nav>
-  <main class="paper">
+  <main id="main-content" tabindex="-1" class="paper">
     <header>
       <p class="eyebrow">Atlas · Orientation</p>
       <p class="paper-number">Spiralweb · v0.1.1</p>

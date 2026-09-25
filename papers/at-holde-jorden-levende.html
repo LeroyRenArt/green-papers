@@ -279,13 +279,16 @@ article section{display:block}
 @media print{article table{font-size:8pt;break-inside:auto}article tr{break-inside:avoid;page-break-inside:avoid}.footnotes{font-size:8pt}}
 </style>
 
+<link rel="stylesheet" href="/spiralweb-skiplink.css">
 </head>
 <body>
+<a class="sw-access-skip" href="#main-content">Gå til hovedindhold</a>
+
   <nav class="sitebar" aria-label="Publikationsnavigation">
     <span class="sitebar-links"><a href="/">Spiralweb Papers</a> <span aria-hidden="true">·</span> <a href="/library#collection">Hele biblioteket</a></span>
     <span>Field Paper · dansk · work in progress</span>
   </nav>
-  <main class="paper">
+  <main id="main-content" tabindex="-1" class="paper">
     <header>
       <p class="eyebrow">Field Papers — situated inquiry</p>
       <p class="paper-number">Tidligt offentligt forstudie · work in progress</p>

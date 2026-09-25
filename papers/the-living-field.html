@@ -281,13 +281,16 @@ article section{display:block}
 .language-switch a{font-weight:600}
 @media print{.language-switch{display:none}}
 </style>
+<link rel="stylesheet" href="/spiralweb-skiplink.css">
 </head>
 <body>
+<a class="sw-access-skip" href="#main-content">Skip to main content</a>
+
   <nav class="sitebar" aria-label="Publication navigation">
     <span class="sitebar-links"><a href="/">Spiralweb Papers</a> <span aria-hidden="true">·</span> <a href="/library#collection">Full library</a></span>
     <span>Position paper · English · public candidate</span>
   </nav>
-  <main class="paper">
+  <main id="main-content" tabindex="-1" class="paper">
     <header>
       <p class="eyebrow">Spiralweb Papers — current public position</p>
       <p class="paper-number">Position paper · public candidate</p>
