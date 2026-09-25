@@ -281,13 +281,16 @@ article section{display:block}
 .language-switch a{font-weight:600}
 @media print{.language-switch{display:none}}
 </style>
+<link rel="stylesheet" href="/spiralweb-skiplink.css">
 </head>
 <body>
+<a class="sw-access-skip" href="#main-content">Gå til hovedindhold</a>
+
   <nav class="sitebar" aria-label="Publication navigation">
     <span class="sitebar-links"><a href="/">Spiralweb Papers</a> <span aria-hidden="true">·</span> <a href="/library#collection">Hele biblioteket</a></span>
     <span>Positioneringspaper · dansk · offentlig kandidat</span>
   </nav>
-  <main class="paper">
+  <main id="main-content" tabindex="-1" class="paper">
     <header>
       <p class="eyebrow">Spiralweb Papers — aktuel offentlig position</p>
       <p class="paper-number">Positioneringspaper · offentlig kandidat</p>
