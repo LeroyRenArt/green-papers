@@ -34,5 +34,10 @@ export async function onRequest(context) {
     }
   }
 
-  return context.next();
+  const response = await context.next();
+  // Initial, host-only HSTS trial. No subdomains or preload commitment.
+  if (url.protocol !== "https:") return response;
+  const securedResponse = new Response(response.body, response);
+  securedResponse.headers.set("Strict-Transport-Security", "max-age=300");
+  return securedResponse;
 }
