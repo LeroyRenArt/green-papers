@@ -47,9 +47,9 @@ export async function onRequest(context) {
   for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
     securedResponse.headers.set(name, value);
   }
-  // Retain the existing short, host-only HSTS trial.
+  // Require HTTPS for six months on this host; no subdomains or preload.
   if (url.protocol === "https:") {
-    securedResponse.headers.set("Strict-Transport-Security", "max-age=300");
+    securedResponse.headers.set("Strict-Transport-Security", "max-age=15552000");
   }
   return securedResponse;
 }
