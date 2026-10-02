@@ -1,0 +1,3 @@
+# Initial host-only HSTS trial for static Pages responses.
+/*
+  Strict-Transport-Security: max-age=300
