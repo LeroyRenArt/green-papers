@@ -8,3 +8,8 @@ compatibility_date = "2026-01-16"
 [[analytics_engine_datasets]]
 binding = "PDF_DOWNLOADS"
 dataset = "spiralweb_pdf_downloads"
+
+# Production PDF requests are kept separate from preview/test events.
+[[env.production.analytics_engine_datasets]]
+binding = "PDF_DOWNLOADS"
+dataset = "spiralweb_pdf_downloads_production"
