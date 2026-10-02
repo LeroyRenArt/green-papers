@@ -1,3 +1,11 @@
+const SECURITY_HEADERS = {
+  "X-Content-Type-Options": "nosniff",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+  "Content-Security-Policy": "base-uri 'self'; object-src 'none'; frame-ancestors 'self' https://spiralweb.earth",
+  "Content-Security-Policy-Report-Only": "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com; frame-src 'self'; form-action 'self'"
+};
+
 const PDF_PATH = /\.pdf$/i;
 const OBVIOUS_AUTOMATION = /bot|crawler|spider|preview|headless|lighthouse|wget|curl|python|facebookexternalhit|slackbot|discordbot|whatsapp/i;
 
@@ -35,9 +43,13 @@ export async function onRequest(context) {
   }
 
   const response = await context.next();
-  // Initial, host-only HSTS trial. No subdomains or preload commitment.
-  if (url.protocol !== "https:") return response;
   const securedResponse = new Response(response.body, response);
-  securedResponse.headers.set("Strict-Transport-Security", "max-age=300");
+  for (const [name, value] of Object.entries(SECURITY_HEADERS)) {
+    securedResponse.headers.set(name, value);
+  }
+  // Retain the existing short, host-only HSTS trial.
+  if (url.protocol === "https:") {
+    securedResponse.headers.set("Strict-Transport-Security", "max-age=300");
+  }
   return securedResponse;
 }
