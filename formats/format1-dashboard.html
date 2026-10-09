@@ -377,6 +377,16 @@
 @media print{.sheet-skip{display:none!important}}
 </style>
 <style id="format-context-style">.format-context{max-width:210mm;margin:12px auto;padding:12px 16px;background:var(--soft);border:1px solid var(--line);border-radius:8px;font-size:14px;line-height:1.5}.format-context p{margin:0}@media print{.format-context{display:none!important}}</style>
+<style id="format1-bounded-header-v1">
+@page { size: A4; margin: 0; }
+@media print, screen and (min-width: 821px) {
+  .topbar { display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 16px; }
+  .topbar > div { min-width: 0; }
+  .meta { min-width: 0; }
+  .line-field { min-width: 0; }
+  .line-field .fill { min-width: 20px; }
+}
+</style>
 </head>
 <body>
 <a class="sheet-skip" href="#main-content">Skip to main content</a>
@@ -387,9 +397,9 @@
 </nav>
 <aside class="format-context" aria-label="Independent use and local agreement"><p>This printable tool can be used and adapted independently. Here, an active or supported relationship means the local practice or relationship in which people have agreed the review’s purpose, responsibility and rhythm; it need not be a relationship with Spiralweb. Use creates no automatic affiliation or promise of support. <a href="https://spiralweb.earth/pg-ledger/">How the PG Ledger holds memory and Return →</a></p></aside>
 <main class="sheet" id="main-content" tabindex="-1"><div class="topbar"><div><h1>Steward Review Dashboard Sheet</h1><div class="subtitle">
-PG Ledger Format 1 · a lightweight review for an active field or supported stewardship relationship. Cadence is agreed locally and may change with season, condition, capacity or purpose. Report 04 companion · Format 1 v1.3 · August 2026 · Candidate tool.</div></div>
+PG Ledger Format 1 · a lightweight review for locally agreed stewardship practice. Cadence may change with season, condition, capacity or purpose. Report 04 companion · Format 1 v1.4 · October 2026 · Candidate tool.</div></div>
 <div class="meta"><div class="line-field"><span class="label">Place / node:</span><span class="fill"></span></div><div class="line-field"><span class="label">Date:</span><span class="fill"></span></div><div class="line-field"><span class="label">Review period:</span><span class="fill"></span></div><div class="line-field"><span class="label">Reviewed by:</span><span class="fill"></span></div></div></div>
-<div class="instruction"><div><strong>Use only within an active or supported relationship:</strong> agree a rhythm the people and place can carry. This is not a universal reporting duty.</div><div><strong>Read, do not score:</strong> colours are dated human judgements, not properties of reality. Keep evidence, interpretation and uncertainty readable.</div></div>
+<div class="instruction"><div><strong>A locally agreed review:</strong> purpose, responsibility and rhythm are held by the people using the sheet. Independent use does not imply a relationship with Spiralweb or a promise of support.</div><div><strong>Read, do not score:</strong> colours are dated human judgements, not properties of reality. Keep evidence, interpretation and uncertainty readable.</div></div>
 <div class="grid"><section class="card"><div class="card-head"><div class="card-kicker">A</div><h2 class="card-title">Land / Life</h2></div>
     <div class="card-body"><div class="question">What is happening in the place, and what supports this reading?</div><ul><li>soil cover and water behaviour</li><li>plant vitality and signs of life</li><li>care that occurred or did not occur</li><li>local and seasonal context</li></ul>
     <div class="traffic"><div class="traffic-label">Circle one contextual reading:</div>
