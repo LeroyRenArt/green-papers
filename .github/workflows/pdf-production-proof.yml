@@ -160,7 +160,7 @@ jobs:
            def blocks(text):
             p=Blocks();p.feed(text);return Counter(compact(x) for x in p.blocks if len(compact(x))>=50)
            def plain(text):
-            p=Blocks();p.feed('<p>'+text+'</p>');return compact(''.join(p.blocks))
+            p=Blocks();p.feed(text if text.lstrip().startswith('<p>') else '<p>'+text+'</p>');return compact(''.join(p.blocks))
            for pair in PAIRS:
             spec=SPECS[pair['html']];assert spec['baseline_sha']==pair['html_sha']
             original=(ROOT/pair['html']).read_text();candidate=original
