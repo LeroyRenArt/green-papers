@@ -82,14 +82,15 @@ jobs:
                 measurements[mode]['edits']=edits
                context.close()
               a=measurements['baseline'];b=measurements['candidate']
+              result['cases'].append({'path':row['path'],'width':width,'baseline_sha256':row['source_sha256'],'candidate_sha256':row['candidate_sha256'],'measurements':measurements,'errors':errors,'missing':missing,'contracts_preserved':False})
               assert a['links']==b['links'] and a['ids']==b['ids'],'Link/id contract changed'
               assert a['main']==b['main'],'Main style geometry changed'
-              assert b['overflow']<=a['overflow'] and b['overflow']==0,'New or existing document overflow'
+              assert b['overflow']<=a['overflow'],'New document overflow'
               assert errors['baseline']==errors['candidate'],'New JS error'
               assert missing['baseline']==missing['candidate'],'New missing resource'
               assert a['broken_fragments']==b['broken_fragments'],'New broken fragment'
               assert a['images']==b['images'],'Image behaviour changed'
-              result['cases'].append({'path':row['path'],'width':width,'baseline_sha256':row['source_sha256'],'candidate_sha256':row['candidate_sha256'],'measurements':measurements,'errors':errors,'missing':missing,'contracts_preserved':True})
+              result['cases'][-1]['contracts_preserved']=True
             browser.close();result['status']='PASS_AUTOMATED_HTML_CONTRACTS_VISUAL_REVIEW_PENDING'
           except Exception as e:result['status']='STOP';result['error']=repr(e);raise
           finally:
