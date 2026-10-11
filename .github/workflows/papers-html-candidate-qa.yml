@@ -1,0 +1,108 @@
+name: Papers seven HTML candidate browser control
+on:
+  push:
+    branches: [pdf-production-proof-20261011]
+    paths: [.github/workflows/papers-html-candidate-qa.yml]
+permissions:
+  contents: read
+jobs:
+  browser-control:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 235ba3e61948d3a1f8fd480e18cd5c95a47d8ce2
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.12'
+      - name: Install recorded browser version
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Compare seven baseline and candidate HTML pages
+        run: |
+          python - <<'PYCODE'
+          from pathlib import Path
+          import json,hashlib,subprocess,os,mimetypes,re,html
+          from urllib.parse import urlsplit,unquote
+          from playwright.sync_api import sync_playwright
+          ROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-html-qa';OUT.mkdir()
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()=='235ba3e61948d3a1f8fd480e18cd5c95a47d8ce2'
+          ROWS=[{'path': 'da/laeseorientering.html', 'url': 'https://papers.spiralweb.earth/da/laeseorientering', 'kind': 'html', 'source_sha256': '33e0de5ae2b8d94079453c66d2629b506c63556766ac8842a19a6f0e5356919a', 'id': 0, 'http_status': 200, 'exit_code': 0, 'bytes': 10729, 'sha256': '33e0de5ae2b8d94079453c66d2629b506c63556766ac8842a19a6f0e5356919a', 'format_valid': True, 'remote_blob': {'sha': '0e4bdd68aca14c9acecd648a519dc063d50abe1a', 'size': 10729}, 'live_matches_remote_blob': True, 'source_matches': True, 'capture_ok': True, 'patches': [{'id': 0, 'old': '</a> — parallelle veje, ikke stadier.</li>', 'new': '</a> — Flow, friktion og følsomhed i kommunalt arbejde.</li>', 'finding': 'F3-01'}], 'candidate_sha256': '46918df8636402ab7bd86f1a559d2a4e0f73ffecced369b576d37f8b91ddbded'}, {'path': 'papers/kommunalt-arbejde-som-natur.html', 'url': 'https://papers.spiralweb.earth/papers/kommunalt-arbejde-som-natur', 'kind': 'html', 'source_sha256': '2dd6e6eee40f86bd36c4a9b04284dca9a71e3fe377d98e959c10a9af70fea2c1', 'id': 1, 'http_status': 200, 'exit_code': 0, 'bytes': 237586, 'sha256': '2dd6e6eee40f86bd36c4a9b04284dca9a71e3fe377d98e959c10a9af70fea2c1', 'format_valid': True, 'remote_blob': {'sha': '40a5f56610dfc011ecbd5f50d9893cfdb88c1a7b', 'size': 237586}, 'live_matches_remote_blob': True, 'source_matches': True, 'capture_ok': True, 'patches': [{'id': 1, 'old': '<p>En kommune bør ikke vælge regneeksempel efter, hvilket der giver den største besparelse. Den skal vælge den beregningsform, der passer til arbejdsfeltets faktiske volumen, rytme og følsomhed.</p>', 'new': '', 'finding': 'F3-06'}, {'id': 1, 'old': 'Del V’s oplysninger om befolkning, budget, organisering og lokale resonanspunkter', 'new': 'Del VI’s oplysninger om befolkning, budget, organisering og lokale resonanspunkter', 'finding': 'F3-07'}], 'candidate_sha256': '2fda8785df2baf34ccab160431c47e8cc40cc34d0bf165077ec5d4bd6bf4653e'}, {'path': 'papers/municipal-work-as-nature.html', 'url': 'https://papers.spiralweb.earth/papers/municipal-work-as-nature', 'kind': 'html', 'source_sha256': 'cf708183276aa0279f07027b4eb7595f9034ffa9e49835e18e29dfa2e5e84ffb', 'id': 2, 'http_status': 200, 'exit_code': 0, 'bytes': 241795, 'sha256': 'cf708183276aa0279f07027b4eb7595f9034ffa9e49835e18e29dfa2e5e84ffb', 'format_valid': True, 'remote_blob': {'sha': '58714b5fc9e3231339918bec0db27a8bf9ee14f4', 'size': 241795}, 'live_matches_remote_blob': True, 'source_matches': True, 'capture_ok': True, 'patches': [{'id': 2, 'old': '<p>A municipality should not choose the worked example according to which one produces the largest saving. It must choose the calculation form that fits the actual volume, rhythm, and sensitivity of the work field.</p>', 'new': '', 'finding': 'F3-06'}], 'candidate_sha256': '596f6564d42ce246590373f19245576af366df0a6de37e93c8df5b73fbbd7fd7'}, {'path': 'papers/atlas-of-a-living-architecture.html', 'url': 'https://papers.spiralweb.earth/papers/atlas-of-a-living-architecture', 'kind': 'html', 'source_sha256': '44cef357909866a784f16252b3662f08e84058c971661ee6531dedf48ceda138', 'id': 3, 'http_status': 200, 'exit_code': 0, 'bytes': 105655, 'sha256': '44cef357909866a784f16252b3662f08e84058c971661ee6531dedf48ceda138', 'format_valid': True, 'remote_blob': {'sha': 'fa307318f68711cedb85bb7ab7411d2f9ba9c22f', 'size': 105655}, 'live_matches_remote_blob': True, 'source_matches': True, 'capture_ok': True, 'patches': [{'id': 3, 'old': 'Internet\naccess is not required.', 'new': 'The materials are available online. Once downloaded or printed, they can support fieldwork without an internet connection.', 'finding': 'F3-03'}, {'id': 3, 'old': 'An AnchorPoint is a relational threshold: a person, group, or\nconnection with enough continuity for another conversation.', 'new': 'An AnchorPoint is a locally rooted shared form through which people, places and regenerative processes may become connected over time through shared stewardship, learning, governance and Return. A rooted relationship may choose to develop such a form; a person or contact is not in itself an AnchorPoint. The form does not automatically activate a field cycle.', 'finding': 'F3-08'}, {'id': 3, 'old': 'This is an AnchorPoint, not necessarily an active\nfield.', 'new': 'This is an established relationship, not in itself an AnchorPoint or an active field cycle.', 'finding': 'F3-08'}, {'id': 3, 'old': 'An <strong>AnchorPoint</strong> is the relational threshold: a real\nperson, group, or relationship with enough place-based continuity for\nanother conversation.', 'new': 'An <strong>AnchorPoint</strong> is a locally rooted shared form through which people, places and regenerative processes may become connected over time through shared stewardship, learning, governance and Return. A rooted relationship may choose to develop such a form; a person or contact is not in itself an AnchorPoint. The form does not automatically activate a field cycle.', 'finding': 'F3-08'}], 'candidate_sha256': 'de11beeb92df460ead5c61553ae70a676be2c644b7fdd8670befda55f195df6b'}, {'path': 'papers/atlas-over-en-levende-arkitektur.html', 'url': 'https://papers.spiralweb.earth/papers/atlas-over-en-levende-arkitektur', 'kind': 'html', 'source_sha256': '91df1ce51046afc45c19a18410923a7a77ac9020566e2925491165025b96dd0c', 'id': 4, 'http_status': 200, 'exit_code': 0, 'bytes': 114933, 'sha256': '91df1ce51046afc45c19a18410923a7a77ac9020566e2925491165025b96dd0c', 'format_valid': True, 'remote_blob': {'sha': '5497ff1aaef5341527822094d3628fac2ea6d4c9', 'size': 114933}, 'live_matches_remote_blob': True, 'source_matches': True, 'capture_ok': True, 'patches': [{'id': 4, 'old': 'Et AnchorPoint er en relationel tærskel: et menneske, en gruppe eller\nen forbindelse med tilstrækkelig kontinuitet til endnu en samtale.', 'new': 'Et AnchorPoint er en lokalt forankret fælles form, hvor mennesker, steder og regenerative processer kan forbindes over tid gennem delt stewardship, læring, governance og Return. En eksisterende relation kan vælge at udvikle en sådan form; en person eller kontakt er ikke i sig selv et AnchorPoint. Formen aktiverer ikke automatisk en feltcyklus.', 'finding': 'F3-08'}, {'id': 4, 'old': 'Dette er et AnchorPoint,\nikke nødvendigvis et aktivt felt.', 'new': 'Det er en etableret relation, ikke i sig selv et AnchorPoint eller en aktiv feltcyklus.', 'finding': 'F3-08'}, {'id': 4, 'old': 'Et <strong>AnchorPoint</strong> er den relationelle tærskel: en\nvirkelig person, gruppe eller relation med stedbunden kontinuitet nok\ntil endnu en samtale.', 'new': 'Et <strong>AnchorPoint</strong> er en lokalt forankret fælles form, hvor mennesker, steder og regenerative processer kan forbindes over tid gennem delt stewardship, læring, governance og Return. En eksisterende relation kan vælge at udvikle en sådan form; en person eller kontakt er ikke i sig selv et AnchorPoint. Formen aktiverer ikke automatisk en feltcyklus.', 'finding': 'F3-08'}], 'candidate_sha256': '93f3f75519dc3d5db05de4a9369f05b72b3ed6200433f0640b0a04c71267aec5'}, {'path': 'papers/the-spiral-of-hypotheses-full-register.html', 'url': 'https://papers.spiralweb.earth/papers/the-spiral-of-hypotheses-full-register', 'kind': 'html', 'source_sha256': '3ef15b8d232f4477319f4a24eb3f6d3edb6694ac0dbae3885ae14613770f3ef4', 'id': 5, 'http_status': 200, 'exit_code': 0, 'bytes': 97206, 'sha256': '3ef15b8d232f4477319f4a24eb3f6d3edb6694ac0dbae3885ae14613770f3ef4', 'format_valid': True, 'remote_blob': {'sha': '186390c5629acef69afccab0d8983d2d29993b48', 'size': 97206}, 'live_matches_remote_blob': True, 'source_matches': True, 'capture_ok': True, 'patches': [{'id': 5, 'old': '<strong>AnchorPoint — current public term.</strong> A real\nperson, group or relationship rooted in place with enough continuity for\nanother conversation. It is a relational threshold, not proof of an\nactive field cycle.', 'new': '<strong>AnchorPoint — current public term.</strong> An AnchorPoint is a locally rooted shared form through which people, places and regenerative processes may become connected over time through shared stewardship, learning, governance and Return. A rooted relationship may choose to develop such a form; a person or contact is not in itself an AnchorPoint. The form does not automatically activate a field cycle.', 'finding': 'F3-08'}, {'id': 5, 'old': 'A\nplace-based node in the wider web; broader than the relational threshold\nnamed by AnchorPoint.', 'new': 'A place-based node in the wider web. An AnchorPoint names a locally rooted shared form; an established relationship alone is neither that form nor an active field cycle.', 'finding': 'F3-08'}, {'id': 5, 'old': '<p><strong>H11 — Capacity before consent.</strong> Consent is meaningful\nonly when the nervous system is regulated; under threat, bodies comply\nwithout choosing. <em>GP16. Correction: freely-chosen durable consent\ngiven from acute dysregulation.</em></p>', 'new': '<p><strong>H11 — Capacity can widen the space for consent; rights remain under strain.</strong> Regulation and material safety can make choice more credible. Under threat, compliance may be mistaken for consent, but dysregulation does not remove a person’s dignity, voice, consent or authority over their own boundaries. Regulation must not become an entrance requirement for being heard. Sources: GP16 Nervous-System Love (v0.2); GP13 §4; GP18. <em>Correction: measures intended to support capacity making refusal harder, excluding people under strain, or increasing coercion rather than credible choice.</em></p>', 'finding': 'F3-10'}], 'candidate_sha256': '5dc39f14c630adbe688106980801356082edfbd47480885159b5c20d557a1c7b'}, {'path': 'papers/the-spiral-of-hypotheses.html', 'url': 'https://papers.spiralweb.earth/papers/the-spiral-of-hypotheses', 'kind': 'html', 'source_sha256': '6e9d38d521b590a7de7c813491ea571a16f90c0f7ac6b69928d216d69f970356', 'id': 6, 'http_status': 200, 'exit_code': 0, 'bytes': 45073, 'sha256': '6e9d38d521b590a7de7c813491ea571a16f90c0f7ac6b69928d216d69f970356', 'format_valid': True, 'remote_blob': {'sha': '9cc22e5e4d2da0fb1449828639cadef597230a36', 'size': 45073}, 'live_matches_remote_blob': True, 'source_matches': True, 'capture_ok': True, 'patches': [{'id': 6, 'old': 'The full internal register preserves', 'new': 'The full public working register preserves', 'finding': 'F3-09'}], 'candidate_sha256': '5e42bddd5656d594f7829bca7d93bf00deb836106f82095a0d416c74bbef8352'}]
+          sha=lambda b:hashlib.sha256(b).hexdigest()
+          result={'status':'RUNNING','main':'235ba3e61948d3a1f8fd480e18cd5c95a47d8ce2','cases':[],'production_ready':False}
+          probe=r"""()=>{
+          let all=[...document.querySelectorAll('*')];let main=document.querySelector('main')||document.body;let b=main.getBoundingClientRect(),s=getComputedStyle(main);
+          return {width:innerWidth,overflow:document.documentElement.scrollWidth-innerWidth,font_status:document.fonts.status,main:{left:b.left,right:b.right,width:b.width,padding:s.padding,color:s.color,background:s.backgroundColor,font:s.fontFamily},links:[...document.querySelectorAll('a')].map(a=>[a.getAttribute('href'),a.getAttribute('aria-label')]),ids:all.filter(e=>e.id).map(e=>e.id),broken_fragments:[...document.querySelectorAll('a[href^="#"]')].map(a=>a.getAttribute('href').slice(1)).filter(x=>x&&!document.getElementById(decodeURIComponent(x))),images:[...document.images].map(x=>({src:x.getAttribute('src'),loaded:x.complete&&x.naturalWidth>0})),outside:[...main.querySelectorAll('*')].filter(e=>e.getClientRects().length&&getComputedStyle(e).position!=='fixed').map(e=>{let b=e.getBoundingClientRect();return {tag:e.tagName,id:e.id,left:b.left,right:b.right,text:e.textContent.trim().slice(0,100)}}).filter(x=>x.right>innerWidth+1||x.left< -1).slice(0,80)};
+          }"""
+          def plain(s):return re.sub(r'\s+',' ',html.unescape(re.sub('<[^>]+>',' ',s))).strip()
+          try:
+           with sync_playwright() as pw:
+            browser=pw.chromium.launch();result['browser']=browser.version
+            for row in ROWS:
+             original=(ROOT/row['path']).read_bytes();assert sha(original)==row['source_sha256']
+             candidate=original.decode()
+             for patch in row['patches']:
+              assert candidate.count(patch['old'])==1;candidate=candidate.replace(patch['old'],patch['new'],1)
+             assert sha(candidate.encode())==row['candidate_sha256']
+             for width,height in [(1280,900),(390,844),(320,800)]:
+              measurements={};errors={};missing={}
+              for mode,data in [('baseline',original),('candidate',candidate.encode())]:
+               context=browser.new_context(viewport={'width':width,'height':height});page=context.new_page();errors[mode]=[];missing[mode]=[]
+               page.on('pageerror',lambda e:errors[mode].append(str(e)))
+               def route(req):
+                u=urlsplit(req.request.url)
+                if u.hostname not in ('audit.local','papers.spiralweb.earth','green-papers.pages.dev'):
+                 missing[mode].append(req.request.url);req.abort();return
+                relative=unquote(u.path).lstrip('/') or 'index.html';f=ROOT/relative
+                if not f.is_file():f=ROOT/(relative+'.html')
+                if f.is_dir():f=f/'index.html'
+                if relative==row['path']:req.fulfill(body=data,content_type='text/html; charset=utf-8');return
+                if not f.is_file():missing[mode].append(relative);req.fulfill(status=404,body='missing');return
+                req.fulfill(body=f.read_bytes(),content_type=mimetypes.guess_type(str(f))[0] or 'application/octet-stream')
+               page.route('**/*',route);page.goto('http://audit.local/'+row['path']);page.evaluate('()=>document.fonts.ready');page.wait_for_timeout(100)
+               measurements[mode]=page.evaluate(probe)
+               if width!=320:
+                page.screenshot(path=str(OUT/f'{row["id"]}-{width}-{mode}-top.png'))
+                page.evaluate('()=>scrollTo(0,document.documentElement.scrollHeight)');page.screenshot(path=str(OUT/f'{row["id"]}-{width}-{mode}-bottom.png'))
+               if mode=='candidate':
+                edits=[]
+                for i,patch in enumerate(row['patches']):
+                 if not patch['new']:edits.append({'finding':patch['finding'],'removed_duplicate':True});continue
+                 text=plain(patch['new']); loc=page.locator('p,li,div').filter(has_text=text)
+                 # Browser-normalised exact passage, avoiding ancestor matches.
+                 found=page.evaluate("text=>{let n=s=>s.replace(/\\s+/g,' ').trim();return [...document.querySelectorAll('p,li,div')].filter(e=>n(e.textContent).includes(text)).sort((a,b)=>a.textContent.length-b.textContent.length).map(e=>({tag:e.tagName,id:e.id,text:n(e.textContent),box:{width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height}})).slice(0,1)}",text)
+                 assert found,'Missing approved passage '+patch['finding']
+                 edits.append({'finding':patch['finding'],'present':True,'box':found[0]['box']})
+                 if width!=320:
+                  page.evaluate("text=>{let n=s=>s.replace(/\\s+/g,' ').trim();let e=[...document.querySelectorAll('p,li,div')].filter(e=>n(e.textContent).includes(text)).sort((a,b)=>a.textContent.length-b.textContent.length)[0];e.scrollIntoView({block:'center'})}",text)
+                  page.screenshot(path=str(OUT/f'{row["id"]}-{width}-edit-{i}.png'))
+                measurements[mode]['edits']=edits
+               context.close()
+              a=measurements['baseline'];b=measurements['candidate']
+              assert a['links']==b['links'] and a['ids']==b['ids'],'Link/id contract changed'
+              assert a['main']==b['main'],'Main style geometry changed'
+              assert b['overflow']<=a['overflow'] and b['overflow']==0,'New or existing document overflow'
+              assert errors['baseline']==errors['candidate'],'New JS error'
+              assert missing['baseline']==missing['candidate'],'New missing resource'
+              assert a['broken_fragments']==b['broken_fragments'],'New broken fragment'
+              assert a['images']==b['images'],'Image behaviour changed'
+              result['cases'].append({'path':row['path'],'width':width,'baseline_sha256':row['source_sha256'],'candidate_sha256':row['candidate_sha256'],'measurements':measurements,'errors':errors,'missing':missing,'contracts_preserved':True})
+            browser.close();result['status']='PASS_AUTOMATED_HTML_CONTRACTS_VISUAL_REVIEW_PENDING'
+          except Exception as e:result['status']='STOP';result['error']=repr(e);raise
+          finally:
+           (OUT/'RESULT.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
+           (OUT/'environment.txt').write_text(subprocess.check_output(['python','-m','pip','freeze'],text=True))
+           m={str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.rglob('*') if p.is_file()};(OUT/'MANIFEST.json').write_text(json.dumps(m,indent=2))
+           print('HTML_QA_RESULT '+json.dumps(result,ensure_ascii=False))
+          PYCODE
+      - name: Preserve browser review evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: papers-seven-html-candidate-browser-control
+          path: ${{ runner.temp }}/papers-html-qa
+          retention-days: 30
+          if-no-files-found: error
