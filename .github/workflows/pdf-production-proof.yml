@@ -20,7 +20,7 @@ jobs:
       - name: Install recorded dependency versions
         run: |
           sudo apt-get update
-          sudo apt-get install -y 'libpango-1.0-0=1.52.1+ds-1build1' 'libpangoft2-1.0-0=1.52.1+ds-1build1' 'fonts-dejavu-core=2.37-8' 'fonts-dejavu-extra=2.37-8' fonts-urw-base35
+          sudo apt-get install -y 'libpango-1.0-0=1.52.1+ds-1build1' 'libpangoft2-1.0-0=1.52.1+ds-1build1' 'fonts-dejavu-core=2.37-8' 'fonts-urw-base35=20200910-8'
           cat > "$RUNNER_TEMP/pdf-requirements.lock" <<'LOCK'
           brotli==1.2.0
           cffi==2.1.1
@@ -140,7 +140,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: papers-pdf-font-proof
+          name: papers-pdf-preserved-font-proof
           path: ${{ runner.temp }}/pdf-baseline-proof
           retention-days: 30
           if-no-files-found: error
