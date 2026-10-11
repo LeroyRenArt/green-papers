@@ -43,7 +43,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           from urllib.parse import urlsplit,unquote
-          import difflib,hashlib,json,logging,os,re,shutil,subprocess,unicodedata
+          import base64,difflib,hashlib,json,logging,os,re,shutil,subprocess,unicodedata
           import fitz,weasyprint
           from weasyprint import HTML,CSS
           from weasyprint.urls import URLFetcher
@@ -93,6 +93,13 @@ jobs:
           report=dict(result='DIAGNOSTIC_COMPLETE',source_main=EXPECTED_MAIN,engine=weasyprint.__version__,mode='Unchanged HTML baseline reconstruction only',publication_attempts=0,project_writes=0,production_ready=False,visual_review='PENDING',system_environment_lock='Ubuntu24.04 runner image recorded, not immutable container',cases=[])
           try:
            css='a.sw-access-skip{display:none!important}'
+           font_hashes={}
+           for weight,filename in [(400,'DejaVuSerif.ttf'),(700,'DejaVuSerif-Bold.ttf')]:
+            fp=Path('/usr/share/fonts/truetype/dejavu')/filename;raw=fp.read_bytes();font_hashes[filename]=sha(raw)
+            for style in ('normal','italic'):
+             css+='@font-face{font-family:HistoricalSerif;src:url(data:font/ttf;base64,'+base64.b64encode(raw).decode()+');font-weight:'+str(weight)+';font-style:'+style+'}'
+           report['preserved_serif_font_hashes']=font_hashes
+           report['serif_italic_policy']='Preserve historical upright glyphs for semantic italic spans; original HTML emphasis unchanged'
            (OUT/'print-only.css').write_text(css)
            for pair in PAIRS:
             print('BEGIN_BASELINE '+pair['pdf'],flush=True)
@@ -101,9 +108,9 @@ jobs:
             folder=OUT/html.stem;folder.mkdir();shutil.copyfile(pdf,folder/'baseline.pdf');fetcher=LocalFetcher();log.messages=[]
             paper_css=css
             if 'atlas-' in html.stem:
-             paper_css+=' body{font-family:DejaVu Serif!important} .sitebar,.eyebrow,.paper-number,.meta-grid,article h2,article h3,article figcaption,.colophon,article table,.downloads,nav#TOC{font-family:DejaVu Sans!important}'
+             paper_css+=' body{font-family:HistoricalSerif!important} .sitebar,.eyebrow,.paper-number,.meta-grid,article h2,article h3,article figcaption,.colophon,article table,.downloads,nav#TOC{font-family:DejaVu Sans!important}'
             elif html.stem in ('kommunalt-arbejde-som-natur','municipal-work-as-nature'):
-             paper_css+=' body{font-family:DejaVu Serif!important} .preview-banner,#TOC,h1,h2,h3,h4,table{font-family:Nimbus Sans!important} @page{@bottom-center{font-family:Nimbus Sans!important}}'
+             paper_css+=' body{font-family:HistoricalSerif!important} .preview-banner,#TOC,h1,h2,h3,h4,table{font-family:Nimbus Sans!important} @page{@bottom-center{font-family:Nimbus Sans!important}}'
             (folder/'print-only.css').write_text(paper_css)
             outputs=[]
             for n in range(2):
@@ -140,7 +147,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: papers-pdf-preserved-font-proof
+          name: papers-pdf-glyph-baseline-proof
           path: ${{ runner.temp }}/pdf-baseline-proof
           retention-days: 30
           if-no-files-found: error
