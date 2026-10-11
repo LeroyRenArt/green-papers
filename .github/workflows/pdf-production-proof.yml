@@ -1,4 +1,4 @@
-name: PDF production environment proof
+name: Papers PDF baseline reproduction diagnostic
 on:
   push:
     branches: [pdf-production-proof-20261011]
@@ -6,50 +6,135 @@ on:
 permissions:
   contents: read
 jobs:
-  neutral-pdf:
+  baseline-pdfs:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 235ba3e61948d3a1f8fd480e18cd5c95a47d8ce2
+          persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.12.12'
-      - name: Install isolated proof dependencies
+      - name: Install recorded dependency versions
         run: |
           sudo apt-get update
-          sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 fonts-dejavu-core
-          python -m pip install 'WeasyPrint==70.0' 'PyMuPDF==1.26.6'
-          python -m pip freeze
-          dpkg-query -W libpango-1.0-0 libpangoft2-1.0-0 fonts-dejavu-core
-      - name: Produce and verify neutral fixture twice
+          sudo apt-get install -y 'libpango-1.0-0=1.52.1+ds-1build1' 'libpangoft2-1.0-0=1.52.1+ds-1build1' 'fonts-dejavu-core=2.37-8'
+          cat > "$RUNNER_TEMP/pdf-requirements.lock" <<'LOCK'
+          brotli==1.2.0
+          cffi==2.1.1
+          cssselect2==0.10.1
+          fonttools==4.66.1
+          pillow==12.3.0
+          pycparser==3.11
+          pydyf==0.12.1
+          PyMuPDF==1.26.6
+          pyphen==0.18.1
+          tinycss2==1.5.1
+          tinyhtml5==2.1.0
+          weasyprint==70.0
+          webencodings==0.6.1
+          zopfli==0.4.3
+          LOCK
+          python -m pip install -r "$RUNNER_TEMP/pdf-requirements.lock"
+      - name: Reproduce five unchanged HTML PDF pairs twice
         run: |
           python - <<'PY'
           from pathlib import Path
-          import hashlib, json, platform
-          import fitz, weasyprint
-          from weasyprint import HTML
-          assert weasyprint.__version__ == '70.0'
-          fixture = """<!doctype html><html lang="da"><meta charset="utf-8">
-          <style>@page {size:A4;margin:20mm}body{font-family:"DejaVu Sans";font-size:12pt}section{break-before:page}</style>
-          <h1>Neutral PDF production proof</h1><p>Dansk: æ ø å. English: consent and correction.</p>
-          <section><h2>Second page</h2><p>End of neutral fixture.</p></section></html>"""
-          text_runs, pixel_runs, hashes = [], [], []
-          for i in range(2):
-              path = Path(f"neutral-{i}.pdf")
-              HTML(string=fixture).write_pdf(path)
-              with fitz.open(path) as doc:
-                  assert len(doc) == 2
-                  texts = [page.get_text() for page in doc]
-                  joined = "\n".join(texts)
-                  for phrase in ("Neutral PDF production proof", "æ ø å", "consent and correction", "Second page", "End of neutral fixture."):
-                      assert phrase in joined, phrase
-                  for page in doc:
-                      for word in page.get_text("words"):
-                          assert 0 <= word[0] <= word[2] <= page.rect.width
-                          assert 0 <= word[1] <= word[3] <= page.rect.height
-                  text_runs.append(texts)
-                  pixel_runs.append([hashlib.sha256(page.get_pixmap(alpha=False).samples).hexdigest() for page in doc])
-              hashes.append(hashlib.sha256(path.read_bytes()).hexdigest())
-          assert text_runs[0] == text_runs[1]
-          assert pixel_runs[0] == pixel_runs[1]
-          print(json.dumps({"result":"NEUTRAL_ENVIRONMENT_PROOF_PASS","weasyprint":weasyprint.__version__,"python":platform.python_version(),"pages":2,"pdf_hashes":hashes,"page_pixel_hashes":pixel_runs[0],"text_and_pixels_repeatable":True,"production_ready":False,"limitation":"Neutral fixture only. Existing Papers layout, full dependency locks and visual review remain unverified.","publication_attempts":0}))
+          from urllib.parse import urlsplit,unquote
+          import difflib,hashlib,json,logging,os,re,shutil,subprocess,unicodedata
+          import fitz,weasyprint
+          from weasyprint import HTML,CSS
+          from weasyprint.urls import URLFetcher
+          from PIL import Image,ImageDraw
+          ROOT=Path.cwd().resolve();OUT=Path(os.environ['RUNNER_TEMP'])/'pdf-baseline-proof';OUT.mkdir()
+          EXPECTED_MAIN='235ba3e61948d3a1f8fd480e18cd5c95a47d8ce2'
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==EXPECTED_MAIN
+          assert weasyprint.__version__=='70.0'
+          PAIRS=[{'html': 'papers/kommunalt-arbejde-som-natur.html', 'html_sha': '2dd6e6eee40f86bd36c4a9b04284dca9a71e3fe377d98e959c10a9af70fea2c1', 'pdf': 'papers/kommunalt-arbejde-som-natur.pdf', 'pdf_sha': 'e393fdfd524d37f9bf824ee2e7aecf971b5f5366bf87c7b173f5f2df807edd85'}, {'html': 'papers/municipal-work-as-nature.html', 'html_sha': 'cf708183276aa0279f07027b4eb7595f9034ffa9e49835e18e29dfa2e5e84ffb', 'pdf': 'papers/municipal-work-as-nature.pdf', 'pdf_sha': '59697378dadecc91a2abc99917581e6744112d6ecf804b886c680cdb8330afb2'}, {'html': 'papers/atlas-of-a-living-architecture.html', 'html_sha': '44cef357909866a784f16252b3662f08e84058c971661ee6531dedf48ceda138', 'pdf': 'papers/atlas-of-a-living-architecture.pdf', 'pdf_sha': '9730407fdceeb371a6d2c055054b927e4058a2127ac5367996df26136c65ee9f'}, {'html': 'papers/atlas-over-en-levende-arkitektur.html', 'html_sha': '91df1ce51046afc45c19a18410923a7a77ac9020566e2925491165025b96dd0c', 'pdf': 'papers/atlas-over-en-levende-arkitektur.pdf', 'pdf_sha': '81d9d5df5798a38f701899f006679adf7db3846c9a5e1b84603a94485cde5d74'}, {'html': 'papers/the-spiral-of-hypotheses-full-register.html', 'html_sha': '3ef15b8d232f4477319f4a24eb3f6d3edb6694ac0dbae3885ae14613770f3ef4', 'pdf': 'papers/the-spiral-of-hypotheses-full-register.pdf', 'pdf_sha': '4e4257531ccd10566222e980813abe698e7aec0076c095f34d844ef5f009b86a'}]
+          sha=lambda b:hashlib.sha256(b).hexdigest()
+          inputs={str(p.relative_to(ROOT)):sha(p.read_bytes()) for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.parts}
+          class LocalFetcher(URLFetcher):
+           def __init__(self):super().__init__(allowed_protocols=['file','data'],fail_on_errors=True);self.resources=[]
+           def fetch(self,url,headers=None):
+            u=urlsplit(url)
+            if u.scheme=='data':return super().fetch(url,headers)
+            if u.scheme in ('https','http') and u.hostname in ('papers.spiralweb.earth','green-papers.pages.dev'):
+             p=(ROOT/unquote(u.path).lstrip('/')).resolve()
+            elif u.scheme=='file':p=Path(unquote(u.path)).resolve()
+            else:raise ValueError('Unapproved external print resource: '+url)
+            if ROOT not in p.parents or not p.is_file():raise ValueError('Missing or external local print resource: '+str(p))
+            self.resources.append(dict(path=str(p.relative_to(ROOT)),sha256=sha(p.read_bytes())))
+            return super().fetch(p.as_uri(),headers)
+          class LogCapture(logging.Handler):
+           def __init__(self):super().__init__();self.messages=[]
+           def emit(self,record):self.messages.append(dict(level=record.levelname,message=record.getMessage()))
+          log=LogCapture();logging.getLogger('weasyprint').addHandler(log)
+          def norm(t):
+           t=unicodedata.normalize('NFKC',t).replace('\u00ad','').replace('\u200b','')
+           return re.sub(r'\s+',' ',t).strip()
+          def inspect(path,label,folder):
+           with fitz.open(path) as doc:
+            texts=[p.get_text() for p in doc];pixels=[];outside=[];thumbs=[];fonts=[]
+            for i,page in enumerate(doc):
+             pix=page.get_pixmap(alpha=False);pixels.append(sha(pix.samples));fonts.extend(page.get_fonts())
+             for word in page.get_text('words'):
+              if word[0]<-.5 or word[1]<-.5 or word[2]>page.rect.width+.5 or word[3]>page.rect.height+.5:outside.append(dict(page=i+1,text=word[4],bounds=list(word[:4])))
+             im=Image.frombytes('RGB',(pix.width,pix.height),pix.samples)
+             im.thumbnail((180,255));thumbs.append(im)
+             if i in (0,len(doc)//2,len(doc)-1):pix.save(folder/(label+'-page-'+str(i+1)+'.png'))
+            for start in range(0,len(thumbs),20):
+             subset=thumbs[start:start+20];sheet=Image.new('RGB',(1000,((len(subset)+4)//5)*295),'#dfe4e8');draw=ImageDraw.Draw(sheet)
+             for n,im in enumerate(subset):x=(n%5)*200+10;y=(n//5)*295+24;sheet.paste(im,(x,y));draw.text((x,y-18),str(start+n+1),fill='#172b39')
+             sheet.save(folder/(label+'-contact-'+str(start+1)+'.png'))
+            (folder/(label+'-text.txt')).write_text('\n\f\n'.join(texts))
+            return dict(pages=len(doc),page_texts=texts,page_pixels=pixels,page_sizes=[list(p.rect) for p in doc],outside_page=outside,fonts=sorted(set(str(x) for x in fonts)),metadata=doc.metadata)
+          report=dict(result='DIAGNOSTIC_COMPLETE',source_main=EXPECTED_MAIN,engine=weasyprint.__version__,mode='Unchanged HTML baseline reconstruction only',publication_attempts=0,project_writes=0,production_ready=False,visual_review='PENDING',system_environment_lock='Ubuntu24.04 runner image recorded, not immutable container',cases=[])
+          try:
+           css='a.sw-access-skip{display:none!important}'
+           (OUT/'print-only.css').write_text(css)
+           for pair in PAIRS:
+            print('BEGIN_BASELINE '+pair['pdf'],flush=True)
+            html=ROOT/pair['html'];pdf=ROOT/pair['pdf']
+            assert sha(html.read_bytes())==pair['html_sha'];assert sha(pdf.read_bytes())==pair['pdf_sha']
+            folder=OUT/html.stem;folder.mkdir();shutil.copyfile(pdf,folder/'baseline.pdf');fetcher=LocalFetcher();log.messages=[]
+            outputs=[]
+            for n in range(2):
+             dest=folder/('reconstructed-'+str(n)+'.pdf')
+             HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+pair['html'],url_fetcher=fetcher).write_pdf(dest,stylesheets=[CSS(string=css)])
+             outputs.append(dest)
+            baseline=inspect(pdf,'baseline',folder);new=inspect(outputs[0],'reconstructed',folder)
+            with fitz.open(outputs[1]) as again:
+             repeat_text=[p.get_text() for p in again];repeat_pixels=[sha(p.get_pixmap(alpha=False).samples) for p in again]
+            assert repeat_text==new['page_texts'] and repeat_pixels==new['page_pixels'],'Nonrepeatable generation'
+            oldtext='\n'.join(baseline['page_texts']);newtext='\n'.join(new['page_texts']);tokens_old=norm(oldtext).split();tokens_new=norm(newtext).split()
+            sm=difflib.SequenceMatcher(None,tokens_old,tokens_new,autojunk=False)
+            differences=[dict(kind=k,old=' '.join(tokens_old[a:b]),new=' '.join(tokens_new[c:d])) for k,a,b,c,d in sm.get_opcodes() if k!='equal']
+            (folder/'text-differences.json').write_text(json.dumps(differences,ensure_ascii=False,indent=2))
+            exact_pixels=baseline['page_pixels']==new['page_pixels'] and baseline['page_sizes']==new['page_sizes'];text_same=baseline['page_texts']==new['page_texts']
+            row=dict(pair,baseline_pages=baseline['pages'],reconstructed_pages=new['pages'],baseline_page_text_identical=text_same,baseline_all_page_pixels_identical=exact_pixels,normalized_full_text_identical=norm(oldtext)==norm(newtext),token_alignment=sm.ratio(),text_difference_blocks=len(differences),generation_repeatable=True,outside_page_words=len(new['outside_page']),reconstructed_sha256=sha(outputs[0].read_bytes()),resources=fetcher.resources,warnings=log.messages,classification='REPRODUCED_BASELINE' if exact_pixels and text_same else 'DIFFERENCES_REQUIRE_REVIEW',visual_review='PENDING')
+            (folder/'details.json').write_text(json.dumps(dict(baseline=baseline,reconstructed=new),ensure_ascii=False,indent=2));report['cases'].append(row)
+            print('BASELINE_RESULT '+json.dumps(row,ensure_ascii=False),flush=True)
+           assert all((ROOT/n).is_file() and sha((ROOT/n).read_bytes())==h for n,h in inputs.items()),'Repository input changed'
+           assert set(inputs)=={str(p.relative_to(ROOT)) for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.parts},'New repository files appeared'
+           if any(x['classification']!='REPRODUCED_BASELINE' for x in report['cases']):report['result']='DIAGNOSTIC_COMPLETE_WITH_DIFFERENCES'
+          except Exception as e:
+           report['result']='STOP';report['error']=repr(e);raise
+          finally:
+           report['repository_inputs_unchanged']=all((ROOT/n).is_file() and sha((ROOT/n).read_bytes())==h for n,h in inputs.items())
+           (OUT/'RESULT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+           (OUT/'pip-freeze.txt').write_text(subprocess.check_output(['python','-m','pip','freeze'],text=True))
+           (OUT/'fontconfig-inventory.txt').write_text(subprocess.check_output(['fc-list'],text=True))
+           (OUT/'system-packages.txt').write_text(subprocess.check_output(['dpkg-query','-W'],text=True))
+           m={str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.rglob('*') if p.is_file()};(OUT/'MANIFEST.json').write_text(json.dumps(m,indent=2))
+           print('FINAL_BASELINE_RESULT '+json.dumps(report,ensure_ascii=False),flush=True)
           PY
+      - name: Preserve diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: papers-pdf-baseline-proof
+          path: ${{ runner.temp }}/pdf-baseline-proof
+          retention-days: 30
+          if-no-files-found: error
