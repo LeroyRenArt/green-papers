@@ -1,0 +1,55 @@
+name: PDF production environment proof
+on:
+  push:
+    branches: [pdf-production-proof-20261011]
+    paths: [.github/workflows/pdf-production-proof.yml]
+permissions:
+  contents: read
+jobs:
+  neutral-pdf:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.12'
+      - name: Install isolated proof dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 fonts-dejavu-core
+          python -m pip install 'WeasyPrint==70.0' 'PyMuPDF==1.26.6'
+          python -m pip freeze
+          dpkg-query -W libpango-1.0-0 libpangoft2-1.0-0 fonts-dejavu-core
+      - name: Produce and verify neutral fixture twice
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json, platform
+          import fitz, weasyprint
+          from weasyprint import HTML
+          assert weasyprint.__version__ == '70.0'
+          fixture = """<!doctype html><html lang="da"><meta charset="utf-8">
+          <style>@page {size:A4;margin:20mm}body{font-family:"DejaVu Sans";font-size:12pt}section{break-before:page}</style>
+          <h1>Neutral PDF production proof</h1><p>Dansk: æ ø å. English: consent and correction.</p>
+          <section><h2>Second page</h2><p>End of neutral fixture.</p></section></html>"""
+          text_runs, pixel_runs, hashes = [], [], []
+          for i in range(2):
+              path = Path(f"neutral-{i}.pdf")
+              HTML(string=fixture).write_pdf(path)
+              with fitz.open(path) as doc:
+                  assert len(doc) == 2
+                  texts = [page.get_text() for page in doc]
+                  joined = "\n".join(texts)
+                  for phrase in ("Neutral PDF production proof", "æ ø å", "consent and correction", "Second page", "End of neutral fixture."):
+                      assert phrase in joined, phrase
+                  for page in doc:
+                      for word in page.get_text("words"):
+                          assert 0 <= word[0] <= word[2] <= page.rect.width
+                          assert 0 <= word[1] <= word[3] <= page.rect.height
+                  text_runs.append(texts)
+                  pixel_runs.append([hashlib.sha256(page.get_pixmap(alpha=False).samples).hexdigest() for page in doc])
+              hashes.append(hashlib.sha256(path.read_bytes()).hexdigest())
+          assert text_runs[0] == text_runs[1]
+          assert pixel_runs[0] == pixel_runs[1]
+          print(json.dumps({"result":"NEUTRAL_ENVIRONMENT_PROOF_PASS","weasyprint":weasyprint.__version__,"python":platform.python_version(),"pages":2,"pdf_hashes":hashes,"page_pixel_hashes":pixel_runs[0],"text_and_pixels_repeatable":True,"production_ready":False,"limitation":"Neutral fixture only. Existing Papers layout, full dependency locks and visual review remain unverified.","publication_attempts":0}))
+          PY
