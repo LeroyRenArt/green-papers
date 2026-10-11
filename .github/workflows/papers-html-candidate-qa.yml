@@ -66,7 +66,7 @@ jobs:
                measurements[mode]=page.evaluate(probe)
                if width!=320:
                 page.screenshot(path=str(OUT/f'{row["id"]}-{width}-{mode}-top.png'))
-                page.evaluate('()=>scrollTo(0,document.documentElement.scrollHeight)');page.screenshot(path=str(OUT/f'{row["id"]}-{width}-{mode}-bottom.png'))
+                page.evaluate("()=>scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'})");page.screenshot(path=str(OUT/f'{row["id"]}-{width}-{mode}-bottom.png'))
                if mode=='candidate':
                 edits=[]
                 for i,patch in enumerate(row['patches']):
@@ -77,7 +77,7 @@ jobs:
                  assert found,'Missing approved passage '+patch['finding']
                  edits.append({'finding':patch['finding'],'present':True,'box':found[0]['box']})
                  if width!=320:
-                  page.evaluate("text=>{let n=s=>s.replace(/\\s+/g,' ').trim();let e=[...document.querySelectorAll('p,li,div')].filter(e=>n(e.textContent).includes(text)).sort((a,b)=>a.textContent.length-b.textContent.length)[0];e.scrollIntoView({block:'center'})}",text)
+                  page.evaluate("text=>{let n=s=>s.replace(/\\s+/g,' ').trim();let e=[...document.querySelectorAll('p,li,div')].filter(e=>n(e.textContent).includes(text)).sort((a,b)=>a.textContent.length-b.textContent.length)[0];scrollTo({top:e.getBoundingClientRect().top+scrollY-(innerHeight-e.getBoundingClientRect().height)/2,behavior:'instant'})}",text)
                   page.screenshot(path=str(OUT/f'{row["id"]}-{width}-edit-{i}.png'))
                 measurements[mode]['edits']=edits
                context.close()
