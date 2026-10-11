@@ -154,6 +154,7 @@ jobs:
               for b in p.get_text('dict')['blocks']:
                for l in b.get('lines',[]):
                 for s in l['spans']:
+                 if s['text'].strip() in ('•','◦','▪','●') or re.fullmatch(r'[0-9]{1,3}[.)]',s['text'].strip()):continue
                  if s['text'].strip().isdigit() and s['size']<9 and s['bbox'][1]>p.rect.height-55:continue
                  lines.append(s['text'])
             return compact(''.join(lines))
