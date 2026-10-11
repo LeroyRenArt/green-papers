@@ -1,0 +1,95 @@
+name: Papers final content readiness
+on:
+  push:
+    branches: [pdf-production-proof-20261011]
+    paths: [.github/workflows/papers-final-readiness.yml]
+permissions:
+  contents: read
+jobs:
+  readiness:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: f2ecebafbcbbc1120574bb962d637f329ba9fe31
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.12'
+      - name: Install recorded browser control
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+      - name: Check exact source, public build, preview and live baseline
+        run: |
+          python - <<'PYCODE'
+          from pathlib import Path
+          from datetime import datetime,timezone
+          import os,json,hashlib,subprocess,traceback
+          from urllib.parse import urlsplit
+          from playwright.sync_api import sync_playwright
+          ROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-final-readiness';OUT.mkdir()
+          BASE='235ba3e61948d3a1f8fd480e18cd5c95a47d8ce2';HEAD='f2ecebafbcbbc1120574bb962d637f329ba9fe31';PREVIEW='https://431ccc55.green-papers.pages.dev'
+          SPEC=[{'path': 'da/laeseorientering.html', 'sha256': '9845d221e4b38b825608959130875c21eca2d89994d2e860a9d4f8260c7d2937', 'git_blob': '9d8d5033ca5034e6ba03ca93d2f45fbe3c77d8d9', 'bytes': 10750}, {'path': 'papers/kommunalt-arbejde-som-natur.html', 'sha256': '98520edb6bfcae9ca4da52077f476635313eee3d7b8004e97e226fcf817c20e9', 'git_blob': '52ebde2cc2b9d6358d65656efb3356a73804de20', 'bytes': 237386}, {'path': 'papers/municipal-work-as-nature.html', 'sha256': 'c9d6705ae7b6faa0a3badec7ccf70ce51e0d347faed3dc63ba48cfe59780ed83', 'git_blob': '0337589b5f46dde8ea2d60c82ee68c1bbfdaaa61', 'bytes': 241578}, {'path': 'papers/atlas-of-a-living-architecture.html', 'sha256': 'b1d2568f740fc99900b8481c40ff224dd57e5834c2459fca1d968fb7e4c5267f', 'git_blob': 'b40c7d19161b46fbf960ae13be4fe219c30b560a', 'bytes': 106402}, {'path': 'papers/atlas-over-en-levende-arkitektur.html', 'sha256': '62e39e97608dd3c25aa36eedb70e8ef0c68ef3eb62c20f93652be7734c033f3c', 'git_blob': '0afe15215947965b2225e894960e9907dbde6715', 'bytes': 115549}, {'path': 'papers/the-spiral-of-hypotheses-full-register.html', 'sha256': '709088b7bfa416b9f92e8b1e1bfb7bc59aad574159c97bcb0332743725bcf6d3', 'git_blob': 'f3112d4e2984c5f99eebc0db973232a1d1de9c80', 'bytes': 97831}, {'path': 'papers/the-spiral-of-hypotheses.html', 'sha256': '24d1fd828f6b66de46ce6e2d466ccad730c4c79373530a1b1be4987090b402b0', 'git_blob': '382c1ad95022dbf1c7f4f0a4c8d01b1e97ec4d45', 'bytes': 45243}, {'path': 'papers/atlas-over-en-levende-arkitektur.pdf', 'sha256': 'c9e7d6a00635a7e4fc67ee827ee9d67ed6a416991753d8dc6581bdc4ae5fda89', 'git_blob': '06834a7edcb7a5d5049db2e5167073a43ad494ea', 'bytes': 140469}, {'path': 'papers/atlas-of-a-living-architecture.pdf', 'sha256': '92bafde11e6d18d8b19ba5d899d75060c7ccc2a764eb38a76749b9ce3b1ca7fa', 'git_blob': '7e808c1e13a577274c4e0808d9d8deb771cfb7e0', 'bytes': 127907}, {'path': 'papers/the-spiral-of-hypotheses.pdf', 'sha256': '1df3bd02fff24540886117b94fa39dc1237d078c9a738aa203ff7bfef1eb9e8b', 'git_blob': '73da093f4ed54a94f63c19f4e295acd796271aab', 'bytes': 260890}, {'path': 'papers/the-spiral-of-hypotheses-full-register.pdf', 'sha256': '3d940fd8885188504b0953c23da3d6f46e7d6135d9e1be2b983960d7d61dcff2', 'git_blob': 'c824c3e20e0638885edb4ef04d24dc59f2008e39', 'bytes': 695255}, {'path': 'papers/the-spiral-of-hypotheses-full-register.docx', 'sha256': '110b135220faf9d9cd7f863e35d3a3f8690bccbf85ff3a4225b1a3fcad1b61a8', 'git_blob': '04161d02a0ad80340c38f7a96a32c2f2506203e5', 'bytes': 73129}, {'path': 'papers/kommunalt-arbejde-som-natur.pdf', 'sha256': '5f31c6760eb13becb8a75518ffbc40177b1477ddfd9a6c68cfa28af200c47731', 'git_blob': '1c55a4b883f225841c061309c365be82acd64036', 'bytes': 290509}, {'path': 'papers/municipal-work-as-nature.pdf', 'sha256': 'ca150bfdb2f29e6e08b2e8e057fceac87ede27e37f8988ac99e18f42c94a3457', 'git_blob': 'f04a5d50b4d4eff71e28f7e828f118ce5aad8899', 'bytes': 290745}]
+          TARGETS=[{'path': 'da/laeseorientering.html', 'url': 'https://papers.spiralweb.earth/da/laeseorientering', 'source_sha256': '33e0de5ae2b8d94079453c66d2629b506c63556766ac8842a19a6f0e5356919a'}, {'path': 'papers/kommunalt-arbejde-som-natur.html', 'url': 'https://papers.spiralweb.earth/papers/kommunalt-arbejde-som-natur', 'source_sha256': '2dd6e6eee40f86bd36c4a9b04284dca9a71e3fe377d98e959c10a9af70fea2c1'}, {'path': 'papers/municipal-work-as-nature.html', 'url': 'https://papers.spiralweb.earth/papers/municipal-work-as-nature', 'source_sha256': 'cf708183276aa0279f07027b4eb7595f9034ffa9e49835e18e29dfa2e5e84ffb'}, {'path': 'papers/atlas-of-a-living-architecture.html', 'url': 'https://papers.spiralweb.earth/papers/atlas-of-a-living-architecture', 'source_sha256': '44cef357909866a784f16252b3662f08e84058c971661ee6531dedf48ceda138'}, {'path': 'papers/atlas-over-en-levende-arkitektur.html', 'url': 'https://papers.spiralweb.earth/papers/atlas-over-en-levende-arkitektur', 'source_sha256': '91df1ce51046afc45c19a18410923a7a77ac9020566e2925491165025b96dd0c'}, {'path': 'papers/the-spiral-of-hypotheses-full-register.html', 'url': 'https://papers.spiralweb.earth/papers/the-spiral-of-hypotheses-full-register', 'source_sha256': '3ef15b8d232f4477319f4a24eb3f6d3edb6694ac0dbae3885ae14613770f3ef4'}, {'path': 'papers/the-spiral-of-hypotheses.html', 'url': 'https://papers.spiralweb.earth/papers/the-spiral-of-hypotheses', 'source_sha256': '6e9d38d521b590a7de7c813491ea571a16f90c0f7ac6b69928d216d69f970356'}]
+          sha=lambda b:hashlib.sha256(b).hexdigest()
+          result={'status':'RUNNING','base':BASE,'candidate':HEAD,'preview':PREVIEW,'timestamp_utc':datetime.now(timezone.utc).isoformat(),'checks':{},'preview_files':[],'production_html':[],'browser':[],'merge_attempts':0,'production_publication_attempts':0}
+          def command(args,label):
+           r=subprocess.run(args,capture_output=True,text=True,timeout=60);(OUT/(label+'.stdout')).write_text(r.stdout);(OUT/(label+'.stderr')).write_text(r.stderr);(OUT/(label+'.command.json')).write_text(json.dumps({'args':args,'exit_code':r.returncode}));assert r.returncode==0,label;return r.stdout.strip()
+          def http(url,label):
+           hp=OUT/(label+'.headers');bp=OUT/(label+'.body')
+           status=command(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}',url],label)
+           assert status=='200',(label,status)
+           return bp.read_bytes()
+          try:
+           assert command(['git','rev-parse','HEAD'],'head')==HEAD
+           paths=command(['git','diff','--name-only',BASE,HEAD],'exact-diff').splitlines();assert sorted(paths)==sorted(x['path'] for x in SPEC)
+           result['checks']['exact_14_file_diff']=True
+           for s in SPEC:
+            b=(ROOT/s['path']).read_bytes();assert sha(b)==s['sha256'];assert command(['git','rev-parse',HEAD+':'+s['path']],s['path'].replace('/','_')+'-gitblob')==s['git_blob']
+           result['checks']['reviewed_hashes_match_repository']=True
+           public=json.loads((ROOT/'public-files.json').read_text());assert all(s['path'] in public for s in SPEC)
+           command(['node','scripts/build_public.mjs'],'public-build')
+           built=sorted(str(p.relative_to(ROOT/'dist')) for p in (ROOT/'dist').rglob('*') if p.is_file());assert built==sorted(public)
+           for name in public:assert (ROOT/name).read_bytes()==(ROOT/'dist'/name).read_bytes()
+           result['checks']['all_public_build_bytes_exact']=True;result['checks']['public_files']=len(public)
+           assert command(['git','status','--porcelain','--untracked-files=no'],'source-status')==''
+           for i,s in enumerate(SPEC):
+            route='/'+s['path'];route=route[:-5] if route.endswith('.html') else route
+            b=http(PREVIEW+route,'preview-'+str(i));assert sha(b)==s['sha256'],('preview mismatch',s['path'])
+            result['preview_files'].append({'path':s['path'],'route':route,'status':200,'sha256':sha(b),'match':True})
+           result['checks']['all_14_preview_routes_exact']=True
+           for i,t in enumerate(TARGETS):
+            b=http(t['url'],'production-html-'+str(i));assert sha(b)==t['source_sha256'],('production baseline moved',t['path'])
+            result['production_html'].append({'path':t['path'],'url':t['url'],'sha256':sha(b),'baseline_match':True})
+           result['checks']['all_7_production_html_baselines_current']=True
+           with sync_playwright() as pw:
+            browser=pw.chromium.launch();result['browser_version']=browser.version
+            for t in TARGETS:
+             for width,height in [(1280,900),(390,844),(320,800)]:
+              context=browser.new_context(viewport={'width':width,'height':height});page=context.new_page();errors=[];bad=[]
+              page.on('pageerror',lambda e:errors.append(str(e)))
+              page.on('response',lambda r:bad.append({'url':r.url,'status':r.status}) if r.status>=400 else None)
+              route='/'+t['path'][:-5];response=page.goto(PREVIEW+route,wait_until='networkidle',timeout=30000);assert response.status==200
+              page.evaluate('()=>document.fonts.ready')
+              measure=page.evaluate('()=>({overflow:document.documentElement.scrollWidth-innerWidth,font_status:document.fonts.status,broken_fragments:[...document.querySelectorAll("a[href^=\\"#\\"]")].map(a=>a.getAttribute("href").slice(1)).filter(x=>x&&!document.getElementById(decodeURIComponent(x)))})')
+              assert measure['overflow']==0 and measure['font_status']=='loaded' and not measure['broken_fragments'] and not errors and not bad,(t['path'],width,measure,errors,bad)
+              result['browser'].append({'path':t['path'],'width':width,**measure,'errors':errors,'bad_responses':bad});context.close()
+            browser.close()
+           result['checks']['all_21_hosted_browser_cases_pass']=True
+           result['status']='PASS_READINESS';result['production_ready']=True
+          except Exception as e:
+           result['status']='STOP';result['production_ready']=False;result['error']=str(e);(OUT/'traceback.txt').write_text(traceback.format_exc());raise
+          finally:
+           (OUT/'RESULT.json').write_text(json.dumps(result,indent=2));(OUT/'MANIFEST.json').write_text(json.dumps({str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.rglob('*') if p.is_file()},indent=2))
+          PYCODE
+      - name: Preserve PASS or STOP evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: papers-final-readiness
+          path: ${{ runner.temp }}/papers-final-readiness
+          retention-days: 30
+          if-no-files-found: error
