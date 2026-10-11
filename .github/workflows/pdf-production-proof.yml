@@ -20,7 +20,7 @@ jobs:
       - name: Install recorded dependency versions
         run: |
           sudo apt-get update
-          sudo apt-get install -y 'libpango-1.0-0=1.52.1+ds-1build1' 'libpangoft2-1.0-0=1.52.1+ds-1build1' 'fonts-dejavu-core=2.37-8'
+          sudo apt-get install -y 'libpango-1.0-0=1.52.1+ds-1build1' 'libpangoft2-1.0-0=1.52.1+ds-1build1' 'fonts-dejavu-core=2.37-8' 'fonts-dejavu-extra=2.37-8' fonts-urw-base35
           cat > "$RUNNER_TEMP/pdf-requirements.lock" <<'LOCK'
           brotli==1.2.0
           cffi==2.1.1
@@ -99,10 +99,16 @@ jobs:
             html=ROOT/pair['html'];pdf=ROOT/pair['pdf']
             assert sha(html.read_bytes())==pair['html_sha'];assert sha(pdf.read_bytes())==pair['pdf_sha']
             folder=OUT/html.stem;folder.mkdir();shutil.copyfile(pdf,folder/'baseline.pdf');fetcher=LocalFetcher();log.messages=[]
+            paper_css=css
+            if 'atlas-' in html.stem:
+             paper_css+=' body{font-family:DejaVu Serif!important} .sitebar,.eyebrow,.paper-number,.meta-grid,article h2,article h3,article figcaption,.colophon,article table,.downloads,nav#TOC{font-family:DejaVu Sans!important}'
+            elif html.stem in ('kommunalt-arbejde-som-natur','municipal-work-as-nature'):
+             paper_css+=' body{font-family:DejaVu Serif!important} .preview-banner,#TOC,h1,h2,h3,h4,table{font-family:Nimbus Sans!important} @page{@bottom-center{font-family:Nimbus Sans!important}}'
+            (folder/'print-only.css').write_text(paper_css)
             outputs=[]
             for n in range(2):
              dest=folder/('reconstructed-'+str(n)+'.pdf')
-             HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+pair['html'],url_fetcher=fetcher).write_pdf(dest,stylesheets=[CSS(string=css)])
+             HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+pair['html'],url_fetcher=fetcher).write_pdf(dest,stylesheets=[CSS(string=paper_css)])
              outputs.append(dest)
             baseline=inspect(pdf,'baseline',folder);new=inspect(outputs[0],'reconstructed',folder)
             with fitz.open(outputs[1]) as again:
@@ -134,7 +140,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: papers-pdf-baseline-proof
+          name: papers-pdf-font-proof
           path: ${{ runner.temp }}/pdf-baseline-proof
           retention-days: 30
           if-no-files-found: error
