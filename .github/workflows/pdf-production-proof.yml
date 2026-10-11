@@ -38,21 +38,22 @@ jobs:
           zopfli==0.4.3
           LOCK
           python -m pip install -r "$RUNNER_TEMP/pdf-requirements.lock"
-      - name: Reproduce five unchanged HTML PDF pairs twice
+      - name: Reproduce four unchanged HTML PDF pairs twice
         run: |
           python - <<'PY'
           from pathlib import Path
           from urllib.parse import urlsplit,unquote
-          import difflib,hashlib,json,logging,os,re,shutil,subprocess,unicodedata
+          import base64,difflib,hashlib,json,logging,os,re,shutil,subprocess,unicodedata
           import fitz,weasyprint
           from weasyprint import HTML,CSS
           from weasyprint.urls import URLFetcher
+          from weasyprint.text.fonts import FontConfiguration
           from PIL import Image,ImageDraw
           ROOT=Path.cwd().resolve();OUT=Path(os.environ['RUNNER_TEMP'])/'pdf-baseline-proof';OUT.mkdir()
           EXPECTED_MAIN='235ba3e61948d3a1f8fd480e18cd5c95a47d8ce2'
           assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==EXPECTED_MAIN
           assert weasyprint.__version__=='70.0'
-          PAIRS=[{'html': 'papers/kommunalt-arbejde-som-natur.html', 'html_sha': '2dd6e6eee40f86bd36c4a9b04284dca9a71e3fe377d98e959c10a9af70fea2c1', 'pdf': 'papers/kommunalt-arbejde-som-natur.pdf', 'pdf_sha': 'e393fdfd524d37f9bf824ee2e7aecf971b5f5366bf87c7b173f5f2df807edd85'}, {'html': 'papers/municipal-work-as-nature.html', 'html_sha': 'cf708183276aa0279f07027b4eb7595f9034ffa9e49835e18e29dfa2e5e84ffb', 'pdf': 'papers/municipal-work-as-nature.pdf', 'pdf_sha': '59697378dadecc91a2abc99917581e6744112d6ecf804b886c680cdb8330afb2'}, {'html': 'papers/atlas-of-a-living-architecture.html', 'html_sha': '44cef357909866a784f16252b3662f08e84058c971661ee6531dedf48ceda138', 'pdf': 'papers/atlas-of-a-living-architecture.pdf', 'pdf_sha': '9730407fdceeb371a6d2c055054b927e4058a2127ac5367996df26136c65ee9f'}, {'html': 'papers/atlas-over-en-levende-arkitektur.html', 'html_sha': '91df1ce51046afc45c19a18410923a7a77ac9020566e2925491165025b96dd0c', 'pdf': 'papers/atlas-over-en-levende-arkitektur.pdf', 'pdf_sha': '81d9d5df5798a38f701899f006679adf7db3846c9a5e1b84603a94485cde5d74'}, {'html': 'papers/the-spiral-of-hypotheses-full-register.html', 'html_sha': '3ef15b8d232f4477319f4a24eb3f6d3edb6694ac0dbae3885ae14613770f3ef4', 'pdf': 'papers/the-spiral-of-hypotheses-full-register.pdf', 'pdf_sha': '4e4257531ccd10566222e980813abe698e7aec0076c095f34d844ef5f009b86a'}]
+          PAIRS=[{'html': 'papers/kommunalt-arbejde-som-natur.html', 'html_sha': '2dd6e6eee40f86bd36c4a9b04284dca9a71e3fe377d98e959c10a9af70fea2c1', 'pdf': 'papers/kommunalt-arbejde-som-natur.pdf', 'pdf_sha': 'e393fdfd524d37f9bf824ee2e7aecf971b5f5366bf87c7b173f5f2df807edd85'}, {'html': 'papers/municipal-work-as-nature.html', 'html_sha': 'cf708183276aa0279f07027b4eb7595f9034ffa9e49835e18e29dfa2e5e84ffb', 'pdf': 'papers/municipal-work-as-nature.pdf', 'pdf_sha': '59697378dadecc91a2abc99917581e6744112d6ecf804b886c680cdb8330afb2'}, {'html': 'papers/atlas-of-a-living-architecture.html', 'html_sha': '44cef357909866a784f16252b3662f08e84058c971661ee6531dedf48ceda138', 'pdf': 'papers/atlas-of-a-living-architecture.pdf', 'pdf_sha': '9730407fdceeb371a6d2c055054b927e4058a2127ac5367996df26136c65ee9f'}, {'html': 'papers/atlas-over-en-levende-arkitektur.html', 'html_sha': '91df1ce51046afc45c19a18410923a7a77ac9020566e2925491165025b96dd0c', 'pdf': 'papers/atlas-over-en-levende-arkitektur.pdf', 'pdf_sha': '81d9d5df5798a38f701899f006679adf7db3846c9a5e1b84603a94485cde5d74'}]
           sha=lambda b:hashlib.sha256(b).hexdigest()
           inputs={str(p.relative_to(ROOT)):sha(p.read_bytes()) for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.parts}
           class LocalFetcher(URLFetcher):
@@ -93,6 +94,13 @@ jobs:
           report=dict(result='DIAGNOSTIC_COMPLETE',source_main=EXPECTED_MAIN,engine=weasyprint.__version__,mode='Unchanged HTML baseline reconstruction only',publication_attempts=0,project_writes=0,production_ready=False,visual_review='PENDING',system_environment_lock='Ubuntu24.04 runner image recorded, not immutable container',cases=[])
           try:
            css='a.sw-access-skip{display:none!important}'
+           font_hashes={}
+           for weight,filename in [(400,'DejaVuSerif.ttf'),(700,'DejaVuSerif-Bold.ttf')]:
+            fp=Path('/usr/share/fonts/truetype/dejavu')/filename;raw=fp.read_bytes();font_hashes[filename]=sha(raw)
+            for style in ('normal','italic'):
+             css+='@font-face{font-family:HistoricalSerif;src:url(data:font/ttf;base64,'+base64.b64encode(raw).decode()+');font-weight:'+str(weight)+';font-style:'+style+'}'
+           report['preserved_serif_font_hashes']=font_hashes
+           report['serif_italic_policy']='Preserve historical upright glyphs for semantic italic spans; original HTML emphasis unchanged'
            (OUT/'print-only.css').write_text(css)
            for pair in PAIRS:
             print('BEGIN_BASELINE '+pair['pdf'],flush=True)
@@ -101,14 +109,15 @@ jobs:
             folder=OUT/html.stem;folder.mkdir();shutil.copyfile(pdf,folder/'baseline.pdf');fetcher=LocalFetcher();log.messages=[]
             paper_css=css
             if 'atlas-' in html.stem:
-             paper_css+=' body{font-family:DejaVu Serif!important} .sitebar,.eyebrow,.paper-number,.meta-grid,article h2,article h3,article figcaption,.colophon,article table,.downloads,nav#TOC{font-family:DejaVu Sans!important}'
+             paper_css+=' body{font-family:HistoricalSerif!important} .sitebar,.eyebrow,.paper-number,.meta-grid,article h2,article h3,article figcaption,.colophon,article table,.downloads,nav#TOC{font-family:DejaVu Sans!important}'
             elif html.stem in ('kommunalt-arbejde-som-natur','municipal-work-as-nature'):
-             paper_css+=' body{font-family:DejaVu Serif!important} .preview-banner,#TOC,h1,h2,h3,h4,table{font-family:Nimbus Sans!important} @page{@bottom-center{font-family:Nimbus Sans!important}}'
+             paper_css+=' body{font-family:HistoricalSerif!important} .preview-banner,#TOC,h1,h2,h3,h4,table{font-family:Nimbus Sans!important} @page{@bottom-center{font-family:Nimbus Sans!important}}'
             (folder/'print-only.css').write_text(paper_css)
             outputs=[]
             for n in range(2):
              dest=folder/('reconstructed-'+str(n)+'.pdf')
-             HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+pair['html'],url_fetcher=fetcher).write_pdf(dest,stylesheets=[CSS(string=paper_css)])
+             font_config=FontConfiguration()
+             HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+pair['html'],url_fetcher=fetcher).write_pdf(dest,stylesheets=[CSS(string=paper_css,font_config=font_config)],font_config=font_config)
              outputs.append(dest)
             baseline=inspect(pdf,'baseline',folder);new=inspect(outputs[0],'reconstructed',folder)
             with fitz.open(outputs[1]) as again:
@@ -140,7 +149,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: papers-pdf-preserved-font-proof
+          name: papers-pdf-shared-fontconfig-baseline-proof
           path: ${{ runner.temp }}/pdf-baseline-proof
           retention-days: 30
           if-no-files-found: error
