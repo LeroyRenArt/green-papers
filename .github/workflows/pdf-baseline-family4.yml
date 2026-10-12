@@ -1,4 +1,4 @@
-name: Confirm native reverse focus hidden by Papers sticky header
+name: Papers homepage keyboard focus candidate readiness
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: 8035e789ebff9327c891408f7fdceb43cca49dde
+          ref: aa42ba7ada52678e435d3704ad14ee5cb9f16c64
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
@@ -26,11 +26,14 @@ jobs:
         run: |
           python - <<'PYCODE'
           from pathlib import Path
-          import os,json,hashlib,subprocess,time
+          import os,json,hashlib,subprocess,time,traceback
           from playwright.sync_api import sync_playwright
-          O=Path(os.environ['RUNNER_TEMP'])/'keyboard-spot';O.mkdir();H='8035e789ebff9327c891408f7fdceb43cca49dde'
-          def ref(label):
-           s=subprocess.check_output(['git','ls-remote','origin','refs/heads/main']).decode();(O/(label+'.txt')).write_text(s);assert s.split()[0]==H
+          O=Path(os.environ['RUNNER_TEMP'])/'homepage-focus-readiness';O.mkdir();B='8035e789ebff9327c891408f7fdceb43cca49dde';H='aa42ba7ada52678e435d3704ad14ee5cb9f16c64';U='https://139b8d0f.green-papers.pages.dev'
+          result={'status':'RUNNING','base':B,'candidate':H,'preview':U,'cases':[],'short_viewports':[],'production_writes':0}
+          def command(args,label):
+           r=subprocess.run(args,capture_output=True,text=True,timeout=60);(O/(label+'.stdout')).write_text(r.stdout);(O/(label+'.stderr')).write_text(r.stderr);(O/(label+'.command.json')).write_text(json.dumps({'args':args,'exit':r.returncode}));assert r.returncode==0;return r.stdout.strip()
+          def norm(b):
+           a=b'<!--email_off--><a href="mailto:contact@spiralweb.earth">Corrections</a><!--/email_off-->';c=b'<a href="mailto:contact@spiralweb.earth">Corrections</a>';assert b.count(a)<=1;return b.replace(a,c)
           setup='''()=>{let es=[...document.querySelectorAll('a[href],button,input:not([type="hidden"]),select,textarea,summary,[tabindex]')].filter(e=>e.tabIndex>=0&&!e.disabled&&e.getClientRects().length&&getComputedStyle(e).visibility==='visible'&&!e.closest('[inert]')&&(()=>{for(let d=e.parentElement;d;d=d.parentElement)if(d.tagName==='DETAILS'&&!d.open&&e!==d.querySelector(':scope > summary'))return false;return true})());es.sort((a,b)=>{let x=a.tabIndex,y=b.tabIndex;return (x>0&&y>0)?x-y:x>0?-1:y>0?1:0});window.__auditFocus=es;window.__auditActual=[];return es.map((e,i)=>({i,tag:e.tagName,id:e.id,text:(e.innerText||e.getAttribute('aria-label')||e.getAttribute('placeholder')||e.value||'').trim().slice(0,150),href:e.getAttribute('href'),tabIndex:e.tabIndex}))}'''
           probe='''()=>{let e=document.activeElement,i=window.__auditFocus.indexOf(e),r=e.getBoundingClientRect(),s=getComputedStyle(e);let x=Math.max(0,Math.min(innerWidth-1,(r.left+r.right)/2)),y=Math.max(0,Math.min(innerHeight-1,(r.top+r.bottom)/2)),hit=document.elementFromPoint(x,y);let k=window.__auditActual.indexOf(e);if(k<0){k=window.__auditActual.length;window.__auditActual.push(e)};let visible=[...e.getClientRects()].some(q=>{let l=Math.max(1,q.left),r=Math.min(innerWidth-1,q.right),t=Math.max(1,q.top),b=Math.min(innerHeight-1,q.bottom);if(l>=r||t>=b)return false;return [.2,.5,.8].some(z=>{let a=document.elementFromPoint(l+(r-l)*z,t+(b-t)*z);return a===e||e.contains(a)})});return {i,key:k,visiblePart:visible,tag:e.tagName,id:e.id,text:(e.innerText||e.getAttribute('aria-label')||e.getAttribute('placeholder')||e.value||'').trim().slice(0,150),rect:{left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height},outline:s.outline,outlineOffset:s.outlineOffset,boxShadow:s.boxShadow,border:s.border,background:s.backgroundColor,focusVisible:e.matches(':focus-visible'),centerHit:hit===e||e.contains(hit),inMain:!!e.closest('main')}}'''
           def settle(page):
@@ -41,32 +44,60 @@ jobs:
             if stable>=4:return {'stable':True,'samples':samples,'elapsed_ms':round((time.monotonic()-start)*1000)}
             page.wait_for_timeout(16)
            return {'stable':False,'samples':samples,'elapsed_ms':round((time.monotonic()-start)*1000)}
-          ref('main-before');out=[]
-          with sync_playwright() as pw:
-           b=pw.chromium.launch()
-           for w,target in [(1280,'Dansk version →'),(390,'Current vocabulary ↗')]:
-            c=b.new_context(viewport={'width':w,'height':1000});page=c.new_page();response=page.goto('https://papers.spiralweb.earth/',wait_until='networkidle');assert response.status==200;page.evaluate('()=>document.fonts.ready');page.evaluate(setup);first=None;seen=set()
-            for step in range(100):
-             page.keyboard.press('Tab');settle(page);st=page.evaluate(probe)
-             if st['tag']=='BODY':continue
-             if first is None:first=st['key']
-             elif st['key']==first:break
-             seen.add(st['key'])
-            row={'width':w,'target':target}
-            for step in range(100):
-             page.keyboard.press('Shift+Tab');settle(page);st=page.evaluate(probe)
-             if st['tag']=='BODY':continue
-             if st['text']==target:
-              row['focused']=st;row['header_and_hit']=page.evaluate("()=>{let e=document.activeElement,h=document.querySelector('.top'),r=h.getBoundingClientRect(),a=e.getBoundingClientRect(),hit=document.elementFromPoint((a.left+a.right)/2,Math.max(1,(a.top+a.bottom)/2));return {header:{top:r.top,bottom:r.bottom,height:r.height,position:getComputedStyle(h).position},hitTag:hit?.tagName,hitText:hit?.textContent.trim().slice(0,100),hitInHeader:!!hit?.closest('.top')}}");assert not st['visiblePart'] and row['header_and_hit']['hitInHeader'];page.screenshot(path=str(O/f'occluded-{w}.png'));break
-            assert 'focused' in row;out.append(row);c.close()
-           b.close()
-          ref('main-after');(O/'RESULT.json').write_text(json.dumps(out,indent=2));(O/'MANIFEST.json').write_text(json.dumps({x.name:hashlib.sha256(x.read_bytes()).hexdigest() for x in O.iterdir()},indent=2))
+          try:
+           assert command(['git','rev-parse','HEAD'],'head')==H
+           assert command(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==B
+           assert command(['git','diff','--name-only',B,H],'exact-diff')=='index.html'
+           before=subprocess.check_output(['git','show',B+':index.html']);after=Path('index.html').read_bytes();assert before.count(b'.top{position:sticky;top:0;')==1 and after==before.replace(b'.top{position:sticky;top:0;',b'.top{position:relative;top:0;')
+           command(['git','diff',B,H,'--','index.html'],'candidate-diff');public=json.loads(Path('public-files.json').read_text());command(['node','scripts/build_public.mjs'],'build')
+           assert sorted(str(p.relative_to('dist')) for p in Path('dist').rglob('*') if p.is_file())==sorted(public)
+           for f in public:assert Path(f).read_bytes()==(Path('dist')/f).read_bytes()
+           result['public_build_files']=len(public)
+           bp=O/'production.body';hp=O/'production.headers';status=command(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}','https://papers.spiralweb.earth/'],'production-baseline');assert status=='200' and norm(bp.read_bytes())==norm(before);result['production_baseline_exact']=True
+           with sync_playwright() as pw:
+            browser=pw.chromium.launch();result['browser_version']=browser.version
+            for js in [True,False]:
+             for w in [1280,390,320]:
+              c=browser.new_context(viewport={'width':w,'height':1000},java_script_enabled=js);page=c.new_page();response=page.goto(U+'/',wait_until='networkidle');assert response.status==200;assert norm(response.body())==norm(after);(O/f'preview-{w}-{js}.html').write_bytes(response.body())
+              if js:page.evaluate('()=>document.fonts.ready')
+              assert page.evaluate('getComputedStyle(document.querySelector(".top")).position')=='relative';expected=page.evaluate(setup);case={'width':w,'javascript':js,'expected':expected,'forward':[],'reverse':[]};result['cases'].append(case);first=None;seen=set()
+              for step in range(120):
+               page.keyboard.press('Tab');wait=settle(page);st=page.evaluate(probe);assert wait['stable']
+               if st['tag']=='BODY':continue
+               if first is None:first=st['key']
+               elif st['key']==first:break
+               assert st['key'] not in seen;seen.add(st['key']);case['forward'].append(st);assert st['visiblePart'] and st['focusVisible']
+              else:raise RuntimeError('Cycle not completed')
+              assert {x['i'] for x in case['forward']}==set(range(len(expected))) and len(expected)==80
+              targets=[x['key'] for x in reversed(case['forward'][1:])];i=0
+              for step in range(120):
+               page.keyboard.press('Shift+Tab');wait=settle(page);st=page.evaluate(probe);assert wait['stable']
+               if st['tag']=='BODY':continue
+               if st['key']==first:break
+               assert st['key']==targets[i] and st['visiblePart'] and st['focusVisible'],st;case['reverse'].append(st);i+=1
+              assert i==len(targets);case['status']='PASS'
+              page.goto(U+'/',wait_until='networkidle');page.keyboard.press('Tab');page.keyboard.press('Enter');page.keyboard.press('Tab');assert page.evaluate('()=>!!document.activeElement.closest("main")');case['skip_bypass']=True
+              page.get_by_role('link',name='Corrections',exact=True).scroll_into_view_if_needed();assert page.get_by_role('link',name='Corrections',exact=True).get_attribute('href')=='mailto:contact@spiralweb.earth';case['native_mailto']=True
+              page.goto(U+'/',wait_until='networkidle');page.get_by_role('link',name='Find a way in',exact=True).click();page.wait_for_timeout(800);case['anchor_heading']=page.locator('#begin h2').first.bounding_box();assert page.locator('#begin h2').first.is_visible() and case['anchor_heading']['y']>=0 and case['anchor_heading']['y']<1000
+              page.screenshot(path=str(O/f'begin-{w}-{js}.png'));page.get_by_role('link',name='Full library →',exact=True).click();assert page.url==U+'/library#collection';case['library_navigation']=True;c.close();(O/'RESULT.json').write_text(json.dumps(result,indent=2));print('Case PASS',w,js,flush=True)
+            for w,h in [(1280,480),(390,480),(320,480)]:
+             c=browser.new_context(viewport={'width':w,'height':h},java_script_enabled=False);page=c.new_page();assert page.goto(U+'/',wait_until='networkidle').status==200;page.evaluate(setup);row={'width':w,'height':h,'states':[]}
+             # Confirm previously hidden examples remain visible in low windows using actual native keyboard focus.
+             page.get_by_role('link',name='Current vocabulary ↗',exact=True).focus();settle(page);st=page.evaluate(probe);assert st['visiblePart'];row['states'].append(st)
+             for _ in range(12):
+              page.keyboard.press('Shift+Tab');settle(page);st=page.evaluate(probe);assert st['visiblePart'];row['states'].append(st)
+             assert page.evaluate('document.documentElement.scrollWidth-innerWidth')==0;page.screenshot(path=str(O/f'low-{w}.png'));result['short_viewports'].append(row);c.close()
+            browser.close()
+           assert command(['git','ls-remote','origin','refs/heads/main'],'main-after').split()[0]==B;result['status']='PASS'
+          except Exception as e:result.update({'status':'STOP','error':str(e),'traceback':traceback.format_exc()});raise
+          finally:
+           (O/'RESULT.json').write_text(json.dumps(result,indent=2));(O/'MANIFEST.json').write_text(json.dumps({p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in O.iterdir() if p.is_file()},indent=2))
           PYCODE
       - name: Preserve PASS or STOP evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: keyboard-spot
-          path: ${{ runner.temp }}/keyboard-spot
+          name: homepage-focus-readiness
+          path: ${{ runner.temp }}/homepage-focus-readiness
           retention-days: 30
           if-no-files-found: error
