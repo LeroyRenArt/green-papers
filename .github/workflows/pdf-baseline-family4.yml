@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: 446651f797c479431e81c17ff6aee11d878e6b6c
+          ref: bb7add6f7994abb1bc0c2776f81c3f2889e940d4
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
@@ -30,8 +30,8 @@ jobs:
           import os,json,hashlib,subprocess,traceback,re
           from playwright.sync_api import sync_playwright
           ROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-library-search';OUT.mkdir()
-          BASE='cd6b74ec72ac4d13f319a50bbee3ca7102b4d27d';HEAD='446651f797c479431e81c17ff6aee11d878e6b6c';PREVIEW='https://e3923b99.green-papers.pages.dev'
-          EXPECTED='5541636d5fa4286f88439ddb6ad836e6f714baebbf298e5cba640bf60bf94892'
+          BASE='cd6b74ec72ac4d13f319a50bbee3ca7102b4d27d';HEAD='bb7add6f7994abb1bc0c2776f81c3f2889e940d4';PREVIEW='https://d4488523.green-papers.pages.dev'
+          EXPECTED='b76c632d26fd7667e376de6a7f98e697c0b7e788c1850556d8a1874a90c26c34'
           sha=lambda b:hashlib.sha256(b).hexdigest()
           result={'status':'RUNNING','base':BASE,'candidate':HEAD,'preview':PREVIEW,'timestamp_utc':datetime.now(timezone.utc).isoformat(),'checks':{},'browser':[],'merge_attempts':0,'production_publication_attempts':0}
           def command(args,label):
@@ -96,15 +96,18 @@ jobs:
           try:
            assert command(['git','rev-parse','HEAD'],'head')==HEAD
            assert command(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==BASE
-           assert command(['git','diff','--name-only',BASE,HEAD],'exact-diff').splitlines()==['library.html']
+           assert command(['git','diff','--name-only',BASE,HEAD],'exact-diff').splitlines()==['library.html','sitemap.xml']
            assert sha((ROOT/'library.html').read_bytes())==EXPECTED
            public=json.loads((ROOT/'public-files.json').read_text())
            command(['node','scripts/build_public.mjs'],'public-build')
            built=sorted(str(p.relative_to(ROOT/'dist')) for p in (ROOT/'dist').rglob('*') if p.is_file());assert built==sorted(public)
            for name in public:assert (ROOT/name).read_bytes()==(ROOT/'dist'/name).read_bytes()
            assert command(['git','status','--porcelain','--untracked-files=no'],'source-status')==''
-           result['checks']['exact_one_file_and_public_build']=len(public)
+           result['checks']['exact_two_files_and_public_build']=len(public)
            preview=http(PREVIEW+'/library','preview');assert sha(preview)==EXPECTED
+           assert sha(http(PREVIEW+'/sitemap.xml','preview-sitemap'))=='14823f4769ddc46316e538cdadb3983fcc38e6d139cf4686383b389baa6b6071'
+           assert http('https://papers.spiralweb.earth/sitemap.xml','production-sitemap')==subprocess.check_output(['git','show',BASE+':sitemap.xml'])
+           result['checks']['sitemap_preview_and_baseline_exact']=True
            baseline=subprocess.check_output(['git','show',BASE+':library.html'])
            live=http('https://papers.spiralweb.earth/library','production-library');assert normalize_contact_email(live)==normalize_contact_email(baseline)
            result['checks']['preview_and_live_baseline']=True
