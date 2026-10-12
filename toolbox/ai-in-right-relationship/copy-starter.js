@@ -12,5 +12,6 @@
         status.textContent = 'Select the prompt text above and copy it directly.';
       }
     });
+    button.hidden = false;
   });
 })();
