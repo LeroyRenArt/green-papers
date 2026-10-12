@@ -33,8 +33,8 @@ jobs:
           result={'status':'RUNNING','timestamp_utc':datetime.now(timezone.utc).isoformat(),'papers_main':H,'cases':[],'findings':[],'production_writes':0}
           def ref(label):
            r=subprocess.run(['git','ls-remote','origin','refs/heads/main'],capture_output=True,text=True,timeout=60);(O/(label+'.txt')).write_text(r.stdout);assert r.returncode==0 and r.stdout.split()[0]==H
-          setup='''()=>{let es=[...document.querySelectorAll('a[href],button,input:not([type="hidden"]),select,textarea,summary,[tabindex]')].filter(e=>e.tabIndex>=0&&!e.disabled&&e.getClientRects().length&&getComputedStyle(e).visibility==='visible'&&!e.closest('[inert]'));es.sort((a,b)=>{let x=a.tabIndex,y=b.tabIndex;return (x>0&&y>0)?x-y:x>0?-1:y>0?1:0});window.__auditFocus=es;return es.map((e,i)=>({i,tag:e.tagName,id:e.id,text:(e.innerText||e.getAttribute('aria-label')||e.getAttribute('placeholder')||e.value||'').trim().slice(0,150),href:e.getAttribute('href'),tabIndex:e.tabIndex}))}'''
-          probe='''()=>{let e=document.activeElement,i=window.__auditFocus.indexOf(e),r=e.getBoundingClientRect(),s=getComputedStyle(e);let x=Math.max(0,Math.min(innerWidth-1,(r.left+r.right)/2)),y=Math.max(0,Math.min(innerHeight-1,(r.top+r.bottom)/2)),hit=document.elementFromPoint(x,y);return {i,tag:e.tagName,id:e.id,text:(e.innerText||e.getAttribute('aria-label')||e.getAttribute('placeholder')||e.value||'').trim().slice(0,150),rect:{left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height},outline:s.outline,outlineOffset:s.outlineOffset,boxShadow:s.boxShadow,border:s.border,background:s.backgroundColor,focusVisible:e.matches(':focus-visible'),centerHit:hit===e||e.contains(hit),inMain:!!e.closest('main')}}'''
+          setup='''()=>{let es=[...document.querySelectorAll('a[href],button,input:not([type="hidden"]),select,textarea,summary,[tabindex]')].filter(e=>e.tabIndex>=0&&!e.disabled&&e.getClientRects().length&&getComputedStyle(e).visibility==='visible'&&!e.closest('[inert]')&&(()=>{for(let d=e.parentElement;d;d=d.parentElement)if(d.tagName==='DETAILS'&&!d.open&&e!==d.querySelector(':scope > summary'))return false;return true})());es.sort((a,b)=>{let x=a.tabIndex,y=b.tabIndex;return (x>0&&y>0)?x-y:x>0?-1:y>0?1:0});window.__auditFocus=es;window.__auditActual=[];return es.map((e,i)=>({i,tag:e.tagName,id:e.id,text:(e.innerText||e.getAttribute('aria-label')||e.getAttribute('placeholder')||e.value||'').trim().slice(0,150),href:e.getAttribute('href'),tabIndex:e.tabIndex}))}'''
+          probe='''()=>{let e=document.activeElement,i=window.__auditFocus.indexOf(e),r=e.getBoundingClientRect(),s=getComputedStyle(e);let x=Math.max(0,Math.min(innerWidth-1,(r.left+r.right)/2)),y=Math.max(0,Math.min(innerHeight-1,(r.top+r.bottom)/2)),hit=document.elementFromPoint(x,y);let k=window.__auditActual.indexOf(e);if(k<0){k=window.__auditActual.length;window.__auditActual.push(e)};let visible=[...e.getClientRects()].some(q=>{let l=Math.max(1,q.left),r=Math.min(innerWidth-1,q.right),t=Math.max(1,q.top),b=Math.min(innerHeight-1,q.bottom);if(l>=r||t>=b)return false;return [.2,.5,.8].some(z=>{let a=document.elementFromPoint(l+(r-l)*z,t+(b-t)*z);return a===e||e.contains(a)})});return {i,key:k,visiblePart:visible,tag:e.tagName,id:e.id,text:(e.innerText||e.getAttribute('aria-label')||e.getAttribute('placeholder')||e.value||'').trim().slice(0,150),rect:{left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height},outline:s.outline,outlineOffset:s.outlineOffset,boxShadow:s.boxShadow,border:s.border,background:s.backgroundColor,focusVisible:e.matches(':focus-visible'),centerHit:hit===e||e.contains(hit),inMain:!!e.closest('main')}}'''
           try:
            ref('main-before')
            with sync_playwright() as pw:
@@ -48,15 +48,36 @@ jobs:
                 response=p.goto(url,wait_until='networkidle');assert response.status==200;assert p.locator('h1').first.is_visible();case['final_url']=p.url;case['body_sha256']=hashlib.sha256(response.body()).hexdigest();(O/f'{name}-{w}-{js}.html').write_bytes(response.body())
                 if js:p.evaluate('()=>document.fonts.ready')
                 expected=p.evaluate(setup);case['expected']=expected;assert expected
-                for i in range(len(expected)):
-                 p.keyboard.press('Tab');state=p.evaluate(probe);case['forward'].append(state)
-                 if state['i']!=i:case['flags'].append({'kind':'sequence','direction':'forward','step':i,'actual':state['i']});break
-                 if not state['focusVisible']:case['flags'].append({'kind':'no_focus_visible','step':i})
-                 if not state['centerHit']:case['flags'].append({'kind':'center_obscured','step':i,'control':expected[i]})
-                 if state['outline'].startswith('rgb(0, 0, 0) none') or ' none ' in state['outline']:case['flags'].append({'kind':'outline_none_review','step':i,'control':expected[i],'state':state})
-                for i in range(len(expected)-2,-1,-1):
-                 p.keyboard.press('Shift+Tab');state=p.evaluate(probe);case['reverse'].append(state)
-                 if state['i']!=i:case['flags'].append({'kind':'sequence','direction':'reverse','step':i,'actual':state['i']});break
+                settle="""()=>new Promise(resolve=>{let old='',stable=0,n=0;function frame(){let e=document.activeElement,r=e.getBoundingClientRect(),v=[r.left,r.right,r.top,r.bottom,scrollX,scrollY].join(',');stable=v===old?stable+1:0;old=v;if(stable>=4||++n>=180)resolve({stable:stable>=4,frames:n});else requestAnimationFrame(frame)}requestAnimationFrame(frame)})"""
+                first=None;seen=set()
+                for step in range(600):
+                 p.keyboard.press('Tab');settled=p.evaluate(settle);state=p.evaluate(probe);state['scroll_settled']=settled
+                 if state['tag']=='BODY':continue
+                 if first is None:first=state['key']
+                 elif state['key']==first:break
+                 elif state['key'] in seen:case['flags'].append({'kind':'premature_cycle','step':step,'state':state});break
+                 seen.add(state['key']);case['forward'].append(state)
+                 if not settled['stable']:case['flags'].append({'kind':'scroll_unsettled','step':step})
+                 if not state['focusVisible']:case['flags'].append({'kind':'no_focus_visible','step':step})
+                 if not state['visiblePart']:case['flags'].append({'kind':'fully_obscured','step':step,'state':state})
+                 if ' none ' in state['outline']:case['flags'].append({'kind':'outline_none_review','step':step,'state':state})
+                else:case['flags'].append({'kind':'cycle_limit'})
+                covered={x['i'] for x in case['forward'] if x['i']>=0};case['missing_expected']=[x for x in expected if x['i'] not in covered]
+                if case['missing_expected']:case['flags'].append({'kind':'missing_expected','controls':case['missing_expected']})
+                reverse_expected=[x['key'] for x in reversed(case['forward'][1:])];ri=0
+                for step in range(600):
+                 p.keyboard.press('Shift+Tab');p.evaluate(settle);state=p.evaluate(probe)
+                 if state['tag']=='BODY':continue
+                 if state['key']==first:break
+                 case['reverse'].append(state)
+                 if ri>=len(reverse_expected) or state['key']!=reverse_expected[ri]:case['flags'].append({'kind':'reverse_mismatch','step':step,'state':state});break
+                 ri+=1
+                case['reverse_complete']=ri==len(reverse_expected)
+                if not case['reverse_complete']:case['flags'].append({'kind':'reverse_incomplete'})
+                for flag in case['flags'][:3]:
+                 st=flag.get('state')
+                 if st:
+                  p.evaluate('(k)=>window.__auditActual[k].focus()',st['key']);p.evaluate(settle);p.screenshot(path=str(O/f"focus-{name}-{w}-{js}-{flag['step']}.png"))
                 p.goto(url,wait_until='networkidle');p.keyboard.press('Tab');first=p.evaluate('()=>document.activeElement.getAttribute("href")');assert first and first.startswith('#');p.keyboard.press('Enter');p.keyboard.press('Tab');assert p.evaluate('()=>!!document.activeElement.closest("main")');case['skip_bypass']=True
                 case['status']='MEASURED_WITH_REVIEW_FLAGS' if case['flags'] else 'PASS_SEQUENCE_FOCUS'
                except Exception as e:case['status']='PROBE_STOP';case['error']=str(e);result['findings'].append({'page':name,'width':w,'javascript':js,'error':str(e)})
