@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: 03deb498d07bc34e0a5ea2f88b0b109aca42d4f5
+          ref: 1fe3e7bd2dcb88dc14d20cb58c28eaa1c25dc527
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
@@ -29,22 +29,77 @@ jobs:
           import os,json,hashlib,subprocess,traceback,ast,re
           from playwright.sync_api import sync_playwright
           O=Path(os.environ['RUNNER_TEMP'])/'home-reflow-email';O.mkdir()
-          B='791ad03339fbf0bb1c555723f158ce67d6175dfa';H='03deb498d07bc34e0a5ea2f88b0b109aca42d4f5';U='https://e761fdff.green-papers.pages.dev'
+          B='791ad03339fbf0bb1c555723f158ce67d6175dfa';H='1fe3e7bd2dcb88dc14d20cb58c28eaa1c25dc527';U='https://54b1a25d.green-papers.pages.dev'
           result={'status':'RUNNING','base':B,'candidate':H,'preview':U,'cases':[],'production_writes':0}
           def command(args,label):
            r=subprocess.run(args,capture_output=True,text=True,timeout=60);(O/(label+'.stdout')).write_text(r.stdout);(O/(label+'.stderr')).write_text(r.stderr);(O/(label+'.command.json')).write_text(json.dumps({'args':args,'exit':r.returncode}));assert r.returncode==0;return r.stdout.strip()
+          def normalize_contact_email(body):
+              # Reuse the exact contact-email decoding proven in the preceding Class 6.
+              # The current Library delta additionally removes only its observed
+              # email_off wrapper around this same literal contact link.
+              text=body.decode('utf-8')
+              contact='<a href="mailto:contact@spiralweb.earth">contact@spiralweb.earth</a>'
+              wrapped='<!--email_off-->'+contact+'<!--/email_off-->'
+              if text.count(wrapped)>1:raise RuntimeError('Uventet antal kontakt-email-kommentarer.')
+              text=text.replace(wrapped,contact)
+              # Exact additional provider form observed in the returned Class0 evidence.
+              # Preserve the original single span; decode both provider tokens independently.
+              nested_pattern=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)"><span><span class="__cf_email__" data-cfemail="([0-9a-f]+)">\[email&#160;protected\]</span></span></a>'
+              nested=list(re.finditer(nested_pattern,text))
+              if nested:
+                  nested_decoder='<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>'
+                  if len(nested)!=1 or text.count(nested_decoder)!=1:
+                      raise RuntimeError('Uventet antal indlejrede kontakt-email-elementer.')
+                  match=nested[0]
+                  for value in match.groups():
+                      data=bytes.fromhex(value)
+                      if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
+                          raise RuntimeError('Indlejret kontakt-email afviger.')
+                  literal='<a href="mailto:contact@spiralweb.earth"><span>contact@spiralweb.earth</span></a>'
+                  text=text[:match.start()]+literal+text[match.end():]
+                  text=text.replace(nested_decoder,'',1)
+              pattern=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)"><span class="__cf_email__" data-cfemail="([0-9a-f]+)">\[email&#160;protected\]</span></a>'
+              matches=list(re.finditer(pattern,text))
+              decoder='<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>'
+              if matches:
+                  if len(matches)!=1 or text.count(decoder)!=1:raise RuntimeError('Uventet emailbeskyttelse.')
+                  match=matches[0]
+                  for value in match.groups():
+                      data=bytes.fromhex(value)
+                      if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
+                          raise RuntimeError('Kontakt-email afviger.')
+                  text=text[:match.start()]+contact+text[match.end():]
+                  text=text.replace(decoder,'',1)
+              elif decoder in text:
+                  # The unchanged homepage uses the literal label Corrections.
+                  # Accept only its observed provider form and the same decoded address.
+                  corrections=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)">Corrections</a>'
+                  labelled=list(re.finditer(corrections,text))
+                  if len(labelled)!=1 or text.count(decoder)!=1:
+                      raise RuntimeError('Uventet email-decoder uden den dokumenterede kontakt-email.')
+                  match=labelled[0];data=bytes.fromhex(match.group(1))
+                  if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
+                      raise RuntimeError('Corrections-email afviger.')
+                  literal='<a href="mailto:contact@spiralweb.earth">Corrections</a>'
+                  text=text[:match.start()]+literal+text[match.end():]
+                  text=text.replace(decoder,'',1)
+              return text.encode('utf-8')
           try:
            assert command(['git','rev-parse','HEAD'],'head')==H
            assert command(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==B
            assert command(['git','diff','--name-only',B,H],'diff-files')=='index.html'
            before=subprocess.check_output(['git','show',B+':index.html']).decode();after=Path('index.html').read_text()
-           expected=before.replace('.hero .shell{grid-template-columns:1fr;min-height:auto}.spiral{width:330px}', '.hero .shell{grid-template-columns:minmax(0,1fr);min-height:auto}.spiral{width:min(330px,100%)}').replace('<a href="mailto:contact@spiralweb.earth">Corrections</a>','<!--email_off--><a href="mailto:contact@spiralweb.earth">Corrections</a><!--/email_off-->')
+           expected=before.replace('.hero .shell{grid-template-columns:1fr;min-height:auto}.spiral{width:330px}', '.hero .shell{grid-template-columns:minmax(0,1fr);min-height:auto}.spiral{width:min(330px,100%)}').replace('@media(max-width:650px){.shell{padding:0 20px}', '@media(max-width:650px){.spiral .o2{right:0}.spiral .o4{left:0}.shell{padding:0 20px}').replace('<a href="mailto:contact@spiralweb.earth">Corrections</a>','<!--email_off--><a href="mailto:contact@spiralweb.earth">Corrections</a><!--/email_off-->')
            assert after==expected
            (O/'candidate.diff').write_text(command(['git','diff',B,H,'--','index.html'],'diff'))
            public=json.loads(Path('public-files.json').read_text());command(['node','scripts/build_public.mjs'],'build')
            assert sorted(str(p.relative_to('dist')) for p in Path('dist').rglob('*') if p.is_file())==sorted(public)
            for f in public:assert Path(f).read_bytes()==(Path('dist')/f).read_bytes()
            result['public_build_files']=len(public)
+           live=O/'production.body';headers=O/'production.headers'
+           status=command(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(headers),'--output',str(live),'--write-out','%{http_code}','https://papers.spiralweb.earth/'],'production')
+           assert status=='200' and normalize_contact_email(live.read_bytes())==before.encode(), 'production baseline differs'
+           result['production_baseline_exact']=True
            with sync_playwright() as pw:
             browser=pw.chromium.launch();result['browser_version']=browser.version
             for js in [True,False]:
@@ -58,10 +113,10 @@ jobs:
               data=page.evaluate('''()=>{let rect=e=>{let r=e.getBoundingClientRect();return {left:r.left,right:r.right,width:r.width}},lines=e=>{let r=document.createRange();r.selectNodeContents(e);return [...r.getClientRects()].map(r=>({left:r.left,right:r.right,width:r.width}))};let lead=document.querySelector('.hero .lead'),heading=document.querySelector('.hero h1');return {viewport:innerWidth,overflow:document.documentElement.scrollWidth-innerWidth,lead:rect(lead),leadLines:lines(lead),headingLines:lines(heading),gridColumns:getComputedStyle(document.querySelector('.hero .shell')).gridTemplateColumns,orbits:[...document.querySelectorAll('.orbit')].map(e=>({text:e.textContent,rect:rect(e)}))}}''')
               data.update({'javascript':js,'errors':errors});result['cases'].append(data)
               assert data['overflow']==0 and not errors,data
-              assert all(r['left']>=-.5 and r['right']<=w+.5 for r in data['leadLines']+data['headingLines']),data
+              assert all(r['left']>=-.5 and r['right']<=w+.5 for r in data['leadLines']+data['headingLines']+[x['rect'] for x in data['orbits']]),data
               page.keyboard.press('Tab');assert page.locator('.skip-link').evaluate('(e)=>e===document.activeElement');page.keyboard.press('Enter');page.keyboard.press('Tab');assert page.evaluate('()=>document.activeElement.closest("main")!==null')
               data['skip_next_tab_within_main']=True
-              page.screenshot(path=str(O/f'home-{w}-{js}.png'),full_page=True)
+              page.screenshot(path=str(O/f'home-{w}-{js}.png'))
               page.get_by_role('link',name='Full library →',exact=True).click();assert page.url==U+'/library#collection';assert page.locator('#collection').is_visible();data['library_navigation']=True
               c.close()
             browser.close()
