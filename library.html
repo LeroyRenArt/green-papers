@@ -526,8 +526,11 @@
         byAddress.set(address, record);
       }
     });
+    let lastQuery = null;
     const update = () => {
       const query = normalize(input.value.trim());
+      if (query === lastQuery) return;
+      lastQuery = query;
       list.replaceChildren();
       results.hidden = !query;
       empty.hidden = true;
