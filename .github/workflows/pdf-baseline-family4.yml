@@ -1,8 +1,10 @@
-name: Papers PR92 final readiness
+name: Papers PR92 production Class6 closeout
 on:
   push:
-    branches: [audit/pdf-baseline-family4-20261012]
-    paths: [.github/workflows/pdf-baseline-family4.yml]
+    branches:
+    - audit/pdf-baseline-family4-20261012
+    paths:
+    - .github/workflows/pdf-baseline-family4.yml
 permissions:
   contents: read
 jobs:
@@ -10,142 +12,231 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with:
-          ref: 3ffb45a2c0f338cb5450762ebe2aa696f57567b8
-          fetch-depth: 0
-          persist-credentials: false
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
-        with:
-          python-version: '3.12.12'
-      - name: Install recorded browser control
-        run: |
-          python -m pip install playwright==1.55.0
-          python -m playwright install --with-deps chromium
-      - name: Check exact source, public build, preview and live baseline
-        run: |
-          python - <<'PYCODE'
-          from pathlib import Path
-          from datetime import datetime,timezone
-          import os,json,hashlib,subprocess,traceback,re
-          from urllib.parse import urlsplit
-          from playwright.sync_api import sync_playwright
-          ROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-final-readiness';OUT.mkdir()
-          BASE='23d1e46e619f843e0f74dd318ef50e4e96ad7f79';HEAD='3ffb45a2c0f338cb5450762ebe2aa696f57567b8';PREVIEW='https://6e8b457a.green-papers.pages.dev'
-          SPEC=[{'path': 'da/ai-menneskeligt-ansvar.html', 'sha256': 'a9f660dd0f38f0594820e05b99200ff7c4881575005c7417a4ccfce261f4a068', 'git_blob': 'c00f47935909cc8535cd7bcd9bc47b70d61a2482', 'bytes': 26317}, {'path': 'index.html', 'sha256': '87762d49a78e2e25568f1291d8866dab1a4112d4d8d9eea42ff43693f9f8398c', 'git_blob': '044bcbcdd04253b5d8250a6424efc7e4a6cf0c32', 'bytes': 34548}, {'path': 'library.html', 'sha256': '38b3604c4502dc49232d311d561bd5ff2e680af1286153452187e9ac17850259', 'git_blob': '2d5b2965ea49715e537e1782011f4f38c7315363', 'bytes': 59013}, {'path': 'papers/a-decent-economy-under-the-jurisdiction-of-life.html', 'sha256': '220d25dc888838ff096091e65ffd0cfac745162494cfefbeca680e51e7bbfda3', 'git_blob': '2f7e45b8464c967ca3df131b6a605c7403634f49', 'bytes': 86024}, {'path': 'papers/a-decent-economy-under-the-jurisdiction-of-life.pdf', 'sha256': 'ea97cfd06438aafc304ab64bbbc7f7d07a24b98f613c4bc48cd08bb409f60779', 'git_blob': 'afcc64c8a5f41d851cad55dbf68e45e35f518614', 'bytes': 110906}, {'path': 'papers/atlas-of-a-living-architecture.html', 'sha256': 'ac65d15f1cb19725478f3bf319973f1b25ecd725f45ad40665951a580e8ee9a6', 'git_blob': 'b1473d8c4c956bab59c60a993d785c8843b51fa6', 'bytes': 105669}, {'path': 'papers/atlas-of-a-living-architecture.pdf', 'sha256': 'f4abff4389f03d12b9653005694c5ef699e603393b4ff209bde48f68fedaee9a', 'git_blob': '873808186b4b05aebde0fd6fea04cb689a26bc4c', 'bytes': 127760}, {'path': 'papers/atlas-over-en-levende-arkitektur.html', 'sha256': '9d483224d3803404865e385cbe4b3f74fc636ff793b70f54c329f265e36bbe5e', 'git_blob': 'db2614fde7724dfdb08094cf1c3383755aabfc1f', 'bytes': 115502}, {'path': 'papers/atlas-over-en-levende-arkitektur.pdf', 'sha256': 'db44110a76a96083d6e17697b007a2e8e785ad81b0d64fce9122242ef7fafcbc', 'git_blob': '05ce959bc458af7aa15c097fa39e845a309c63e6', 'bytes': 140468}, {'path': 'papers/den-nye-faelled-en.html', 'sha256': 'a2c6075a74de78a119c2f6d8758863af847565386f1c705b660e68ba46092a1e', 'git_blob': '1a2eded66c92b8ab4f7c2d74ab80fcf3217fc604', 'bytes': 49571}, {'path': 'papers/den-nye-faelled.html', 'sha256': 'a99de83094dec12d4b09a1eb243fe752b628508ba0c8fdddca564e58bf8e24d8', 'git_blob': '649e6b4127779ddb68ab099ae09a0c200714fc5a', 'bytes': 49349}, {'path': 'papers/den-regenerative-kommune.html', 'sha256': 'e2f94b6439bc7e93bcf4e5b115aee668807fecf2a16301d1eba472a815b3d117', 'git_blob': 'bebee3ab5585f46bbd28ee6cb2a345a359a75dd8', 'bytes': 91325}, {'path': 'papers/den-regenerative-kommune.pdf', 'sha256': 'b8175d847fa43a762c9f583d3a0a76722bdcd3969c0683bf8500add5e94a1f9c', 'git_blob': 'c98f100544ce5d5d4b3731484ed71d288e78783e', 'bytes': 119749}, {'path': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.html', 'sha256': 'd4700c7e2961d0109a3765fdbecda929a8e3d41520958a9e66088e234a88e65f', 'git_blob': 'cf2e743acdc2890007512315b65802eb1604c419', 'bytes': 86814}, {'path': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.pdf', 'sha256': 'd66f88b130da72f1e483fad1a9dea6de61a4fe2342a680b3bb1d9252ea015ae7', 'git_blob': '3a0204f9f14ca4257fb22ba77c9c55496dd6f291', 'bytes': 112615}, {'path': 'papers/eve-adam-and-the-penguins-da.html', 'sha256': 'e5b110042667131b6874fdb2bf6bf7166b628a8ac62f4258e307cceb1ff2b102', 'git_blob': '2a2c4b9a972bfadf0e51a7d92001693c1fd3e922', 'bytes': 79998}, {'path': 'papers/eve-adam-and-the-penguins-da.pdf', 'sha256': 'a45ed96bd3b00391db97a240d2baf291b5051298993be232d115bcd74edd8c59', 'git_blob': '4ff88c92aaa174ffcab5206f3bbec682b1a3e15d', 'bytes': 107885}, {'path': 'papers/kommunalt-arbejde-som-natur.html', 'sha256': '99eeb957acd98898c1eac7f79b74d1d9507b383a8ebc30f45320c1c970f815e2', 'git_blob': '434ede0fa0def4086736237639edbd14551121f9', 'bytes': 235333}, {'path': 'papers/kommunalt-arbejde-som-natur.pdf', 'sha256': '4c2a482d84591b76c273eda80019eae891bdf4e818ee282dd8f4c884629bb2a1', 'git_blob': '9d8da036731cd8c4c35a4ba3ee659212e414709f', 'bytes': 289369}, {'path': 'papers/levende-landskaber.html', 'sha256': 'f23ae694210a37f29d0e4d1fd237e4cc40ac5261d51915f7e124728b3993ef0f', 'git_blob': '09b41597e1835306fe81eb93930275e63dc0c754', 'bytes': 122005}, {'path': 'papers/levende-landskaber.pdf', 'sha256': 'ee1cee5aa1d875272acada1abebff5d6b0f02f16b99d3b0009a32c3138a7e73e', 'git_blob': '1d33ce830dfbf7928f6a48c7fe2f2381324e634e', 'bytes': 771247}, {'path': 'papers/living-landscapes.html', 'sha256': '16732776afd9049896db98fd24c1aa8f0f75ae8c1563d75d6b043cbf9bf0c547', 'git_blob': '6cd33f3727b2bf32c18d7a1862eaf6d98885ba47', 'bytes': 122671}, {'path': 'papers/living-landscapes.pdf', 'sha256': '13ba26a4acc3170c04042ab02e510527d091e6d6c33e21d2347f8e2624d1cce0', 'git_blob': 'f0f5e1cb3cd1ab63852dd6800c9e224f324dc472', 'bytes': 764605}, {'path': 'papers/municipal-work-as-nature.html', 'sha256': '892455600185854e42837e769541c7ed1039042ae365a82585f3633f34b48d27', 'git_blob': 'f89089866998f748c37cc9cf310a004c75b73ea8', 'bytes': 239500}, {'path': 'papers/municipal-work-as-nature.pdf', 'sha256': '7175dc36aa6597c5525f7933a9920c418caef0f8564dd62e19036b5fe7a4e906', 'git_blob': '16caa861c2e1d8f2e376a3fae80b2d8dc1f55c3b', 'bytes': 288311}, {'path': 'papers/rule-of-life-da.html', 'sha256': 'd54dcb7dd10ea6cffda70c136ae958aa98a53a2be804c57f1843b0ebcdde7ccc', 'git_blob': 'a893cb248120ed9d1c7843835b57eaca44d31ef0', 'bytes': 97795}, {'path': 'papers/rule-of-life-da.pdf', 'sha256': '927ea75316e3d7eb4c1d8672a96f87e081745fb9b8e958ab028e51dde01ba4ff', 'git_blob': 'b40b2c6c6b5f222b7fbdb25e8dfb589399f108a6', 'bytes': 130011}, {'path': 'papers/rule-of-life.html', 'sha256': 'c26ad94b5c8fd9cdaafd5cf456b6f0e080c5474ce885377936daa11992d9ac67', 'git_blob': '4c5eb32208776bcb3f33a3ae2a4ad14b270e6306', 'bytes': 93949}, {'path': 'papers/rule-of-life.pdf', 'sha256': '03746e2bf82576f4444ff8b183a5cd01010ece3413573a06d9f8638cca1cefdd', 'git_blob': '9a047d2dd652eecd901f48c640699c5220544efa', 'bytes': 125434}, {'path': 'papers/the-regenerative-municipality.html', 'sha256': '3dea3d1fbfb7ac258c9d91112ac6f9437f90943304c061336ad7dcf65109a2ee', 'git_blob': '6e5350f11a7c7d8c01cb841a42e6ff6aa2be3d5f', 'bytes': 92233}, {'path': 'papers/the-regenerative-municipality.pdf', 'sha256': 'ee20cd4255bfe322d722c685cf9772da148cf6c50b8c726f2b3ffa71ef47a90e', 'git_blob': '02137c12ed8f8ba04873e79670541634a5739f1d', 'bytes': 149159}, {'path': 'pdf/den-nye-faelled-en.pdf', 'sha256': 'a07a2347f9f75664c4a7b3ce203dde4b82a49c659676bad10c4b27d25580d54f', 'git_blob': '0f9edd6a19ed29f073063d01c5b66b96374d62a5', 'bytes': 90795}, {'path': 'pdf/den-nye-faelled.pdf', 'sha256': 'e4b2dcbbe9df1350ef90814ec0e147d3d699121b1310b4c736cffd1b5ed80add', 'git_blob': 'd9657bef4a7134e98a231f1d6586e14d14ba3f3f', 'bytes': 89763}]
-          TARGETS=[{'path': 'papers/living-landscapes.html', 'url': 'https://papers.spiralweb.earth/papers/living-landscapes', 'source_sha256': '7775d3168b7ae4f6a8dc16b3c4dfdd7210f035254bab5d6fa89b506207b7b09a'}, {'path': 'papers/levende-landskaber.html', 'url': 'https://papers.spiralweb.earth/papers/levende-landskaber', 'source_sha256': 'fc03aace3109a21387bf530ed0597e3c904edc8fc65b16f260737e086f31e297'}, {'path': 'papers/den-regenerative-kommune.html', 'url': 'https://papers.spiralweb.earth/papers/den-regenerative-kommune', 'source_sha256': '763dd62439ca26e2ff1d37b6744fb4912db88cf99aa0fe01d63d0e46ca02d9a7'}, {'path': 'papers/the-regenerative-municipality.html', 'url': 'https://papers.spiralweb.earth/papers/the-regenerative-municipality', 'source_sha256': '0a4ca6b370f9c26702ae2caa42939206bc6a0f18c1b6fb879aed871ebfbad0b7'}, {'path': 'da/ai-menneskeligt-ansvar.html', 'url': 'https://papers.spiralweb.earth/da/ai-menneskeligt-ansvar', 'source_sha256': 'aa1f901873f88fa35efe74acd0ef50b7e2a58ac20625550c155aae76ba3af89d'}, {'path': 'papers/atlas-of-a-living-architecture.html', 'url': 'https://papers.spiralweb.earth/papers/atlas-of-a-living-architecture', 'source_sha256': 'b1d2568f740fc99900b8481c40ff224dd57e5834c2459fca1d968fb7e4c5267f'}, {'path': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.html', 'url': 'https://papers.spiralweb.earth/papers/en-anstaendig-oekonomi-under-livets-jurisdiktion', 'source_sha256': 'e7ae20b4cc48464a2438656083463328b049e794c6489c6f1ad27a799f8ff43f'}, {'path': 'papers/den-nye-faelled.html', 'url': 'https://papers.spiralweb.earth/papers/den-nye-faelled', 'source_sha256': '4810d1cfccbd803bde7accc788fe2a5bdca7c9fe2bdf74f8c8b08ddd4431cf54'}, {'path': 'papers/den-nye-faelled-en.html', 'url': 'https://papers.spiralweb.earth/papers/den-nye-faelled-en', 'source_sha256': '4c5b4b06d485e2bd41a173496f0c3bc3323e7272e9cb904f2fa9f241c7970898'}, {'path': 'papers/rule-of-life-da.html', 'url': 'https://papers.spiralweb.earth/papers/rule-of-life-da', 'source_sha256': '17eb0472c7008cb2ed502aad91d6c764968348d30ba79f1d59b2c88fae1894a1'}, {'path': 'papers/eve-adam-and-the-penguins-da.html', 'url': 'https://papers.spiralweb.earth/papers/eve-adam-and-the-penguins-da', 'source_sha256': 'e6932e6c141b1501d383191deec868c5d733d204a59928c6b804557069715302'}, {'path': 'papers/kommunalt-arbejde-som-natur.html', 'url': 'https://papers.spiralweb.earth/papers/kommunalt-arbejde-som-natur', 'source_sha256': '98520edb6bfcae9ca4da52077f476635313eee3d7b8004e97e226fcf817c20e9'}, {'path': 'papers/municipal-work-as-nature.html', 'url': 'https://papers.spiralweb.earth/papers/municipal-work-as-nature', 'source_sha256': 'c9d6705ae7b6faa0a3badec7ccf70ce51e0d347faed3dc63ba48cfe59780ed83'}, {'path': 'papers/atlas-over-en-levende-arkitektur.html', 'url': 'https://papers.spiralweb.earth/papers/atlas-over-en-levende-arkitektur', 'source_sha256': '62e39e97608dd3c25aa36eedb70e8ef0c68ef3eb62c20f93652be7734c033f3c'}, {'path': 'papers/a-decent-economy-under-the-jurisdiction-of-life.html', 'url': 'https://papers.spiralweb.earth/papers/a-decent-economy-under-the-jurisdiction-of-life', 'source_sha256': '220ba7ea88f0f5fbf952c1c113ffa89e73141820b26ee91f6c30f200e33f083e'}, {'path': 'papers/rule-of-life.html', 'url': 'https://papers.spiralweb.earth/papers/rule-of-life', 'source_sha256': 'e8ce0a93560fac642b0d443c89624bff319a8dadb364f9ecb0addc95316f4d7b'}, {'path': 'library.html', 'url': 'https://papers.spiralweb.earth/library', 'source_sha256': 'ff0d18ef8570000b3ed669bca3e7f9de4047eac23a32cd3eeaad25ac12c9ff7b'}, {'path': 'index.html', 'url': 'https://papers.spiralweb.earth/', 'source_sha256': '87422123b340d18f1f14e1112aa909c7c7d4cead8f98c0515d9c0af977705a6c'}]
-          sha=lambda b:hashlib.sha256(b).hexdigest()
-          result={'status':'RUNNING','base':BASE,'candidate':HEAD,'preview':PREVIEW,'timestamp_utc':datetime.now(timezone.utc).isoformat(),'checks':{},'preview_files':[],'production_html':[],'browser':[],'merge_attempts':0,'production_publication_attempts':0}
-          def command(args,label):
-           r=subprocess.run(args,capture_output=True,text=True,timeout=60);(OUT/(label+'.stdout')).write_text(r.stdout);(OUT/(label+'.stderr')).write_text(r.stderr);(OUT/(label+'.command.json')).write_text(json.dumps({'args':args,'exit_code':r.returncode}));assert r.returncode==0,label;return r.stdout.strip()
-          def http(url,label):
-           hp=OUT/(label+'.headers');bp=OUT/(label+'.body')
-           status=command(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}',url],label)
-           assert status=='200',(label,status)
-           return bp.read_bytes()
-          def normalize_contact_email(body):
-              # Reuse the exact contact-email decoding proven in the preceding Class 6.
-              # The current Library delta additionally removes only its observed
-              # email_off wrapper around this same literal contact link.
-              text=body.decode('utf-8')
-              contact='<a href="mailto:contact@spiralweb.earth">contact@spiralweb.earth</a>'
-              wrapped='<!--email_off-->'+contact+'<!--/email_off-->'
-              if text.count(wrapped)>1:raise RuntimeError('Uventet antal kontakt-email-kommentarer.')
-              text=text.replace(wrapped,contact)
-              # Exact additional provider form observed in the returned Class0 evidence.
-              # Preserve the original single span; decode both provider tokens independently.
-              nested_pattern=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)"><span><span class="__cf_email__" data-cfemail="([0-9a-f]+)">\[email&#160;protected\]</span></span></a>'
-              nested=list(re.finditer(nested_pattern,text))
-              if nested:
-                  nested_decoder='<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>'
-                  if len(nested)!=1 or text.count(nested_decoder)!=1:
-                      raise RuntimeError('Uventet antal indlejrede kontakt-email-elementer.')
-                  match=nested[0]
-                  for value in match.groups():
-                      data=bytes.fromhex(value)
-                      if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
-                          raise RuntimeError('Indlejret kontakt-email afviger.')
-                  literal='<a href="mailto:contact@spiralweb.earth"><span>contact@spiralweb.earth</span></a>'
-                  text=text[:match.start()]+literal+text[match.end():]
-                  text=text.replace(nested_decoder,'',1)
-              pattern=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)"><span class="__cf_email__" data-cfemail="([0-9a-f]+)">\[email&#160;protected\]</span></a>'
-              matches=list(re.finditer(pattern,text))
-              decoder='<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>'
-              if matches:
-                  if len(matches)!=1 or text.count(decoder)!=1:raise RuntimeError('Uventet emailbeskyttelse.')
-                  match=matches[0]
-                  for value in match.groups():
-                      data=bytes.fromhex(value)
-                      if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
-                          raise RuntimeError('Kontakt-email afviger.')
-                  text=text[:match.start()]+contact+text[match.end():]
-                  text=text.replace(decoder,'',1)
-              elif decoder in text:
-                  # The unchanged homepage uses the literal label Corrections.
-                  # Accept only its observed provider form and the same decoded address.
-                  corrections=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)">Corrections</a>'
-                  labelled=list(re.finditer(corrections,text))
-                  if len(labelled)!=1 or text.count(decoder)!=1:
-                      raise RuntimeError('Uventet email-decoder uden den dokumenterede kontakt-email.')
-                  match=labelled[0];data=bytes.fromhex(match.group(1))
-                  if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
-                      raise RuntimeError('Corrections-email afviger.')
-                  literal='<a href="mailto:contact@spiralweb.earth">Corrections</a>'
-                  text=text[:match.start()]+literal+text[match.end():]
-                  text=text.replace(decoder,'',1)
-              return text.encode('utf-8')
-          
-          def command_source(path):return subprocess.check_output(['git','show',BASE+':'+path])
-          try:
-           assert command(['git','rev-parse','HEAD'],'head')==HEAD
-           paths=command(['git','diff','--name-only',BASE,HEAD],'exact-diff').splitlines();assert sorted(paths)==sorted(x['path'] for x in SPEC)
-           result['checks']['exact_33_file_diff']=True
-           for s in SPEC:
-            b=(ROOT/s['path']).read_bytes();assert sha(b)==s['sha256'];assert command(['git','rev-parse',HEAD+':'+s['path']],s['path'].replace('/','_')+'-gitblob')==s['git_blob']
-           result['checks']['reviewed_hashes_match_repository']=True
-           public=json.loads((ROOT/'public-files.json').read_text());assert all(s['path'] in public for s in SPEC)
-           command(['node','scripts/build_public.mjs'],'public-build')
-           built=sorted(str(p.relative_to(ROOT/'dist')) for p in (ROOT/'dist').rglob('*') if p.is_file());assert built==sorted(public)
-           for name in public:assert (ROOT/name).read_bytes()==(ROOT/'dist'/name).read_bytes()
-           result['checks']['all_public_build_bytes_exact']=True;result['checks']['public_files']=len(public)
-           assert command(['git','status','--porcelain','--untracked-files=no'],'source-status')==''
-           for i,s in enumerate(SPEC):
-            route='/' if s['path']=='index.html' else '/'+s['path'];route=route[:-5] if route.endswith('.html') else route
-            b=http(PREVIEW+route,'preview-'+str(i));assert sha(b)==s['sha256'],('preview mismatch',s['path'])
-            result['preview_files'].append({'path':s['path'],'route':route,'status':200,'sha256':sha(b),'match':True})
-           result['checks']['all_33_preview_routes_exact']=True
-           for i,t in enumerate(TARGETS):
-            b=http(t['url'],'production-html-'+str(i));assert normalize_contact_email(b)==normalize_contact_email(command_source(t['path'])),('production baseline moved',t['path'])
-            result['production_html'].append({'path':t['path'],'url':t['url'],'sha256':sha(b),'baseline_match':True,'source_sha256':t['source_sha256'],'normalization':'existing contact email contract'})
-           result['checks']['all_18_production_html_baselines_current']=True
-           with sync_playwright() as pw:
-            browser=pw.chromium.launch();result['browser_version']=browser.version
-            for t in TARGETS:
-             for width,height in [(1440,1000),(390,1000),(360,1000)]:
-              context=browser.new_context(viewport={'width':width,'height':height});page=context.new_page();errors=[];bad=[]
-              page.on('pageerror',lambda e:errors.append(str(e)))
-              page.on('response',lambda r:bad.append({'url':r.url,'status':r.status}) if r.status>=400 else None)
-              route='/' if t['path']=='index.html' else '/'+t['path'][:-5];response=page.goto(PREVIEW+route,wait_until='networkidle',timeout=30000);assert response.status==200
-              page.evaluate('()=>document.fonts.ready')
-              measure=page.evaluate('()=>({overflow:document.documentElement.scrollWidth-innerWidth,font_status:document.fonts.status,broken_fragments:[...document.querySelectorAll("a[href^=\\"#\\"]")].map(a=>a.getAttribute("href").slice(1)).filter(x=>x&&!document.getElementById(decodeURIComponent(x)))})')
-              assert measure['overflow']==0 and measure['font_status']=='loaded' and not measure['broken_fragments'] and not errors and not bad,(t['path'],width,measure,errors,bad)
-              result['browser'].append({'path':t['path'],'width':width,**measure,'errors':errors,'bad_responses':bad})
-              if width in [1440,390]:page.screenshot(path=str(OUT/(t['path'].replace('/','__')+'-'+str(width)+'.png')))
-              context.close()
-            browser.close()
-           result['checks']['all_54_hosted_browser_cases_pass']=True
-           result['status']='PASS_READINESS';result['production_ready']=True;result['run_id']=os.environ['GITHUB_RUN_ID'];result['control_commit']=os.environ['GITHUB_SHA']
-          except Exception as e:
-           result['status']='STOP';result['production_ready']=False;result['error']=str(e);(OUT/'traceback.txt').write_text(traceback.format_exc());raise
-          finally:
-           (OUT/'RESULT.json').write_text(json.dumps(result,indent=2));(OUT/'MANIFEST.json').write_text(json.dumps({str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.rglob('*') if p.is_file()},indent=2))
-          PYCODE
-      - name: Preserve PASS or STOP evidence
-        if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: papers-pr92-final-readiness
-          path: ${{ runner.temp }}/papers-final-readiness
-          retention-days: 30
-          if-no-files-found: error
+    - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      with:
+        ref: cd6b74ec72ac4d13f319a50bbee3ca7102b4d27d
+        fetch-depth: 0
+        persist-credentials: false
+    - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+      with:
+        python-version: 3.12.12
+    - name: Install recorded browser control
+      run: 'python -m pip install playwright==1.55.0
 
+        python -m playwright install --with-deps chromium
+
+        '
+    - name: 'Class6: 33 exact production files, six protected regressions, 54 browser
+        cases'
+      run: "python - <<'PYCODE'\nfrom pathlib import Path\nfrom datetime import datetime,timezone\n\
+        import os,json,hashlib,subprocess,traceback,re\nfrom urllib.parse import urlsplit\n\
+        from playwright.sync_api import sync_playwright\nROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-final-closeout';OUT.mkdir()\n\
+        BASE='23d1e46e619f843e0f74dd318ef50e4e96ad7f79';HEAD='cd6b74ec72ac4d13f319a50bbee3ca7102b4d27d';PREVIEW='https://papers.spiralweb.earth'\n\
+        SPEC=[{'path': 'da/ai-menneskeligt-ansvar.html', 'sha256': 'a9f660dd0f38f0594820e05b99200ff7c4881575005c7417a4ccfce261f4a068',\
+        \ 'git_blob': 'c00f47935909cc8535cd7bcd9bc47b70d61a2482', 'bytes': 26317},\
+        \ {'path': 'index.html', 'sha256': '87762d49a78e2e25568f1291d8866dab1a4112d4d8d9eea42ff43693f9f8398c',\
+        \ 'git_blob': '044bcbcdd04253b5d8250a6424efc7e4a6cf0c32', 'bytes': 34548},\
+        \ {'path': 'library.html', 'sha256': '38b3604c4502dc49232d311d561bd5ff2e680af1286153452187e9ac17850259',\
+        \ 'git_blob': '2d5b2965ea49715e537e1782011f4f38c7315363', 'bytes': 59013},\
+        \ {'path': 'papers/a-decent-economy-under-the-jurisdiction-of-life.html',\
+        \ 'sha256': '220d25dc888838ff096091e65ffd0cfac745162494cfefbeca680e51e7bbfda3',\
+        \ 'git_blob': '2f7e45b8464c967ca3df131b6a605c7403634f49', 'bytes': 86024},\
+        \ {'path': 'papers/a-decent-economy-under-the-jurisdiction-of-life.pdf', 'sha256':\
+        \ 'ea97cfd06438aafc304ab64bbbc7f7d07a24b98f613c4bc48cd08bb409f60779', 'git_blob':\
+        \ 'afcc64c8a5f41d851cad55dbf68e45e35f518614', 'bytes': 110906}, {'path': 'papers/atlas-of-a-living-architecture.html',\
+        \ 'sha256': 'ac65d15f1cb19725478f3bf319973f1b25ecd725f45ad40665951a580e8ee9a6',\
+        \ 'git_blob': 'b1473d8c4c956bab59c60a993d785c8843b51fa6', 'bytes': 105669},\
+        \ {'path': 'papers/atlas-of-a-living-architecture.pdf', 'sha256': 'f4abff4389f03d12b9653005694c5ef699e603393b4ff209bde48f68fedaee9a',\
+        \ 'git_blob': '873808186b4b05aebde0fd6fea04cb689a26bc4c', 'bytes': 127760},\
+        \ {'path': 'papers/atlas-over-en-levende-arkitektur.html', 'sha256': '9d483224d3803404865e385cbe4b3f74fc636ff793b70f54c329f265e36bbe5e',\
+        \ 'git_blob': 'db2614fde7724dfdb08094cf1c3383755aabfc1f', 'bytes': 115502},\
+        \ {'path': 'papers/atlas-over-en-levende-arkitektur.pdf', 'sha256': 'db44110a76a96083d6e17697b007a2e8e785ad81b0d64fce9122242ef7fafcbc',\
+        \ 'git_blob': '05ce959bc458af7aa15c097fa39e845a309c63e6', 'bytes': 140468},\
+        \ {'path': 'papers/den-nye-faelled-en.html', 'sha256': 'a2c6075a74de78a119c2f6d8758863af847565386f1c705b660e68ba46092a1e',\
+        \ 'git_blob': '1a2eded66c92b8ab4f7c2d74ab80fcf3217fc604', 'bytes': 49571},\
+        \ {'path': 'papers/den-nye-faelled.html', 'sha256': 'a99de83094dec12d4b09a1eb243fe752b628508ba0c8fdddca564e58bf8e24d8',\
+        \ 'git_blob': '649e6b4127779ddb68ab099ae09a0c200714fc5a', 'bytes': 49349},\
+        \ {'path': 'papers/den-regenerative-kommune.html', 'sha256': 'e2f94b6439bc7e93bcf4e5b115aee668807fecf2a16301d1eba472a815b3d117',\
+        \ 'git_blob': 'bebee3ab5585f46bbd28ee6cb2a345a359a75dd8', 'bytes': 91325},\
+        \ {'path': 'papers/den-regenerative-kommune.pdf', 'sha256': 'b8175d847fa43a762c9f583d3a0a76722bdcd3969c0683bf8500add5e94a1f9c',\
+        \ 'git_blob': 'c98f100544ce5d5d4b3731484ed71d288e78783e', 'bytes': 119749},\
+        \ {'path': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.html',\
+        \ 'sha256': 'd4700c7e2961d0109a3765fdbecda929a8e3d41520958a9e66088e234a88e65f',\
+        \ 'git_blob': 'cf2e743acdc2890007512315b65802eb1604c419', 'bytes': 86814},\
+        \ {'path': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.pdf',\
+        \ 'sha256': 'd66f88b130da72f1e483fad1a9dea6de61a4fe2342a680b3bb1d9252ea015ae7',\
+        \ 'git_blob': '3a0204f9f14ca4257fb22ba77c9c55496dd6f291', 'bytes': 112615},\
+        \ {'path': 'papers/eve-adam-and-the-penguins-da.html', 'sha256': 'e5b110042667131b6874fdb2bf6bf7166b628a8ac62f4258e307cceb1ff2b102',\
+        \ 'git_blob': '2a2c4b9a972bfadf0e51a7d92001693c1fd3e922', 'bytes': 79998},\
+        \ {'path': 'papers/eve-adam-and-the-penguins-da.pdf', 'sha256': 'a45ed96bd3b00391db97a240d2baf291b5051298993be232d115bcd74edd8c59',\
+        \ 'git_blob': '4ff88c92aaa174ffcab5206f3bbec682b1a3e15d', 'bytes': 107885},\
+        \ {'path': 'papers/kommunalt-arbejde-som-natur.html', 'sha256': '99eeb957acd98898c1eac7f79b74d1d9507b383a8ebc30f45320c1c970f815e2',\
+        \ 'git_blob': '434ede0fa0def4086736237639edbd14551121f9', 'bytes': 235333},\
+        \ {'path': 'papers/kommunalt-arbejde-som-natur.pdf', 'sha256': '4c2a482d84591b76c273eda80019eae891bdf4e818ee282dd8f4c884629bb2a1',\
+        \ 'git_blob': '9d8da036731cd8c4c35a4ba3ee659212e414709f', 'bytes': 289369},\
+        \ {'path': 'papers/levende-landskaber.html', 'sha256': 'f23ae694210a37f29d0e4d1fd237e4cc40ac5261d51915f7e124728b3993ef0f',\
+        \ 'git_blob': '09b41597e1835306fe81eb93930275e63dc0c754', 'bytes': 122005},\
+        \ {'path': 'papers/levende-landskaber.pdf', 'sha256': 'ee1cee5aa1d875272acada1abebff5d6b0f02f16b99d3b0009a32c3138a7e73e',\
+        \ 'git_blob': '1d33ce830dfbf7928f6a48c7fe2f2381324e634e', 'bytes': 771247},\
+        \ {'path': 'papers/living-landscapes.html', 'sha256': '16732776afd9049896db98fd24c1aa8f0f75ae8c1563d75d6b043cbf9bf0c547',\
+        \ 'git_blob': '6cd33f3727b2bf32c18d7a1862eaf6d98885ba47', 'bytes': 122671},\
+        \ {'path': 'papers/living-landscapes.pdf', 'sha256': '13ba26a4acc3170c04042ab02e510527d091e6d6c33e21d2347f8e2624d1cce0',\
+        \ 'git_blob': 'f0f5e1cb3cd1ab63852dd6800c9e224f324dc472', 'bytes': 764605},\
+        \ {'path': 'papers/municipal-work-as-nature.html', 'sha256': '892455600185854e42837e769541c7ed1039042ae365a82585f3633f34b48d27',\
+        \ 'git_blob': 'f89089866998f748c37cc9cf310a004c75b73ea8', 'bytes': 239500},\
+        \ {'path': 'papers/municipal-work-as-nature.pdf', 'sha256': '7175dc36aa6597c5525f7933a9920c418caef0f8564dd62e19036b5fe7a4e906',\
+        \ 'git_blob': '16caa861c2e1d8f2e376a3fae80b2d8dc1f55c3b', 'bytes': 288311},\
+        \ {'path': 'papers/rule-of-life-da.html', 'sha256': 'd54dcb7dd10ea6cffda70c136ae958aa98a53a2be804c57f1843b0ebcdde7ccc',\
+        \ 'git_blob': 'a893cb248120ed9d1c7843835b57eaca44d31ef0', 'bytes': 97795},\
+        \ {'path': 'papers/rule-of-life-da.pdf', 'sha256': '927ea75316e3d7eb4c1d8672a96f87e081745fb9b8e958ab028e51dde01ba4ff',\
+        \ 'git_blob': 'b40b2c6c6b5f222b7fbdb25e8dfb589399f108a6', 'bytes': 130011},\
+        \ {'path': 'papers/rule-of-life.html', 'sha256': 'c26ad94b5c8fd9cdaafd5cf456b6f0e080c5474ce885377936daa11992d9ac67',\
+        \ 'git_blob': '4c5eb32208776bcb3f33a3ae2a4ad14b270e6306', 'bytes': 93949},\
+        \ {'path': 'papers/rule-of-life.pdf', 'sha256': '03746e2bf82576f4444ff8b183a5cd01010ece3413573a06d9f8638cca1cefdd',\
+        \ 'git_blob': '9a047d2dd652eecd901f48c640699c5220544efa', 'bytes': 125434},\
+        \ {'path': 'papers/the-regenerative-municipality.html', 'sha256': '3dea3d1fbfb7ac258c9d91112ac6f9437f90943304c061336ad7dcf65109a2ee',\
+        \ 'git_blob': '6e5350f11a7c7d8c01cb841a42e6ff6aa2be3d5f', 'bytes': 92233},\
+        \ {'path': 'papers/the-regenerative-municipality.pdf', 'sha256': 'ee20cd4255bfe322d722c685cf9772da148cf6c50b8c726f2b3ffa71ef47a90e',\
+        \ 'git_blob': '02137c12ed8f8ba04873e79670541634a5739f1d', 'bytes': 149159},\
+        \ {'path': 'pdf/den-nye-faelled-en.pdf', 'sha256': 'a07a2347f9f75664c4a7b3ce203dde4b82a49c659676bad10c4b27d25580d54f',\
+        \ 'git_blob': '0f9edd6a19ed29f073063d01c5b66b96374d62a5', 'bytes': 90795},\
+        \ {'path': 'pdf/den-nye-faelled.pdf', 'sha256': 'e4b2dcbbe9df1350ef90814ec0e147d3d699121b1310b4c736cffd1b5ed80add',\
+        \ 'git_blob': 'd9657bef4a7134e98a231f1d6586e14d14ba3f3f', 'bytes': 89763}]\n\
+        TARGETS=[{'path': 'papers/living-landscapes.html', 'url': 'https://papers.spiralweb.earth/papers/living-landscapes',\
+        \ 'source_sha256': '7775d3168b7ae4f6a8dc16b3c4dfdd7210f035254bab5d6fa89b506207b7b09a'},\
+        \ {'path': 'papers/levende-landskaber.html', 'url': 'https://papers.spiralweb.earth/papers/levende-landskaber',\
+        \ 'source_sha256': 'fc03aace3109a21387bf530ed0597e3c904edc8fc65b16f260737e086f31e297'},\
+        \ {'path': 'papers/den-regenerative-kommune.html', 'url': 'https://papers.spiralweb.earth/papers/den-regenerative-kommune',\
+        \ 'source_sha256': '763dd62439ca26e2ff1d37b6744fb4912db88cf99aa0fe01d63d0e46ca02d9a7'},\
+        \ {'path': 'papers/the-regenerative-municipality.html', 'url': 'https://papers.spiralweb.earth/papers/the-regenerative-municipality',\
+        \ 'source_sha256': '0a4ca6b370f9c26702ae2caa42939206bc6a0f18c1b6fb879aed871ebfbad0b7'},\
+        \ {'path': 'da/ai-menneskeligt-ansvar.html', 'url': 'https://papers.spiralweb.earth/da/ai-menneskeligt-ansvar',\
+        \ 'source_sha256': 'aa1f901873f88fa35efe74acd0ef50b7e2a58ac20625550c155aae76ba3af89d'},\
+        \ {'path': 'papers/atlas-of-a-living-architecture.html', 'url': 'https://papers.spiralweb.earth/papers/atlas-of-a-living-architecture',\
+        \ 'source_sha256': 'b1d2568f740fc99900b8481c40ff224dd57e5834c2459fca1d968fb7e4c5267f'},\
+        \ {'path': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.html',\
+        \ 'url': 'https://papers.spiralweb.earth/papers/en-anstaendig-oekonomi-under-livets-jurisdiktion',\
+        \ 'source_sha256': 'e7ae20b4cc48464a2438656083463328b049e794c6489c6f1ad27a799f8ff43f'},\
+        \ {'path': 'papers/den-nye-faelled.html', 'url': 'https://papers.spiralweb.earth/papers/den-nye-faelled',\
+        \ 'source_sha256': '4810d1cfccbd803bde7accc788fe2a5bdca7c9fe2bdf74f8c8b08ddd4431cf54'},\
+        \ {'path': 'papers/den-nye-faelled-en.html', 'url': 'https://papers.spiralweb.earth/papers/den-nye-faelled-en',\
+        \ 'source_sha256': '4c5b4b06d485e2bd41a173496f0c3bc3323e7272e9cb904f2fa9f241c7970898'},\
+        \ {'path': 'papers/rule-of-life-da.html', 'url': 'https://papers.spiralweb.earth/papers/rule-of-life-da',\
+        \ 'source_sha256': '17eb0472c7008cb2ed502aad91d6c764968348d30ba79f1d59b2c88fae1894a1'},\
+        \ {'path': 'papers/eve-adam-and-the-penguins-da.html', 'url': 'https://papers.spiralweb.earth/papers/eve-adam-and-the-penguins-da',\
+        \ 'source_sha256': 'e6932e6c141b1501d383191deec868c5d733d204a59928c6b804557069715302'},\
+        \ {'path': 'papers/kommunalt-arbejde-som-natur.html', 'url': 'https://papers.spiralweb.earth/papers/kommunalt-arbejde-som-natur',\
+        \ 'source_sha256': '98520edb6bfcae9ca4da52077f476635313eee3d7b8004e97e226fcf817c20e9'},\
+        \ {'path': 'papers/municipal-work-as-nature.html', 'url': 'https://papers.spiralweb.earth/papers/municipal-work-as-nature',\
+        \ 'source_sha256': 'c9d6705ae7b6faa0a3badec7ccf70ce51e0d347faed3dc63ba48cfe59780ed83'},\
+        \ {'path': 'papers/atlas-over-en-levende-arkitektur.html', 'url': 'https://papers.spiralweb.earth/papers/atlas-over-en-levende-arkitektur',\
+        \ 'source_sha256': '62e39e97608dd3c25aa36eedb70e8ef0c68ef3eb62c20f93652be7734c033f3c'},\
+        \ {'path': 'papers/a-decent-economy-under-the-jurisdiction-of-life.html',\
+        \ 'url': 'https://papers.spiralweb.earth/papers/a-decent-economy-under-the-jurisdiction-of-life',\
+        \ 'source_sha256': '220ba7ea88f0f5fbf952c1c113ffa89e73141820b26ee91f6c30f200e33f083e'},\
+        \ {'path': 'papers/rule-of-life.html', 'url': 'https://papers.spiralweb.earth/papers/rule-of-life',\
+        \ 'source_sha256': 'e8ce0a93560fac642b0d443c89624bff319a8dadb364f9ecb0addc95316f4d7b'},\
+        \ {'path': 'library.html', 'url': 'https://papers.spiralweb.earth/library',\
+        \ 'source_sha256': 'ff0d18ef8570000b3ed669bca3e7f9de4047eac23a32cd3eeaad25ac12c9ff7b'},\
+        \ {'path': 'index.html', 'url': 'https://papers.spiralweb.earth/', 'source_sha256':\
+        \ '87422123b340d18f1f14e1112aa909c7c7d4cead8f98c0515d9c0af977705a6c'}]\nsha=lambda\
+        \ b:hashlib.sha256(b).hexdigest()\nresult={'status':'RUNNING','base':BASE,'candidate':HEAD,'preview':PREVIEW,'timestamp_utc':datetime.now(timezone.utc).isoformat(),'checks':{},'preview_files':[],'production_html':[],'browser':[],'merge_attempts':0,'production_publication_attempts':0}\n\
+        def command(args,label):\n r=subprocess.run(args,capture_output=True,text=True,timeout=60);(OUT/(label+'.stdout')).write_text(r.stdout);(OUT/(label+'.stderr')).write_text(r.stderr);(OUT/(label+'.command.json')).write_text(json.dumps({'args':args,'exit_code':r.returncode}));assert\
+        \ r.returncode==0,label;return r.stdout.strip()\ndef http(url,label):\n hp=OUT/(label+'.headers');bp=OUT/(label+'.body')\n\
+        \ status=command(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}',url],label)\n\
+        \ assert status=='200',(label,status)\n return bp.read_bytes()\ndef normalize_contact_email(body):\n\
+        \    # Reuse the exact contact-email decoding proven in the preceding Class\
+        \ 6.\n    # The current Library delta additionally removes only its observed\n\
+        \    # email_off wrapper around this same literal contact link.\n    text=body.decode('utf-8')\n\
+        \    contact='<a href=\"mailto:contact@spiralweb.earth\">contact@spiralweb.earth</a>'\n\
+        \    wrapped='<!--email_off-->'+contact+'<!--/email_off-->'\n    if text.count(wrapped)>1:raise\
+        \ RuntimeError('Uventet antal kontakt-email-kommentarer.')\n    text=text.replace(wrapped,contact)\n\
+        \    # Exact additional provider form observed in the returned Class0 evidence.\n\
+        \    # Preserve the original single span; decode both provider tokens independently.\n\
+        \    nested_pattern=r'<a href=\"/cdn-cgi/l/email-protection#([0-9a-f]+)\"\
+        ><span><span class=\"__cf_email__\" data-cfemail=\"([0-9a-f]+)\">\\[email&#160;protected\\\
+        ]</span></span></a>'\n    nested=list(re.finditer(nested_pattern,text))\n\
+        \    if nested:\n        nested_decoder='<script data-cfasync=\"false\" src=\"\
+        /cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js\"></script>'\n\
+        \        if len(nested)!=1 or text.count(nested_decoder)!=1:\n           \
+        \ raise RuntimeError('Uventet antal indlejrede kontakt-email-elementer.')\n\
+        \        match=nested[0]\n        for value in match.groups():\n         \
+        \   data=bytes.fromhex(value)\n            if not data or bytes(x^data[0]\
+        \ for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':\n       \
+        \         raise RuntimeError('Indlejret kontakt-email afviger.')\n       \
+        \ literal='<a href=\"mailto:contact@spiralweb.earth\"><span>contact@spiralweb.earth</span></a>'\n\
+        \        text=text[:match.start()]+literal+text[match.end():]\n        text=text.replace(nested_decoder,'',1)\n\
+        \    pattern=r'<a href=\"/cdn-cgi/l/email-protection#([0-9a-f]+)\"><span class=\"\
+        __cf_email__\" data-cfemail=\"([0-9a-f]+)\">\\[email&#160;protected\\]</span></a>'\n\
+        \    matches=list(re.finditer(pattern,text))\n    decoder='<script data-cfasync=\"\
+        false\" src=\"/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js\"\
+        ></script>'\n    if matches:\n        if len(matches)!=1 or text.count(decoder)!=1:raise\
+        \ RuntimeError('Uventet emailbeskyttelse.')\n        match=matches[0]\n  \
+        \      for value in match.groups():\n            data=bytes.fromhex(value)\n\
+        \            if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':\n\
+        \                raise RuntimeError('Kontakt-email afviger.')\n        text=text[:match.start()]+contact+text[match.end():]\n\
+        \        text=text.replace(decoder,'',1)\n    elif decoder in text:\n    \
+        \    # The unchanged homepage uses the literal label Corrections.\n      \
+        \  # Accept only its observed provider form and the same decoded address.\n\
+        \        corrections=r'<a href=\"/cdn-cgi/l/email-protection#([0-9a-f]+)\"\
+        >Corrections</a>'\n        labelled=list(re.finditer(corrections,text))\n\
+        \        if len(labelled)!=1 or text.count(decoder)!=1:\n            raise\
+        \ RuntimeError('Uventet email-decoder uden den dokumenterede kontakt-email.')\n\
+        \        match=labelled[0];data=bytes.fromhex(match.group(1))\n        if\
+        \ not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':\n\
+        \            raise RuntimeError('Corrections-email afviger.')\n        literal='<a\
+        \ href=\"mailto:contact@spiralweb.earth\">Corrections</a>'\n        text=text[:match.start()]+literal+text[match.end():]\n\
+        \        text=text.replace(decoder,'',1)\n    return text.encode('utf-8')\n\
+        \ndef command_source(path):return subprocess.check_output(['git','show',BASE+':'+path])\n\
+        try:\n assert command(['git','ls-remote','--exit-code','https://github.com/LeroyRenArt/green-papers.git','refs/heads/main'],'remote-main-before')==HEAD+'\\\
+        trefs/heads/main'\n assert command(['git','rev-parse','HEAD'],'head')==HEAD\n\
+        \ paths=command(['git','diff','--name-only',BASE,HEAD],'exact-diff').splitlines();assert\
+        \ sorted(paths)==sorted(x['path'] for x in SPEC)\n result['checks']['exact_33_file_diff']=True\n\
+        \ for s in SPEC:\n  b=(ROOT/s['path']).read_bytes();assert sha(b)==s['sha256'];assert\
+        \ command(['git','rev-parse',HEAD+':'+s['path']],s['path'].replace('/','_')+'-gitblob')==s['git_blob']\n\
+        \ result['checks']['reviewed_hashes_match_repository']=True\n public=json.loads((ROOT/'public-files.json').read_text());assert\
+        \ all(s['path'] in public for s in SPEC)\n command(['node','scripts/build_public.mjs'],'public-build')\n\
+        \ built=sorted(str(p.relative_to(ROOT/'dist')) for p in (ROOT/'dist').rglob('*')\
+        \ if p.is_file());assert built==sorted(public)\n for name in public:assert\
+        \ (ROOT/name).read_bytes()==(ROOT/'dist'/name).read_bytes()\n result['checks']['all_public_build_bytes_exact']=True;result['checks']['public_files']=len(public)\n\
+        \ assert command(['git','status','--porcelain','--untracked-files=no'],'source-status')==''\n\
+        \ for i,s in enumerate(SPEC):\n  route='/' if s['path']=='index.html' else\
+        \ '/'+s['path'];route=route[:-5] if route.endswith('.html') else route\n \
+        \ b=http(PREVIEW+route,'preview-'+str(i));assert (normalize_contact_email(b)==normalize_contact_email((ROOT/s['path']).read_bytes())\
+        \ if s['path'].endswith('.html') else sha(b)==s['sha256']),('production mismatch',s['path'])\n\
+        \  result['preview_files'].append({'path':s['path'],'route':route,'status':200,'sha256':sha(b),'match':True})\n\
+        \ result['checks']['all_33_production_routes_match_reviewed']=True\n for i,(path,route)\
+        \ in enumerate([('reading-orientation.html', '/reading-orientation'), ('da/laeseorientering.html',\
+        \ '/da/laeseorientering'), ('toolbox/index.html', '/toolbox/'), ('privacy.html',\
+        \ '/privacy'), ('methods-editorial-practice.html', '/methods-editorial-practice'),\
+        \ ('ai-human-responsibility.html', '/ai-human-responsibility')]):\n  expected=subprocess.check_output(['git','show',BASE+':'+path]);assert\
+        \ (ROOT/path).read_bytes()==expected,('protected source changed',path)\n \
+        \ b=http(PREVIEW+route,'protected-'+str(i));assert normalize_contact_email(b)==normalize_contact_email(expected),('protected\
+        \ HTTP changed',path)\n  result['production_html'].append({'path':path,'sha256':sha(b),'baseline_match':True})\n\
+        \ result['checks']['six_protected_regressions_match']=True\n with sync_playwright()\
+        \ as pw:\n  browser=pw.chromium.launch();result['browser_version']=browser.version\n\
+        \  for t in TARGETS:\n   for width,height in [(1440,1000),(390,1000),(360,1000)]:\n\
+        \    context=browser.new_context(viewport={'width':width,'height':height});page=context.new_page();errors=[];bad=[]\n\
+        \    page.on('pageerror',lambda e:errors.append(str(e)))\n    page.on('response',lambda\
+        \ r:bad.append({'url':r.url,'status':r.status}) if r.status>=400 else None)\n\
+        \    route='/' if t['path']=='index.html' else '/'+t['path'][:-5];response=page.goto(PREVIEW+route,wait_until='networkidle',timeout=30000);assert\
+        \ response.status==200\n    page.evaluate('()=>document.fonts.ready')\n  \
+        \  measure=page.evaluate('()=>({overflow:document.documentElement.scrollWidth-innerWidth,font_status:document.fonts.status,broken_fragments:[...document.querySelectorAll(\"\
+        a[href^=\\\\\"#\\\\\"]\")].map(a=>a.getAttribute(\"href\").slice(1)).filter(x=>x&&!document.getElementById(decodeURIComponent(x)))})')\n\
+        \    assert measure['overflow']==0 and measure['font_status']=='loaded' and\
+        \ not measure['broken_fragments'] and not errors and not bad,(t['path'],width,measure,errors,bad)\n\
+        \    result['browser'].append({'path':t['path'],'width':width,**measure,'errors':errors,'bad_responses':bad})\n\
+        \    context.close()\n  browser.close()\n result['checks']['all_54_hosted_browser_cases_pass']=True\n\
+        \ assert command(['git','ls-remote','--exit-code','https://github.com/LeroyRenArt/green-papers.git','refs/heads/main'],'remote-main-after')==HEAD+'\\\
+        trefs/heads/main'\n result['status']='PASS_CLASS6';result['production_ready']=True;result['run_id']=os.environ['GITHUB_RUN_ID'];result['control_commit']=os.environ['GITHUB_SHA'];result['main_stable_before_after']=True\n\
+        except Exception as e:\n result['status']='STOP';result['production_ready']=False;result['error']=str(e);(OUT/'traceback.txt').write_text(traceback.format_exc());raise\n\
+        finally:\n (OUT/'RESULT.json').write_text(json.dumps(result,indent=2));(OUT/'MANIFEST.json').write_text(json.dumps({str(p.relative_to(OUT)):sha(p.read_bytes())\
+        \ for p in OUT.rglob('*') if p.is_file()},indent=2))\nPYCODE\n"
+    - name: Preserve PASS or STOP evidence
+      if: always()
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      with:
+        name: papers-pr92-class6-closeout
+        path: ${{ runner.temp }}/papers-final-closeout
+        retention-days: 30
+        if-no-files-found: error
