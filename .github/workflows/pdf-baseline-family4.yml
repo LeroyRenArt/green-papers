@@ -1,4 +1,4 @@
-+name: Papers PR92 final readiness
+name: Papers PR92 final readiness
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
