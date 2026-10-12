@@ -1,4 +1,4 @@
-name: Papers copy controls independent Class6
+name: Spiralweb Family5 journeys reflow and network
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -22,131 +22,93 @@ jobs:
         run: |
           python -m pip install playwright==1.55.0
           python -m playwright install --with-deps chromium
-      - name: Check current live clipboard and keyboard behaviour
+      - name: Check six live journeys, reflow, image loading and noJS email
         run: |
           python - <<'PYCODE'
           from pathlib import Path
           from datetime import datetime,timezone
-          import os,json,hashlib,subprocess,traceback
+          from urllib.parse import urljoin,urlparse
+          import os,json,hashlib,re,subprocess,traceback
           from playwright.sync_api import sync_playwright
-          ROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-copy-controls-class6';OUT.mkdir()
-          HEAD='791ad03339fbf0bb1c555723f158ce67d6175dfa';MAIN='5aa261d1e733b81550b2a13cede1e3f6519ae56b';BASE='https://papers.spiralweb.earth';ROUTE='/toolbox/ai-in-right-relationship/'
-          FILES=['toolbox/index.html','toolbox/ai-in-right-relationship/index.html','toolbox/ai-in-right-relationship/copy-starter.js']
+          OUT=Path(os.environ['RUNNER_TEMP'])/'family5-journeys';OUT.mkdir();HEAD='791ad03339fbf0bb1c555723f158ce67d6175dfa';P='https://papers.spiralweb.earth';M='https://spiralweb.earth'
           sha=lambda b:hashlib.sha256(b).hexdigest()
-          result={'status':'RUNNING','source':HEAD,'timestamp_utc':datetime.now(timezone.utc).isoformat(),'checks':{},'cases':[],'keyboard':[],'production_publication_attempts':0,'repository_content_writes':0}
-          def cmd(args,label):
-           r=subprocess.run(args,capture_output=True,text=True,timeout=60);(OUT/(label+'.stdout')).write_text(r.stdout);(OUT/(label+'.stderr')).write_text(r.stderr);(OUT/(label+'.command.json')).write_text(json.dumps({'args':args,'exit_code':r.returncode}));assert r.returncode==0,label;return r.stdout.strip()
-          def inspect(page):
-           return page.evaluate('''()=>({overflow:document.documentElement.scrollWidth-innerWidth,duplicates:[...document.querySelectorAll('[id]')].map(e=>e.id).filter((id,i,a)=>a.indexOf(id)!==i)})''')
+          result={'status':'RUNNING','timestamp_utc':datetime.now(timezone.utc).isoformat(),'papers_source':HEAD,'journeys':[],'layout':[],'slow_network':[],'no_js_email':[],'findings':[],'production_writes':0}
+          def main_ref(label):
+           r=subprocess.run(['git','ls-remote','origin','refs/heads/main'],capture_output=True,text=True,timeout=60);(OUT/(label+'.txt')).write_text(r.stdout);assert r.returncode==0 and r.stdout.split()[0]==HEAD
+          def state(page):
+           return page.evaluate('''()=>({title:document.title,h1:document.querySelector('h1')?.textContent.trim(),width:innerWidth,overflow:document.documentElement.scrollWidth-innerWidth,lang:document.documentElement.lang,images:[...document.images].map(i=>({alt:i.alt,src:i.currentSrc,width:i.getBoundingClientRect().width,height:i.getBoundingClientRect().height,complete:i.complete,naturalWidth:i.naturalWidth,loading:i.loading}))})''')
+          def document_status(page,records):
+           matches=[r for r in records if r['url']==page.url and r['type']=='document'];return matches[-1]['status'] if matches else None
+          def attach(page):
+           records=[];page.on('response',lambda r:records.append({'url':r.url,'status':r.status,'type':r.request.resource_type}));return records
+          def follow(page,pattern,records):
+           links=page.locator('a[href]').evaluate_all("es=>es.map(a=>({raw:a.getAttribute('href'),url:a.href,text:a.textContent.trim()}))")
+           options=[a for a in links if re.search(pattern,a['url'])];assert options,{'missing_link_pattern':pattern,'page':page.url,'links':links}
+           a=options[0];page.locator('a[href='+json.dumps(a['raw'])+']').first.click();page.wait_for_load_state('networkidle')
+           assert document_status(page,records)==200,(page.url,records[-8:]);s=state(page);assert s['h1'] and page.locator('h1').first.is_visible()
+           return {'link':a, 'url':page.url,**s}
           try:
-           assert cmd(['git','rev-parse','HEAD'],'head')==HEAD
-           assert cmd(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==HEAD
-           for i,f in enumerate(FILES):
-            route='/toolbox/' if i==0 else ROUTE if i==1 else '/'+f
-            bp=OUT/f'live-{i}.body';hp=OUT/f'live-{i}.headers'
-            status=cmd(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}',BASE+route],f'live-{i}')
-            assert status=='200' and bp.read_bytes()==(ROOT/f).read_bytes(),f
-           result['checks']['three_exact_live_sources']=True
-           assert cmd(['git','rev-parse','HEAD^{tree}'],'merged-tree')==cmd(['git','rev-parse','3911f28c4e2a668abdd37c31fd42826f5c1bd1d7^{tree}'],'candidate-tree')
-           assert cmd(['git','diff','--name-only',MAIN,HEAD],'exact-diff').splitlines()==['toolbox/ai-in-right-relationship/copy-starter.js','toolbox/ai-in-right-relationship/index.html']
-           oldhtml=subprocess.check_output(['git','show',MAIN+':'+FILES[1]]).decode();newhtml=(ROOT/FILES[1]).read_text()
-           assert newhtml.replace('<button type="button" hidden','<button type="button"').replace('copy-starter.js?v=20261012-1','copy-starter.js')==oldhtml
-           oldjs=subprocess.check_output(['git','show',MAIN+':'+FILES[2]]).decode();assert (ROOT/FILES[2]).read_text().replace('    button.hidden = false;\n','')==oldjs
-           public=json.loads((ROOT/'public-files.json').read_text());cmd(['node','scripts/build_public.mjs'],'public-build')
-           assert sorted(str(p.relative_to(ROOT/'dist')) for p in (ROOT/'dist').rglob('*') if p.is_file())==sorted(public)
-           for f in public:assert (ROOT/f).read_bytes()==(ROOT/'dist'/f).read_bytes()
-           result['checks']['all_public_files_exact']=len(public);result['checks']['only_hidden_script_url_and_reveal_changes']=True
-           for i,f in enumerate(FILES):
-            route='/toolbox/' if i==0 else ROUTE if i==1 else '/'+f
-            bp=OUT/f'production-{i}.body';hp=OUT/f'production-{i}.headers'
-            status=cmd(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}','https://papers.spiralweb.earth'+route],f'production-{i}')
-            assert status=='200' and bp.read_bytes()==subprocess.check_output(['git','show',HEAD+':'+f]),f
-           result['checks']['published_files_exact']=True
+           main_ref('main-before')
            with sync_playwright() as pw:
             browser=pw.chromium.launch();result['browser_version']=browser.version
-            for mode in ['native','browser_policy_denied','api_unavailable']:
-             for width in [1440,390,360]:
-              context=browser.new_context(viewport={'width':width,'height':1000},service_workers='block')
-              if mode=='native':context.grant_permissions(['clipboard-read','clipboard-write'],origin=BASE)
-              if mode=='browser_policy_denied':
-               def denied(route):
-                response=route.fetch();body=response.body();assert body==(ROOT/FILES[1]).read_bytes();headers=dict(response.headers);headers['permissions-policy']='clipboard-write=()';route.fulfill(response=response,headers=headers)
-               context.route(BASE+ROUTE,denied)
-              if mode=='api_unavailable':context.add_init_script("Object.defineProperty(navigator,'clipboard',{configurable:true,value:undefined})")
-              page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
-              response=page.goto(BASE+ROUTE,wait_until='networkidle');assert response.status==200
-              if mode=='browser_policy_denied':assert page.evaluate("document.featurePolicy.allowsFeature('clipboard-write')") is False
-              if mode=='api_unavailable':assert page.evaluate('navigator.clipboard===undefined')
-              assert page.locator('button[data-copy-target]').count()==7
-              for i in range(7):
-               button=page.locator('button[data-copy-target]').nth(i);target=button.get_attribute('data-copy-target');status=button.get_attribute('data-copy-status')
-               if i>0:page.locator('#tools details').nth(i-1).locator('summary').click()
-               expected=page.locator('#'+target).text_content().strip();button.click()
-               wanted='Copied. Paste it into your conversation.' if mode=='native' else 'Select the prompt text above and copy it directly.'
-               page.wait_for_function('arg=>document.getElementById(arg.id).textContent===arg.text',arg={'id':status,'text':wanted})
-               if mode=='native':assert page.evaluate('navigator.clipboard.readText()')==expected
-               else:
-                # Prove the fallback text can actually be selected in this browser.
-                selected=page.locator('#'+target).evaluate('''e=>{let r=document.createRange();r.selectNodeContents(e);let s=getSelection();s.removeAllRanges();s.addRange(r);return s.toString().trim()}''');assert selected==expected
-               assert page.locator('#'+status).get_attribute('role')=='status' and page.locator('#'+status).get_attribute('aria-live')=='polite'
-               observation=inspect(page);assert observation['overflow']==0 and not observation['duplicates'],observation
-               result['cases'].append({'mode':mode,'width':width,'target':target,'label':button.get_attribute('aria-label') or button.inner_text(),'expected_sha256':sha(expected.encode()),'status':wanted,'native_clipboard_readback':mode=='native','fallback_selectable':mode!='native',**observation})
-              assert not errors,errors
-              page.locator('#tools').screenshot(path=str(OUT/f'tools-{mode}-{width}.png'))
-              context.close()
-            for width in [1440,390,360]:
-             context=browser.new_context(viewport={'width':width,'height':1000},permissions=['clipboard-read','clipboard-write']);page=context.new_page();page.goto(BASE+ROUTE,wait_until='networkidle')
-             page.keyboard.press('Tab');assert page.evaluate('document.activeElement.className')=='sw-access-skip';page.keyboard.press('Enter');assert page.evaluate('document.activeElement.id')=='main-content'
-             tab_path=[]
-             for k in range(70):
-              page.keyboard.press('Tab');info=page.evaluate('''()=>{let e=document.activeElement;let s=getComputedStyle(e);return {tag:e.tagName,id:e.id,text:e.textContent.trim().slice(0,100),target:e.dataset.copyTarget||'',outline:s.outlineStyle,outlineWidth:s.outlineWidth}}''');tab_path.append(info)
-              if info['tag']=='SUMMARY' and info['text']=='Try this prompt':
-               assert info['outline']!='none' and info['outlineWidth']!='0px';page.keyboard.press('Enter');page.keyboard.press('Tab');target=page.evaluate('document.activeElement.dataset.copyTarget');assert target.startswith('tool-prompt-')
-               for key in ['Enter','Space']:
-                page.evaluate("navigator.clipboard.writeText('FAMILY5_KEYBOARD_SENTINEL')");page.keyboard.press(key);page.wait_for_function("document.activeElement.parentElement.querySelector('[role=status]').textContent.startsWith('Copied.')")
-                assert page.evaluate('navigator.clipboard.readText()')==page.locator('#'+target).text_content().strip()
-              if info['id']=='copy-starter':
-               assert info['outline']!='none' and info['outlineWidth']!='0px'
-               for key in ['Enter','Space']:
-                page.evaluate("navigator.clipboard.writeText('FAMILY5_KEYBOARD_SENTINEL')");page.keyboard.press(key);page.wait_for_function("document.querySelector('#copy-status').textContent.startsWith('Copied.')");assert page.evaluate('navigator.clipboard.readText()')==page.locator('#pocket-prompt').text_content().strip()
-              if info['tag']=='A' and info['text']=='Papers privacy':break
-             assert sum(x['tag']=='SUMMARY' and x['text']=='Try this prompt' for x in tab_path)==6
-             assert any(x['id']=='copy-starter' for x in tab_path)
-             result['keyboard'].append({'width':width,'skip_link':True,'six_disclosures':True,'enter_and_space_native_readback':True,'tab_path':tab_path})
-             context.close()
-            result['readiness_modes']=[]
-            for mode in ['no_javascript','script_blocked','script_delayed']:
-             for width in [1440,390,360]:
-              context=browser.new_context(java_script_enabled=mode!='no_javascript',viewport={'width':width,'height':1000},permissions=['clipboard-read','clipboard-write']);held=[]
-              if mode=='script_blocked':context.route('**/copy-starter.js*',lambda route:route.abort())
-              if mode=='script_delayed':context.route('**/copy-starter.js*',lambda route:held.append(route))
-              page=context.new_page();page.goto(BASE+ROUTE,wait_until='commit' if mode=='script_delayed' else 'networkidle');page.locator('#pocket-prompt').wait_for(state='visible')
-              assert page.locator('a[download]').count()==2
-              for i in range(6):page.locator('#tools summary').nth(i).click();assert page.locator('#tool-prompt-'+str(i+1)).is_visible()
-              assert page.evaluate("[...document.querySelectorAll('button[data-copy-target]')].every(b=>b.hidden)")
-              assert page.locator('button[data-copy-target]:visible').count()==0
-              observation=inspect(page);assert observation['overflow']==0
-              if mode!='script_delayed':page.locator('.starter').screenshot(path=str(OUT/f'starter-{mode}-{width}.png'))
-              case={'mode':mode,'width':width,'zero_visible_inactive_copy_controls':True,'prompts_and_download_links_available':True,**observation}
-              if mode=='script_delayed':
-               assert len(held)==1;held[0].continue_();page.wait_for_function("[...document.querySelectorAll('button[data-copy-target]')].every(b=>!b.hidden)")
-               page.locator('#copy-starter').click();page.wait_for_function("document.querySelector('#copy-status').textContent.startsWith('Copied.')")
-               assert page.evaluate('navigator.clipboard.readText()')==page.locator('#pocket-prompt').text_content().strip();case['reveals_only_after_script_ready_and_copies']=True;page.locator('.starter').screenshot(path=str(OUT/f'starter-{mode}-{width}.png'))
-              result['readiness_modes'].append(case);context.close()
+            paths=[('new_reader',[r'/cafes/sofia/short-reads/$',r'/short-reads/.+']),('local_practice',[r'spiralweb\.earth/pg-ledger/$',r'spiralweb\.earth/formats/$',r'/formats/format1-dashboard']),('research',[r'/papers/atlas-of-a-living-architecture$',r'/papers/atlas-over-en-levende-arkitektur$',r'/library(?:#|$)']),('support',[r'spiralweb\.earth/association/$',r'spiralweb\.earth/support/$',r'spiralweb\.earth/shared-capacity/$']),('danish',[r'/da/laeseorientering$',r'spiralweb\.earth/da/$',r'/da/korte-laesninger/$']),('ai_correction',[r'/toolbox/ai-in-right-relationship/$',r'/ai-human-responsibility$',r'/methods-editorial-practice$'])]
+            for name,steps in paths:
+             c=browser.new_context(viewport={'width':390,'height':1000});page=c.new_page();records=attach(page);case={'name':name,'steps':[]}
+             try:
+              assert page.goto(P+'/',wait_until='networkidle').status==200
+              for pattern in steps:case['steps'].append(follow(page,pattern,records))
+              case['status']='PASS'
+             except Exception as e:case['status']='FINDING';case['error']=str(e);result['findings'].append({'kind':'journey','name':name,'error':str(e)})
+             result['journeys'].append(case);(OUT/(name+'-responses.json')).write_text(json.dumps(records));c.close()
+            pages=[('papers',P+'/'),('library',P+'/library'),('ai_tools',P+'/toolbox/ai-in-right-relationship/'),('da_orientation',P+'/da/laeseorientering'),('association',M+'/association/'),('support',M+'/support/'),('ledger',M+'/pg-ledger/'),('da_foyer',M+'/da/'),('short_reads',M+'/cafes/sofia/short-reads/')]
+            for width in [1280,640,390,320]:
+             c=browser.new_context(viewport={'width':width,'height':1000});page=c.new_page()
+             for name,url in pages:
+              case={'page':name,'url':url,'width':width}
+              try:
+               response=page.goto(url,wait_until='networkidle');assert response.status==200,(url,response.status);s=state(page);case.update(s);assert s['h1']
+               if s['overflow']>1:result['findings'].append({'kind':'horizontal_overflow','page':name,'width':width,'pixels':s['overflow']})
+               page.keyboard.press('Tab');first=page.evaluate("()=>({text:document.activeElement.textContent.trim(),href:document.activeElement.getAttribute('href')})");case['first_tab']=first
+               if first['href'] and first['href'].startswith('#'):
+                page.keyboard.press('Enter');case['skip_target']=page.evaluate('document.activeElement.id');case['skip_expected']=first['href'][1:]
+                if case['skip_target']!=case['skip_expected']:result['findings'].append({'kind':'skip_focus','page':name,'width':width,'observed':case['skip_target'],'expected':case['skip_expected']})
+               else:result['findings'].append({'kind':'first_tab_not_skip','page':name,'width':width,'observed':first})
+               tabs=[]
+               for i in range(16):
+                page.keyboard.press('Tab');tabs.append(page.evaluate("()=>{let e=document.activeElement,s=getComputedStyle(e),r=e.getBoundingClientRect();return {tag:e.tagName,text:e.textContent.trim().slice(0,80),href:e.getAttribute('href'),outline:s.outlineStyle,outlineWidth:s.outlineWidth,top:r.top,bottom:r.bottom}}"))
+               case['first_16_tab_controls']=tabs
+               if width in [1280,320] and name in ['papers','association','support','da_foyer']:
+                page.goto(url,wait_until='networkidle');page.screenshot(path=str(OUT/f'layout-{name}-{width}.png'))
+               case['status']='MEASURED'
+              except Exception as e:case['status']='FINDING';case['error']=str(e);result['findings'].append({'kind':'layout_probe','page':name,'width':width,'error':str(e)})
+              result['layout'].append(case)
+             c.close()
+            for dpr in [1,2]:
+             c=browser.new_context(viewport={'width':390,'height':1000},device_scale_factor=dpr);page=c.new_page();cdp=c.new_cdp_session(page);cdp.send('Network.enable');cdp.send('Network.emulateNetworkConditions',{'offline':False,'latency':150,'downloadThroughput':50000,'uploadThroughput':50000,'connectionType':'cellular3g'})
+             response=page.goto(M+'/association/',wait_until='domcontentloaded',timeout=90000);assert response.status==200
+             start_state=state(page);assert page.locator('h1').is_visible()
+             board=page.locator('#board');board.scroll_into_view_if_needed()
+             images=board.locator('img');count=images.count()
+             for i in range(count):images.nth(i).scroll_into_view_if_needed();images.nth(i).evaluate("i=>i.decode()")
+             case={'dpr':dpr,'latency_ms':150,'download_bytes_per_second':50000,'start_state':start_state,'board_images':images.evaluate_all("es=>es.map(i=>({alt:i.alt,currentSrc:i.currentSrc,srcset:i.getAttribute('srcset'),sizes:i.getAttribute('sizes'),naturalWidth:i.naturalWidth,renderWidth:i.getBoundingClientRect().width,renderHeight:i.getBoundingClientRect().height,complete:i.complete}))"),'timings':page.evaluate("performance.getEntriesByType('resource').map(e=>({name:e.name,duration:e.duration,transferSize:e.transferSize,encodedBodySize:e.encodedBodySize}))")}
+             assert count==5 and all(i['complete'] and i['naturalWidth']>0 for i in case['board_images'])
+             result['slow_network'].append(case);c.close()
+            for name,url in [('papers',P+'/'),('association',M+'/association/'),('support',M+'/support/'),('da_foyer',M+'/da/')]:
+             c=browser.new_context(java_script_enabled=False,viewport={'width':390,'height':1000});page=c.new_page();assert page.goto(url,wait_until='networkidle').status==200
+             links=page.locator('a[href^="mailto:"]').evaluate_all("es=>es.map(e=>({href:e.href,text:e.textContent.trim()}))");case={'page':name,'mailto_links':links};result['no_js_email'].append(case)
+             if not any('contact@spiralweb.earth' in a['href'] for a in links):result['findings'].append({'kind':'no_js_email','page':name})
+             c.close()
             browser.close()
-           assert len(result['cases'])==63 and len(result['keyboard'])==3
-           assert cmd(['git','ls-remote','origin','refs/heads/main'],'main-after').split()[0]==HEAD
-           result['status']='PASS_COPY_CONTROLS_CLASS6';result['run_id']=os.environ['GITHUB_RUN_ID'];result['control_commit']=os.environ['GITHUB_SHA']
-          except Exception as e:
-           result['status']='STOP';result['error']=str(e);(OUT/'traceback.txt').write_text(traceback.format_exc());raise
+           main_ref('main-after');result['status']='COMPLETE_WITH_FINDINGS' if result['findings'] else 'PASS_BOUNDED_JOURNEYS_REFLOW_NETWORK';result['run_id']=os.environ['GITHUB_RUN_ID'];result['control_commit']=os.environ['GITHUB_SHA']
+          except Exception as e:result['status']='STOP';result['error']=str(e);(OUT/'traceback.txt').write_text(traceback.format_exc());raise
           finally:
-           (OUT/'RESULT.json').write_text(json.dumps(result,indent=2));(OUT/'MANIFEST.json').write_text(json.dumps({str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.iterdir() if p.is_file()},indent=2))
+           (OUT/'RESULT.json').write_text(json.dumps(result,indent=2));(OUT/'MANIFEST.json').write_text(json.dumps({p.name:sha(p.read_bytes()) for p in OUT.iterdir() if p.is_file()},indent=2))
           PYCODE
       - name: Preserve PASS or STOP evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: papers-copy-controls-class6
-          path: ${{ runner.temp }}/papers-copy-controls-class6
+          name: family5-journeys
+          path: ${{ runner.temp }}/family5-journeys
           retention-days: 30
           if-no-files-found: error
