@@ -1,4 +1,4 @@
-name: Papers Family5 copy and keyboard audit
+name: Papers copy controls independent readiness
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: 5aa261d1e733b81550b2a13cede1e3f6519ae56b
+          ref: 3911f28c4e2a668abdd37c31fd42826f5c1bd1d7
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
@@ -24,13 +24,12 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Check current live clipboard and keyboard behaviour
         run: |
-          python - <<'PYCODE'
           from pathlib import Path
           from datetime import datetime,timezone
           import os,json,hashlib,subprocess,traceback
           from playwright.sync_api import sync_playwright
-          ROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-family5-copy';OUT.mkdir()
-          HEAD='5aa261d1e733b81550b2a13cede1e3f6519ae56b';BASE='https://papers.spiralweb.earth';ROUTE='/toolbox/ai-in-right-relationship/'
+          ROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-copy-controls-readiness';OUT.mkdir()
+          HEAD='3911f28c4e2a668abdd37c31fd42826f5c1bd1d7';MAIN='5aa261d1e733b81550b2a13cede1e3f6519ae56b';BASE='https://ee6b143e.green-papers.pages.dev';ROUTE='/toolbox/ai-in-right-relationship/'
           FILES=['toolbox/index.html','toolbox/ai-in-right-relationship/index.html','toolbox/ai-in-right-relationship/copy-starter.js']
           sha=lambda b:hashlib.sha256(b).hexdigest()
           result={'status':'RUNNING','source':HEAD,'timestamp_utc':datetime.now(timezone.utc).isoformat(),'checks':{},'cases':[],'keyboard':[],'production_publication_attempts':0,'repository_content_writes':0}
@@ -40,13 +39,27 @@ jobs:
            return page.evaluate('''()=>({overflow:document.documentElement.scrollWidth-innerWidth,duplicates:[...document.querySelectorAll('[id]')].map(e=>e.id).filter((id,i,a)=>a.indexOf(id)!==i)})''')
           try:
            assert cmd(['git','rev-parse','HEAD'],'head')==HEAD
-           assert cmd(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==HEAD
+           assert cmd(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==MAIN
            for i,f in enumerate(FILES):
             route='/toolbox/' if i==0 else ROUTE if i==1 else '/'+f
             bp=OUT/f'live-{i}.body';hp=OUT/f'live-{i}.headers'
             status=cmd(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}',BASE+route],f'live-{i}')
             assert status=='200' and bp.read_bytes()==(ROOT/f).read_bytes(),f
-           result['checks']['three_exact_live_sources']=True
+           result['checks']['three_exact_preview_sources']=True
+           assert cmd(['git','diff','--name-only',MAIN,HEAD],'exact-diff').splitlines()==['toolbox/ai-in-right-relationship/copy-starter.js','toolbox/ai-in-right-relationship/index.html']
+           oldhtml=subprocess.check_output(['git','show',MAIN+':'+FILES[1]]).decode();newhtml=(ROOT/FILES[1]).read_text()
+           assert newhtml.replace('<button type="button" hidden','<button type="button"').replace('copy-starter.js?v=20261012-1','copy-starter.js')==oldhtml
+           oldjs=subprocess.check_output(['git','show',MAIN+':'+FILES[2]]).decode();assert (ROOT/FILES[2]).read_text().replace('    button.hidden = false;\n','')==oldjs
+           public=json.loads((ROOT/'public-files.json').read_text());cmd(['node','scripts/build_public.mjs'],'public-build')
+           assert sorted(str(p.relative_to(ROOT/'dist')) for p in (ROOT/'dist').rglob('*') if p.is_file())==sorted(public)
+           for f in public:assert (ROOT/f).read_bytes()==(ROOT/'dist'/f).read_bytes()
+           result['checks']['all_public_files_exact']=len(public);result['checks']['only_hidden_script_url_and_reveal_changes']=True
+           for i,f in enumerate(FILES):
+            route='/toolbox/' if i==0 else ROUTE if i==1 else '/'+f
+            bp=OUT/f'production-{i}.body';hp=OUT/f'production-{i}.headers'
+            status=cmd(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}','https://papers.spiralweb.earth'+route],f'production-{i}')
+            assert status=='200' and bp.read_bytes()==subprocess.check_output(['git','show',MAIN+':'+f]),f
+           result['checks']['production_baseline_preserved']=True
            with sync_playwright() as pw:
             browser=pw.chromium.launch();result['browser_version']=browser.version
             for mode in ['native','browser_policy_denied','api_unavailable']:
@@ -99,15 +112,29 @@ jobs:
              assert any(x['id']=='copy-starter' for x in tab_path)
              result['keyboard'].append({'width':width,'skip_link':True,'six_disclosures':True,'enter_and_space_native_readback':True,'tab_path':tab_path})
              context.close()
-            context=browser.new_context(java_script_enabled=False,viewport={'width':390,'height':1000});page=context.new_page();page.goto(BASE+ROUTE,wait_until='networkidle')
-            assert page.locator('#pocket-prompt').is_visible();assert page.locator('a[download]').count()==2
-            for i in range(6):page.locator('#tools summary').nth(i).click();assert page.locator('#tool-prompt-'+str(i+1)).is_visible()
-            result['checks']['no_js_prompts_and_download_links']=True
-            result['checks']['no_js_copy_buttons_visible_but_inactive']=page.locator('button[data-copy-target]').count()==7
-            context.close();browser.close()
+            result['readiness_modes']=[]
+            for mode in ['no_javascript','script_blocked','script_delayed']:
+             for width in [1440,390,360]:
+              context=browser.new_context(java_script_enabled=mode!='no_javascript',viewport={'width':width,'height':1000},permissions=['clipboard-read','clipboard-write']);held=[]
+              if mode=='script_blocked':context.route('**/copy-starter.js*',lambda route:route.abort())
+              if mode=='script_delayed':context.route('**/copy-starter.js*',lambda route:held.append(route))
+              page=context.new_page();page.goto(BASE+ROUTE,wait_until='commit' if mode=='script_delayed' else 'networkidle');page.locator('#pocket-prompt').wait_for(state='visible')
+              assert page.locator('a[download]').count()==2
+              for i in range(6):page.locator('#tools summary').nth(i).click();assert page.locator('#tool-prompt-'+str(i+1)).is_visible()
+              assert page.evaluate("[...document.querySelectorAll('button[data-copy-target]')].every(b=>b.hidden)")
+              assert page.locator('button[data-copy-target]:visible').count()==0
+              observation=inspect(page);assert observation['overflow']==0
+              page.locator('.starter').screenshot(path=str(OUT/f'starter-{mode}-{width}.png'))
+              case={'mode':mode,'width':width,'zero_visible_inactive_copy_controls':True,'prompts_and_download_links_available':True,**observation}
+              if mode=='script_delayed':
+               assert len(held)==1;held[0].continue_();page.wait_for_function("[...document.querySelectorAll('button[data-copy-target]')].every(b=>!b.hidden)")
+               page.locator('#copy-starter').click();page.wait_for_function("document.querySelector('#copy-status').textContent.startsWith('Copied.')")
+               assert page.evaluate('navigator.clipboard.readText()')==page.locator('#pocket-prompt').text_content().strip();case['reveals_only_after_script_ready_and_copies']=True
+              result['readiness_modes'].append(case);context.close()
+            browser.close()
            assert len(result['cases'])==63 and len(result['keyboard'])==3
-           assert cmd(['git','ls-remote','origin','refs/heads/main'],'main-after').split()[0]==HEAD
-           result['status']='PASS_BOUNDED_COPY_KEYBOARD';result['run_id']=os.environ['GITHUB_RUN_ID'];result['control_commit']=os.environ['GITHUB_SHA']
+           assert cmd(['git','ls-remote','origin','refs/heads/main'],'main-after').split()[0]==MAIN
+           result['status']='PASS_COPY_CONTROLS_READINESS';result['run_id']=os.environ['GITHUB_RUN_ID'];result['control_commit']=os.environ['GITHUB_SHA']
           except Exception as e:
            result['status']='STOP';result['error']=str(e);(OUT/'traceback.txt').write_text(traceback.format_exc());raise
           finally:
@@ -117,8 +144,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: papers-family5-copy-keyboard
-          path: ${{ runner.temp }}/papers-family5-copy
+          name: papers-copy-controls-readiness
+          path: ${{ runner.temp }}/papers-copy-controls-readiness
           retention-days: 30
           if-no-files-found: error
-
