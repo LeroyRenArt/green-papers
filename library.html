@@ -65,7 +65,19 @@
     .library-intro{display:grid;grid-template-columns:minmax(0,.65fr) minmax(0,1.35fr);gap:42px;margin-bottom:34px}
     .library-intro p{margin-top:0;color:var(--ink-soft)}
     .library .block>h2{font-size:clamp(34px,4vw,54px);margin-bottom:10px}
-    [data-search-hidden="true"]{display:none!important}
+    .library-search{grid-template-columns:minmax(0,1fr) auto auto}
+    .library-search button{border:1px solid var(--moss);border-radius:999px;padding:12px 22px;background:var(--moss);color:#fff;font:600 16px/1.3 var(--body);cursor:pointer}
+    .library-search button:focus-visible,.library-results a:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+    .library-search[hidden],.library-results[hidden]{display:none!important}
+    .library-results{margin:24px 0;padding:24px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.65);overflow-wrap:anywhere}
+    .library-results h2{font-size:28px;margin:0 0 18px}
+    .library-results h2:focus{outline:2px solid var(--moss);outline-offset:5px}
+    .library-results ul{list-style:none;margin:0;padding:0}
+    .library-results li{padding:18px 0;border-top:1px solid var(--line)}
+    .library-results li:first-child{border-top:0;padding-top:0}
+    .library-results li>a:first-child{font:600 20px/1.4 var(--body)}
+    .library-results .meta,.library-results .links{display:block;margin-top:6px}
+    @media(max-width:620px){.library-search{grid-template-columns:minmax(0,1fr) auto}.library-search .search-count{grid-column:1/-1}.library-search button{padding:12px 16px}.library-results{padding:20px}}
     .no-results{display:none;padding:24px;border:1px solid var(--line);border-radius:12px;color:var(--ink-soft)}
     .no-results.visible{display:block}
     @media(max-width:900px){.library-paths{grid-template-columns:repeat(2,1fr)}.library-hero{grid-template-columns:1fr}.library-mark{display:none}}
@@ -102,12 +114,19 @@
     <div><p class="eyebrow">How to use this page</p><h2>Enter anywhere.</h2></div>
     <div><p>This is the complete shelf rather than a prescribed reading path. Browse by document form, search for a question or term, or follow a reference from one text into another. The groupings make the collection legible; they do not make a ladder of importance.</p><p>If you are new to the work, the <a href="papers/atlas-of-a-living-architecture">Atlas</a> offers a guided path and <a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses</a> shows the current whole figure.</p><p><a href="/reading-orientation">About Spiralweb Papers</a> explains document types, versioning and publication practice · <a href="/da/laeseorientering" lang="da">Dansk version</a>.</p><p data-sw-short-reads-threshold="v1"><strong>Prefer a shorter orientation?</strong> <a href="https://spiralweb.earth/cafes/sofia/short-reads/">Café Sofia’s Short Reads</a> offer concise, source-linked entrances into selected ideas and publications. Return here for the complete, versioned works.</p></div>
   </div>
-  <form class="library-search" role="search" onsubmit="return false">
-    <label class="sr-only" for="library-query">Search the public library</label>
+  <form class="library-search" role="search" hidden>
+    <label class="sr-only" for="library-query">Search the library catalogue</label>
     <input id="library-query" type="search" placeholder="Search titles, descriptions or document types" aria-describedby="library-search-scope" autocomplete="off">
-    <span class="search-count" id="search-count" aria-live="polite">All works</span>
+    <button type="submit">Search</button>
+    <span class="search-count" id="search-count" aria-live="polite" aria-atomic="true">All works</span>
   </form>
   <p class="muted" id="library-search-scope">Search covers the entries on this page, rather than the full text of every publication.</p>
+  <noscript><p class="muted">Catalogue search needs JavaScript. You can browse every publication below or use your browser’s Find command.</p></noscript>
+  <section class="library-results" id="library-results" aria-labelledby="library-results-heading" hidden>
+    <h2 id="library-results-heading" tabindex="-1">Search results</h2>
+    <p id="library-results-empty" hidden>No catalogue entry matches. Try a shorter term, a document type, or a related concept.</p>
+    <ul id="library-results-list"></ul>
+  </section>
   <nav class="library-paths" aria-label="Jump through the public library">
     <a href="#collection"><strong>Orientations &amp; Green Papers</strong><span>Foundations and returning inquiry</span></a>
     <a href="#reports"><strong>Reports</strong><span>Applied and operational arguments</span></a>
@@ -121,7 +140,6 @@
       <p class="eyebrow">Complete public collection</p>
       <h2>Orientations and Green Papers</h2>
       <p class="muted">The first twenty Green Papers form a dated foundational cycle arising from a longer inquiry begun in 2025. Papers 21–23 open a further applied movement. The numbering records publication history; it does not require linear reading, and it does not prevent later returns or correction.</p>
-      <div class="no-results" id="no-results">No public work on this page matches that search. Try a shorter term, a document type, or a related concept.</div>
       <ul class="papers">
 
         <li>
@@ -289,7 +307,7 @@
           <span class="meta">Dansk v0.5.1 · English v0.5.1 · 12 October 2026</span>
           <span class="links"><a href="papers/den-nye-faelled">HTML (DA)</a> · <a href="pdf/den-nye-faelled.pdf">PDF (DA)</a> · <a href="papers/den-nye-faelled-en">HTML (EN)</a> · <a href="pdf/den-nye-faelled-en.pdf">PDF (EN)</a></span>
           <p class="muted" style="margin-top: 0.25em; font-size: 0.9em;">
-            The Church of Denmark (Folkekirken) as a possible host for living soil, commons, lament and peaceful co-creation in Denmark. A proposed pilot field, with local decisions, ecological limits and the right to pause made explicit. Both language editions are v0.5.
+            The Church of Denmark (Folkekirken) as a possible host for living soil, commons, lament and peaceful co-creation in Denmark. A proposed pilot field, with local decisions, ecological limits and the right to pause made explicit. Both language editions are v0.5.1.
           </p>
         </li>
         <li class="paper-entry">
@@ -485,24 +503,65 @@
 <script id="library-search-behaviour">
   (() => {
     const input = document.getElementById('library-query');
+    const form = input?.closest('form');
     const count = document.getElementById('search-count');
-    const empty = document.getElementById('no-results');
-    if (!input) return;
-    const entries = [...document.querySelectorAll('#collection li, #protocol-habitat li')]
-      .filter((entry) => entry.querySelector('a'));
+    const results = document.getElementById('library-results');
+    const heading = document.getElementById('library-results-heading');
+    const list = document.getElementById('library-results-list');
+    const empty = document.getElementById('library-results-empty');
+    if (!form || !count || !results || !heading || !list || !empty) return;
     const normalize = (value) => value.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const entries = [];
+    const byAddress = new Map();
+    document.querySelectorAll('#collection li, #protocol-habitat li').forEach((entry) => {
+      const title = entry.querySelector(':scope > a');
+      if (!title) return;
+      const address = title.href;
+      const existing = byAddress.get(address);
+      if (existing) {
+        existing.searchText += ' ' + normalize(entry.textContent);
+      } else {
+        const record = { entry, searchText: normalize(entry.textContent) };
+        entries.push(record);
+        byAddress.set(address, record);
+      }
+    });
+    let lastQuery = null;
     const update = () => {
       const query = normalize(input.value.trim());
-      let visible = 0;
-      entries.forEach((entry) => {
-        const match = !query || normalize(entry.textContent).includes(query);
-        entry.dataset.searchHidden = match ? 'false' : 'true';
-        if (match) visible += 1;
+      if (query === lastQuery) return;
+      lastQuery = query;
+      list.replaceChildren();
+      results.hidden = !query;
+      empty.hidden = true;
+      if (!query) {
+        count.textContent = 'All works';
+        return;
+      }
+      const matches = entries.filter((record) => record.searchText.includes(query));
+      matches.forEach(({ entry }) => {
+        const item = entry.cloneNode(true);
+        item.removeAttribute('id');
+        item.querySelectorAll('[id]').forEach((element) => element.removeAttribute('id'));
+        list.append(item);
       });
-      count.textContent = query ? `${visible} ${visible === 1 ? 'match' : 'matches'}` : 'All works';
-      empty?.classList.toggle('visible', Boolean(query) && visible === 0);
+      count.textContent = `${matches.length} ${matches.length === 1 ? 'match' : 'matches'}`;
+      empty.hidden = matches.length !== 0;
     };
     input.addEventListener('input', update);
+    input.addEventListener('search', update);
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      update();
+      if (results.hidden) {
+        input.focus();
+      } else {
+        heading.focus();
+        results.scrollIntoView({ block: 'start' });
+      }
+    });
+    form.hidden = false;
+    update();
   })();
 </script>
 <script id="full-notes-disclosure-behaviour">
