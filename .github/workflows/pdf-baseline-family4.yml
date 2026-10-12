@@ -135,7 +135,7 @@ jobs:
              case['enter_focus_and_tab']=True
              page.locator('#library-query').fill('Atlas');page.locator('.library-search button').click()
              assert page.evaluate('document.activeElement.id')=='library-results-heading';case['button_focus']=True
-             page.screenshot(path=str(OUT/f'search-atlas-{width}.png'),full_page=False)
+             page.screenshot(path=str(OUT/f'search-atlas-{width}.png'),full_page=False);page.locator('#library-results').screenshot(path=str(OUT/f'results-atlas-{width}.png'))
              first=page.locator('#library-results-list > li > a').first
              expected=first.get_attribute('href');first.click();page.wait_for_load_state('networkidle');assert '/papers/atlas-of-a-living-architecture' in page.url
              case['actual_html_link_navigation']=page.url
