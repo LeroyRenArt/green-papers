@@ -1,4 +1,4 @@
-name: Papers three font-metric runtime diagnosis
+name: Papers three explicit print-form candidates
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -7,7 +7,7 @@ permissions:
   contents: read
 jobs:
   baseline-pdfs:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -20,8 +20,7 @@ jobs:
       - name: Install recorded dependency versions
         run: |
           sudo apt-get update
-          sudo apt-get install -y libpango-1.0-0 libpangoft2-1.0-0 fonts-dejavu-core fonts-urw-base35
-          apt-cache policy libpango-1.0-0 libpangoft2-1.0-0 fonts-dejavu-core fonts-urw-base35 > "$RUNNER_TEMP/runtime-packages.txt"
+          sudo apt-get install -y 'libpango-1.0-0=1.52.1+ds-1build1' 'libpangoft2-1.0-0=1.52.1+ds-1build1' 'fonts-dejavu-core=2.37-8' 'fonts-urw-base35=20200910-8'
           cat > "$RUNNER_TEMP/pdf-requirements.lock" <<'LOCK'
           brotli==1.2.0
           cffi==2.1.1
@@ -39,9 +38,9 @@ jobs:
           zopfli==0.4.3
           LOCK
           python -m pip install -r "$RUNNER_TEMP/pdf-requirements.lock"
-      - name: Test older Pango metrics without changing content
+      - name: Create three explicit print-form proposals
         run: |
-          cat > "$RUNNER_TEMP/metric-diagnostic.py" <<'PY'
+          cat > "$RUNNER_TEMP/three-candidates.py" <<'PY'
           from pathlib import Path
           from urllib.parse import urlsplit,unquote
           import base64,difflib,hashlib,json,logging,os,re,shutil,subprocess,unicodedata
@@ -108,84 +107,40 @@ jobs:
               rules.append(selector+'{font-family:'+sans+'!important}')
            return ''.join(rules)
           PAYLOAD={'papers/the-regenerative-municipality.html': {'candidate_sha': '3dea3d1fbfb7ac258c9d91112ac6f9437f90943304c061336ad7dcf65109a2ee', 'editorial': [{'site': 'Papers', 'path': 'papers/the-regenerative-municipality.html', 'location': 'After the AI Act dates paragraph, retaining K5–K7 citations', 'source_sha256': '0a4ca6b370f9c26702ae2caa42939206bc6a0f18c1b6fb879aed871ebfbad0b7', 'before_html': '<p>The AI Act entered into force on 1 August 2024. Rules on AI literacy and the original prohibited practices have applied since 2 February 2025. Most of the rules, including the specific transparency requirements in Article 50, apply from 2 August 2026. The Digital Omnibus moved the principal high-risk requirements for Annex III systems to 2 December 2027 and for Annex I systems to 2 August 2028. <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">[K5]</a> <a href="https://eur-lex.europa.eu/eli/reg/2026/1744/oj">[K6]</a> <a href="https://digst.dk/tilsyn/ai-forordningen/ai-omnibus/">[K7]</a></p>', 'after_html': '<p>The AI Act entered into force on 1 August 2024. Rules on AI literacy and the original prohibited practices have applied since 2 February 2025. Most of the rules, including the specific transparency requirements in Article 50, apply from 2 August 2026. The Digital Omnibus moved the principal high-risk requirements for Annex III systems to 2 December 2027 and for Annex I systems to 2 August 2028. <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">[K5]</a> <a href="https://eur-lex.europa.eu/eli/reg/2026/1744/oj">[K6]</a> <a href="https://digst.dk/tilsyn/ai-forordningen/ai-omnibus/">[K7]</a></p>\n<p>Providers of generative AI systems placed on the market before 2 August 2026 have until 2 December 2026 to comply with Article 50(2)’s machine-readable marking requirement.</p>', 'before_text': 'The AI Act entered into force on 1 August 2024. Rules on AI literacy and the original prohibited practices have applied since 2 February 2025. Most of the rules, including the specific transparency requirements in Article 50, apply from 2 August 2026. The Digital Omnibus moved the principal high-risk requirements for Annex III systems to 2 December 2027 and for Annex I systems to 2 August 2028. [K5] [K6] [K7]', 'after_text': 'The AI Act entered into force on 1 August 2024. Rules on AI literacy and the original prohibited practices have applied since 2 February 2025. Most of the rules, including the specific transparency requirements in Article 50, apply from 2 August 2026. The Digital Omnibus moved the principal high-risk requirements for Annex III systems to 2 December 2027 and for Annex I systems to 2 August 2028. [K5] [K6] [K7] Providers of generative AI systems placed on the market before 2 August 2026 have until 2 December 2026 to comply with Article 50(2)’s machine-readable marking requirement.', 'group': 'F4A-LAW-01'}], 'metadata': [{'old': 'v1.1.1', 'new': 'v1.1.2', 'count': 3}, {'old': 'v1.1.2 · September 2026', 'new': 'v1.1.2 · 12 October 2026', 'count': 1}, {'old': 'v1.1.2, September 2026', 'new': 'v1.1.2, 12 October 2026', 'count': 1}], 'version': 'v1.1.2'}, 'papers/den-nye-faelled.html': {'candidate_sha': 'a99de83094dec12d4b09a1eb243fe752b628508ba0c8fdddca564e58bf8e24d8', 'editorial': [{'site': 'Papers', 'path': 'papers/den-nye-faelled.html', 'location': '', 'source_sha256': '4810d1cfccbd803bde7accc788fe2a5bdca7c9fe2bdf74f8c8b08ddd4431cf54', 'before_html': '<p>Der er også et mere kropsligt lag her, som moderne samfund ofte undervurderer. Mennesker mærker faktisk i kroppen, hvad der giver liv, og hvad der tager fra liv. Aggression, overtryk, konstant konflikt og brutalitet sætter sig ikke kun som meninger, men som biologisk belastning. Når feltet bliver for hårdt, mister mennesker både nuancer og åndedrag. Derfor er fred ikke kun et moralsk ideal. Det er også en reguleringsform.</p>', 'after_html': '<p>Der er også et mere kropsligt lag her, som moderne samfund ofte undervurderer. Mennesker kan mærke noget af det, der nærer eller udmatter dem, i kroppen. Aggression, overtryk, konstant konflikt og brutalitet er ikke blot spørgsmål om holdning; de kan også belaste kroppen. Når et felt bliver for hårdt, kan mennesker miste både nuancer og åndedrag. Fred er derfor en moralsk stræben med en kropslig dimension: muligheden for at falde til ro nok til at forblive til stede.</p>', 'before_text': 'Der er også et mere kropsligt lag her, som moderne samfund ofte undervurderer. Mennesker mærker faktisk i kroppen, hvad der giver liv, og hvad der tager fra liv. Aggression, overtryk, konstant konflikt og brutalitet sætter sig ikke kun som meninger, men som biologisk belastning. Når feltet bliver for hårdt, mister mennesker både nuancer og åndedrag. Derfor er fred ikke kun et moralsk ideal. Det er også en reguleringsform.', 'after_text': 'Der er også et mere kropsligt lag her, som moderne samfund ofte undervurderer. Mennesker kan mærke noget af det, der nærer eller udmatter dem, i kroppen. Aggression, overtryk, konstant konflikt og brutalitet er ikke blot spørgsmål om holdning; de kan også belaste kroppen. Når et felt bliver for hårdt, kan mennesker miste både nuancer og åndedrag. Fred er derfor en moralsk stræben med en kropslig dimension: muligheden for at falde til ro nok til at forblive til stede.', 'group': 'F4B-FAELLED-01'}, {'site': 'Papers', 'path': 'papers/den-nye-faelled.html', 'location': '§18, third fragment', 'source_sha256': '4810d1cfccbd803bde7accc788fe2a5bdca7c9fe2bdf74f8c8b08ddd4431cf54', 'before_html': 'Men sorg som en nødvendig del af enhver levende korrektion.', 'after_html': 'Men sorg som en mulig og vigtig del af en levende korrektion.', 'before_text': 'Men sorg som en nødvendig del af enhver levende korrektion.', 'after_text': 'Men sorg som en mulig og vigtig del af en levende korrektion.', 'group': 'F4B-FAELLED-02'}, {'site': 'Papers', 'path': 'papers/den-nye-faelled.html', 'location': '§18, hosting paragraph', 'source_sha256': '4810d1cfccbd803bde7accc788fe2a5bdca7c9fe2bdf74f8c8b08ddd4431cf54', 'before_html': 'Hvis folkekirken skal blive feltholder for grøn omstilling, levende jord og fredelig samskabelse, må den også kunne være feltholder for lament. Ikke som endnu en prædiken om lidelse, men som et rum, hvor mennesker faktisk kan ånde, græde, tie, lytte og være sammen i det, der gør ondt, uden at blive skubbet videre for hurtigt.', 'after_html': 'Hvis folkekirken skal blive feltholder for grøn omstilling, levende jord og fredelig samskabelse, må den også kunne være feltholder for lament. Ikke som endnu en prædiken om lidelse, men som et rum, hvor mennesker faktisk kan ånde, græde, tie, lytte og være sammen i det, der gør ondt, uden at blive skubbet videre for hurtigt. Der skal være plads til sorg for dem, der har brug for det; deltagelse kræver ikke, at man sørger eller deler noget privat.', 'before_text': 'Hvis folkekirken skal blive feltholder for grøn omstilling, levende jord og fredelig samskabelse, må den også kunne være feltholder for lament. Ikke som endnu en prædiken om lidelse, men som et rum, hvor mennesker faktisk kan ånde, græde, tie, lytte og være sammen i det, der gør ondt, uden at blive skubbet videre for hurtigt.', 'after_text': 'Hvis folkekirken skal blive feltholder for grøn omstilling, levende jord og fredelig samskabelse, må den også kunne være feltholder for lament. Ikke som endnu en prædiken om lidelse, men som et rum, hvor mennesker faktisk kan ånde, græde, tie, lytte og være sammen i det, der gør ondt, uden at blive skubbet videre for hurtigt. Der skal være plads til sorg for dem, der har brug for det; deltagelse kræver ikke, at man sørger eller deler noget privat.', 'group': 'F4B-FAELLED-02'}, {'site': 'Papers', 'path': 'papers/den-nye-faelled.html', 'location': '§18, pull quote; aligns with existing EN can', 'source_sha256': '4810d1cfccbd803bde7accc788fe2a5bdca7c9fe2bdf74f8c8b08ddd4431cf54', 'before_html': 'Lament er ikke modsætningen til handling. Lament er det, der gør handling mere sand.', 'after_html': 'Lament er ikke modsætningen til handling. Lament kan gøre handling mere sand.', 'before_text': 'Lament er ikke modsætningen til handling. Lament er det, der gør handling mere sand.', 'after_text': 'Lament er ikke modsætningen til handling. Lament kan gøre handling mere sand.', 'group': 'F4B-FAELLED-02'}, {'site': 'Papers', 'path': 'papers/den-nye-faelled.html', 'location': '§16, insertion in existing economy paragraph', 'source_sha256': '4810d1cfccbd803bde7accc788fe2a5bdca7c9fe2bdf74f8c8b08ddd4431cf54', 'before_html': 'Økologisk fremgang kan ikke opveje udmattede mennesker;', 'after_html': 'Vedvarende drift og ansvar må ikke stiltiende forudsættes båret frivilligt. Før et forsøg begynder, skal de berørte aftale, hvilke funktioner der er frivillige, hvilke der kræver løn eller kontraktbetaling, og hvordan midlerne skaffes. Økologisk fremgang kan ikke opveje udmattede mennesker;', 'before_text': 'Økologisk fremgang kan ikke opveje udmattede mennesker;', 'after_text': 'Vedvarende drift og ansvar må ikke stiltiende forudsættes båret frivilligt. Før et forsøg begynder, skal de berørte aftale, hvilke funktioner der er frivillige, hvilke der kræver løn eller kontraktbetaling, og hvordan midlerne skaffes. Økologisk fremgang kan ikke opveje udmattede mennesker;', 'group': 'F4B-FAELLED-03'}], 'metadata': [{'old': 'v0.5', 'new': 'v0.5.1', 'count': 2}, {'old': '<strong>Dato</strong>September 2026', 'new': '<strong>Dato</strong>12. oktober 2026', 'count': 1}, {'old': 'v0.5.1, september 2026', 'new': 'v0.5.1, 12. oktober 2026', 'count': 1}], 'version': 'v0.5.1'}, 'papers/den-nye-faelled-en.html': {'candidate_sha': 'a2c6075a74de78a119c2f6d8758863af847565386f1c705b660e68ba46092a1e', 'editorial': [{'site': 'Papers', 'path': 'papers/den-nye-faelled-en.html', 'location': '§18, third fragment', 'source_sha256': '4c5b4b06d485e2bd41a173496f0c3bc3323e7272e9cb904f2fa9f241c7970898', 'before_html': 'But grief as a necessary part of any living correction.', 'after_html': 'But grief as a possible and important part of living correction.', 'before_text': 'But grief as a necessary part of any living correction.', 'after_text': 'But grief as a possible and important part of living correction.', 'group': 'F4B-FAELLED-02'}, {'site': 'Papers', 'path': 'papers/den-nye-faelled-en.html', 'location': '§18, hosting paragraph', 'source_sha256': '4c5b4b06d485e2bd41a173496f0c3bc3323e7272e9cb904f2fa9f241c7970898', 'before_html': 'If the Church of Denmark is to become a holder of space for green transition, living soil, and peaceful co-creation, it must also be able to hold space for lament. Not as another sermon about suffering, but as a space where people can breathe, weep, be silent, listen, and stay together with what hurts, without being hurried onward.', 'after_html': 'If the Church of Denmark is to become a holder of space for green transition, living soil, and peaceful co-creation, it must also be able to hold space for lament. Not as another sermon about suffering, but as a space where people can breathe, weep, be silent, listen, and stay together with what hurts, without being hurried onward. There should be room for grief for those who need it; participation does not require grieving or sharing anything private.', 'before_text': 'If the Church of Denmark is to become a holder of space for green transition, living soil, and peaceful co-creation, it must also be able to hold space for lament. Not as another sermon about suffering, but as a space where people can breathe, weep, be silent, listen, and stay together with what hurts, without being hurried onward.', 'after_text': 'If the Church of Denmark is to become a holder of space for green transition, living soil, and peaceful co-creation, it must also be able to hold space for lament. Not as another sermon about suffering, but as a space where people can breathe, weep, be silent, listen, and stay together with what hurts, without being hurried onward. There should be room for grief for those who need it; participation does not require grieving or sharing anything private.', 'group': 'F4B-FAELLED-02'}, {'site': 'Papers', 'path': 'papers/den-nye-faelled-en.html', 'location': '§16, insertion in existing economy paragraph', 'source_sha256': '4c5b4b06d485e2bd41a173496f0c3bc3323e7272e9cb904f2fa9f241c7970898', 'before_html': 'Ecological improvement cannot cancel out human exhaustion;', 'after_html': 'Ongoing care and responsibility must not silently be assumed to rely on volunteers. Before a trial begins, those concerned should agree which functions are voluntary, which require wages or contractual payment, and how the funds will be secured. Ecological improvement cannot cancel out human exhaustion;', 'before_text': 'Ecological improvement cannot cancel out human exhaustion;', 'after_text': 'Ongoing care and responsibility must not silently be assumed to rely on volunteers. Before a trial begins, those concerned should agree which functions are voluntary, which require wages or contractual payment, and how the funds will be secured. Ecological improvement cannot cancel out human exhaustion;', 'group': 'F4B-FAELLED-03'}], 'metadata': [{'old': 'v0.5', 'new': 'v0.5.1', 'count': 2}, {'old': '<strong>Date</strong>September 2026', 'new': '<strong>Date</strong>12 October 2026', 'count': 1}, {'old': 'v0.5.1, September 2026', 'new': 'v0.5.1, 12 October 2026', 'count': 1}], 'version': 'v0.5.1'}}
-          report=dict(result='RUNNING',operation_class='Class7 bounded print-profile attribution after baseline differences',source_main=EXPECTED_MAIN,engine=weasyprint.__version__,repository_writes=0,production_writes=0,deployment_attempts=0,candidate_generation=False,production_ready=False,visual_review='PENDING',cases=[])
-          try:
-           css='a.sw-access-skip{display:none!important}'
-           for weight,filename in [(400,'DejaVuSerif.ttf'),(700,'DejaVuSerif-Bold.ttf')]:
-            fp=Path('/usr/share/fonts/truetype/dejavu')/filename;raw=fp.read_bytes()
-            for style in ('normal',):
-             css+='@font-face{font-family:HistoricalSerif;src:url(data:font/ttf;base64,'+base64.b64encode(raw).decode()+');font-weight:'+str(weight)+';font-style:'+style+'}'
-           for pair in PAIRS:
-            html=ROOT/pair['html'];pdf=ROOT/pair['pdf'];assert sha(html.read_bytes())==pair['html_sha'] and sha(pdf.read_bytes())==pair['pdf_sha']
-            folder=OUT/(html.stem);folder.mkdir();shutil.copyfile(pdf,folder/'baseline.pdf');baseline=inspect(pdf,'baseline',folder)
-            profiles={}
-            serif=css+' body{font-family:HistoricalSerif!important}'
-            if html.stem in ('rule-of-life','rule-of-life-da','eve-adam-and-the-penguins-da'):
-             selectors='.crumb,.series,.meta,.small,.revision,th,footer' if 'rule-of-life' in html.stem else '.crumb,.series,.meta,.small,.revision,th,footer,.preview-banner,nav,h1,h2,h3,h4,table'
-             profiles['synthetic-serif-nimbus']=serif+selectors+'{font-family:Nimbus Sans!important}'
-             profiles['synthetic-serif-sans-by-declaration']=serif+alias_css(html,'Nimbus Sans')
-            elif html.stem in ('a-decent-economy-under-the-jurisdiction-of-life','en-anstaendig-oekonomi-under-livets-jurisdiktion'):
-             profiles['synthetic-serif-dejavu-sans']=serif+alias_css(html,'DejaVu Sans')
-            elif html.stem=='den-regenerative-kommune':
-             profiles['synthetic-serif-dejavu-sans']=serif+alias_css(html,'DejaVu Sans')
-             profiles['synthetic-serif-native-headings']=serif
-            else:
-             jost='.site-header,.series-label,.hero .kicker,.meta-block,.section-number,.site-footer,.cite-block,.abstract-label,.editorial-note .note-label,.sources-block h3,.pilot-spor .spor-label{font-weight:400!important}'
-             if 'faelled' in html.stem:
-              shape='@page{size:A4;margin:10mm} .hero h1{font-size:4.2rem!important;font-weight:400!important}.hero .subtitle{font-style:italic!important;font-weight:400!important}.pull-quote{font-weight:400!important}'
-              profiles['measured-faelled-font-weights']= 'a.sw-access-skip{display:none!important}'+jost+shape+'.meta-block span strong,.cite-block strong{font-weight:400!important}.fragment-list li::before{font-family:DejaVu Sans!important;font-weight:400!important}'
-             else:
-              profiles['measured-municipal-bold500']='a.sw-access-skip{display:none!important}'+jost+'b,strong{font-weight:500!important}'
-            variants=[];selected=None
-            for name,paper_css in profiles.items():
-             print('BEGIN',pair['pdf'],name,flush=True);dest=folder/(name+'.pdf');fetcher=LocalFetcher();log.messages=[];font_config=FontConfiguration()
-             HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+pair['html'],url_fetcher=fetcher).write_pdf(dest,stylesheets=[CSS(string=paper_css,font_config=font_config)],font_config=font_config)
-             new=inspect(dest,name,folder);exact_text=baseline['page_texts']==new['page_texts'];exact_pixels=baseline['page_pixels']==new['page_pixels'] and baseline['page_sizes']==new['page_sizes']
-             row=dict(profile=name,baseline_pages=baseline['pages'],rendered_pages=new['pages'],page_text_identical=exact_text,all_page_pixels_identical=exact_pixels,normalized_full_text_identical=norm('\n'.join(baseline['page_texts']))==norm('\n'.join(new['page_texts'])),outside_page_words=len(new['outside_page']),resources=fetcher.resources,warnings=list(log.messages),rendered_sha256=sha(dest.read_bytes()),repeatable=None)
-             (folder/(name+'-details.json')).write_text(json.dumps(new,ensure_ascii=False,indent=2))
-             (folder/(name+'-print.css')).write_text(paper_css)
-             if exact_text and exact_pixels and not new['outside_page']:
-              again=folder/(name+'-repeat.pdf');fc=FontConfiguration();HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+pair['html'],url_fetcher=fetcher).write_pdf(again,stylesheets=[CSS(string=paper_css,font_config=fc)],font_config=fc)
-              with fitz.open(again) as d:
-               row['repeatable']=[p.get_text() for p in d]==new['page_texts'] and [sha(p.get_pixmap(alpha=False).samples) for p in d]==new['page_pixels']
-              assert row['repeatable'];selected=name
-              candidate_info=PAYLOAD[pair['html']];text=html.read_text()
-              for e in candidate_info['editorial']:
-               assert text.count(e['before_html'])==1;text=text.replace(e['before_html'],e['after_html'],1)
-              for e in candidate_info['metadata']:
-               assert text.count(e['old'])==e['count'];text=text.replace(e['old'],e['new'],e['count'])
-              candidate=folder/'candidate.html';candidate.write_text(text);assert sha(candidate.read_bytes())==candidate_info['candidate_sha']
-              candidate_outputs=[]
-              for repeat in (1,2):
-               output=folder/('candidate-'+str(repeat)+'.pdf');fc=FontConfiguration();HTML(filename=str(candidate),base_url='https://papers.spiralweb.earth/'+pair['html'],url_fetcher=fetcher).write_pdf(output,stylesheets=[CSS(string=paper_css,font_config=fc)],font_config=fc);info=inspect(output,'candidate-'+str(repeat),folder);(folder/('candidate-'+str(repeat)+'-details.json')).write_text(json.dumps(info,ensure_ascii=False,indent=2));candidate_outputs.append(info)
-              assert candidate_outputs[0]['page_texts']==candidate_outputs[1]['page_texts'] and candidate_outputs[0]['page_pixels']==candidate_outputs[1]['page_pixels'] and candidate_outputs[0]['page_sizes']==candidate_outputs[1]['page_sizes'] and not candidate_outputs[0]['outside_page']
-              row['candidate_outputs_generated']=2;row['candidate_pages']=candidate_outputs[0]['pages'];row['candidate_version']=candidate_info['version'];row['candidate_sha256']=sha((folder/'candidate-1.pdf').read_bytes())
+          CSS_HASHES={'the-regenerative-municipality': 'd5cec9fd21105e894483404827d65c3e22f9507437a32b59a52a22729ef88725', 'den-nye-faelled': 'c36fd2da2372e901a089ff9e673546456c35412311cf08b2e822d47c29d01be3', 'den-nye-faelled-en': 'c36fd2da2372e901a089ff9e673546456c35412311cf08b2e822d47c29d01be3'}
           
-             variants.append(row);print('PROFILE_RESULT',pair['pdf'],json.dumps({k:v for k,v in row.items() if k not in ('resources','warnings')},ensure_ascii=False),flush=True)
-             if selected:break
-            case=dict(pair,selected_profile=selected,baseline_pages=baseline['pages'],baseline_fonts=baseline['fonts'],metadata=baseline['metadata'],classification='EXACT_REPEATABLE_BASELINE' if selected else 'PRINT_LINE_NOT_YET_REPRODUCED',variants=variants,visual_review='PENDING');report['cases'].append(case)
-            (folder/'baseline-details.json').write_text(json.dumps(baseline,ensure_ascii=False,indent=2))
-           assert len(report['cases'])==3
-           report.update(result='DIAGNOSTIC_COMPLETE',exact_repeatable_pairs=sum(bool(c['selected_profile']) for c in report['cases']),unresolved_pairs=sum(not c['selected_profile'] for c in report['cases']))
-          except Exception as e:
-           report.update(result='STOP',error=repr(e));raise
+          report=dict(result='RUNNING',operation_class='Class1 explicit print-form candidates; known historical font metric variance, not strict baseline PASS',source_main=EXPECTED_MAIN,engine=weasyprint.__version__,repository_content_writes=0,production_writes=0,deployment_attempts=0,candidate_generation=True,production_ready=False,cases=[])
+          try:
+           for pair in PAIRS:
+            source=ROOT/pair['html'];pdf=ROOT/pair['pdf'];assert sha(source.read_bytes())==pair['html_sha'] and sha(pdf.read_bytes())==pair['pdf_sha'];folder=OUT/source.stem;folder.mkdir();shutil.copyfile(source,folder/'source.html');shutil.copyfile(pdf,folder/'production.pdf')
+            jost='.site-header,.series-label,.hero .kicker,.meta-block,.section-number,.site-footer,.cite-block,.abstract-label,.editorial-note .note-label,.sources-block h3,.pilot-spor .spor-label{font-weight:400!important}'
+            if 'faelled' in source.stem:
+             shape='@page{size:A4;margin:10mm} .hero h1{font-size:4.2rem!important;font-weight:400!important}.hero .subtitle{font-style:italic!important;font-weight:400!important}.pull-quote{font-weight:400!important}'
+             profile='measured-faelled-font-weights';paper_css='a.sw-access-skip{display:none!important}'+jost+shape+'.meta-block span strong,.cite-block strong{font-weight:400!important}.fragment-list li::before{font-family:DejaVu Sans!important;font-weight:400!important}'
+            else:profile='measured-municipal-bold500';paper_css='a.sw-access-skip{display:none!important}'+jost+'b,strong{font-weight:500!important}'
+            assert sha(paper_css.encode())==CSS_HASHES[source.stem];(folder/'print.css').write_text(paper_css)
+            text=source.read_text();candidate_info=PAYLOAD[pair['html']]
+            for e in candidate_info['editorial']:
+             assert text.count(e['before_html'])==1;text=text.replace(e['before_html'],e['after_html'],1)
+            for e in candidate_info['metadata']:
+             assert text.count(e['old'])==e['count'];text=text.replace(e['old'],e['new'],e['count'])
+            candidate=folder/'candidate.html';candidate.write_text(text);assert sha(candidate.read_bytes())==candidate_info['candidate_sha'];outputs=[];resources={};warnings={}
+            for phase,path in [('baseline',source),('candidate-1',candidate),('candidate-2',candidate)]:
+             print('PRINT',source.stem,phase,flush=True);fetcher=LocalFetcher();fc=FontConfiguration();log.messages=[];dest=folder/(phase+'.pdf');HTML(filename=str(path),base_url='https://papers.spiralweb.earth/'+pair['html'],url_fetcher=fetcher).write_pdf(dest,stylesheets=[CSS(string=paper_css,font_config=fc)],font_config=fc);details=inspect(dest,phase,folder);(folder/(phase+'-details.json')).write_text(json.dumps(details,ensure_ascii=False,indent=2));outputs.append(details);resources[phase]=fetcher.resources;warnings[phase]=list(log.messages)
+            prod=inspect(pdf,'production',folder);baseline,a,b=outputs;assert a['page_texts']==b['page_texts'] and a['page_pixels']==b['page_pixels'] and a['page_sizes']==b['page_sizes'] and not a['outside_page']
+            row=dict(html=pair['html'],pdf=pair['pdf'],source_html_sha=pair['html_sha'],candidate_html_sha=sha(candidate.read_bytes()),candidate_pdf_sha=sha((folder/'candidate-1.pdf').read_bytes()),profile=profile,css_sha=sha(paper_css.encode()),version=candidate_info['version'],production_pages=prod['pages'],baseline_pages=baseline['pages'],candidate_pages=a['pages'],strict_baseline_pass=False,historical_baseline_pixels_identical=prod['page_pixels']==baseline['page_pixels'] and prod['page_sizes']==baseline['page_sizes'],candidate_repeat_pass=True,resources=resources,warnings=warnings,review='PENDING_EXPLICIT_PRINT_FORM_CONTENT_LINK_LAYOUT_REVIEW');report['cases'].append(row)
+           assert len(report['cases'])==3;report['result']='THREE_PRINT_FORM_CANDIDATES_REVIEW_REQUIRED'
+          except Exception as e:report.update(result='STOP',error=repr(e));raise
           finally:
-           (OUT/'script-used.py').write_bytes(Path(os.environ['RUNNER_TEMP'],'metric-diagnostic.py').read_bytes())
-           (OUT/'workflow-run.json').write_text(json.dumps({n:os.environ.get(n) for n in ('GITHUB_RUN_ID','GITHUB_SHA','ImageOS','ImageVersion')},indent=2))
            report['repository_inputs_unchanged']=all((ROOT/n).is_file() and sha((ROOT/n).read_bytes())==h for n,h in inputs.items()) and set(inputs)=={str(p.relative_to(ROOT)) for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.parts}
-           (OUT/'RESULT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
-           (OUT/'pip-freeze.txt').write_text(subprocess.check_output(['python','-m','pip','freeze'],text=True))
-           (OUT/'fontconfig-inventory.txt').write_text(subprocess.check_output(['fc-list'],text=True))
-           (OUT/'system-packages.txt').write_text(subprocess.check_output(['dpkg-query','-W'],text=True))
-           m={str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.rglob('*') if p.is_file()};(OUT/'MANIFEST.json').write_text(json.dumps(m,indent=2))
-           print('FINAL_BASELINE_RESULT',json.dumps(report,ensure_ascii=False),flush=True)
+           (OUT/'RESULT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));(OUT/'script-used.py').write_bytes(Path(os.environ['RUNNER_TEMP'],'three-candidates.py').read_bytes());(OUT/'pip-freeze.txt').write_text(subprocess.check_output(['python','-m','pip','freeze'],text=True));(OUT/'system-packages.txt').write_text(subprocess.check_output(['dpkg-query','-W'],text=True));(OUT/'fontconfig-inventory.txt').write_text(subprocess.check_output(['fc-list'],text=True));(OUT/'workflow-run.json').write_text(json.dumps({n:os.environ.get(n) for n in ('GITHUB_RUN_ID','GITHUB_SHA','ImageOS','ImageVersion')},indent=2));(OUT/'MANIFEST.json').write_text(json.dumps({str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.rglob('*') if p.is_file()},indent=2));print('FINAL',report['result'],flush=True)
           PY
-          python "$RUNNER_TEMP/metric-diagnostic.py"
+          python "$RUNNER_TEMP/three-candidates.py"
       - name: Preserve diagnostic evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: papers-three-older-pango-metrics
+          name: papers-three-print-form-candidates
           path: ${{ runner.temp }}/pdf-baseline-proof
           retention-days: 30
           if-no-files-found: error
