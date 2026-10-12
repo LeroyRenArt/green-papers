@@ -1,4 +1,4 @@
-name: Papers fifteen unchanged PDF baseline diagnosis
+name: Papers nine targeted font and print-profile diagnostics
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -93,26 +93,48 @@ jobs:
             (folder/(label+'-text.txt')).write_text('\n\f\n'.join(texts))
             return dict(pages=len(doc),page_texts=texts,page_pixels=pixels,page_sizes=[list(p.rect) for p in doc],outside_page=outside,fonts=sorted(set(str(x) for x in fonts)),metadata=doc.metadata)
           
-          PAIRS=[{'html': 'papers/a-decent-economy-under-the-jurisdiction-of-life.html', 'html_sha': '220ba7ea88f0f5fbf952c1c113ffa89e73141820b26ee91f6c30f200e33f083e', 'pdf': 'papers/a-decent-economy-under-the-jurisdiction-of-life.pdf', 'pdf_sha': '7c50cbf72ac4d604d3740fd05695a9b1c3998d324463e0ac4e075218608aeea7'}, {'html': 'papers/atlas-of-a-living-architecture.html', 'html_sha': 'b1d2568f740fc99900b8481c40ff224dd57e5834c2459fca1d968fb7e4c5267f', 'pdf': 'papers/atlas-of-a-living-architecture.pdf', 'pdf_sha': '92bafde11e6d18d8b19ba5d899d75060c7ccc2a764eb38a76749b9ce3b1ca7fa'}, {'html': 'papers/living-landscapes.html', 'html_sha': '7775d3168b7ae4f6a8dc16b3c4dfdd7210f035254bab5d6fa89b506207b7b09a', 'pdf': 'papers/living-landscapes.pdf', 'pdf_sha': '4a5217b6ad5d70b24ac8be1bb1f75e6d8108f03994613862f3d40adef837601a'}, {'html': 'papers/municipal-work-as-nature.html', 'html_sha': 'c9d6705ae7b6faa0a3badec7ccf70ce51e0d347faed3dc63ba48cfe59780ed83', 'pdf': 'papers/municipal-work-as-nature.pdf', 'pdf_sha': 'ca150bfdb2f29e6e08b2e8e057fceac87ede27e37f8988ac99e18f42c94a3457'}, {'html': 'papers/rule-of-life-da.html', 'html_sha': '17eb0472c7008cb2ed502aad91d6c764968348d30ba79f1d59b2c88fae1894a1', 'pdf': 'papers/rule-of-life-da.pdf', 'pdf_sha': '91f21532254f492ce03ccd2c7f31a7ecb8e69215fd04ee146914944e84ebaa36'}, {'html': 'papers/rule-of-life.html', 'html_sha': 'e8ce0a93560fac642b0d443c89624bff319a8dadb364f9ecb0addc95316f4d7b', 'pdf': 'papers/rule-of-life.pdf', 'pdf_sha': '09269af330133a98ecc132c27058951ac9da3e2c9575ded791eb831c18c493b0'}, {'html': 'papers/the-regenerative-municipality.html', 'html_sha': '0a4ca6b370f9c26702ae2caa42939206bc6a0f18c1b6fb879aed871ebfbad0b7', 'pdf': 'papers/the-regenerative-municipality.pdf', 'pdf_sha': '9b704315aa94de8c00903bcb06a8f0edfe96777bab5c62131e4855357622aec6'}, {'html': 'papers/den-nye-faelled.html', 'html_sha': '4810d1cfccbd803bde7accc788fe2a5bdca7c9fe2bdf74f8c8b08ddd4431cf54', 'pdf': 'pdf/den-nye-faelled.pdf', 'pdf_sha': 'd8b0a08aab6ae6432289ea6417a0be5c50c392cdfaf59af1bb3ab29856b8178e'}, {'html': 'papers/den-nye-faelled-en.html', 'html_sha': '4c5b4b06d485e2bd41a173496f0c3bc3323e7272e9cb904f2fa9f241c7970898', 'pdf': 'pdf/den-nye-faelled-en.pdf', 'pdf_sha': 'd09f8175026a04f8d7019e66a9e2351bcc66537a9c2ca88070f06e754c3781b7'}, {'html': 'papers/atlas-over-en-levende-arkitektur.html', 'html_sha': '62e39e97608dd3c25aa36eedb70e8ef0c68ef3eb62c20f93652be7734c033f3c', 'pdf': 'papers/atlas-over-en-levende-arkitektur.pdf', 'pdf_sha': 'c9e7d6a00635a7e4fc67ee827ee9d67ed6a416991753d8dc6581bdc4ae5fda89'}, {'html': 'papers/den-regenerative-kommune.html', 'html_sha': '763dd62439ca26e2ff1d37b6744fb4912db88cf99aa0fe01d63d0e46ca02d9a7', 'pdf': 'papers/den-regenerative-kommune.pdf', 'pdf_sha': 'bf01a0d5984ff2223614c9f53e95c015803dda7671c5d5d92c8f735bea50f61e'}, {'html': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.html', 'html_sha': 'e7ae20b4cc48464a2438656083463328b049e794c6489c6f1ad27a799f8ff43f', 'pdf': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.pdf', 'pdf_sha': '1c8bd2cb64bd74da9470ac3ab49092392972fa3e0e64288f0cc2b86884af5720'}, {'html': 'papers/eve-adam-and-the-penguins-da.html', 'html_sha': 'e6932e6c141b1501d383191deec868c5d733d204a59928c6b804557069715302', 'pdf': 'papers/eve-adam-and-the-penguins-da.pdf', 'pdf_sha': '432829ecf43abbed921f46c2bfe246afbbaf9582614de316129bc48d1b212455'}, {'html': 'papers/kommunalt-arbejde-som-natur.html', 'html_sha': '98520edb6bfcae9ca4da52077f476635313eee3d7b8004e97e226fcf817c20e9', 'pdf': 'papers/kommunalt-arbejde-som-natur.pdf', 'pdf_sha': '5f31c6760eb13becb8a75518ffbc40177b1477ddfd9a6c68cfa28af200c47731'}, {'html': 'papers/levende-landskaber.html', 'html_sha': 'fc03aace3109a21387bf530ed0597e3c904edc8fc65b16f260737e086f31e297', 'pdf': 'papers/levende-landskaber.pdf', 'pdf_sha': '79f6ce83a03aec391b136f9ef3c61a277c0ca3e0481a2f5e847c97295db0ffc2'}]
-          report=dict(result='RUNNING',operation_class='Class1 unchanged PDF baseline diagnosis',source_main=EXPECTED_MAIN,engine=weasyprint.__version__,repository_writes=0,production_writes=0,deployment_attempts=0,candidate_generation=False,production_ready=False,visual_review='PENDING',cases=[])
+          PAIRS=[{'html': 'papers/a-decent-economy-under-the-jurisdiction-of-life.html', 'html_sha': '220ba7ea88f0f5fbf952c1c113ffa89e73141820b26ee91f6c30f200e33f083e', 'pdf': 'papers/a-decent-economy-under-the-jurisdiction-of-life.pdf', 'pdf_sha': '7c50cbf72ac4d604d3740fd05695a9b1c3998d324463e0ac4e075218608aeea7'}, {'html': 'papers/rule-of-life-da.html', 'html_sha': '17eb0472c7008cb2ed502aad91d6c764968348d30ba79f1d59b2c88fae1894a1', 'pdf': 'papers/rule-of-life-da.pdf', 'pdf_sha': '91f21532254f492ce03ccd2c7f31a7ecb8e69215fd04ee146914944e84ebaa36'}, {'html': 'papers/rule-of-life.html', 'html_sha': 'e8ce0a93560fac642b0d443c89624bff319a8dadb364f9ecb0addc95316f4d7b', 'pdf': 'papers/rule-of-life.pdf', 'pdf_sha': '09269af330133a98ecc132c27058951ac9da3e2c9575ded791eb831c18c493b0'}, {'html': 'papers/the-regenerative-municipality.html', 'html_sha': '0a4ca6b370f9c26702ae2caa42939206bc6a0f18c1b6fb879aed871ebfbad0b7', 'pdf': 'papers/the-regenerative-municipality.pdf', 'pdf_sha': '9b704315aa94de8c00903bcb06a8f0edfe96777bab5c62131e4855357622aec6'}, {'html': 'papers/den-nye-faelled.html', 'html_sha': '4810d1cfccbd803bde7accc788fe2a5bdca7c9fe2bdf74f8c8b08ddd4431cf54', 'pdf': 'pdf/den-nye-faelled.pdf', 'pdf_sha': 'd8b0a08aab6ae6432289ea6417a0be5c50c392cdfaf59af1bb3ab29856b8178e'}, {'html': 'papers/den-nye-faelled-en.html', 'html_sha': '4c5b4b06d485e2bd41a173496f0c3bc3323e7272e9cb904f2fa9f241c7970898', 'pdf': 'pdf/den-nye-faelled-en.pdf', 'pdf_sha': 'd09f8175026a04f8d7019e66a9e2351bcc66537a9c2ca88070f06e754c3781b7'}, {'html': 'papers/den-regenerative-kommune.html', 'html_sha': '763dd62439ca26e2ff1d37b6744fb4912db88cf99aa0fe01d63d0e46ca02d9a7', 'pdf': 'papers/den-regenerative-kommune.pdf', 'pdf_sha': 'bf01a0d5984ff2223614c9f53e95c015803dda7671c5d5d92c8f735bea50f61e'}, {'html': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.html', 'html_sha': 'e7ae20b4cc48464a2438656083463328b049e794c6489c6f1ad27a799f8ff43f', 'pdf': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.pdf', 'pdf_sha': '1c8bd2cb64bd74da9470ac3ab49092392972fa3e0e64288f0cc2b86884af5720'}, {'html': 'papers/eve-adam-and-the-penguins-da.html', 'html_sha': 'e6932e6c141b1501d383191deec868c5d733d204a59928c6b804557069715302', 'pdf': 'papers/eve-adam-and-the-penguins-da.pdf', 'pdf_sha': '432829ecf43abbed921f46c2bfe246afbbaf9582614de316129bc48d1b212455'}]
+          
+          def alias_css(html,sans):
+           # Extract only explicit family declarations from the document's inline CSS.
+           # The override lives in diagnostic print CSS, never in repository HTML.
+           rules=[]
+           for sheet in re.findall(r'<style[^>]*>(.*?)</style>',html.read_text(),re.S):
+            for selector,decl in re.findall(r'([^{}]+)\{([^{}]*)\}',sheet):
+             if 'font-family:' in decl and any(n in decl for n in ('Arial','Helvetica','Jost')):
+              selector=selector.strip()
+              if selector.startswith('@'):continue
+              rules.append(selector+'{font-family:'+sans+'!important}')
+           return ''.join(rules)
+          report=dict(result='RUNNING',operation_class='Class7 bounded print-profile attribution after baseline differences',source_main=EXPECTED_MAIN,engine=weasyprint.__version__,repository_writes=0,production_writes=0,deployment_attempts=0,candidate_generation=False,production_ready=False,visual_review='PENDING',cases=[])
           try:
            css='a.sw-access-skip{display:none!important}'
            for weight,filename in [(400,'DejaVuSerif.ttf'),(700,'DejaVuSerif-Bold.ttf')]:
             fp=Path('/usr/share/fonts/truetype/dejavu')/filename;raw=fp.read_bytes()
-            for style in ('normal','italic'):
+            for style in ('normal',):
              css+='@font-face{font-family:HistoricalSerif;src:url(data:font/ttf;base64,'+base64.b64encode(raw).decode()+');font-weight:'+str(weight)+';font-style:'+style+'}'
            for pair in PAIRS:
             html=ROOT/pair['html'];pdf=ROOT/pair['pdf'];assert sha(html.read_bytes())==pair['html_sha'] and sha(pdf.read_bytes())==pair['pdf_sha']
             folder=OUT/(html.stem);folder.mkdir();shutil.copyfile(pdf,folder/'baseline.pdf');baseline=inspect(pdf,'baseline',folder)
             profiles={}
-            if 'atlas-' in html.stem:
-             profiles['documented-atlas']=css+' body{font-family:HistoricalSerif!important} .sitebar,.eyebrow,.paper-number,.meta-grid,article h2,article h3,article figcaption,.colophon,article table,.downloads,nav#TOC{font-family:DejaVu Sans!important}'
-            elif html.stem in ('kommunalt-arbejde-som-natur','municipal-work-as-nature'):
-             profiles['documented-report01']=css+' body{font-family:HistoricalSerif!important} .preview-banner,#TOC,h1,h2,h3,h4,table{font-family:Nimbus Sans!important} @page{@bottom-center{font-family:Nimbus Sans!important}}'
+            serif=css+' body{font-family:HistoricalSerif!important}'
+            if html.stem in ('rule-of-life','rule-of-life-da','eve-adam-and-the-penguins-da'):
+             selectors='.crumb,.series,.meta,.small,.revision,th,footer' if 'rule-of-life' in html.stem else '.crumb,.series,.meta,.small,.revision,th,footer,.preview-banner,nav,h1,h2,h3,h4,table'
+             profiles['synthetic-serif-nimbus']=serif+selectors+'{font-family:Nimbus Sans!important}'
+             profiles['synthetic-serif-sans-by-declaration']=serif+alias_css(html,'Nimbus Sans')
+            elif html.stem in ('a-decent-economy-under-the-jurisdiction-of-life','en-anstaendig-oekonomi-under-livets-jurisdiktion'):
+             profiles['synthetic-serif-dejavu-sans']=serif+alias_css(html,'DejaVu Sans')
+            elif html.stem=='den-regenerative-kommune':
+             profiles['synthetic-serif-dejavu-sans']=serif+alias_css(html,'DejaVu Sans')
+             profiles['synthetic-serif-native-headings']=serif
             else:
-             profiles['native']='a.sw-access-skip{display:none!important}'
-             profiles['historical-serif']=css+' body{font-family:HistoricalSerif!important}'
-             profiles['historical-serif-nimbus']=css+' body{font-family:HistoricalSerif!important} h1,h2,h3,h4,table{font-family:Nimbus Sans!important}'
+             jost='.site-header,.series-label,.hero .kicker,.meta-block,.section-number,.site-footer,.cite-block,.abstract-label,.editorial-note .note-label,.sources-block h3,.pilot-spor .spor-label{font-weight:400!important}'
+             if 'faelled' in html.stem:
+              shape='@page{size:A4;margin:10mm} .hero h1{font-size:4.2rem!important;font-weight:400!important}.hero .subtitle{font-style:italic!important;font-weight:400!important}.pull-quote{font-weight:400!important}'
+              profiles['local-fonts-old-weights-page10-title']= 'a.sw-access-skip{display:none!important}'+jost+shape
+             else:
+              profiles['local-fonts-jost-min400']='a.sw-access-skip{display:none!important}'+jost
+              profiles['local-fonts-jost-min400-fallback-serif']='a.sw-access-skip{display:none!important}'+jost+'em,i{font-family:HistoricalSerif!important}'+css
             variants=[];selected=None
             for name,paper_css in profiles.items():
              print('BEGIN',pair['pdf'],name,flush=True);dest=folder/(name+'.pdf');fetcher=LocalFetcher();log.messages=[];font_config=FontConfiguration()
@@ -130,7 +152,7 @@ jobs:
              if selected:break
             case=dict(pair,selected_profile=selected,baseline_pages=baseline['pages'],baseline_fonts=baseline['fonts'],metadata=baseline['metadata'],classification='EXACT_REPEATABLE_BASELINE' if selected else 'PRINT_LINE_NOT_YET_REPRODUCED',variants=variants,visual_review='PENDING');report['cases'].append(case)
             (folder/'baseline-details.json').write_text(json.dumps(baseline,ensure_ascii=False,indent=2))
-           assert len(report['cases'])==15
+           assert len(report['cases'])==9
            report.update(result='DIAGNOSTIC_COMPLETE',exact_repeatable_pairs=sum(bool(c['selected_profile']) for c in report['cases']),unresolved_pairs=sum(not c['selected_profile'] for c in report['cases']))
           except Exception as e:
            report.update(result='STOP',error=repr(e));raise
@@ -147,7 +169,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: papers-family4-fifteen-baselines
+          name: papers-family4-nine-targeted-baselines
           path: ${{ runner.temp }}/pdf-baseline-proof
           retention-days: 30
           if-no-files-found: error
