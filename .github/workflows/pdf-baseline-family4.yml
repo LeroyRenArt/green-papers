@@ -1,4 +1,4 @@
-name: Papers Library search independent Class6
+name: Papers Family5 copy and keyboard audit
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -22,161 +22,103 @@ jobs:
         run: |
           python -m pip install playwright==1.55.0
           python -m playwright install --with-deps chromium
-      - name: Check exact source, public build, preview and live baseline
+      - name: Check current live clipboard and keyboard behaviour
         run: |
           python - <<'PYCODE'
           from pathlib import Path
           from datetime import datetime,timezone
-          import os,json,hashlib,subprocess,traceback,re
+          import os,json,hashlib,subprocess,traceback
           from playwright.sync_api import sync_playwright
-          ROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-library-search-class6';OUT.mkdir()
-          BASE='cd6b74ec72ac4d13f319a50bbee3ca7102b4d27d';HEAD='5aa261d1e733b81550b2a13cede1e3f6519ae56b';PREVIEW='https://papers.spiralweb.earth'
-          EXPECTED='b76c632d26fd7667e376de6a7f98e697c0b7e788c1850556d8a1874a90c26c34'
+          ROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-family5-copy';OUT.mkdir()
+          HEAD='5aa261d1e733b81550b2a13cede1e3f6519ae56b';BASE='https://papers.spiralweb.earth';ROUTE='/toolbox/ai-in-right-relationship/'
+          FILES=['toolbox/index.html','toolbox/ai-in-right-relationship/index.html','toolbox/ai-in-right-relationship/copy-starter.js']
           sha=lambda b:hashlib.sha256(b).hexdigest()
-          result={'status':'RUNNING','base':BASE,'candidate':HEAD,'preview':PREVIEW,'timestamp_utc':datetime.now(timezone.utc).isoformat(),'checks':{},'browser':[],'merge_attempts':0,'production_publication_attempts':0}
-          def command(args,label):
+          result={'status':'RUNNING','source':HEAD,'timestamp_utc':datetime.now(timezone.utc).isoformat(),'checks':{},'cases':[],'keyboard':[],'production_publication_attempts':0,'repository_content_writes':0}
+          def cmd(args,label):
            r=subprocess.run(args,capture_output=True,text=True,timeout=60);(OUT/(label+'.stdout')).write_text(r.stdout);(OUT/(label+'.stderr')).write_text(r.stderr);(OUT/(label+'.command.json')).write_text(json.dumps({'args':args,'exit_code':r.returncode}));assert r.returncode==0,label;return r.stdout.strip()
-          def http(url,label):
-           hp=OUT/(label+'.headers');bp=OUT/(label+'.body')
-           status=command(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}',url],label)
-           assert status=='200',(label,status)
-           return bp.read_bytes()
-          def normalize_contact_email(body):
-              # Reuse the exact contact-email decoding proven in the preceding Class 6.
-              # The current Library delta additionally removes only its observed
-              # email_off wrapper around this same literal contact link.
-              text=body.decode('utf-8')
-              contact='<a href="mailto:contact@spiralweb.earth">contact@spiralweb.earth</a>'
-              wrapped='<!--email_off-->'+contact+'<!--/email_off-->'
-              if text.count(wrapped)>1:raise RuntimeError('Uventet antal kontakt-email-kommentarer.')
-              text=text.replace(wrapped,contact)
-              # Exact additional provider form observed in the returned Class0 evidence.
-              # Preserve the original single span; decode both provider tokens independently.
-              nested_pattern=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)"><span><span class="__cf_email__" data-cfemail="([0-9a-f]+)">\[email&#160;protected\]</span></span></a>'
-              nested=list(re.finditer(nested_pattern,text))
-              if nested:
-                  nested_decoder='<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>'
-                  if len(nested)!=1 or text.count(nested_decoder)!=1:
-                      raise RuntimeError('Uventet antal indlejrede kontakt-email-elementer.')
-                  match=nested[0]
-                  for value in match.groups():
-                      data=bytes.fromhex(value)
-                      if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
-                          raise RuntimeError('Indlejret kontakt-email afviger.')
-                  literal='<a href="mailto:contact@spiralweb.earth"><span>contact@spiralweb.earth</span></a>'
-                  text=text[:match.start()]+literal+text[match.end():]
-                  text=text.replace(nested_decoder,'',1)
-              pattern=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)"><span class="__cf_email__" data-cfemail="([0-9a-f]+)">\[email&#160;protected\]</span></a>'
-              matches=list(re.finditer(pattern,text))
-              decoder='<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>'
-              if matches:
-                  if len(matches)!=1 or text.count(decoder)!=1:raise RuntimeError('Uventet emailbeskyttelse.')
-                  match=matches[0]
-                  for value in match.groups():
-                      data=bytes.fromhex(value)
-                      if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
-                          raise RuntimeError('Kontakt-email afviger.')
-                  text=text[:match.start()]+contact+text[match.end():]
-                  text=text.replace(decoder,'',1)
-              elif decoder in text:
-                  # The unchanged homepage uses the literal label Corrections.
-                  # Accept only its observed provider form and the same decoded address.
-                  corrections=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)">Corrections</a>'
-                  labelled=list(re.finditer(corrections,text))
-                  if len(labelled)!=1 or text.count(decoder)!=1:
-                      raise RuntimeError('Uventet email-decoder uden den dokumenterede kontakt-email.')
-                  match=labelled[0];data=bytes.fromhex(match.group(1))
-                  if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
-                      raise RuntimeError('Corrections-email afviger.')
-                  literal='<a href="mailto:contact@spiralweb.earth">Corrections</a>'
-                  text=text[:match.start()]+literal+text[match.end():]
-                  text=text.replace(decoder,'',1)
-              return text.encode('utf-8')
-          
+          def inspect(page):
+           return page.evaluate('''()=>({overflow:document.documentElement.scrollWidth-innerWidth,duplicates:[...document.querySelectorAll('[id]')].map(e=>e.id).filter((id,i,a)=>a.indexOf(id)!==i)})''')
           try:
-           assert command(['git','rev-parse','HEAD'],'head')==HEAD
-           assert command(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==HEAD
-           assert command(['git','diff','--name-only',BASE,HEAD],'exact-diff').splitlines()==['library.html','sitemap.xml']
-           assert sha((ROOT/'library.html').read_bytes())==EXPECTED
-           public=json.loads((ROOT/'public-files.json').read_text())
-           command(['node','scripts/build_public.mjs'],'public-build')
-           built=sorted(str(p.relative_to(ROOT/'dist')) for p in (ROOT/'dist').rglob('*') if p.is_file());assert built==sorted(public)
-           for name in public:assert (ROOT/name).read_bytes()==(ROOT/'dist'/name).read_bytes()
-           assert command(['git','status','--porcelain','--untracked-files=no'],'source-status')==''
-           result['checks']['exact_two_files_and_public_build']=len(public)
-           preview=http(PREVIEW+'/library','preview');assert normalize_contact_email(preview)==normalize_contact_email((ROOT/'library.html').read_bytes())
-           assert sha(http(PREVIEW+'/sitemap.xml','preview-sitemap'))=='14823f4769ddc46316e538cdadb3983fcc38e6d139cf4686383b389baa6b6071'
-           result['checks']['sitemap_live_exact']=True
-           result['checks']['sitemap_preview_and_baseline_exact']=True
-           baseline=(ROOT/'library.html').read_bytes()
-           assert normalize_contact_email(preview)==normalize_contact_email(baseline)
-           for i,(path,route) in enumerate([('index.html','/'),('reading-orientation.html','/reading-orientation'),('toolbox/index.html','/toolbox/')]):
-            original=subprocess.check_output(['git','show',BASE+':'+path]);current=(ROOT/path).read_bytes();assert original==current
-            assert normalize_contact_email(http(PREVIEW+route,'regression-'+str(i)))==normalize_contact_email(current)
-           result['checks']['three_unchanged_live_regressions']=True
-           result['checks']['preview_and_live_baseline']=True
+           assert cmd(['git','rev-parse','HEAD'],'head')==HEAD
+           assert cmd(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==HEAD
+           for i,f in enumerate(FILES):
+            route='/toolbox/' if i==0 else ROUTE if i==1 else '/'+f
+            bp=OUT/f'live-{i}.body';hp=OUT/f'live-{i}.headers'
+            status=cmd(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}',BASE+route],f'live-{i}')
+            assert status=='200' and bp.read_bytes()==(ROOT/f).read_bytes(),f
+           result['checks']['three_exact_live_sources']=True
            with sync_playwright() as pw:
             browser=pw.chromium.launch();result['browser_version']=browser.version
+            for mode in ['native','browser_policy_denied','api_unavailable']:
+             for width in [1440,390,360]:
+              context=browser.new_context(viewport={'width':width,'height':1000},service_workers='block')
+              if mode=='native':context.grant_permissions(['clipboard-read','clipboard-write'],origin=BASE)
+              if mode=='browser_policy_denied':
+               def denied(route):
+                response=route.fetch();body=response.body();assert body==(ROOT/FILES[1]).read_bytes();headers=dict(response.headers);headers['permissions-policy']='clipboard-write=()';route.fulfill(response=response,headers=headers)
+               context.route(BASE+ROUTE,denied)
+              if mode=='api_unavailable':context.add_init_script("Object.defineProperty(navigator,'clipboard',{configurable:true,value:undefined})")
+              page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+              response=page.goto(BASE+ROUTE,wait_until='networkidle');assert response.status==200
+              if mode=='browser_policy_denied':assert page.evaluate("document.featurePolicy.allowsFeature('clipboard-write')") is False
+              if mode=='api_unavailable':assert page.evaluate('navigator.clipboard===undefined')
+              assert page.locator('button[data-copy-target]').count()==7
+              for i in range(7):
+               button=page.locator('button[data-copy-target]').nth(i);target=button.get_attribute('data-copy-target');status=button.get_attribute('data-copy-status')
+               if i>0:page.locator('#tools details').nth(i-1).locator('summary').click()
+               expected=page.locator('#'+target).text_content().strip();button.click()
+               wanted='Copied. Paste it into your conversation.' if mode=='native' else 'Select the prompt text above and copy it directly.'
+               page.wait_for_function('arg=>document.getElementById(arg.id).textContent===arg.text',arg={'id':status,'text':wanted})
+               if mode=='native':assert page.evaluate('navigator.clipboard.readText()')==expected
+               else:
+                # Prove the fallback text can actually be selected in this browser.
+                selected=page.locator('#'+target).evaluate('''e=>{let r=document.createRange();r.selectNodeContents(e);let s=getSelection();s.removeAllRanges();s.addRange(r);return s.toString().trim()}''');assert selected==expected
+               assert page.locator('#'+status).get_attribute('role')=='status' and page.locator('#'+status).get_attribute('aria-live')=='polite'
+               observation=inspect(page);assert observation['overflow']==0 and not observation['duplicates'],observation
+               result['cases'].append({'mode':mode,'width':width,'target':target,'label':button.get_attribute('aria-label') or button.inner_text(),'expected_sha256':sha(expected.encode()),'status':wanted,'native_clipboard_readback':mode=='native','fallback_selectable':mode!='native',**observation})
+              assert not errors,errors
+              page.locator('#tools').screenshot(path=str(OUT/f'tools-{mode}-{width}.png'))
+              context.close()
             for width in [1440,390,360]:
-             context=browser.new_context(viewport={'width':width,'height':1000});page=context.new_page();errors=[];bad=[];prefetch_refusals=[];documents=[]
-             page.on('pageerror',lambda e:errors.append(str(e)))
-             def response_record(r):
-              info={'url':r.url,'status':r.status,'headers':r.headers,'resource_type':r.request.resource_type}
-              if r.request.resource_type=='document':documents.append(info)
-              if r.status>=400:
-               if r.status==503 and r.request.resource_type=='prefetch' and r.headers.get('cf-speculation-refused')=='prefetch refused: not eligible' and r.headers.get('content-length')=='0':prefetch_refusals.append(info)
-               else:bad.append(info)
-             page.on('response',response_record)
-             page.goto(PREVIEW+'/library',wait_until='networkidle');page.evaluate('()=>document.fonts.ready')
-             original=page.locator('#collection li > a:first-child, #protocol-habitat li > a:first-child').count()
-             assert page.locator('.library-search').is_visible() and page.locator('#library-results').is_hidden()
-             case={'width':width,'queries':[]}
-             for query in ['Stewardship','Atlas','PDF','Fælled','faelled','zzzz-no-such-work-9876','<img src=x onerror=alert(1)>']:
-              page.locator('#library-query').fill(query)
-              observed=page.evaluate("""()=>({count:document.querySelector('#search-count').textContent, titles:[...document.querySelectorAll('#library-results-list > li > a:first-child')].map(a=>({title:a.textContent,url:a.href})),empty:!document.querySelector('#library-results-empty').hidden,overflow:document.documentElement.scrollWidth-innerWidth,duplicates:[...document.querySelectorAll('[id]')].map(e=>e.id).filter((id,i,a)=>a.indexOf(id)!==i),catalogueHidden:[...document.querySelectorAll('#collection li,#protocol-habitat li')].some(e=>getComputedStyle(e).display==='none')})""")
-              assert not observed['overflow'] and not observed['duplicates'] and not observed['catalogueHidden'],observed
-              assert len({x['url'] for x in observed['titles']})==len(observed['titles'])
-              assert observed['count']==f"{len(observed['titles'])} {'match' if len(observed['titles'])==1 else 'matches'}"
-              assert observed['empty']==(len(observed['titles'])==0)
-              if query in ['Stewardship','Atlas','PDF','Fælled']:assert observed['titles']
-              if query.startswith('zzzz') or query.startswith('<img'):assert not observed['titles']
-              assert page.locator('#collection li > a:first-child, #protocol-habitat li > a:first-child').count()==original
-              case['queries'].append({'query':query,**observed})
-             page.locator('#library-query').fill('Stewardship');page.locator('#library-query').press('Enter')
-             assert page.evaluate('document.activeElement.id')=='library-results-heading'
-             page.keyboard.press('Tab');case['focused_after_tab']=page.evaluate("()=>({id:document.activeElement.id,tag:document.activeElement.tagName,text:document.activeElement.textContent,in_results:document.activeElement.closest('#library-results-list')!==null})");(OUT/f'keyboard-{width}.json').write_text(json.dumps(case));assert case['focused_after_tab']['in_results'],case['focused_after_tab']
-             case['enter_focus_and_tab']=True
-             page.locator('#library-query').fill('Atlas');page.locator('.library-search button').click()
-             assert page.evaluate('document.activeElement.id')=='library-results-heading';case['button_focus']=True
-             page.screenshot(path=str(OUT/f'search-atlas-{width}.png'),full_page=False);page.locator('#library-results').screenshot(path=str(OUT/f'results-atlas-{width}.png'))
-             first=page.locator('#library-results-list > li > a').first
-             expected=first.get_attribute('href');first.click();page.wait_for_load_state('networkidle');assert '/papers/atlas-of-a-living-architecture' in page.url
-             case['actual_html_link_navigation']=page.url;case['destination_title']=page.title();case['document_responses']=documents.copy();case['prefetch_refusals']=prefetch_refusals.copy();assert any(x['url']==page.url and x['status']==200 for x in documents),documents;assert page.locator('h1').inner_text()=='Atlas of a Living Architecture';(OUT/f'link-destination-{width}.html').write_text(page.content());page.screenshot(path=str(OUT/f'link-destination-{width}.png'),full_page=False)
-             page.go_back(wait_until='networkidle');page.locator('#library-query').fill('');assert page.locator('#library-results').is_hidden();assert page.locator('#search-count').inner_text()=='All works'
-             page.locator('#library-query').fill('Stewardship');page.locator('#library-query').evaluate("e=>{e.value='';e.dispatchEvent(new Event('search'));}");assert page.locator('#library-results').is_hidden()
-             case['clear_and_native_search_event']=True
-             case['page_errors']=errors;case['http_errors']=bad
-             result['browser'].append(case);context.close()
-            context=browser.new_context(java_script_enabled=False,viewport={'width':390,'height':1000});page=context.new_page();page.goto(PREVIEW+'/library',wait_until='networkidle')
-            assert page.locator('.library-search').is_hidden() and page.locator('noscript').is_visible()
-            assert page.locator('#collection li > a:first-child, #protocol-habitat li > a:first-child').count()==original
-            result['checks']['no_javascript_browse_fallback']=True;context.close();browser.close()
-           assert command(['git','ls-remote','origin','refs/heads/main'],'main-after').split()[0]==HEAD
-           assert all(not x['page_errors'] and not x['http_errors'] for x in result['browser']),result['browser']
-           result['status']='PASS_CLASS6';result['run_id']=os.environ['GITHUB_RUN_ID'];result['control_commit']=os.environ['GITHUB_SHA']
+             context=browser.new_context(viewport={'width':width,'height':1000},permissions=['clipboard-read','clipboard-write']);page=context.new_page();page.goto(BASE+ROUTE,wait_until='networkidle')
+             page.keyboard.press('Tab');assert page.evaluate('document.activeElement.className')=='sw-access-skip';page.keyboard.press('Enter');assert page.evaluate('document.activeElement.id')=='main-content'
+             tab_path=[]
+             for k in range(70):
+              page.keyboard.press('Tab');info=page.evaluate('''()=>{let e=document.activeElement;let s=getComputedStyle(e);return {tag:e.tagName,id:e.id,text:e.textContent.trim().slice(0,100),target:e.dataset.copyTarget||'',outline:s.outlineStyle,outlineWidth:s.outlineWidth}}''');tab_path.append(info)
+              if info['tag']=='SUMMARY' and info['text']=='Try this prompt':
+               assert info['outline']!='none' and info['outlineWidth']!='0px';page.keyboard.press('Enter');page.keyboard.press('Tab');target=page.evaluate('document.activeElement.dataset.copyTarget');assert target.startswith('tool-prompt-')
+               for key in ['Enter','Space']:
+                page.evaluate("navigator.clipboard.writeText('FAMILY5_KEYBOARD_SENTINEL')");page.keyboard.press(key);page.wait_for_function("document.activeElement.parentElement.querySelector('[role=status]').textContent.startsWith('Copied.')")
+                assert page.evaluate('navigator.clipboard.readText()')==page.locator('#'+target).text_content().strip()
+              if info['id']=='copy-starter':
+               assert info['outline']!='none' and info['outlineWidth']!='0px'
+               for key in ['Enter','Space']:
+                page.evaluate("navigator.clipboard.writeText('FAMILY5_KEYBOARD_SENTINEL')");page.keyboard.press(key);page.wait_for_function("document.querySelector('#copy-status').textContent.startsWith('Copied.')");assert page.evaluate('navigator.clipboard.readText()')==page.locator('#pocket-prompt').text_content().strip()
+              if info['tag']=='A' and info['text']=='Papers privacy':break
+             assert sum(x['tag']=='SUMMARY' and x['text']=='Try this prompt' for x in tab_path)==6
+             assert any(x['id']=='copy-starter' for x in tab_path)
+             result['keyboard'].append({'width':width,'skip_link':True,'six_disclosures':True,'enter_and_space_native_readback':True,'tab_path':tab_path})
+             context.close()
+            context=browser.new_context(java_script_enabled=False,viewport={'width':390,'height':1000});page=context.new_page();page.goto(BASE+ROUTE,wait_until='networkidle')
+            assert page.locator('#pocket-prompt').is_visible();assert page.locator('a[download]').count()==2
+            for i in range(6):page.locator('#tools summary').nth(i).click();assert page.locator('#tool-prompt-'+str(i+1)).is_visible()
+            result['checks']['no_js_prompts_and_download_links']=True
+            result['checks']['no_js_copy_buttons_visible_but_inactive']=page.locator('button[data-copy-target]').count()==7
+            context.close();browser.close()
+           assert len(result['cases'])==63 and len(result['keyboard'])==3
+           assert cmd(['git','ls-remote','origin','refs/heads/main'],'main-after').split()[0]==HEAD
+           result['status']='PASS_BOUNDED_COPY_KEYBOARD';result['run_id']=os.environ['GITHUB_RUN_ID'];result['control_commit']=os.environ['GITHUB_SHA']
           except Exception as e:
            result['status']='STOP';result['error']=str(e);(OUT/'traceback.txt').write_text(traceback.format_exc());raise
           finally:
-           (OUT/'RESULT.json').write_text(json.dumps(result,indent=2));(OUT/'MANIFEST.json').write_text(json.dumps({str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.rglob('*') if p.is_file()},indent=2))
+           (OUT/'RESULT.json').write_text(json.dumps(result,indent=2));(OUT/'MANIFEST.json').write_text(json.dumps({str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.iterdir() if p.is_file()},indent=2))
           PYCODE
       - name: Preserve PASS or STOP evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: papers-pr93-search-class6
-          path: ${{ runner.temp }}/papers-library-search-class6
+          name: papers-family5-copy-keyboard
+          path: ${{ runner.temp }}/papers-family5-copy
           retention-days: 30
           if-no-files-found: error
 
-
-# Class6 classification uses Cloudflare documented empty prefetch refusals only; real document HTTP200 remains mandatory.
