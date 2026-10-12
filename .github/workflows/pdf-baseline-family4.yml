@@ -120,7 +120,7 @@ jobs:
             for width in [1440,390,360]:
              context=browser.new_context(viewport={'width':width,'height':1000});page=context.new_page();errors=[];bad=[]
              page.on('pageerror',lambda e:errors.append(str(e)))
-             page.on('response',lambda r:bad.append({'url':r.url,'status':r.status}) if r.status>=400 else None)
+             page.on('response',lambda r:bad.append({'url':r.url,'status':r.status,'headers':r.headers,'resource_type':r.request.resource_type}) if r.status>=400 else None)
              page.goto(PREVIEW+'/library',wait_until='networkidle');page.evaluate('()=>document.fonts.ready')
              original=page.locator('#collection li > a:first-child, #protocol-habitat li > a:first-child').count()
              assert page.locator('.library-search').is_visible() and page.locator('#library-results').is_hidden()
@@ -145,17 +145,18 @@ jobs:
              page.screenshot(path=str(OUT/f'search-atlas-{width}.png'),full_page=False);page.locator('#library-results').screenshot(path=str(OUT/f'results-atlas-{width}.png'))
              first=page.locator('#library-results-list > li > a').first
              expected=first.get_attribute('href');first.click();page.wait_for_load_state('networkidle');assert '/papers/atlas-of-a-living-architecture' in page.url
-             case['actual_html_link_navigation']=page.url
+             case['actual_html_link_navigation']=page.url;case['destination_title']=page.title();(OUT/f'link-destination-{width}.html').write_text(page.content());page.screenshot(path=str(OUT/f'link-destination-{width}.png'),full_page=False)
              page.go_back(wait_until='networkidle');page.locator('#library-query').fill('');assert page.locator('#library-results').is_hidden();assert page.locator('#search-count').inner_text()=='All works'
              page.locator('#library-query').fill('Stewardship');page.locator('#library-query').evaluate("e=>{e.value='';e.dispatchEvent(new Event('search'));}");assert page.locator('#library-results').is_hidden()
              case['clear_and_native_search_event']=True
-             assert not errors and not bad,(errors,bad)
+             case['page_errors']=errors;case['http_errors']=bad
              result['browser'].append(case);context.close()
             context=browser.new_context(java_script_enabled=False,viewport={'width':390,'height':1000});page=context.new_page();page.goto(PREVIEW+'/library',wait_until='networkidle')
             assert page.locator('.library-search').is_hidden() and page.locator('noscript').is_visible()
             assert page.locator('#collection li > a:first-child, #protocol-habitat li > a:first-child').count()==original
             result['checks']['no_javascript_browse_fallback']=True;context.close();browser.close()
            assert command(['git','ls-remote','origin','refs/heads/main'],'main-after').split()[0]==HEAD
+           assert all(not x['page_errors'] and not x['http_errors'] for x in result['browser']),result['browser']
            result['status']='PASS_CLASS6';result['run_id']=os.environ['GITHUB_RUN_ID'];result['control_commit']=os.environ['GITHUB_SHA']
           except Exception as e:
            result['status']='STOP';result['error']=str(e);(OUT/'traceback.txt').write_text(traceback.format_exc());raise
@@ -171,4 +172,3 @@ jobs:
           retention-days: 30
           if-no-files-found: error
 
-# Independent Class6 after verified production deployment defcd159, 2026-10-12T14:41Z.
