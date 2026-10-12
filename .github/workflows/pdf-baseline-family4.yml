@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: 369da01952d8746b1add0df557a5c1657e84aa60
+          ref: 446651f797c479431e81c17ff6aee11d878e6b6c
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
@@ -30,8 +30,8 @@ jobs:
           import os,json,hashlib,subprocess,traceback,re
           from playwright.sync_api import sync_playwright
           ROOT=Path.cwd();OUT=Path(os.environ['RUNNER_TEMP'])/'papers-library-search';OUT.mkdir()
-          BASE='cd6b74ec72ac4d13f319a50bbee3ca7102b4d27d';HEAD='369da01952d8746b1add0df557a5c1657e84aa60';PREVIEW='https://d98b7d87.green-papers.pages.dev'
-          EXPECTED='a779d6d69aa5d6533c911aef084fd336c7eb1a1d3727ebd03e4b9f99e22ea82b'
+          BASE='cd6b74ec72ac4d13f319a50bbee3ca7102b4d27d';HEAD='446651f797c479431e81c17ff6aee11d878e6b6c';PREVIEW='https://e3923b99.green-papers.pages.dev'
+          EXPECTED='5541636d5fa4286f88439ddb6ad836e6f714baebbf298e5cba640bf60bf94892'
           sha=lambda b:hashlib.sha256(b).hexdigest()
           result={'status':'RUNNING','base':BASE,'candidate':HEAD,'preview':PREVIEW,'timestamp_utc':datetime.now(timezone.utc).isoformat(),'checks':{},'browser':[],'merge_attempts':0,'production_publication_attempts':0}
           def command(args,label):
@@ -131,7 +131,7 @@ jobs:
               case['queries'].append({'query':query,**observed})
              page.locator('#library-query').fill('Stewardship');page.locator('#library-query').press('Enter')
              assert page.evaluate('document.activeElement.id')=='library-results-heading'
-             page.keyboard.press('Tab');assert page.evaluate("document.activeElement.closest('#library-results-list')!==null")
+             page.keyboard.press('Tab');case['focused_after_tab']=page.evaluate("()=>({id:document.activeElement.id,tag:document.activeElement.tagName,text:document.activeElement.textContent,in_results:document.activeElement.closest('#library-results-list')!==null})");(OUT/f'keyboard-{width}.json').write_text(json.dumps(case));assert case['focused_after_tab']['in_results'],case['focused_after_tab']
              case['enter_focus_and_tab']=True
              page.locator('#library-query').fill('Atlas');page.locator('.library-search button').click()
              assert page.evaluate('document.activeElement.id')=='library-results-heading';case['button_focus']=True
