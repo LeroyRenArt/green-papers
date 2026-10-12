@@ -38,7 +38,7 @@ jobs:
           def state(page):
            return page.evaluate('''()=>({title:document.title,h1:document.querySelector('h1')?.textContent.trim(),width:innerWidth,overflow:document.documentElement.scrollWidth-innerWidth,lang:document.documentElement.lang,images:[...document.images].map(i=>({alt:i.alt,src:i.currentSrc,width:i.getBoundingClientRect().width,height:i.getBoundingClientRect().height,complete:i.complete,naturalWidth:i.naturalWidth,loading:i.loading}))})''')
           def document_status(page,records):
-           matches=[r for r in records if r['url']==page.url and r['type']=='document'];return matches[-1]['status'] if matches else None
+           matches=[r for r in records if r['url'].split('#')[0]==page.url.split('#')[0] and r['type']=='document'];return matches[-1]['status'] if matches else None
           def attach(page):
            records=[];page.on('response',lambda r:records.append({'url':r.url,'status':r.status,'type':r.request.resource_type}));return records
           def follow(page,pattern,records):
@@ -51,7 +51,7 @@ jobs:
            main_ref('main-before')
            with sync_playwright() as pw:
             browser=pw.chromium.launch();result['browser_version']=browser.version
-            paths=[('new_reader',[r'/cafes/sofia/short-reads/$',r'/short-reads/.+']),('local_practice',[r'spiralweb\.earth/pg-ledger/$',r'spiralweb\.earth/formats/$',r'/formats/format1-dashboard']),('research',[r'/papers/atlas-of-a-living-architecture$',r'/papers/atlas-over-en-levende-arkitektur$',r'/library(?:#|$)']),('support',[r'spiralweb\.earth/association/$',r'spiralweb\.earth/support/$',r'spiralweb\.earth/shared-capacity/$']),('danish',[r'/da/laeseorientering$',r'spiralweb\.earth/da/$',r'/da/korte-laesninger/$']),('ai_correction',[r'/toolbox/ai-in-right-relationship/$',r'/ai-human-responsibility$',r'/methods-editorial-practice$'])]
+            paths=[('new_reader',[r'/cafes/sofia/short-reads/$',r'/short-reads/[^/#]+(?:/|$)']),('local_practice',[r'spiralweb\.earth/pg-ledger/$',r'spiralweb\.earth/formats/$',r'/formats/format1-dashboard(?:\.html)?(?:$|#)']),('research',[r'/papers/atlas-of-a-living-architecture$',r'/papers/atlas-over-en-levende-arkitektur$',r'/library(?:#|$)']),('support',[r'spiralweb\.earth/association/$',r'spiralweb\.earth/support/$',r'spiralweb\.earth/shared-capacity/$']),('danish',[r'/da/laeseorientering$',r'spiralweb\.earth/da/$',r'/da/korte-laesninger/$']),('ai_correction',[r'/toolbox/ai-in-right-relationship/$',r'/ai-human-responsibility$',r'/methods-editorial-practice$'])]
             for name,steps in paths:
              c=browser.new_context(viewport={'width':390,'height':1000});page=c.new_page();records=attach(page);case={'name':name,'steps':[]}
              try:
