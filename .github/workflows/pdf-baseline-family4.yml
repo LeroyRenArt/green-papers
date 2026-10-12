@@ -118,9 +118,15 @@ jobs:
            with sync_playwright() as pw:
             browser=pw.chromium.launch();result['browser_version']=browser.version
             for width in [1440,390,360]:
-             context=browser.new_context(viewport={'width':width,'height':1000});page=context.new_page();errors=[];bad=[]
+             context=browser.new_context(viewport={'width':width,'height':1000});page=context.new_page();errors=[];bad=[];prefetch_refusals=[];documents=[]
              page.on('pageerror',lambda e:errors.append(str(e)))
-             page.on('response',lambda r:bad.append({'url':r.url,'status':r.status,'headers':r.headers,'resource_type':r.request.resource_type}) if r.status>=400 else None)
+             def response_record(r):
+              info={'url':r.url,'status':r.status,'headers':r.headers,'resource_type':r.request.resource_type}
+              if r.request.resource_type=='document':documents.append(info)
+              if r.status>=400:
+               if r.status==503 and r.request.resource_type=='prefetch' and r.headers.get('cf-speculation-refused')=='prefetch refused: not eligible' and r.headers.get('content-length')=='0':prefetch_refusals.append(info)
+               else:bad.append(info)
+             page.on('response',response_record)
              page.goto(PREVIEW+'/library',wait_until='networkidle');page.evaluate('()=>document.fonts.ready')
              original=page.locator('#collection li > a:first-child, #protocol-habitat li > a:first-child').count()
              assert page.locator('.library-search').is_visible() and page.locator('#library-results').is_hidden()
@@ -145,7 +151,7 @@ jobs:
              page.screenshot(path=str(OUT/f'search-atlas-{width}.png'),full_page=False);page.locator('#library-results').screenshot(path=str(OUT/f'results-atlas-{width}.png'))
              first=page.locator('#library-results-list > li > a').first
              expected=first.get_attribute('href');first.click();page.wait_for_load_state('networkidle');assert '/papers/atlas-of-a-living-architecture' in page.url
-             case['actual_html_link_navigation']=page.url;case['destination_title']=page.title();(OUT/f'link-destination-{width}.html').write_text(page.content());page.screenshot(path=str(OUT/f'link-destination-{width}.png'),full_page=False)
+             case['actual_html_link_navigation']=page.url;case['destination_title']=page.title();case['document_responses']=documents.copy();case['prefetch_refusals']=prefetch_refusals.copy();assert any(x['url']==page.url and x['status']==200 for x in documents),documents;assert page.locator('h1').inner_text()=='Atlas of a Living Architecture';(OUT/f'link-destination-{width}.html').write_text(page.content());page.screenshot(path=str(OUT/f'link-destination-{width}.png'),full_page=False)
              page.go_back(wait_until='networkidle');page.locator('#library-query').fill('');assert page.locator('#library-results').is_hidden();assert page.locator('#search-count').inner_text()=='All works'
              page.locator('#library-query').fill('Stewardship');page.locator('#library-query').evaluate("e=>{e.value='';e.dispatchEvent(new Event('search'));}");assert page.locator('#library-results').is_hidden()
              case['clear_and_native_search_event']=True
@@ -172,3 +178,5 @@ jobs:
           retention-days: 30
           if-no-files-found: error
 
+
+# Class6 classification uses Cloudflare documented empty prefetch refusals only; real document HTTP200 remains mandatory.
