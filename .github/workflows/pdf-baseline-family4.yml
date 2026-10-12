@@ -125,12 +125,12 @@ jobs:
               assert page.evaluate("[...document.querySelectorAll('button[data-copy-target]')].every(b=>b.hidden)")
               assert page.locator('button[data-copy-target]:visible').count()==0
               observation=inspect(page);assert observation['overflow']==0
-              page.locator('.starter').screenshot(path=str(OUT/f'starter-{mode}-{width}.png'))
+              if mode!='script_delayed':page.locator('.starter').screenshot(path=str(OUT/f'starter-{mode}-{width}.png'))
               case={'mode':mode,'width':width,'zero_visible_inactive_copy_controls':True,'prompts_and_download_links_available':True,**observation}
               if mode=='script_delayed':
                assert len(held)==1;held[0].continue_();page.wait_for_function("[...document.querySelectorAll('button[data-copy-target]')].every(b=>!b.hidden)")
                page.locator('#copy-starter').click();page.wait_for_function("document.querySelector('#copy-status').textContent.startsWith('Copied.')")
-               assert page.evaluate('navigator.clipboard.readText()')==page.locator('#pocket-prompt').text_content().strip();case['reveals_only_after_script_ready_and_copies']=True
+               assert page.evaluate('navigator.clipboard.readText()')==page.locator('#pocket-prompt').text_content().strip();case['reveals_only_after_script_ready_and_copies']=True;page.locator('.starter').screenshot(path=str(OUT/f'starter-{mode}-{width}.png'))
               result['readiness_modes'].append(case);context.close()
             browser.close()
            assert len(result['cases'])==63 and len(result['keyboard'])==3
