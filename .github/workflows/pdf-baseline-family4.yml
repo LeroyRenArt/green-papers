@@ -1,4 +1,4 @@
-name: Papers four attributed font shorthand and weight fixes
+name: Papers three measured variable-font profile checks
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -93,7 +93,7 @@ jobs:
             (folder/(label+'-text.txt')).write_text('\n\f\n'.join(texts))
             return dict(pages=len(doc),page_texts=texts,page_pixels=pixels,page_sizes=[list(p.rect) for p in doc],outside_page=outside,fonts=sorted(set(str(x) for x in fonts)),metadata=doc.metadata)
           
-          PAIRS=[{'html': 'papers/rule-of-life-da.html', 'html_sha': '17eb0472c7008cb2ed502aad91d6c764968348d30ba79f1d59b2c88fae1894a1', 'pdf': 'papers/rule-of-life-da.pdf', 'pdf_sha': '91f21532254f492ce03ccd2c7f31a7ecb8e69215fd04ee146914944e84ebaa36'}, {'html': 'papers/rule-of-life.html', 'html_sha': 'e8ce0a93560fac642b0d443c89624bff319a8dadb364f9ecb0addc95316f4d7b', 'pdf': 'papers/rule-of-life.pdf', 'pdf_sha': '09269af330133a98ecc132c27058951ac9da3e2c9575ded791eb831c18c493b0'}, {'html': 'papers/den-regenerative-kommune.html', 'html_sha': '763dd62439ca26e2ff1d37b6744fb4912db88cf99aa0fe01d63d0e46ca02d9a7', 'pdf': 'papers/den-regenerative-kommune.pdf', 'pdf_sha': 'bf01a0d5984ff2223614c9f53e95c015803dda7671c5d5d92c8f735bea50f61e'}, {'html': 'papers/eve-adam-and-the-penguins-da.html', 'html_sha': 'e6932e6c141b1501d383191deec868c5d733d204a59928c6b804557069715302', 'pdf': 'papers/eve-adam-and-the-penguins-da.pdf', 'pdf_sha': '432829ecf43abbed921f46c2bfe246afbbaf9582614de316129bc48d1b212455'}]
+          PAIRS=[{'html': 'papers/the-regenerative-municipality.html', 'html_sha': '0a4ca6b370f9c26702ae2caa42939206bc6a0f18c1b6fb879aed871ebfbad0b7', 'pdf': 'papers/the-regenerative-municipality.pdf', 'pdf_sha': '9b704315aa94de8c00903bcb06a8f0edfe96777bab5c62131e4855357622aec6'}, {'html': 'papers/den-nye-faelled.html', 'html_sha': '4810d1cfccbd803bde7accc788fe2a5bdca7c9fe2bdf74f8c8b08ddd4431cf54', 'pdf': 'pdf/den-nye-faelled.pdf', 'pdf_sha': 'd8b0a08aab6ae6432289ea6417a0be5c50c392cdfaf59af1bb3ab29856b8178e'}, {'html': 'papers/den-nye-faelled-en.html', 'html_sha': '4c5b4b06d485e2bd41a173496f0c3bc3323e7272e9cb904f2fa9f241c7970898', 'pdf': 'pdf/den-nye-faelled-en.pdf', 'pdf_sha': 'd09f8175026a04f8d7019e66a9e2351bcc66537a9c2ca88070f06e754c3781b7'}]
           
           def alias_css(html,sans):
            # Extract only explicit family declarations from the document's inline CSS.
@@ -101,7 +101,7 @@ jobs:
            rules=[]
            for sheet in re.findall(r'<style[^>]*>(.*?)</style>',html.read_text(),re.S):
             for selector,decl in re.findall(r'([^{}]+)\{([^{}]*)\}',sheet):
-             if ('font-family:' in decl or re.search(r'\bfont\s*:',decl)) and any(n in decl for n in ('Arial','Helvetica','Jost')):
+             if 'font-family:' in decl and any(n in decl for n in ('Arial','Helvetica','Jost')):
               selector=selector.strip()
               if selector.startswith('@'):continue
               rules.append(selector+'{font-family:'+sans+'!important}')
@@ -120,19 +120,20 @@ jobs:
             serif=css+' body{font-family:HistoricalSerif!important}'
             if html.stem in ('rule-of-life','rule-of-life-da','eve-adam-and-the-penguins-da'):
              selectors='.crumb,.series,.meta,.small,.revision,th,footer' if 'rule-of-life' in html.stem else '.crumb,.series,.meta,.small,.revision,th,footer,.preview-banner,nav,h1,h2,h3,h4,table'
+             profiles['synthetic-serif-nimbus']=serif+selectors+'{font-family:Nimbus Sans!important}'
              profiles['synthetic-serif-sans-by-declaration']=serif+alias_css(html,'Nimbus Sans')
             elif html.stem in ('a-decent-economy-under-the-jurisdiction-of-life','en-anstaendig-oekonomi-under-livets-jurisdiktion'):
              profiles['synthetic-serif-dejavu-sans']=serif+alias_css(html,'DejaVu Sans')
             elif html.stem=='den-regenerative-kommune':
-             profiles['synthetic-serif-dejavu-sans']=serif+alias_css(html,'DejaVu Sans')+'.site-header,.hero .kicker,.meta-block,.site-footer{font-weight:400!important}'
+             profiles['synthetic-serif-dejavu-sans']=serif+alias_css(html,'DejaVu Sans')
+             profiles['synthetic-serif-native-headings']=serif
             else:
              jost='.site-header,.series-label,.hero .kicker,.meta-block,.section-number,.site-footer,.cite-block,.abstract-label,.editorial-note .note-label,.sources-block h3,.pilot-spor .spor-label{font-weight:400!important}'
              if 'faelled' in html.stem:
               shape='@page{size:A4;margin:10mm} .hero h1{font-size:4.2rem!important;font-weight:400!important}.hero .subtitle{font-style:italic!important;font-weight:400!important}.pull-quote{font-weight:400!important}'
-              profiles['local-fonts-old-weights-page10-title']= 'a.sw-access-skip{display:none!important}'+jost+shape
+              profiles['measured-faelled-font-weights']= 'a.sw-access-skip{display:none!important}'+jost+shape+'.meta-block span strong,.cite-block strong{font-weight:400!important}.fragment-list li::before{font-family:DejaVu Sans!important;font-weight:400!important}'
              else:
-              profiles['local-fonts-jost-min400']='a.sw-access-skip{display:none!important}'+jost
-              profiles['local-fonts-jost-min400-fallback-serif']='a.sw-access-skip{display:none!important}'+jost+'em,i{font-family:HistoricalSerif!important}'+css
+              profiles['measured-municipal-bold500']='a.sw-access-skip{display:none!important}'+jost+'b,strong{font-weight:500!important}'
             variants=[];selected=None
             for name,paper_css in profiles.items():
              print('BEGIN',pair['pdf'],name,flush=True);dest=folder/(name+'.pdf');fetcher=LocalFetcher();log.messages=[];font_config=FontConfiguration()
@@ -150,7 +151,7 @@ jobs:
              if selected:break
             case=dict(pair,selected_profile=selected,baseline_pages=baseline['pages'],baseline_fonts=baseline['fonts'],metadata=baseline['metadata'],classification='EXACT_REPEATABLE_BASELINE' if selected else 'PRINT_LINE_NOT_YET_REPRODUCED',variants=variants,visual_review='PENDING');report['cases'].append(case)
             (folder/'baseline-details.json').write_text(json.dumps(baseline,ensure_ascii=False,indent=2))
-           assert len(report['cases'])==4
+           assert len(report['cases'])==3
            report.update(result='DIAGNOSTIC_COMPLETE',exact_repeatable_pairs=sum(bool(c['selected_profile']) for c in report['cases']),unresolved_pairs=sum(not c['selected_profile'] for c in report['cases']))
           except Exception as e:
            report.update(result='STOP',error=repr(e));raise
@@ -167,7 +168,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: papers-family4-four-font-shorthand-baselines
+          name: papers-family4-three-variable-font-baselines
           path: ${{ runner.temp }}/pdf-baseline-proof
           retention-days: 30
           if-no-files-found: error
