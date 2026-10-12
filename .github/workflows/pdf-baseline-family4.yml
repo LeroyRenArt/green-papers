@@ -24,6 +24,7 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Check current live clipboard and keyboard behaviour
         run: |
+          python - <<'PYCODE'
           from pathlib import Path
           from datetime import datetime,timezone
           import os,json,hashlib,subprocess,traceback
