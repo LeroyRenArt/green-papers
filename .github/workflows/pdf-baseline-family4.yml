@@ -1,4 +1,4 @@
-name: Papers published homepage Class6
+name: Family5 complete keyboard sequence and focus measurement
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -26,105 +26,44 @@ jobs:
         run: |
           python - <<'PYCODE'
           from pathlib import Path
-          import os,json,hashlib,subprocess,traceback,ast,re
+          from datetime import datetime,timezone
+          import os,json,hashlib,subprocess,traceback
           from playwright.sync_api import sync_playwright
-          O=Path(os.environ['RUNNER_TEMP'])/'home-reflow-email-class6';O.mkdir()
-          B='791ad03339fbf0bb1c555723f158ce67d6175dfa';H='8035e789ebff9327c891408f7fdceb43cca49dde';C='1fe3e7bd2dcb88dc14d20cb58c28eaa1c25dc527';U='https://papers.spiralweb.earth'
-          result={'status':'RUNNING','base':B,'published_source':H,'candidate':C,'production':U,'cases':[],'production_writes':0}
-          def command(args,label):
-           r=subprocess.run(args,capture_output=True,text=True,timeout=60);(O/(label+'.stdout')).write_text(r.stdout);(O/(label+'.stderr')).write_text(r.stderr);(O/(label+'.command.json')).write_text(json.dumps({'args':args,'exit':r.returncode}));assert r.returncode==0;return r.stdout.strip()
-          def normalize_contact_email(body):
-              # Reuse the exact contact-email decoding proven in the preceding Class 6.
-              # The current Library delta additionally removes only its observed
-              # email_off wrapper around this same literal contact link.
-              text=body.decode('utf-8')
-              contact='<a href="mailto:contact@spiralweb.earth">contact@spiralweb.earth</a>'
-              wrapped='<!--email_off-->'+contact+'<!--/email_off-->'
-              if text.count(wrapped)>1:raise RuntimeError('Uventet antal kontakt-email-kommentarer.')
-              text=text.replace(wrapped,contact)
-              # Exact additional provider form observed in the returned Class0 evidence.
-              # Preserve the original single span; decode both provider tokens independently.
-              nested_pattern=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)"><span><span class="__cf_email__" data-cfemail="([0-9a-f]+)">\[email&#160;protected\]</span></span></a>'
-              nested=list(re.finditer(nested_pattern,text))
-              if nested:
-                  nested_decoder='<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>'
-                  if len(nested)!=1 or text.count(nested_decoder)!=1:
-                      raise RuntimeError('Uventet antal indlejrede kontakt-email-elementer.')
-                  match=nested[0]
-                  for value in match.groups():
-                      data=bytes.fromhex(value)
-                      if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
-                          raise RuntimeError('Indlejret kontakt-email afviger.')
-                  literal='<a href="mailto:contact@spiralweb.earth"><span>contact@spiralweb.earth</span></a>'
-                  text=text[:match.start()]+literal+text[match.end():]
-                  text=text.replace(nested_decoder,'',1)
-              pattern=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)"><span class="__cf_email__" data-cfemail="([0-9a-f]+)">\[email&#160;protected\]</span></a>'
-              matches=list(re.finditer(pattern,text))
-              decoder='<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>'
-              if matches:
-                  if len(matches)!=1 or text.count(decoder)!=1:raise RuntimeError('Uventet emailbeskyttelse.')
-                  match=matches[0]
-                  for value in match.groups():
-                      data=bytes.fromhex(value)
-                      if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
-                          raise RuntimeError('Kontakt-email afviger.')
-                  text=text[:match.start()]+contact+text[match.end():]
-                  text=text.replace(decoder,'',1)
-              elif decoder in text:
-                  # The unchanged homepage uses the literal label Corrections.
-                  # Accept only its observed provider form and the same decoded address.
-                  corrections=r'<a href="/cdn-cgi/l/email-protection#([0-9a-f]+)">Corrections</a>'
-                  labelled=list(re.finditer(corrections,text))
-                  if len(labelled)!=1 or text.count(decoder)!=1:
-                      raise RuntimeError('Uventet email-decoder uden den dokumenterede kontakt-email.')
-                  match=labelled[0];data=bytes.fromhex(match.group(1))
-                  if not data or bytes(x^data[0] for x in data[1:]).decode('utf-8')!='contact@spiralweb.earth':
-                      raise RuntimeError('Corrections-email afviger.')
-                  literal='<a href="mailto:contact@spiralweb.earth">Corrections</a>'
-                  text=text[:match.start()]+literal+text[match.end():]
-                  text=text.replace(decoder,'',1)
-              return text.encode('utf-8')
+          O=Path(os.environ['RUNNER_TEMP'])/'family5-keyboard';O.mkdir();H='8035e789ebff9327c891408f7fdceb43cca49dde';P='https://papers.spiralweb.earth';M='https://spiralweb.earth'
+          result={'status':'RUNNING','timestamp_utc':datetime.now(timezone.utc).isoformat(),'papers_main':H,'cases':[],'findings':[],'production_writes':0}
+          def ref(label):
+           r=subprocess.run(['git','ls-remote','origin','refs/heads/main'],capture_output=True,text=True,timeout=60);(O/(label+'.txt')).write_text(r.stdout);assert r.returncode==0 and r.stdout.split()[0]==H
+          setup='''()=>{let es=[...document.querySelectorAll('a[href],button,input:not([type="hidden"]),select,textarea,summary,[tabindex]')].filter(e=>e.tabIndex>=0&&!e.disabled&&e.getClientRects().length&&getComputedStyle(e).visibility==='visible'&&!e.closest('[inert]'));es.sort((a,b)=>{let x=a.tabIndex,y=b.tabIndex;return (x>0&&y>0)?x-y:x>0?-1:y>0?1:0});window.__auditFocus=es;return es.map((e,i)=>({i,tag:e.tagName,id:e.id,text:(e.innerText||e.getAttribute('aria-label')||e.getAttribute('placeholder')||e.value||'').trim().slice(0,150),href:e.getAttribute('href'),tabIndex:e.tabIndex}))}'''
+          probe='''()=>{let e=document.activeElement,i=window.__auditFocus.indexOf(e),r=e.getBoundingClientRect(),s=getComputedStyle(e);let x=Math.max(0,Math.min(innerWidth-1,(r.left+r.right)/2)),y=Math.max(0,Math.min(innerHeight-1,(r.top+r.bottom)/2)),hit=document.elementFromPoint(x,y);return {i,tag:e.tagName,id:e.id,text:(e.innerText||e.getAttribute('aria-label')||e.getAttribute('placeholder')||e.value||'').trim().slice(0,150),rect:{left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height},outline:s.outline,outlineOffset:s.outlineOffset,boxShadow:s.boxShadow,border:s.border,background:s.backgroundColor,focusVisible:e.matches(':focus-visible'),centerHit:hit===e||e.contains(hit),inMain:!!e.closest('main')}}'''
           try:
-           assert command(['git','rev-parse','HEAD'],'head')==H
-           assert command(['git','rev-parse','HEAD^{tree}'],'merged-tree')==command(['git','rev-parse',C+'^{tree}'],'candidate-tree')
-           assert command(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==H
-           assert command(['git','diff','--name-only',B,H],'diff-files')=='index.html'
-           before=subprocess.check_output(['git','show',B+':index.html']).decode();after=Path('index.html').read_text()
-           expected=before.replace('.hero .shell{grid-template-columns:1fr;min-height:auto}.spiral{width:330px}', '.hero .shell{grid-template-columns:minmax(0,1fr);min-height:auto}.spiral{width:min(330px,100%)}').replace('@media(max-width:650px){.shell{padding:0 20px}', '@media(max-width:650px){.spiral .o2{right:0}.spiral .o4{left:0}.shell{padding:0 20px}').replace('<a href="mailto:contact@spiralweb.earth">Corrections</a>','<!--email_off--><a href="mailto:contact@spiralweb.earth">Corrections</a><!--/email_off-->')
-           assert after==expected
-           (O/'candidate.diff').write_text(command(['git','diff',B,H,'--','index.html'],'diff'))
-           public=json.loads(Path('public-files.json').read_text());command(['node','scripts/build_public.mjs'],'build')
-           assert sorted(str(p.relative_to('dist')) for p in Path('dist').rglob('*') if p.is_file())==sorted(public)
-           for f in public:assert Path(f).read_bytes()==(Path('dist')/f).read_bytes()
-           result['public_build_files']=len(public)
-           live=O/'production.body';headers=O/'production.headers'
-           status=command(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(headers),'--output',str(live),'--write-out','%{http_code}','https://papers.spiralweb.earth/'],'production')
-           assert status=='200' and normalize_contact_email(live.read_bytes()).replace(b'<!--email_off-->',b'').replace(b'<!--/email_off-->',b'')==after.encode().replace(b'<!--email_off-->',b'').replace(b'<!--/email_off-->',b''), 'published body differs'
-           result['published_body_exact']=True
+           ref('main-before')
            with sync_playwright() as pw:
-            browser=pw.chromium.launch();result['browser_version']=browser.version
+            b=pw.chromium.launch();result['browser_version']=b.version
+            pages=[('papers',P+'/'),('library',P+'/library'),('ai_tools',P+'/toolbox/ai-in-right-relationship/'),('da_orientation',P+'/da/laeseorientering'),('association',M+'/association/'),('support',M+'/support/'),('ledger',M+'/pg-ledger/'),('da_foyer',M+'/da/'),('short_reads',M+'/cafes/sofia/short-reads/')]
             for js in [True,False]:
-             for w in [320,360,390,640,980,1280]:
-              c=browser.new_context(viewport={'width':w,'height':1000},java_script_enabled=js);page=c.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
-              response=page.goto(U+'/',wait_until='networkidle');assert response.status==200
-              if js:page.evaluate('()=>document.fonts.ready')
-              raw=response.body();(O/f'published-{w}-{js}.html').write_bytes(raw)
-              assert normalize_contact_email(raw).replace(b'<!--email_off-->',b'').replace(b'<!--/email_off-->',b'')==Path('index.html').read_bytes().replace(b'<!--email_off-->',b'').replace(b'<!--/email_off-->',b''), 'published body must equal exact source outside targeted email comments'
-              assert page.get_by_role('link',name='Corrections',exact=True).get_attribute('href')=='mailto:contact@spiralweb.earth'
-              data=page.evaluate('''()=>{let rect=e=>{let r=e.getBoundingClientRect();return {left:r.left,right:r.right,width:r.width}},lines=e=>{let r=document.createRange();r.selectNodeContents(e);return [...r.getClientRects()].map(r=>({left:r.left,right:r.right,width:r.width}))};let lead=document.querySelector('.hero .lead'),heading=document.querySelector('.hero h1');return {viewport:innerWidth,overflow:document.documentElement.scrollWidth-innerWidth,lead:rect(lead),leadLines:lines(lead),headingLines:lines(heading),gridColumns:getComputedStyle(document.querySelector('.hero .shell')).gridTemplateColumns,orbits:[...document.querySelectorAll('.orbit')].map(e=>({text:e.textContent,rect:rect(e)}))}}''')
-              data.update({'javascript':js,'errors':errors});result['cases'].append(data)
-              assert data['overflow']==0 and not errors,data
-              assert all(r['left']>=-.5 and r['right']<=w+.5 for r in data['leadLines']+data['headingLines']+[x['rect'] for x in data['orbits']]),data
-              page.keyboard.press('Tab');assert page.locator('.skip-link').evaluate('(e)=>e===document.activeElement');page.keyboard.press('Enter');page.keyboard.press('Tab');assert page.evaluate('()=>document.activeElement.closest("main")!==null')
-              data['skip_next_tab_within_main']=True
-              page.screenshot(path=str(O/f'home-{w}-{js}.png'))
-              page.get_by_role('link',name='Full library →',exact=True).click();assert page.url==U+'/library#collection';assert page.locator('#collection').is_visible();data['library_navigation']=True
-              c.close()
-            browser.close()
-           assert command(['git','ls-remote','origin','refs/heads/main'],'main-after').split()[0]==H
-           result['status']='PASS'
-          except Exception as e:
-           result.update({'status':'STOP','error':str(e),'traceback':traceback.format_exc()});raise
+             for w in [1280,390]:
+              for name,url in pages:
+               c=b.new_context(viewport={'width':w,'height':1000},java_script_enabled=js);p=c.new_page();case={'page':name,'url':url,'width':w,'javascript':js,'forward':[],'reverse':[],'flags':[]}
+               try:
+                response=p.goto(url,wait_until='networkidle');assert response.status==200;assert p.locator('h1').first.is_visible();case['final_url']=p.url;case['body_sha256']=hashlib.sha256(response.body()).hexdigest();(O/f'{name}-{w}-{js}.html').write_bytes(response.body())
+                if js:p.evaluate('()=>document.fonts.ready')
+                expected=p.evaluate(setup);case['expected']=expected;assert expected
+                for i in range(len(expected)):
+                 p.keyboard.press('Tab');state=p.evaluate(probe);case['forward'].append(state)
+                 if state['i']!=i:case['flags'].append({'kind':'sequence','direction':'forward','step':i,'actual':state['i']});break
+                 if not state['focusVisible']:case['flags'].append({'kind':'no_focus_visible','step':i})
+                 if not state['centerHit']:case['flags'].append({'kind':'center_obscured','step':i,'control':expected[i]})
+                 if state['outline'].startswith('rgb(0, 0, 0) none') or ' none ' in state['outline']:case['flags'].append({'kind':'outline_none_review','step':i,'control':expected[i],'state':state})
+                for i in range(len(expected)-2,-1,-1):
+                 p.keyboard.press('Shift+Tab');state=p.evaluate(probe);case['reverse'].append(state)
+                 if state['i']!=i:case['flags'].append({'kind':'sequence','direction':'reverse','step':i,'actual':state['i']});break
+                p.goto(url,wait_until='networkidle');p.keyboard.press('Tab');first=p.evaluate('()=>document.activeElement.getAttribute("href")');assert first and first.startswith('#');p.keyboard.press('Enter');p.keyboard.press('Tab');assert p.evaluate('()=>!!document.activeElement.closest("main")');case['skip_bypass']=True
+                case['status']='MEASURED_WITH_REVIEW_FLAGS' if case['flags'] else 'PASS_SEQUENCE_FOCUS'
+               except Exception as e:case['status']='PROBE_STOP';case['error']=str(e);result['findings'].append({'page':name,'width':w,'javascript':js,'error':str(e)})
+               result['cases'].append(case);c.close()
+            b.close()
+           ref('main-after');result['status']='MEASURED_REQUIRES_REVIEW';result['run_id']=os.environ['GITHUB_RUN_ID'];result['control_commit']=os.environ['GITHUB_SHA']
+          except Exception as e:result.update({'status':'STOP','error':str(e),'traceback':traceback.format_exc()});raise
           finally:
            (O/'RESULT.json').write_text(json.dumps(result,indent=2));(O/'MANIFEST.json').write_text(json.dumps({x.name:hashlib.sha256(x.read_bytes()).hexdigest() for x in O.iterdir() if x.is_file()},indent=2))
           PYCODE
@@ -132,7 +71,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: home-reflow-email-class6
-          path: ${{ runner.temp }}/home-reflow-email-class6
+          name: family5-keyboard
+          path: ${{ runner.temp }}/family5-keyboard
           retention-days: 30
           if-no-files-found: error
