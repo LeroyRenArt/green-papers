@@ -1,4 +1,4 @@
-name: Papers homepage keyboard focus candidate readiness
+name: Papers homepage keyboard focus independent live closeout
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: aa42ba7ada52678e435d3704ad14ee5cb9f16c64
+          ref: b12dcdca188c48913129c5415062aed26bcd88a7
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
@@ -28,7 +28,7 @@ jobs:
           from pathlib import Path
           import os,json,hashlib,subprocess,time,traceback
           from playwright.sync_api import sync_playwright
-          O=Path(os.environ['RUNNER_TEMP'])/'homepage-focus-readiness';O.mkdir();B='8035e789ebff9327c891408f7fdceb43cca49dde';H='aa42ba7ada52678e435d3704ad14ee5cb9f16c64';U='https://139b8d0f.green-papers.pages.dev'
+          O=Path(os.environ['RUNNER_TEMP'])/'homepage-focus-class6';O.mkdir();B='8035e789ebff9327c891408f7fdceb43cca49dde';H='b12dcdca188c48913129c5415062aed26bcd88a7';U='https://papers.spiralweb.earth'
           result={'status':'RUNNING','base':B,'candidate':H,'preview':U,'cases':[],'short_viewports':[],'production_writes':0}
           def command(args,label):
            r=subprocess.run(args,capture_output=True,text=True,timeout=60);(O/(label+'.stdout')).write_text(r.stdout);(O/(label+'.stderr')).write_text(r.stderr);(O/(label+'.command.json')).write_text(json.dumps({'args':args,'exit':r.returncode}));assert r.returncode==0;return r.stdout.strip()
@@ -46,14 +46,14 @@ jobs:
            return {'stable':False,'samples':samples,'elapsed_ms':round((time.monotonic()-start)*1000)}
           try:
            assert command(['git','rev-parse','HEAD'],'head')==H
-           assert command(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==B
+           assert command(['git','ls-remote','origin','refs/heads/main'],'main-before').split()[0]==H
            assert command(['git','diff','--name-only',B,H],'exact-diff')=='index.html'
            before=subprocess.check_output(['git','show',B+':index.html']);after=Path('index.html').read_bytes();assert before.count(b'.top{position:sticky;top:0;')==1 and after==before.replace(b'.top{position:sticky;top:0;',b'.top{position:relative;top:0;')
            command(['git','diff',B,H,'--','index.html'],'candidate-diff');public=json.loads(Path('public-files.json').read_text());command(['node','scripts/build_public.mjs'],'build')
            assert sorted(str(p.relative_to('dist')) for p in Path('dist').rglob('*') if p.is_file())==sorted(public)
            for f in public:assert Path(f).read_bytes()==(Path('dist')/f).read_bytes()
            result['public_build_files']=len(public)
-           bp=O/'production.body';hp=O/'production.headers';status=command(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}','https://papers.spiralweb.earth/'],'production-baseline');assert status=='200' and norm(bp.read_bytes())==norm(before);result['production_baseline_exact']=True
+           bp=O/'production.body';hp=O/'production.headers';status=command(['curl','--silent','--show-error','--compressed','--max-time','30','--dump-header',str(hp),'--output',str(bp),'--write-out','%{http_code}','https://papers.spiralweb.earth/'],'production-baseline');assert status=='200' and norm(bp.read_bytes())==norm(after);result['production_baseline_exact']=True
            with sync_playwright() as pw:
             browser=pw.chromium.launch();result['browser_version']=browser.version
             for js in [True,False]:
@@ -88,7 +88,7 @@ jobs:
               page.keyboard.press('Shift+Tab');settle(page);st=page.evaluate(probe);assert st['visiblePart'];row['states'].append(st)
              assert page.evaluate('document.documentElement.scrollWidth-innerWidth')==0;page.screenshot(path=str(O/f'low-{w}.png'));result['short_viewports'].append(row);c.close()
             browser.close()
-           assert command(['git','ls-remote','origin','refs/heads/main'],'main-after').split()[0]==B;result['status']='PASS'
+           assert command(['git','ls-remote','origin','refs/heads/main'],'main-after').split()[0]==H;result['status']='PASS'
           except Exception as e:result.update({'status':'STOP','error':str(e),'traceback':traceback.format_exc()});raise
           finally:
            (O/'RESULT.json').write_text(json.dumps(result,indent=2));(O/'MANIFEST.json').write_text(json.dumps({p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in O.iterdir() if p.is_file()},indent=2))
@@ -97,7 +97,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: homepage-focus-readiness
-          path: ${{ runner.temp }}/homepage-focus-readiness
+          name: homepage-focus-class6
+          path: ${{ runner.temp }}/homepage-focus-class6
           retention-days: 30
           if-no-files-found: error
