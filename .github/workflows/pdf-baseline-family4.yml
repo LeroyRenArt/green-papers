@@ -1,4 +1,4 @@
-name: Final native contact readiness
+name: Independent native contact live closeout
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: ad89cf7963413a07bbcadb2bc6f7b25327085d1a
+          ref: a3d0ca75b103ebe350873abe0ef668e0dd41e555
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
@@ -27,8 +27,8 @@ jobs:
           from pathlib import Path
           import os,json,subprocess,hashlib,re
           from playwright.sync_api import sync_playwright
-          O=Path(os.environ['RUNNER_TEMP'])/'contact-readiness';O.mkdir()
-          B='b12dcdca188c48913129c5415062aed26bcd88a7';H='ad89cf7963413a07bbcadb2bc6f7b25327085d1a';U='https://6fd8f9d6.green-papers.pages.dev'
+          O=Path(os.environ['RUNNER_TEMP'])/'contact-class6';O.mkdir()
+          B='b12dcdca188c48913129c5415062aed26bcd88a7';H='a3d0ca75b103ebe350873abe0ef668e0dd41e555';U='https://papers.spiralweb.earth'
           files=['privacy.html','papers/living-landscapes.html','papers/levende-landskaber.html']
           assert subprocess.check_output(['git','rev-parse','HEAD']).decode().strip()==H
           assert sorted(subprocess.check_output(['git','diff','--name-only',B,H]).decode().splitlines())==sorted(files+['sitemap.xml'])
@@ -51,6 +51,10 @@ jobs:
               assert p.evaluate('document.documentElement.scrollWidth<=innerWidth')
               r['cases'].append(dict(path=f,width=w,javascript=js,status='PASS',exact_html=True,native_mailto=True));c.close()
            browser.close()
+          assert subprocess.check_output(['git','ls-remote','origin','refs/heads/main']).decode().split()[0]==H
+          sm=subprocess.check_output(['curl','-sS','--compressed','--max-time','30',U+'/sitemap.xml'])
+          assert sm==Path('sitemap.xml').read_bytes()
+          r['sitemap_exact']=True
           r['status']='PASS';(O/'RESULT.json').write_text(json.dumps(r,indent=2));(O/'MANIFEST.json').write_text(json.dumps({p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in O.iterdir() if p.is_file()},indent=2))
           
           PYCODE
@@ -58,7 +62,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: contact-readiness
-          path: ${{ runner.temp }}/contact-readiness
+          name: contact-class6
+          path: ${{ runner.temp }}/contact-class6
           retention-days: 30
           if-no-files-found: error
