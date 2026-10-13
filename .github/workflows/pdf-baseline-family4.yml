@@ -1,4 +1,4 @@
-name: Final technical and publication audit
+name: Final native contact readiness
 on:
   push:
     branches: [audit/pdf-baseline-family4-20261012]
@@ -12,89 +12,53 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: b12dcdca188c48913129c5415062aed26bcd88a7
+          ref: ad89cf7963413a07bbcadb2bc6f7b25327085d1a
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.12.12'
-      - run: python -m pip install pypdf==6.1.1
+      - run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
       - name: Read current public resources
         run: |
           python - <<'PYCODE'
           from pathlib import Path
-          from html.parser import HTMLParser
-          from urllib.parse import urljoin,urlsplit,unquote
-          import json,subprocess,hashlib,concurrent.futures,xml.etree.ElementTree as ET,re,os
-          from pypdf import PdfReader
-          O=Path(os.environ['RUNNER_TEMP'])/'final-audit';O.mkdir()
-          H='b12dcdca188c48913129c5415062aed26bcd88a7'
-          sha=lambda b:hashlib.sha256(b).hexdigest()
-          def git(*a):return subprocess.check_output(['git',*a]).decode().strip()
-          assert git('rev-parse','HEAD')==H
-          assert git('ls-remote','origin','refs/heads/main').split()[0]==H
-          public=json.loads(Path('public-files.json').read_text());subprocess.run(['node','scripts/build_public.mjs'],check=True)
+          import os,json,subprocess,hashlib,re
+          from playwright.sync_api import sync_playwright
+          O=Path(os.environ['RUNNER_TEMP'])/'contact-readiness';O.mkdir()
+          B='b12dcdca188c48913129c5415062aed26bcd88a7';H='ad89cf7963413a07bbcadb2bc6f7b25327085d1a';U='https://6fd8f9d6.green-papers.pages.dev'
+          files=['privacy.html','papers/living-landscapes.html','papers/levende-landskaber.html']
+          assert subprocess.check_output(['git','rev-parse','HEAD']).decode().strip()==H
+          assert sorted(subprocess.check_output(['git','diff','--name-only',B,H]).decode().splitlines())==sorted(files+['sitemap.xml'])
+          for f in files:
+           old=subprocess.check_output(['git','show',B+':'+f]);new=Path(f).read_bytes();pat=rb'(<a href="mailto:contact@spiralweb\.earth">.*?</a>)';assert len(re.findall(pat,old,re.S))==1
+           assert new==re.sub(pat,rb'<!--email_off-->\1<!--/email_off-->',old,flags=re.S)
+          old=subprocess.check_output(['git','show',B+':sitemap.xml']);assert Path('sitemap.xml').read_bytes()==old.replace(b'<loc>https://papers.spiralweb.earth/</loc>\n    <lastmod>2026-10-12</lastmod>',b'<loc>https://papers.spiralweb.earth/</loc>\n    <lastmod>2026-10-13</lastmod>')
+          subprocess.run(['node','scripts/build_public.mjs'],check=True);public=json.loads(Path('public-files.json').read_text());assert len(public)==195
           assert all(Path(f).read_bytes()==(Path('dist')/f).read_bytes() for f in public)
-          class Doc(HTMLParser):
-           def __init__(self,b):super().__init__();self.ids=set();self.links=[];self.meta={};self.lang=None;self.feed(b.decode(errors='replace'))
-           def handle_starttag(self,t,a):
-            a=dict(a)
-            if 'id' in a:self.ids.add(a['id'])
-            if t=='a' and 'href' in a:self.links.append(a['href'])
-            if t=='meta':self.meta[a.get('name',a.get('property',''))]=a.get('content')
-            if t=='html':self.lang=a.get('lang')
-          def fetch(pair):
-           f,u=pair;stem=sha(u.encode())[:20];p=O/(stem+'.body');hp=O/(stem+'.headers')
-           r=subprocess.run(['curl','-sS','-L','--compressed','--connect-timeout','10','--max-time','45','-D',str(hp),'-o',str(p),'-w','%{http_code}\n%{url_effective}\n',u],capture_output=True)
-           (O/(stem+'.stdout')).write_bytes(r.stdout);(O/(stem+'.stderr')).write_bytes(r.stderr)
-           x=r.stdout.decode().splitlines();b=p.read_bytes() if p.exists() else b'';hdr=hp.read_text(errors='replace') if hp.exists() else ''
-           row=dict(path=f,url=u,status=x[0] if x else '',final=x[1] if len(x)>1 else '',exit=r.returncode,stem=stem,sha256=sha(b),headers=hdr)
-           return row,b
-          tasks=[(f,'https://papers.spiralweb.earth/'+f) for f in public]
-          results=[];bodies={}
-          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
-           for row,b in ex.map(fetch,tasks):results.append(row);bodies[row['url']]=b
-          mainrow,mainmap=fetch(('Main sitemap','https://spiralweb.earth/sitemap.xml'));results.append(mainrow)
-          root=ET.fromstring(mainmap);mainurls=[n.text for n in root.iter() if n.tag.endswith('loc')]
-          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
-           for row,b in ex.map(fetch,[(u,u) for u in mainurls]):results.append(row);bodies[row['url']]=b
-          docs={u:Doc(b) for u,b in bodies.items() if b.lstrip().lower().startswith(b'<!doctype') or b.lstrip().lower().startswith(b'<html')}
-          aliases={}
-          for u,d in docs.items():
-           aliases[u]=d
-           if u.endswith('.html'):aliases[u[:-5]]=d
-           if u.endswith('/index.html'):aliases[u[:-10]]=d;aliases[u[:-11]]=d
-          linkissues=[];external=set()
-          for u,d in docs.items():
-           for href in d.links:
-            dest=urljoin(u,href);x=urlsplit(dest)
-            if x.scheme not in ('http','https'):continue
-            if x.netloc not in ('spiralweb.earth','papers.spiralweb.earth'):external.add(dest);continue
-            clean=x._replace(fragment='',query='').geturl();target=aliases.get(clean)
-            if x.fragment and target and unquote(x.fragment) not in target.ids:linkissues.append(dict(source=u,href=href,kind='missing fragment'))
-          pdf=[]
-          for f in public:
-           if f.endswith('.pdf'):
-            p=PdfReader(f);root=p.trailer['/Root'];pdf.append(dict(path=f,pages=len(p.pages),lang=str(root.get('/Lang','')),tagged='/StructTreeRoot' in root,title=str((p.metadata or {}).get('/Title','')),producer=str((p.metadata or {}).get('/Producer',''))))
-          parity=[]
-          for row in results:
-           f=row['path']
-           if f in public:parity.append(dict(path=f,exact=row['sha256']==sha(Path(f).read_bytes()),status=row['status']))
-          maps={}
-          for site in ['https://papers.spiralweb.earth/sitemap.xml','https://spiralweb.earth/sitemap.xml']:
-           _,b=fetch(('sitemap',site));rr=ET.fromstring(b);maps[site]=[dict((x.tag.split('}')[-1],x.text) for x in node) for node in rr]
-          assert git('ls-remote','origin','refs/heads/main').split()[0]==H
-          report=dict(status='CAPTURED_FOR_REVIEW',head=H,public_build_files=len(public),main_sitemap_routes=len(mainurls),results=results,source_parity=parity,fragment_issues=linkissues,pdf_structure=pdf,sitemaps=maps,external_urls=sorted(external),production_writes=0,repository_writes=0)
-          (O/'RESULT.json').write_text(json.dumps(report,indent=2))
-          (O/'MANIFEST.json').write_text(json.dumps({p.name:sha(p.read_bytes()) for p in O.iterdir() if p.is_file()},indent=2))
-          print('CAPTURED',len(results),'responses;',len(linkissues),'fragment findings;',len(pdf),'PDF profiles',flush=True)
+          r=dict(status='RUNNING',head=H,base=B,cases=[],files=195,production_writes=0)
+          with sync_playwright() as pw:
+           browser=pw.chromium.launch();r['browser_version']=browser.version
+           for f in files:
+            for w in [1280,390,320]:
+             for js in [True,False]:
+              c=browser.new_context(viewport={'width':w,'height':1000},java_script_enabled=js);p=c.new_page();resp=p.goto(U+'/'+f,wait_until='networkidle');assert resp.status==200
+              body=resp.body();source=Path(f).read_bytes();norm=lambda b:b.replace(b'<!--email_off-->',b'').replace(b'<!--/email_off-->',b'')
+              assert norm(body)==norm(source);assert p.locator('a[href="mailto:contact@spiralweb.earth"]').count()==1
+              assert p.locator('a[href^="/cdn-cgi/l/email-protection"]').count()==0
+              assert p.evaluate('document.documentElement.scrollWidth<=innerWidth')
+              r['cases'].append(dict(path=f,width=w,javascript=js,status='PASS',exact_html=True,native_mailto=True));c.close()
+           browser.close()
+          r['status']='PASS';(O/'RESULT.json').write_text(json.dumps(r,indent=2));(O/'MANIFEST.json').write_text(json.dumps({p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in O.iterdir() if p.is_file()},indent=2))
           
           PYCODE
       - name: Preserve evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: final-audit
-          path: ${{ runner.temp }}/final-audit
+          name: contact-readiness
+          path: ${{ runner.temp }}/contact-readiness
           retention-days: 30
           if-no-files-found: error
