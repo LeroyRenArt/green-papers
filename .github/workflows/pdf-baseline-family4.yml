@@ -1,0 +1,129 @@
+name: Papers WeasyPrint structural calibration
+on:
+  push:
+    branches: [audit/pdf-tags-weasy-calibration-20261014]
+    paths: [.github/workflows/pdf-baseline-family4.yml]
+permissions:
+  contents: read
+jobs:
+  baseline-pdfs:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: f5bf08325f86ac5d4a2dd85d19b6e68ebeda1692
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.12'
+      - name: Install recorded dependency versions
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y 'libpango-1.0-0=1.52.1+ds-1build1' 'libpangoft2-1.0-0=1.52.1+ds-1build1' 'fonts-dejavu-core=2.37-8' 'fonts-urw-base35=20200910-8'
+          cat > "$RUNNER_TEMP/pdf-requirements.lock" <<'LOCK'
+          brotli==1.2.0
+          cffi==2.1.1
+          cssselect2==0.10.1
+          fonttools==4.66.1
+          pillow==12.3.0
+          pycparser==3.11
+          pydyf==0.12.1
+          PyMuPDF==1.26.6
+          pyphen==0.18.1
+          tinycss2==1.5.1
+          tinyhtml5==2.1.0
+          weasyprint==70.0
+          webencodings==0.6.1
+          zopfli==0.4.3
+          LOCK
+          python -m pip install -r "$RUNNER_TEMP/pdf-requirements.lock"
+      - name: Compare 23 existing PDFs and add tags only after exact baseline
+        run: |
+          cat > "$RUNNER_TEMP/weasy-tags.py" <<'PY'
+          from pathlib import Path
+          from urllib.parse import urlsplit,unquote
+          import hashlib,json,os,subprocess,shutil,logging
+          import fitz,weasyprint
+          from weasyprint import HTML,CSS
+          from weasyprint.urls import URLFetcher
+          from weasyprint.text.fonts import FontConfiguration
+          ROOT=Path.cwd().resolve();OUT=Path(os.environ['RUNNER_TEMP'])/'pdf-baseline-proof';OUT.mkdir()
+          EXPECTED='f5bf08325f86ac5d4a2dd85d19b6e68ebeda1692'
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==EXPECTED
+          assert weasyprint.__version__=='70.0'
+          sha=lambda b:hashlib.sha256(b).hexdigest()
+          blob=lambda b:hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          class Fetcher(URLFetcher):
+           def __init__(self):super().__init__(allowed_protocols=['file','data'],fail_on_errors=True);self.resources=[]
+           def fetch(self,url,headers=None):
+            u=urlsplit(url)
+            if u.scheme=='data':return super().fetch(url,headers)
+            if u.scheme in ('https','http') and u.hostname in ('papers.spiralweb.earth','green-papers.pages.dev'):p=(ROOT/unquote(u.path).lstrip('/')).resolve()
+            elif u.scheme=='file':p=Path(unquote(u.path)).resolve()
+            else:raise ValueError('External resource refused '+url)
+            if ROOT not in p.parents or not p.is_file():raise ValueError('Missing local resource '+str(p))
+            self.resources.append({'path':str(p.relative_to(ROOT)),'sha256':sha(p.read_bytes())})
+            return super().fetch(p.as_uri(),headers)
+          def inspect(p):
+           with fitz.open(p) as d:
+            return {'pages':len(d),'text':[p.get_text() for p in d], 'words':[[list(w) for w in p.get_text('words')] for p in d], 'sizes':[list(p.rect) for p in d],'pixels':[sha(p.get_pixmap(alpha=False).samples) for p in d]}
+          def same(a,b):return all(a[k]==b[k] for k in ('pages','text','words','sizes','pixels'))
+          CASES=[{'pdf': 'papers/a-decent-economy-under-the-jurisdiction-of-life.pdf', 'html': 'papers/a-decent-economy-under-the-jurisdiction-of-life.html', 'pdf_blob': 'afcc64c8a5f41d851cad55dbf68e45e35f518614', 'html_sha': '220d25dc888838ff096091e65ffd0cfac745162494cfefbeca680e51e7bbfda3', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal} body{font-family:HistoricalSerif!important}.sitebar{font-family:DejaVu Sans!important}.eyebrow{font-family:DejaVu Sans!important}.paper-number{font-family:DejaVu Sans!important}.meta-grid{font-family:DejaVu Sans!important}article h2{font-family:DejaVu Sans!important}article h3{font-family:DejaVu Sans!important}article figcaption{font-family:DejaVu Sans!important}.colophon{font-family:DejaVu Sans!important}article table{font-family:DejaVu Sans!important}', 'profile': 'sealed-20261012'}, {'pdf': 'papers/atlas-of-a-living-architecture.pdf', 'html': 'papers/atlas-of-a-living-architecture.html', 'pdf_blob': '873808186b4b05aebde0fd6fea04cb689a26bc4c', 'html_sha': 'ac65d15f1cb19725478f3bf319973f1b25ecd725f45ad40665951a580e8ee9a6', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:italic}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:italic} body{font-family:HistoricalSerif!important} .sitebar,.eyebrow,.paper-number,.meta-grid,article h2,article h3,article figcaption,.colophon,article table,.downloads,nav#TOC{font-family:DejaVu Sans!important}', 'profile': 'sealed-20261012'}, {'pdf': 'papers/atlas-over-en-levende-arkitektur.pdf', 'html': 'papers/atlas-over-en-levende-arkitektur.html', 'pdf_blob': '05ce959bc458af7aa15c097fa39e845a309c63e6', 'html_sha': '9d483224d3803404865e385cbe4b3f74fc636ff793b70f54c329f265e36bbe5e', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:italic}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:italic} body{font-family:HistoricalSerif!important} .sitebar,.eyebrow,.paper-number,.meta-grid,article h2,article h3,article figcaption,.colophon,article table,.downloads,nav#TOC{font-family:DejaVu Sans!important}', 'profile': 'sealed-20261012'}, {'pdf': 'papers/authority-pause-refusal-and-correction.pdf', 'html': 'papers/authority-pause-refusal-and-correction.html', 'pdf_blob': '0935ce3b843a5b2065618eefc24aa94b140b1b08', 'html_sha': '9714eb1524931fc27260f3ac59011f3105542eb834f21ece0ccafa792a4e4e86', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'papers/capacity-contact-stewardship-economy.pdf', 'html': 'papers/capacity-contact-stewardship-economy.html', 'pdf_blob': 'd9ded968cb5f357ae04ac0007a720bae3ef23db5', 'html_sha': '9f5818b79eda444324ce3a226061a5a8afc737dfd36bbb63697ee6c4afcb5ac1', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'papers/den-regenerative-kommune.pdf', 'html': 'papers/den-regenerative-kommune.html', 'pdf_blob': 'c98f100544ce5d5d4b3731484ed71d288e78783e', 'html_sha': 'e2f94b6439bc7e93bcf4e5b115aee668807fecf2a16301d1eba472a815b3d117', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal} body{font-family:HistoricalSerif!important}.site-header{font-family:DejaVu Sans!important}.series-label{font-family:DejaVu Sans!important}.hero .kicker{font-family:DejaVu Sans!important}.meta-block{font-family:DejaVu Sans!important}.section-number{font-family:DejaVu Sans!important}.section h4{font-family:DejaVu Sans!important}table{font-family:DejaVu Sans!important}.site-footer{font-family:DejaVu Sans!important}.site-header,.hero .kicker,.meta-block,.site-footer{font-weight:400!important}', 'profile': 'sealed-20261012'}, {'pdf': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.pdf', 'html': 'papers/en-anstaendig-oekonomi-under-livets-jurisdiktion.html', 'pdf_blob': '3a0204f9f14ca4257fb22ba77c9c55496dd6f291', 'html_sha': 'd4700c7e2961d0109a3765fdbecda929a8e3d41520958a9e66088e234a88e65f', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal} body{font-family:HistoricalSerif!important}.sitebar{font-family:DejaVu Sans!important}.eyebrow{font-family:DejaVu Sans!important}.paper-number{font-family:DejaVu Sans!important}.meta-grid{font-family:DejaVu Sans!important}article h2{font-family:DejaVu Sans!important}article h3{font-family:DejaVu Sans!important}article figcaption{font-family:DejaVu Sans!important}.colophon{font-family:DejaVu Sans!important}article table{font-family:DejaVu Sans!important}', 'profile': 'sealed-20261012'}, {'pdf': 'papers/eve-adam-and-the-penguins-da.pdf', 'html': 'papers/eve-adam-and-the-penguins-da.html', 'pdf_blob': '4ff88c92aaa174ffcab5206f3bbec682b1a3e15d', 'html_sha': 'e5b110042667131b6874fdb2bf6bf7166b628a8ac62f4258e307cceb1ff2b102', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal} body{font-family:HistoricalSerif!important}.crumb,.series,.meta,.small,.revision{font-family:Nimbus Sans!important}.badge{font-family:Nimbus Sans!important}h4{font-family:Nimbus Sans!important}.part .kicker{font-family:Nimbus Sans!important}th{font-family:Nimbus Sans!important}.caption{font-family:Nimbus Sans!important}footer{font-family:Nimbus Sans!important}', 'profile': 'sealed-20261012'}, {'pdf': 'papers/eve-adam-and-the-penguins.pdf', 'html': 'papers/eve-adam-and-the-penguins.html', 'pdf_blob': 'fe331b0e404cf87f908206636599163704b01e46', 'html_sha': '96d62dce3e9a787245e081132da1df2ffedea2f50ef28ceae55cf5ef53388619', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'papers/flow-and-return-protocol.pdf', 'html': 'papers/flow-and-return-protocol.html', 'pdf_blob': 'f6fad9329e0e0fd292f56812cfd1556530ea16e2', 'html_sha': '0eabcdf40687638f0e325bfcc03c831d990306390a067a783e85c229c65ee659', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'papers/kommunalt-arbejde-som-natur.pdf', 'html': 'papers/kommunalt-arbejde-som-natur.html', 'pdf_blob': '9d8da036731cd8c4c35a4ba3ee659212e414709f', 'html_sha': '99eeb957acd98898c1eac7f79b74d1d9507b383a8ebc30f45320c1c970f815e2', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:italic}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:italic} body{font-family:HistoricalSerif!important} .preview-banner,#TOC,h1,h2,h3,h4,table{font-family:Nimbus Sans!important} @page{@bottom-center{font-family:Nimbus Sans!important}}', 'profile': 'sealed-20261012'}, {'pdf': 'papers/municipal-work-as-nature.pdf', 'html': 'papers/municipal-work-as-nature.html', 'pdf_blob': '16caa861c2e1d8f2e376a3fae80b2d8dc1f55c3b', 'html_sha': '892455600185854e42837e769541c7ed1039042ae365a82585f3633f34b48d27', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:italic}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:italic} body{font-family:HistoricalSerif!important} .preview-banner,#TOC,h1,h2,h3,h4,table{font-family:Nimbus Sans!important} @page{@bottom-center{font-family:Nimbus Sans!important}}', 'profile': 'sealed-20261012'}, {'pdf': 'papers/penguin-dashboard.pdf', 'html': 'papers/penguin-dashboard-legibility-as-governance.html', 'pdf_blob': 'd7c9bea1244a4d13e98edec75ffde3ae6d44e0a6', 'html_sha': '098bcf698b12ecc06fc13cc7032c02b42fe75cf3f9702ed07a990806118bf862', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'papers/report-06-regenerative-reciprocity.pdf', 'html': 'papers/report-06-regenerative-reciprocity.html', 'pdf_blob': '5fc421a3a5720b3424d9a60e93fe32f9fb404bbd', 'html_sha': '3756e2423431bbc9bafe2481ae0428eca9625a02dabbabca79f5aecc4ba5ac03', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'papers/rule-of-life-da.pdf', 'html': 'papers/rule-of-life-da.html', 'pdf_blob': 'b40b2c6c6b5f222b7fbdb25e8dfb589399f108a6', 'html_sha': 'd54dcb7dd10ea6cffda70c136ae958aa98a53a2be804c57f1843b0ebcdde7ccc', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal} body{font-family:HistoricalSerif!important}.crumb,.series,.meta,.small,.revision{font-family:Nimbus Sans!important}.badge{font-family:Nimbus Sans!important}h4{font-family:Nimbus Sans!important}.part .kicker{font-family:Nimbus Sans!important}th{font-family:Nimbus Sans!important}.caption{font-family:Nimbus Sans!important}footer{font-family:Nimbus Sans!important}', 'profile': 'sealed-20261012'}, {'pdf': 'papers/rule-of-life.pdf', 'html': 'papers/rule-of-life.html', 'pdf_blob': '9a047d2dd652eecd901f48c640699c5220544efa', 'html_sha': 'c26ad94b5c8fd9cdaafd5cf456b6f0e080c5474ce885377936daa11992d9ac67', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal} body{font-family:HistoricalSerif!important}.crumb,.series,.meta,.small,.revision{font-family:Nimbus Sans!important}.badge{font-family:Nimbus Sans!important}h4{font-family:Nimbus Sans!important}.part .kicker{font-family:Nimbus Sans!important}th{font-family:Nimbus Sans!important}.caption{font-family:Nimbus Sans!important}footer{font-family:Nimbus Sans!important}', 'profile': 'sealed-20261012'}, {'pdf': 'papers/silent-degradation.pdf', 'html': 'papers/silent-degradation.html', 'pdf_blob': 'ddcd2cd0ea1bdadb0f076d05f438b68831886d93', 'html_sha': '9724c5b5c009be67db588881e83aaf4090e6b9f914c78651603eef4eccda2fe7', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'papers/the-correction-loop.pdf', 'html': 'papers/the-correction-loop.html', 'pdf_blob': '11d2b805e448b92c475ae25da0b220366fc7d939', 'html_sha': '178fd48581d4130cadd4eb00147af5d4a8b3c934a2a82409f1885c2d46db2d1d', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'papers/the-regenerative-municipality.pdf', 'html': 'papers/the-regenerative-municipality.html', 'pdf_blob': '02137c12ed8f8ba04873e79670541634a5739f1d', 'html_sha': '3dea3d1fbfb7ac258c9d91112ac6f9437f90943304c061336ad7dcf65109a2ee', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'papers/water-into-dry-riverbeds.pdf', 'html': 'papers/water-into-dry-riverbeds.html', 'pdf_blob': '2aa4afcafa97f3cb10bf49d23c6100bd1da555e8', 'html_sha': '036a3d9224a26b63c4e6ee584f046cb9e5a5d2c75adf420f99d433acbe7280fe', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'pdf/den-nye-faelled-en.pdf', 'html': 'papers/den-nye-faelled-en.html', 'pdf_blob': '0f9edd6a19ed29f073063d01c5b66b96374d62a5', 'html_sha': 'a2c6075a74de78a119c2f6d8758863af847565386f1c705b660e68ba46092a1e', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'pdf/den-nye-faelled.pdf', 'html': 'papers/den-nye-faelled.html', 'pdf_blob': 'd9657bef4a7134e98a231f1d6586e14d14ba3f3f', 'html_sha': 'a99de83094dec12d4b09a1eb243fe752b628508ba0c8fdddca564e58bf8e24d8', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}, {'pdf': 'pdf/penguin-dashboard-legibility-as-governance.pdf', 'html': 'papers/penguin-dashboard-legibility-as-governance.html', 'pdf_blob': '0ae59b6c7d970bcd88ca63e6986a213abdc63542', 'html_sha': '098bcf698b12ecc06fc13cc7032c02b42fe75cf3f9702ed07a990806118bf862', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}', 'profile': 'bounded-default-diagnostic'}]
+          import base64
+          for c in CASES:
+           for marker,name in [('__FONT_REGULAR__','DejaVuSerif.ttf'),('__FONT_BOLD__','DejaVuSerif-Bold.ttf')]:
+            c['css']=c['css'].replace(marker,'data:font/ttf;base64,'+base64.b64encode((Path('/usr/share/fonts/truetype/dejavu')/name).read_bytes()).decode())
+          report={'source_main':EXPECTED,'engine':weasyprint.__version__,'production_writes':0,'cases':[]}
+          inputs={str(p.relative_to(ROOT)):sha(p.read_bytes()) for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.parts}
+          logging.getLogger('weasyprint').setLevel(logging.ERROR)
+          for n,c in enumerate(CASES):
+           print('CASE',n+1,c['pdf'],flush=True);folder=OUT/(str(n+1)+'-'+Path(c['pdf']).stem);folder.mkdir();item={k:v for k,v in c.items() if k!='css'}
+           try:
+            html=ROOT/c['html'];pdf=ROOT/c['pdf'];assert sha(html.read_bytes())==c['html_sha'];assert blob(pdf.read_bytes())==c['pdf_blob']
+            (folder/'print.css').write_text(c['css']);shutil.copyfile(html,folder/'source.html');shutil.copyfile(pdf,folder/'production.pdf');prod=inspect(pdf)
+            f=Fetcher();fc=FontConfiguration();baseline=folder/'baseline.pdf'
+            HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+c['html'],url_fetcher=f).write_pdf(baseline,stylesheets=[CSS(string=c['css'],font_config=fc)],font_config=fc,pdf_tags=False)
+            base=inspect(baseline);item.update(baseline_exact=same(prod,base),baseline_pages=base['pages'],production_pages=prod['pages'],resources=f.resources)
+            if not item['baseline_exact']:
+             item.update(status='DEFERRED_BASELINE_DIFFERS',differences=[k for k in prod if prod[k]!=base[k]])
+            else:
+             f=Fetcher();fc=FontConfiguration();candidate=folder/'candidate.pdf'
+             HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+c['html'],url_fetcher=f).write_pdf(candidate,stylesheets=[CSS(string=c['css'],font_config=fc)],font_config=fc,pdf_tags=True)
+             cand=inspect(candidate);assert same(prod,cand),'Tagged render changed'
+             with fitz.open(candidate) as d:
+              root=d.pdf_catalog();st=d.xref_get_key(root,'StructTreeRoot');assert st[0]=='xref',st
+              struct=int(st[1].split()[0]);assert d.xref_get_key(struct,'ParentTree')[0]=='xref'
+              lang=d.xref_get_key(root,'Lang')[1];assert lang in ('en','da'),lang
+              roles={}
+              import re
+              for x in range(1,d.xref_length()):
+               for role in re.findall(r'/S /([A-Za-z0-9]+)',d.xref_object(x)) :roles[role]=roles.get(role,0)+1
+              assert roles.get('H1',0)>0 and roles.get('P',0)>0,roles
+              assert d.xref_get_key(root,'MarkInfo/Marked')[1]=='true'
+              for pg in [0,len(d)//2,len(d)-1]:d[pg].get_pixmap(alpha=False).save(folder/('candidate-page-'+str(pg+1)+'.png'))
+             item.update(status='CANDIDATE_EXACT_REVIEW_REQUIRED',candidate_sha256=sha(candidate.read_bytes()),candidate_blob=blob(candidate.read_bytes()),roles=roles,lang=lang,candidate_exact=True)
+            (folder/'comparison.json').write_text(json.dumps({'production':prod,'baseline':base},ensure_ascii=False))
+           except Exception as e:item.update(status='DEFERRED_ERROR',error=repr(e))
+           report['cases'].append(item);print('RESULT',item['status'],flush=True)
+          report['repository_unchanged']=all((ROOT/n).is_file() and sha((ROOT/n).read_bytes())==h for n,h in inputs.items())
+          assert report['repository_unchanged']
+          (OUT/'RESULT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          shutil.copyfile(Path(os.environ['RUNNER_TEMP'])/'weasy-tags.py',OUT/'script-used.py')
+          (OUT/'pip-freeze.txt').write_text(subprocess.check_output(['python','-m','pip','freeze'],text=True))
+          (OUT/'workflow-run.json').write_text(json.dumps({n:os.environ.get(n) for n in ('GITHUB_RUN_ID','GITHUB_SHA','ImageOS','ImageVersion')}))
+          (OUT/'MANIFEST.json').write_text(json.dumps({str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.rglob('*') if p.is_file()},indent=2))
+          print('COMPLETE',sum(c['status']=='CANDIDATE_EXACT_REVIEW_REQUIRED' for c in report['cases']),len(report['cases']),flush=True)
+          
+          PY
+          python "$RUNNER_TEMP/weasy-tags.py"
+
+      - name: Preserve diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: papers-weasy-tags-calibration-20261014
+          path: ${{ runner.temp }}/pdf-baseline-proof
+          retention-days: 30
+          if-no-files-found: error
+
