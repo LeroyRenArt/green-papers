@@ -364,14 +364,37 @@
 .sheet-skip:focus{top:12px}
 @media print{.sheet-skip{display:none!important}}
 </style>
+<style id="sw-papers-navigation-20261015">
+/* Web navigation is separate from the publication and its print form. */
+.sw-p26-primary{display:flex!important;flex-wrap:wrap;gap:.25rem 1rem;align-items:center;max-width:100%;min-width:0;margin:0 0 1rem;padding:.5rem 0;font:500 .85rem/1.6 system-ui,sans-serif;letter-spacing:normal;text-transform:none}
+.sw-p26-primary a{display:inline-block;padding:.35rem 0;white-space:normal;overflow-wrap:anywhere;color:inherit;font:inherit;letter-spacing:normal;text-transform:none}
+.sw-p26-context{margin:0 0 1rem;font-size:.85rem;line-height:1.6;max-width:100%;overflow-wrap:anywhere}
+.sw-p26-context:empty{display:none}
+.sw-p26-print-original{display:none}
+.sw-p26-primary a:focus-visible,.sw-p26-bottom a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.sw-p26-bottom{display:flex;flex-wrap:wrap;gap:.4rem 1rem;padding:1.25rem 0;margin:2rem 0 0;border-top:1px solid currentColor;font:500 .85rem/1.7 system-ui,sans-serif}
+.sw-p26-bottom a{color:inherit;overflow-wrap:anywhere}
+.sw-p26-footer-groups{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));grid-column:1/-1;gap:1.5rem;flex-basis:100%;width:100%;margin:1.5rem 0 0;text-align:left!important}
+.sw-p26-footer-groups section{padding:0!important;margin:0!important;min-width:0;background:none!important;border:0!important}
+.sw-p26-footer-groups h2{font:600 .9rem/1.5 system-ui,sans-serif!important;color:inherit!important;margin:0 0 .6rem!important;letter-spacing:normal;text-transform:none}
+.sw-p26-footer-groups a{display:block;margin:.4rem 0;color:inherit!important;font:.85rem/1.6 system-ui,sans-serif;overflow-wrap:anywhere;white-space:normal}
+.footer .shell:has(.sw-p26-footer-groups){flex-wrap:wrap}
+.site-footer:has(.sw-p26-footer-groups){flex-wrap:wrap}
+.top .sw-p26-primary{margin:0;flex:1;justify-content:flex-end;gap:.25rem 1rem}
+.site-header .sw-p26-primary{margin:0;gap:.25rem 1rem}
+.sw-p26-habitat details{border-top:1px solid var(--line,#c5c9c0);padding:1rem 0}
+.sw-p26-habitat summary{cursor:pointer;font-weight:600}
+.sw-p26-habitat li{margin:.85rem 0}
+.sw-p26-habitat .meta{display:block;font-size:.85rem}
+.sw-p26-scope{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.sw-p26-scope select{max-width:100%;padding:.6rem .8rem;border:1px solid currentColor;border-radius:.5rem;background:inherit;color:inherit;font:inherit}
+@media(max-width:650px){.sw-p26-footer-groups{grid-template-columns:1fr}.top .sw-p26-primary{justify-content:flex-start;width:100%;overflow:visible}.top .sw-p26-primary a{white-space:normal;padding:.4rem .6rem}.site-header .sw-p26-primary{width:100%}}
+@media print{.sw-p26-primary,.sw-p26-context,.sw-p26-bottom,.sw-p26-footer-groups,.sw-p26-habitat,.sw-p26-added-route{display:none!important}.sw-p26-print-original{display:contents}}
+</style>
 </head>
 <body>
 <a class="sheet-skip" href="#main-content">Skip to main content</a>
-<nav class="reading-room-nav" aria-label="Reading room navigation">
-  <a href="/">← Spiralweb Papers</a><span class="sep" aria-hidden="true">·</span>
-  <a href="/library#operational-formats">Full Library</a><span class="sep" aria-hidden="true">·</span>
-  <a href="https://spiralweb.earth/formats/">Operational Formats in Spiralweb</a>
-</nav>
+<nav class="sw-p26-primary reading-room-nav" aria-label="Primary navigation"><a href="/" hreflang="en">Papers</a><a href="/library#operational-formats" hreflang="en">Full Library</a><a href="https://spiralweb.earth/formats/" hreflang="en">Formats ↗</a><a href="https://spiralweb.earth/glossary/" hreflang="en">Glossary ↗</a></nav>
 <main class="sheet" id="main-content" tabindex="-1"><div class="topbar"><div><h1>Financial Ledger Sheet</h1><div class="subtitle">A financial traceability record connecting an in-scope flow with its lawful classification, intended use, evidence and later return. Formal accounting remains separate. Report 06 companion · Format 5 v1.3 · August 2026 · Candidate tool.</div></div>
 <div class="meta"><div class="line-field"><span class="label">Place / node:</span><span class="fill"></span></div><div class="line-field"><span class="label">Period:</span><span class="fill"></span></div><div class="line-field"><span class="label">Base currency:</span><span class="fill"></span></div><div class="line-field"><span class="label">Sheet reviewed by:</span><span class="fill"></span></div></div></div>
 <div class="instruction"><div><strong>At transaction:</strong> record amount/currency/FX, source, recipient, lawful classification, intended use, method and evidence. Do not present an expected effect as an observed result.</div><div><strong>Classification:</strong> use the underlying record. “Reciprocity” may describe purpose or relation; it is not automatically a legal or accounting category.</div></div>

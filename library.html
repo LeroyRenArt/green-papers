@@ -84,6 +84,33 @@
     @media(max-width:620px){.library-paths,.library-intro{grid-template-columns:1fr}.library-search{grid-template-columns:1fr}.library-hero{padding-top:56px}}
   </style>
 <link rel="stylesheet" href="/spiralweb-skiplink.css">
+<style id="sw-papers-navigation-20261015">
+/* Web navigation is separate from the publication and its print form. */
+.sw-p26-primary{display:flex!important;flex-wrap:wrap;gap:.25rem 1rem;align-items:center;max-width:100%;min-width:0;margin:0 0 1rem;padding:.5rem 0;font:500 .85rem/1.6 system-ui,sans-serif;letter-spacing:normal;text-transform:none}
+.sw-p26-primary a{display:inline-block;padding:.35rem 0;white-space:normal;overflow-wrap:anywhere;color:inherit;font:inherit;letter-spacing:normal;text-transform:none}
+.sw-p26-context{margin:0 0 1rem;font-size:.85rem;line-height:1.6;max-width:100%;overflow-wrap:anywhere}
+.sw-p26-context:empty{display:none}
+.sw-p26-print-original{display:none}
+.sw-p26-primary a:focus-visible,.sw-p26-bottom a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.sw-p26-bottom{display:flex;flex-wrap:wrap;gap:.4rem 1rem;padding:1.25rem 0;margin:2rem 0 0;border-top:1px solid currentColor;font:500 .85rem/1.7 system-ui,sans-serif}
+.sw-p26-bottom a{color:inherit;overflow-wrap:anywhere}
+.sw-p26-footer-groups{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));grid-column:1/-1;gap:1.5rem;flex-basis:100%;width:100%;margin:1.5rem 0 0;text-align:left!important}
+.sw-p26-footer-groups section{padding:0!important;margin:0!important;min-width:0;background:none!important;border:0!important}
+.sw-p26-footer-groups h2{font:600 .9rem/1.5 system-ui,sans-serif!important;color:inherit!important;margin:0 0 .6rem!important;letter-spacing:normal;text-transform:none}
+.sw-p26-footer-groups a{display:block;margin:.4rem 0;color:inherit!important;font:.85rem/1.6 system-ui,sans-serif;overflow-wrap:anywhere;white-space:normal}
+.footer .shell:has(.sw-p26-footer-groups){flex-wrap:wrap}
+.site-footer:has(.sw-p26-footer-groups){flex-wrap:wrap}
+.top .sw-p26-primary{margin:0;flex:1;justify-content:flex-end;gap:.25rem 1rem}
+.site-header .sw-p26-primary{margin:0;gap:.25rem 1rem}
+.sw-p26-habitat details{border-top:1px solid var(--line,#c5c9c0);padding:1rem 0}
+.sw-p26-habitat summary{cursor:pointer;font-weight:600}
+.sw-p26-habitat li{margin:.85rem 0}
+.sw-p26-habitat .meta{display:block;font-size:.85rem}
+.sw-p26-scope{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.sw-p26-scope select{max-width:100%;padding:.6rem .8rem;border:1px solid currentColor;border-radius:.5rem;background:inherit;color:inherit;font:inherit}
+@media(max-width:650px){.sw-p26-footer-groups{grid-template-columns:1fr}.top .sw-p26-primary{justify-content:flex-start;width:100%;overflow:visible}.top .sw-p26-primary a{white-space:normal;padding:.4rem .6rem}.site-header .sw-p26-primary{width:100%}}
+@media print{.sw-p26-primary,.sw-p26-context,.sw-p26-bottom,.sw-p26-footer-groups,.sw-p26-habitat,.sw-p26-added-route{display:none!important}.sw-p26-print-original{display:contents}}
+</style>
 </head>
 <body>
 <a class="sw-access-skip" href="#main-content">Skip to main content</a>
@@ -94,9 +121,7 @@
     <img src="assets/identity/spiralweb-reading-room-organic-v1.png" alt="" width="440" height="430">
     <span class="brand-name"><strong>Spiralweb<br>Papers</strong><small>Inquiry · practice · public memory</small></span>
   </a>
-  <nav aria-label="Spiralweb Papers navigation">
-    <a href="/">Home</a><a href="#collection">Library</a><a href="#protocol-habitat">Protocol Habitat</a><a href="/reading-orientation">About Spiralweb Papers</a><a href="/ai-human-responsibility">How we work with AI</a><a href="#about">Publication practice</a><a href="https://spiralweb.earth">Association ↗</a>
-  </nav>
+  <nav class="sw-p26-primary " aria-label="Primary navigation"><a href="/" hreflang="en">Papers</a><a href="/library#collection" hreflang="en">Collection</a><a href="/library#protocol-habitat" hreflang="en">Protocol Habitat</a><a href="https://spiralweb.earth/glossary/" hreflang="en">Glossary ↗</a><a href="/reading-orientation" hreflang="en">About Papers</a><a href="/ai-human-responsibility" hreflang="en">AI practice</a><a href="/methods-editorial-practice" hreflang="en">Publication practice</a><a href="https://spiralweb.earth/" hreflang="en">Spiralweb ↗</a></nav>
 </header>
 <main id="main-content" tabindex="-1">
 <section class="library-hero">
@@ -112,15 +137,15 @@
 <section class="surface-section library-tools" id="browse">
   <div class="library-intro">
     <div><p class="eyebrow">How to use this page</p><h2>Enter anywhere.</h2></div>
-    <div><p>This is the complete shelf rather than a prescribed reading path. Browse by document form, search for a question or term, or follow a reference from one text into another. The groupings make the collection legible; they do not make a ladder of importance.</p><p>If you are new to the work, the <a href="papers/atlas-of-a-living-architecture">Atlas</a> offers a guided path and <a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses</a> shows the current whole figure.</p><p><a href="/reading-orientation">About Spiralweb Papers</a> explains document types, versioning and publication practice · <a href="/da/laeseorientering" lang="da">Dansk version</a>.</p><p data-sw-short-reads-threshold="v1"><strong>Prefer a shorter orientation?</strong> <a href="https://spiralweb.earth/cafes/sofia/short-reads/">Café Sofia’s Short Reads</a> offer concise, source-linked entrances into selected ideas and publications. Return here for the complete, versioned works.</p></div>
+    <div><p><strong>Publications and public pages across the habitat.</strong> Choose Publications for the versioned corpus, or Places &amp; rooms for fields, AnchorPoints, reading entrances and working pages. Current place and relationship status stays with the linked page on spiralweb.earth.</p><p>This is the complete shelf rather than a prescribed reading path. Browse by document form, search for a question or term, or follow a reference from one text into another. The groupings make the collection legible; they do not make a ladder of importance.</p><p>If you are new to the work, the <a href="papers/atlas-of-a-living-architecture">Atlas</a> offers a guided path and <a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses</a> shows the current whole figure.</p><p><a href="/reading-orientation">About Spiralweb Papers</a> explains document types, versioning and publication practice · <a href="/da/laeseorientering" lang="da">Dansk version</a>.</p><p data-sw-short-reads-threshold="v1"><strong>Prefer a shorter orientation?</strong> <a href="https://spiralweb.earth/cafes/sofia/short-reads/">Café Sofia’s Short Reads</a> offer concise, source-linked entrances into selected ideas and publications. Return here for the complete, versioned works.</p></div>
   </div>
   <form class="library-search" role="search" hidden>
     <label class="sr-only" for="library-query">Search the library catalogue</label>
     <input id="library-query" type="search" placeholder="Search titles, descriptions or document types" aria-describedby="library-search-scope" autocomplete="off">
-    <button type="submit">Search</button>
-    <span class="search-count" id="search-count" aria-live="polite" aria-atomic="true">All works</span>
+    <div class="sw-p26-scope"><label for="library-scope">Search in</label><select id="library-scope"><option value="all">All catalogue entries</option><option value="publication">Publications</option><option value="place">Places &amp; rooms</option></select></div><button type="submit">Search</button>
+    <span class="search-count" id="search-count" aria-live="polite" aria-atomic="true">All catalogue entries</span>
   </form>
-  <p class="muted" id="library-search-scope">Search covers the entries on this page, rather than the full text of every publication.</p>
+  <p class="muted" id="library-search-scope">Search covers catalogue titles, descriptions and labels for publications and main-website pages. It does not search the full text of either website. Choose Publications or Places &amp; rooms to narrow the catalogue.</p>
   <noscript><p class="muted">Catalogue search needs JavaScript. You can browse every publication below or use your browser’s Find command.</p></noscript>
   <section class="library-results" id="library-results" aria-labelledby="library-results-heading" hidden>
     <h2 id="library-results-heading" tabindex="-1">Search results</h2>
@@ -132,6 +157,7 @@
     <a href="#reports"><strong>Reports</strong><span>Applied and operational arguments</span></a>
     <a href="#field-papers"><strong>Field Papers</strong><span>Situated encounters and propositions</span></a>
     <a href="#protocol-habitat"><strong>Protocol Habitat</strong><span>Architecture, protocols and tools</span></a>
+    <a href="#habitat-pages"><strong>Places &amp; rooms ↗</strong><span>Pages on the living habitat</span></a>
     <a href="#about"><strong>Publication practice</strong><span>Status, method and provenance</span></a>
   </nav>
   <p class="library-note"><strong>Trust grammar.</strong> Document type, version, publication status, language and operational status answer different questions. A version number is not a universal maturity score. Publication makes a work available for reading and correction; it does not activate a field, confer local authority or create an organisational relationship.</p>
@@ -461,6 +487,101 @@
       <p class="muted">New records enter the public habitat only when their type, maturity, authority, claim boundary, review state and verification date can be stated clearly. A public record does not by itself activate a field.</p>
     </section></section>
 
+<section class="surface-section sw-p26-habitat" id="habitat-pages" aria-labelledby="habitat-pages-title"><p class="eyebrow">The living habitat</p><h2 id="habitat-pages-title">Places and rooms on spiralweb.earth</h2><p>This register connects the Library to the main website: places, practice, concepts, language entrances and the Association. These are web pages, not additional Papers publications. A page records its own purpose and current status; listing a place does not activate a field or confer authority.</p><p class="muted">79 page entries · registry checked 15 October 2026. Search covers catalogue titles, descriptions and labels, not the full text of the websites. Each link opens the current page on spiralweb.earth.</p>
+<details><summary>Practice, themes and concepts · 11</summary><ul class="papers">
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/" hreflang="en">Spiralweb — Living infrastructure for regenerative communities ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">Spiralweb connects local stewardship, regenerative practice, shared knowledge and responsible support while authority remains rooted in place.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/flow-desk/" hreflang="en">Flow Desk — Spiralweb ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">How Spiralweb Stewardship Association uses One Card, One Envelope and One Return to hold active responsibilities without relocating authority.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/formats/" hreflang="en">Operational Formats · Spiralweb ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">Printable, bounded formats for observation, field learning, stewardship and accountable support across Spiralweb.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/glossary/" hreflang="en">Glossary · Spiralweb ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">A controlled vocabulary for Spiralweb&#x27;s current public architecture, roles, statuses, safeguards and tools.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/governance/compensation-transparency/" hreflang="en">Compensation and Transparency Practice · Spiralweb Stewardship Association ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">How Spiralweb makes paid human capacity, public envelopes, agreements and accountability visible.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/how-we-work/" hreflang="en">How Spiralweb works — Spiralweb ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">How Spiralweb begins with real places and connects relationship, observation, bounded action, public learning, correction and responsible support.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/institutional-bridge/" hreflang="en">Build a bridge to living fields — Spiralweb ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">How institutions, funders, researchers and public bodies can enter a bounded relationship with living fields while local authority, responsibility and return remain clear.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/methods/" hreflang="en">Methods, evidence and shared learning · Spiralweb ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">How situated observation, local knowledge, research and field practice can meet without replacing local authority or collapsing distinct forms of evidence.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/pg-ledger/" hreflang="en">The PG Ledger · Spiralweb ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">The PG Ledger is a place-bound, correctable memory for observations, decisions, resource flows, consequences and Return.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/planetary-guardians/" hreflang="en">Governance and Protocol Architecture · Spiralweb ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">A forming governance and protocol architecture for co-creation, local authority, situated observation, support, correction and accountability without standardising living places.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/themes/" hreflang="en">Seven themes · Spiralweb ↗</a><span class="meta">Main website · EN · Practice, themes and concepts</span><p class="muted">Seven public themes connecting Spiralweb’s living fields, stewardship, knowledge, economy, governance, learning and human judgement with AI.</p></li>
+</ul></details>
+<details><summary>Association, support and care · 7</summary><ul class="papers">
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/advisory-board/" hreflang="en">Advisory Board — forming · Spiralweb ↗</a><span class="meta">Main website · EN · Association, support and care</span><p class="muted">Spiralweb is forming a small, non-governing Advisory Board for living systems, critical friendship and applied inquiry.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/association/" hreflang="en">Association — Spiralweb ↗</a><span class="meta">Main website · EN · Association, support and care</span><p class="muted">Meet the elected governance, working practice and place-rooted relationships of Spiralweb Stewardship Association.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/membership/" hreflang="en">Membership · Spiralweb Stewardship Association ↗</a><span class="meta">Main website · EN · Association, support and care</span><p class="muted">Membership of Spiralweb Stewardship Association: an optional longer-term relationship with the Danish non-profit association.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/privacy/" hreflang="en">Privacy · Spiralweb Stewardship Association ↗</a><span class="meta">Main website · EN · Association, support and care</span><p class="muted">How Spiralweb Stewardship Association handles contact emails, Field Notes, membership and contribution information, and technical website data.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/shared-capacity/" hreflang="en">Shared stewardship and public infrastructure — Spiralweb ↗</a><span class="meta">Main website · EN · Association, support and care</span><p class="muted">What the Association&#x27;s DKK 4 million 2027 capacity horizon is intended to hold: relationships, governance, learning, public knowledge, institutional bridges and human viability.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/support/" hreflang="en">Support Spiralweb and First Field Flow · Spiralweb Stewardship Association ↗</a><span class="meta">Main website · EN · Association, support and care</span><p class="muted">Support Spiralweb Stewardship Association, First Field Flow and responsibly scoped institutional relationships.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/support/donation-terms/" hreflang="da">Vilkår for donationer via MobilePay · Spiralweb Stewardship Association ↗</a><span class="meta">Main website · DA · Association, support and care</span><p class="muted">Vilkår for enkeltstående og faste donationer via MobilePay til First Field Flow, Spiralweb Stewardship Associations tilladte offentlige indsamling.</p></li>
+</ul></details>
+<details><summary>Fields, AnchorPoints and Café Sofia · 10</summary><ul class="papers">
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/anchorpoints/" hreflang="en">AnchorPoints — Spiralweb ↗</a><span class="meta">Main website · EN · Fields, AnchorPoints and Café Sofia</span><p class="muted">How rooted relationships may become locally shaped constellations for stewardship, learning, governance and Return.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/" hreflang="en">Café Sofia — Begin from where you are · Spiralweb ↗</a><span class="meta">Main website · EN · Fields, AnchorPoints and Café Sofia</span><p class="muted">Café Sofia offers Short Reads, open questions and an accessible beginning for reading and independent inquiry.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/fields/" hreflang="en">Fields — Spiralweb ↗</a><span class="meta">Main website · EN · Fields, AnchorPoints and Café Sofia</span><p class="muted">A place-by-place account of Spiralweb relationships, operational phases, evidence status, bounded decisions and what is not yet active.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/fields/casablanca/" hreflang="en">Casablanca, Morocco · Cross-field relationship · Spiralweb ↗</a><span class="meta">Main website · EN · Fields, AnchorPoints and Café Sofia</span><p class="muted">A coordination relation connecting ecological practices, local knowledge and shared work across Morocco; no operational field or shared record is active.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/fields/doukkala/" hreflang="en">Doukkala, Morocco · Field · Spiralweb ↗</a><span class="meta">Main website · EN · Fields, AnchorPoints and Café Sofia</span><p class="muted">An existing farm relationship in Morocco&#x27;s Doukkala plains, where a possible dryland inquiry around water, soil and land stewardship remains preparatory.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/fields/had-soualem/" hreflang="en">Firmaty · Had Soualem, Morocco · Field · Spiralweb ↗</a><span class="meta">Main website · EN · Fields, AnchorPoints and Café Sofia</span><p class="muted">Firmaty is an existing two-hectare permaculture practice in Had Soualem, where a possible shared inquiry into water security remains preparatory.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/fields/karachi/" hreflang="en">Karachi, Pakistan · Field · Spiralweb ↗</a><span class="meta">Main website · EN · Fields, AnchorPoints and Café Sofia</span><p class="muted">Karachi has an established Spiralweb relationship. No bounded site, scoping cycle or field record is active.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/fields/kitgum/" hreflang="en">Kitgum, Uganda · Field · Spiralweb ↗</a><span class="meta">Main website · EN · Fields, AnchorPoints and Café Sofia</span><p class="muted">An established community relationship in northern Uganda, presently centred on drought response, care and readiness; no field cycle is active.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/fields/mexico-city/" hreflang="en">Mexico City, Mexico · Field · Spiralweb ↗</a><span class="meta">Main website · EN · Fields, AnchorPoints and Café Sofia</span><p class="muted">A preparatory inquiry concerning chinampa stewardship, field documentation and governance learning in Xochimilco; no local field scope or cycle is active.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/fields/morocco/" hreflang="en">Morocco constellation — Spiralweb ↗</a><span class="meta">Main website · EN · Fields, AnchorPoints and Café Sofia</span><p class="muted">Two distinct field relationships in Doukkala and at Firmaty, connected through a wider Morocco learning constellation.</p></li>
+</ul></details>
+<details><summary>Short Reads · English · 24</summary><ul class="papers">
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/" hreflang="en">Short Reads · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">Concise entrances into Spiralweb’s working architecture.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/a-decent-economy/" hreflang="en">A Decent Economy Under the Jurisdiction of Life · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">How money can support life, responsibility and capacity without claiming to price, own or equal what it serves.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/capacity-and-contact/" hreflang="en">Capacity and Contact — Greater capacity in deeper contact · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">Why deeper contact can expand real capacity—and why scale without relationship may produce distance, burden and silent loss.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/commons-as-habitat/" hreflang="en">Commons as Habitat — What we keep making possible together · Short Read · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A concise entrance to the commons as a living arrangement of relationship, rules, memory and renewal.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/gateways/ai-and-human-judgement/" hreflang="en">AI and Human Judgement · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A guided path through AI, situated knowledge, human judgement, correction and responsibility across the Spiralweb library.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/human-judgement-with-ai/" hreflang="en">Human Judgement with AI — Assistance without transferred responsibility · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">How AI can assist inquiry without taking over consent, consequence, mandate or the final accountable human judgement.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/knowing-from-the-ground/" hreflang="en">Knowing From the Ground · Short Read · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A concise entrance to embodied observation as full but fallible knowledge.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/moral-biology/" hreflang="en">Moral Biology — Ethics needs carrying capacity · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">Why ethical action depends on bodily, relational and institutional capacity—not intention alone.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/municipal-work-as-nature/" hreflang="en">Municipal Work as Nature · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">How municipal work can be read as a living ecology of rhythm, friction, judgement, capacity and regenerative public value.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/penguin-dashboard/" hreflang="en">Penguin Dashboard — Legibility without scoring life · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A three-stream dashboard that keeps land and life, steward viability, and governance visible without collapsing them into one score.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/penguin-economics/" hreflang="en">Penguin Economics — No one should live permanently at the cold edge · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">An economy of rotation and care in which no person, place or species is left permanently carrying the cold edge.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/pg-ledger/" hreflang="en">PG Ledger — Memory, not a machine that decides · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A memory and correction surface that keeps observation, interpretation, decision and consequence distinct without deciding for the field.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/planetary-guardianship/" hreflang="en">Planetary Guardianship — Responsibility without possession · Short Read · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A concise entrance to planetary responsibility as situated, temporary and answerable care without possession.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/protocol-habitat/" hreflang="en">Protocol Habitat — Publication is not activation · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">How protocols become answerable to real places through situated application, correction and return. Publication is not activation.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/regenerative-municipality/" hreflang="en">The Regenerative Municipality — Capacity that can repair itself · Short Read · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A concise entrance to friction economics, repairable municipal capacity and bounded reversible pilots.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/regenerative-reciprocity/" hreflang="en">Regenerative Reciprocity — Support without capture · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">How time, knowledge and material support can move across places without buying authority or turning situated practice into a blueprint.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/rule-of-life/" hreflang="en">Rule of Life — Lawful is not always life-supporting · Short Read · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A concise entrance to Rule of Life as a constitutional test held together with Rule of Law.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/silent-degradation/" hreflang="en">Silent Degradation · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">How systems may continue to look functional while losing the living capacities that make their work possible.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/spiral-of-hypotheses/" hreflang="en">The Spiral of Hypotheses · Short Read · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A concise entrance to Spiralweb’s nine working wagers and founding field.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/srip/" hreflang="en">The Steward’s Journey — Begin with a real place · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A place-based journey from observation and light records toward relationship, support, pause or dignified incompletion.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/stewardship-economy/" hreflang="en">Capacity, Contact, and the Emerging Stewardship Economy · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">How deeper contact, viable stewards and patient support can form an economy that strengthens rather than extracts capacity.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/the-correction-loop/" hreflang="en">The Correction Loop · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A practical accountability loop for AI-assisted work: keep outputs provisional, correction possible and final responsibility human.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/the-grounding-protocol/" hreflang="en">The Grounding Protocol · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">A concise entrance to The Grounding Protocol: an epistemology of care for human, AI and more-than-human knowing.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/cafes/sofia/short-reads/three-streams/" hreflang="en">Three Streams — One good result cannot erase another kind of harm · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · EN · Short Reads · English</span><p class="muted">Why ecological gain, steward viability and governance must remain separately visible: one good result cannot erase another harm.</p></li>
+</ul></details>
+<details><summary>Dansk foyer og praksis · 4</summary><ul class="papers">
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/" hreflang="da">Spiralweb — dansk indgang ↗</a><span class="meta">Main website · DA · Dansk foyer og praksis</span><p class="muted">En dansk indgang til Spiralweb: konkrete steder, mennesker, læring, støtte og PG Ledger.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/begrebsordbog/" hreflang="da">Begrebsordbog · Spiralweb ↗</a><span class="meta">Main website · DA · Dansk foyer og praksis</span><p class="muted">Danske forklaringer af Spiralwebs begreber for viden, praksis, ansvar og levende steder, med status og kilder.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/stoette/" hreflang="da">Støt First Field Flow · Spiralweb Stewardship Forening ↗</a><span class="meta">Main website · DA · Dansk foyer og praksis</span><p class="muted">Dansk indgang til Spiralwebs First Field Flow: formål, indsamlingsstatus, økonomisk ramme, betaling og vilkår.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/undersoeg-dit-spoergsmaal/" hreflang="da">Undersøg dit eget spørgsmål · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · DA · Dansk foyer og praksis</span><p class="muted">En enkel dansk indgang til at undersøge et sted eller spørgsmål, med eller uden AI.</p></li>
+</ul></details>
+<details><summary>Korte læsninger · Dansk · 17</summary><ul class="papers">
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/" hreflang="da">Korte læsninger på dansk · Café Sofia · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">Forklarende danske indgange til Spiralwebs arbejde med viden, sted, fødevarer, stewardship, institutioner, økonomi og offentlig hukommelse.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/at-holde-jorden-levende/" hreflang="da">At holde jorden levende · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En forklarende dansk indgang til arealomlægning, stewardship, naturvirkning og den kapacitet, der forbinder projekt med langsigtet konsekvens.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/borgeren-som-medundersoeger/" hreflang="da">Borgeren som medundersøger · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til citizen science, kritisk venskab og borgeres rolle som medundersøgere af deres egne steder.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/det-levende-felt/" hreflang="da">Det levende felt · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En forklarende dansk indgang til partiel viden, ansvar, stedbunden praksis og små handlinger, der kan rettes.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/en-anstaendig-oekonomi-under-livets-jurisdiktion/" hreflang="da">En anstændig økonomi under livets jurisdiktion · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En forklarende dansk indgang til penge, stewardship, ansvar, forskellige betalingsrelationer og livets grænser.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/foedevarer-som-levende-forbindelse/" hreflang="da">Fødevarer som levende forbindelse · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til bevidst samskabte fødevaresystemer, hvor jord, vand, ernæring, arbejde, kultur og lokal læring mødes.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/friktionsoekonomi/" hreflang="da">Friktionsøkonomi · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En forklarende dansk indgang til den tid, opmærksomhed og dømmekraft, som tabes eller beskyttes i institutionelle grænseflader.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/kommunalt-arbejde-som-natur/" hreflang="da">Kommunalt arbejde som natur · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En forklarende dansk indgang til kommunal kapacitet, flow, friktion, følsomhed, dømmekraft og afgrænsede forsøg.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/korrektionssloejfen/" hreflang="da">Korrektionssløjfen · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til menneskeligt ansvar, stopret og sporbar korrektion i arbejde med kunstig intelligens.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/livets-graenser-som-ansvar/" hreflang="da">Livets grænser som ansvar · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til planetære grænser som et ansvar for at forbinde global risiko med konkrete beslutninger og steder.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/livsrigdom-i-bioregionen/" hreflang="da">Livsrigdom i bioregionen · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til livsrigdom, biodiversitet og bioregionen som skala for forbindelse, læring og naturgenopretning.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/moralbiologi/" hreflang="da">Moralbiologi · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til Moral Biology: etik kræver bæreevne i kroppe, relationer, institutioner og levesteder.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/pg-ledger/" hreflang="da">PG Ledger · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til PG Ledger som stedbunden hukommelse, proveniens, sporbarhed og korrektion — ikke som styringsmaskine.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/pingvinoekonomi/" hreflang="da">Pingvinøkonomi · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til Penguin Economics: hvordan udsathed, ansvar, ressourcer og restitution kan fordeles uden heltesystemer.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/stewardship-som-arbejde/" hreflang="da">Stewardship som arbejde · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til stewardship som et muligt arbejdsfelt med konkrete funktioner, rimelig betaling og klare grænser.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/stoette-uden-overtagelse/" hreflang="da">Støtte uden overtagelse · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til støtte, der styrker et levende felt uden at købe dets retning, fortælling eller myndighed.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/da/korte-laesninger/viden-fra-jorden/" hreflang="da">Viden fra jorden · Kort læsning · Spiralweb ↗</a><span class="meta">Main website · DA · Korte læsninger · Dansk</span><p class="muted">En dansk indgang til Knowing From the Ground: stedbunden observation er fuld, men fejlbar og korrigerbar viden.</p></li>
+</ul></details>
+<details><summary>Local language entrances · 6</summary><ul class="papers">
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/kitgum/acholi/" hreflang="ach-UG">Spiralweb ki Kitgum · Acholi ↗</a><span class="meta">Main website · ACH-UG · Local language entrances</span><p class="muted">Spiralweb ki jo me Kitgum: tic me konyo jo me gang, neno piny ki yubo pi kare ma kot odwogo.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/mexico-city/es/" hreflang="es-MX">Spiralweb y Xochimilco · Ciudad de México ↗</a><span class="meta">Main website · ES-MX · Local language entrances</span><p class="muted">Spiralweb y la investigación compartida que se está formando en Xochimilco: chinampas, agua, conocimiento local y decisiones públicas.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/morocco/darija/" hreflang="ary-MA">Spiralweb والعلاقات فالمغرب · Spiralweb ↗</a><span class="meta">Main website · ARY-MA · Local language entrances</span><p class="muted">Spiralweb والعلاقات فدكالة وحد السوالم والدار البيضاء.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/morocco/darija/fields/" hreflang="ary-MA">جوج بلايص وعلاقة كتربط بيناتهم · Spiralweb ↗</a><span class="meta">Main website · ARY-MA · Local language entrances</span><p class="muted">Spiralweb والعلاقات فدكالة وحد السوالم والدار البيضاء.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/morocco/fr/" hreflang="fr-MA">Spiralweb et les relations au Maroc · Spiralweb ↗</a><span class="meta">Main website · FR-MA · Local language entrances</span><p class="muted">Spiralweb, ses relations au Maroc et leur état actuel à Doukkala, Had Soualem et Casablanca.</p></li>
+<li data-sw-catalogue="place"><a href="https://spiralweb.earth/morocco/fr/fields/" hreflang="fr-MA">Deux lieux et un lien entre eux · Spiralweb ↗</a><span class="meta">Main website · FR-MA · Local language entrances</span><p class="muted">Spiralweb, ses relations au Maroc et leur état actuel à Doukkala, Had Soualem et Casablanca.</p></li>
+</ul></details>
+</section>
 <section class="surface-section" id="about">
   <div class="section-heading"><div><p class="eyebrow">Depth on demand</p><h2>About this public inquiry</h2></div><p>Methods, AI collaboration, public responsibility, and citation remain available in depth without standing between a new reader and the work itself.</p></div>
   <div class="about-grid">
@@ -497,23 +618,24 @@
   <div class="footer-lockup"><img src="assets/identity/spiralweb-reading-room-organic-v1.png" alt="" width="440" height="430"><div><strong>Spiralweb Papers</strong><br><span>Inquiry · practice · public memory</span></div></div>
   <div>Same organism, different rooms.<br><a href="https://spiralweb.earth">Enter the living habitat →</a></div>
   <div><!--email_off--><a href="mailto:contact@spiralweb.earth">contact@spiralweb.earth</a><!--/email_off--> · <a href="https://spiralweb.earth/association/">Association</a> · <a href="https://spiralweb.earth/advisory-board/">Advisory</a> · <a href="/privacy">Papers privacy</a><br>CC BY 4.0 · Open, versioned inquiry · Updated 12 October 2026</div>
-</footer>
+<nav class="sw-p26-footer-groups" aria-label="Read, responsibility and habitat"><section><h2>Read and find</h2><a href="/" hreflang="en">Papers entrance</a><a href="/library#collection" hreflang="en">Full Library</a><a href="https://spiralweb.earth/cafes/sofia/short-reads/" hreflang="en">Short Reads ↗</a><a href="https://spiralweb.earth/glossary/" hreflang="en">Glossary ↗</a></section><section><h2>Practice &amp; responsibility</h2><a href="/methods-editorial-practice" hreflang="en">Publication practice</a><a href="/ai-human-responsibility" hreflang="en">AI practice</a><a href="/papers/land-water-and-living-stewardship" hreflang="en">Applied field learning</a><a href="mailto:contact@spiralweb.earth" hreflang="en">Corrections</a><a href="/privacy" hreflang="en">Privacy</a></section><section><h2>Living habitat</h2><a href="https://spiralweb.earth/" hreflang="en">Spiralweb ↗</a><a href="https://spiralweb.earth/fields/" hreflang="en">Fields ↗</a><a href="https://spiralweb.earth/anchorpoints/" hreflang="en">AnchorPoints ↗</a><a href="https://spiralweb.earth/association/" hreflang="en">Association ↗</a></section></nav></footer>
 </div>
 
 <script id="library-search-behaviour">
   (() => {
     const input = document.getElementById('library-query');
     const form = input?.closest('form');
+    const scope = document.getElementById('library-scope');
     const count = document.getElementById('search-count');
     const results = document.getElementById('library-results');
     const heading = document.getElementById('library-results-heading');
     const list = document.getElementById('library-results-list');
     const empty = document.getElementById('library-results-empty');
-    if (!form || !count || !results || !heading || !list || !empty) return;
+    if (!scope || !form || !count || !results || !heading || !list || !empty) return;
     const normalize = (value) => value.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const entries = [];
     const byAddress = new Map();
-    document.querySelectorAll('#collection li, #protocol-habitat li').forEach((entry) => {
+    document.querySelectorAll('#collection li, #protocol-habitat li, #habitat-pages li[data-sw-catalogue]').forEach((entry) => {
       const title = entry.querySelector(':scope > a');
       if (!title) return;
       const address = title.href;
@@ -521,24 +643,26 @@
       if (existing) {
         existing.searchText += ' ' + normalize(entry.textContent);
       } else {
-        const record = { entry, searchText: normalize(entry.textContent) };
+        const record = { entry, kind: entry.dataset.swCatalogue === 'place' ? 'place' : 'publication', searchText: normalize(entry.textContent) };
         entries.push(record);
         byAddress.set(address, record);
       }
     });
     let lastQuery = null;
+    let lastScope = null;
     const update = () => {
       const query = normalize(input.value.trim());
-      if (query === lastQuery) return;
+      if (query === lastQuery && scope.value === lastScope) return;
+      lastScope = scope.value;
       lastQuery = query;
       list.replaceChildren();
-      results.hidden = !query;
+      results.hidden = !query && scope.value === 'all';
       empty.hidden = true;
-      if (!query) {
-        count.textContent = 'All works';
+      if (!query && scope.value === 'all') {
+        count.textContent = 'All catalogue entries';
         return;
       }
-      const matches = entries.filter((record) => record.searchText.includes(query));
+      const matches = entries.filter((record) => (scope.value === 'all' || record.kind === scope.value) && record.searchText.includes(query));
       matches.forEach(({ entry }) => {
         const item = entry.cloneNode(true);
         item.removeAttribute('id');
@@ -548,6 +672,7 @@
       count.textContent = `${matches.length} ${matches.length === 1 ? 'match' : 'matches'}`;
       empty.hidden = matches.length !== 0;
     };
+    scope.addEventListener('change', update);
     input.addEventListener('input', update);
     input.addEventListener('search', update);
     form.addEventListener('submit', (event) => {
