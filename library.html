@@ -111,8 +111,9 @@
 @media(max-width:650px){.sw-p26-footer-groups{grid-template-columns:1fr}.top .sw-p26-primary{justify-content:flex-start;width:100%;overflow:visible}.top .sw-p26-primary a{white-space:normal;padding:.4rem .6rem}.site-header .sw-p26-primary{width:100%}}
 @media print{.sw-p26-primary,.sw-p26-context,.sw-p26-bottom,.sw-p26-footer-groups,.sw-p26-habitat,.sw-p26-added-route{display:none!important}.sw-p26-print-original{display:contents}}
 </style>
+<link rel="stylesheet" href="/assets/reading-salon-v1.css" media="screen">
 </head>
-<body>
+<body class="sw-salon sw-salon-library">
 <a class="sw-access-skip" href="#main-content">Skip to main content</a>
 
 <div class="reading-room">
@@ -121,7 +122,7 @@
     <img src="assets/identity/spiralweb-reading-room-organic-v1.png" alt="" width="440" height="430">
     <span class="brand-name"><strong>Spiralweb<br>Papers</strong><small>Inquiry · practice · public memory</small></span>
   </a>
-  <nav class="sw-p26-primary " aria-label="Primary navigation"><a href="/" hreflang="en">Papers</a><a href="/library#collection" hreflang="en">Collection</a><a href="/library#protocol-habitat" hreflang="en">Protocol Habitat</a><a href="https://spiralweb.earth/glossary/" hreflang="en">Glossary ↗</a><a href="/reading-orientation" hreflang="en">About Papers</a><a href="/ai-human-responsibility" hreflang="en">AI practice</a><a href="/methods-editorial-practice" hreflang="en">Publication practice</a><a href="https://spiralweb.earth/" hreflang="en">Spiralweb ↗</a></nav>
+  <nav class="sw-p26-primary " aria-label="Primary navigation"><a href="/" hreflang="en">Papers</a><a aria-current="page" href="/library#collection" hreflang="en">Collection</a><a href="/library#protocol-habitat" hreflang="en">Protocol Habitat</a><a href="https://spiralweb.earth/glossary/" hreflang="en">Glossary ↗</a><a href="/reading-orientation" hreflang="en">About Papers</a><a href="/ai-human-responsibility" hreflang="en">AI practice</a><a href="/methods-editorial-practice" hreflang="en">Publication practice</a><a href="https://spiralweb.earth/" hreflang="en">Spiralweb ↗</a></nav>
 </header>
 <main id="main-content" tabindex="-1">
 <section class="library-hero">
@@ -135,10 +136,6 @@
 </section>
 
 <section class="surface-section library-tools" id="browse">
-  <div class="library-intro">
-    <div><p class="eyebrow">How to use this page</p><h2>Enter anywhere.</h2></div>
-    <div><p><strong>Publications and public pages across the habitat.</strong> Choose Publications for the versioned corpus, or Places &amp; rooms for fields, AnchorPoints, reading entrances and working pages. Current place and relationship status stays with the linked page on spiralweb.earth.</p><p>This is the complete shelf rather than a prescribed reading path. Browse by document form, search for a question or term, or follow a reference from one text into another. The groupings make the collection legible; they do not make a ladder of importance.</p><p>If you are new to the work, the <a href="papers/atlas-of-a-living-architecture">Atlas</a> offers a guided path and <a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses</a> shows the current whole figure.</p><p><a href="/reading-orientation">About Spiralweb Papers</a> explains document types, versioning and publication practice · <a href="/da/laeseorientering" lang="da">Dansk version</a>.</p><p data-sw-short-reads-threshold="v1"><strong>Prefer a shorter orientation?</strong> <a href="https://spiralweb.earth/cafes/sofia/short-reads/">Café Sofia’s Short Reads</a> offer concise, source-linked entrances into selected ideas and publications. Return here for the complete, versioned works.</p></div>
-  </div>
   <form class="library-search" role="search" hidden>
     <label class="sr-only" for="library-query">Search the library catalogue</label>
     <input id="library-query" type="search" placeholder="Search titles, descriptions or document types" aria-describedby="library-search-scope" autocomplete="off">
@@ -160,6 +157,10 @@
     <a href="#habitat-pages"><strong>Places &amp; rooms ↗</strong><span>Pages on the living habitat</span></a>
     <a href="#about"><strong>Publication practice</strong><span>Status, method and provenance</span></a>
   </nav>
+  <div class="library-intro">
+    <div><p class="eyebrow">How to use this page</p><h2>Enter anywhere.</h2></div>
+    <div><p><strong>Publications and public pages across the habitat.</strong> Choose Publications for the versioned corpus, or Places &amp; rooms for fields, AnchorPoints, reading entrances and working pages. Current place and relationship status stays with the linked page on spiralweb.earth.</p><p>This is the complete shelf rather than a prescribed reading path. Browse by document form, search for a question or term, or follow a reference from one text into another. The groupings make the collection legible; they do not make a ladder of importance.</p><p>If you are new to the work, the <a href="papers/atlas-of-a-living-architecture">Atlas</a> offers a guided path and <a href="papers/the-spiral-of-hypotheses">The Spiral of Hypotheses</a> shows the current whole figure.</p><p><a href="/reading-orientation">About Spiralweb Papers</a> explains document types, versioning and publication practice · <a href="/da/laeseorientering" lang="da">Dansk version</a>.</p><p data-sw-short-reads-threshold="v1"><strong>Prefer a shorter orientation?</strong> <a href="https://spiralweb.earth/cafes/sofia/short-reads/">Café Sofia’s Short Reads</a> offer concise, source-linked entrances into selected ideas and publications. Return here for the complete, versioned works.</p></div>
+  </div>
   <p class="library-note"><strong>Trust grammar.</strong> Document type, version, publication status, language and operational status answer different questions. A version number is not a universal maturity score. Publication makes a work available for reading and correction; it does not activate a field, confer local authority or create an organisational relationship.</p>
 </section>
 <section class="surface-section library" id="collection"><section class="block">
