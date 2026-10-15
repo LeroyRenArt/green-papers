@@ -1,0 +1,147 @@
+name: Papers remaining WeasyPrint structural calibration
+on:
+  push:
+    branches: [audit/pdf-tags-final-fonts-20261015]
+    paths: [.github/workflows/pdf-baseline-family4.yml]
+permissions:
+  contents: read
+jobs:
+  baseline-pdfs:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: cf67c9a0ffe33b9f02c76c38587af71bb896c947
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.12'
+      - name: Install recorded dependency versions
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y 'libpango-1.0-0=1.52.1+ds-1build1' 'libpangoft2-1.0-0=1.52.1+ds-1build1' 'fonts-dejavu-core=2.37-8' 'fonts-urw-base35=20200910-8'
+          cat > "$RUNNER_TEMP/pdf-requirements.lock" <<'LOCK'
+          brotli==1.2.0
+          cffi==2.1.1
+          cssselect2==0.10.1
+          fonttools==4.66.1
+          pillow==12.3.0
+          pycparser==3.11
+          pydyf==0.12.1
+          PyMuPDF==1.26.6
+          pyphen==0.18.1
+          tinycss2==1.5.1
+          tinyhtml5==2.1.0
+          weasyprint==70.0
+          webencodings==0.6.1
+          zopfli==0.4.3
+          LOCK
+          python -m pip install -r "$RUNNER_TEMP/pdf-requirements.lock"
+      - name: Compare four historical print profiles
+        run: |
+          cat > "$RUNNER_TEMP/weasy-tags.py" <<'PY'
+          from pathlib import Path
+          from urllib.parse import urlsplit,unquote
+          import hashlib,json,os,subprocess,shutil,logging
+          import fitz,weasyprint
+          from weasyprint import HTML,CSS
+          from weasyprint.urls import URLFetcher
+          from weasyprint.text.fonts import FontConfiguration
+          ROOT=Path.cwd().resolve();OUT=Path(os.environ['RUNNER_TEMP'])/'pdf-baseline-proof';OUT.mkdir()
+          EXPECTED='cf67c9a0ffe33b9f02c76c38587af71bb896c947'
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==EXPECTED
+          assert weasyprint.__version__=='70.0'
+          sha=lambda b:hashlib.sha256(b).hexdigest()
+          blob=lambda b:hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          class Fetcher(URLFetcher):
+           def __init__(self):super().__init__(allowed_protocols=['file','data'],fail_on_errors=True);self.resources=[]
+           def fetch(self,url,headers=None):
+            u=urlsplit(url)
+            if u.scheme=='data':return super().fetch(url,headers)
+            if u.scheme in ('https','http') and u.hostname in ('papers.spiralweb.earth','green-papers.pages.dev'):p=(ROOT/unquote(u.path).lstrip('/')).resolve()
+            elif u.scheme=='file':p=Path(unquote(u.path)).resolve()
+            else:raise ValueError('External resource refused '+url)
+            if ROOT not in p.parents or not p.is_file():raise ValueError('Missing local resource '+str(p))
+            self.resources.append({'path':str(p.relative_to(ROOT)),'sha256':sha(p.read_bytes())})
+            if p.suffix=='.svg':
+             svg=p.read_text()
+             if p.name=='penguin-dashboard-living-field.svg':svg=svg.replace('font-family: Arial, Helvetica, sans-serif','font-family: Nimbus Sans')
+             if p.name=='gp22-capacity-contact.svg':
+              import re
+              def expand(m):
+               style,weight,size,family=m.groups()
+               return 'font-style:'+((style or 'normal').strip())+';font-weight:'+((weight or '400').strip())+';font-size:'+size+'px;font-family:'+('DejaVu Sans' if family=='Arial' else 'HistoricalSerif')+';'
+              svg=re.sub(r'font: (italic )?(700 )?(\d+)px (Arial|Georgia), (?:sans-serif|serif);',expand,svg)
+             return {'string':svg.encode(),'mime_type':'image/svg+xml','redirected_url':p.as_uri()}
+            return super().fetch(p.as_uri(),headers)
+          def inspect(p):
+           with fitz.open(p) as d:
+            return {'pages':len(d),'text':[p.get_text() for p in d], 'words':[[list(w[:5]) for w in p.get_text('words')] for p in d], 'sizes':[list(p.rect) for p in d],'pixels':[sha(p.get_pixmap(alpha=False).samples) for p in d]}
+          def same(a,b):return all(a[k]==b[k] for k in ('pages','text','words','sizes','pixels'))
+          CASES=[{'pdf': 'papers/capacity-contact-stewardship-economy.pdf', 'html': 'papers/capacity-contact-stewardship-economy.html', 'pdf_blob': 'd9ded968cb5f357ae04ac0007a720bae3ef23db5', 'html_sha': '9f5818b79eda444324ce3a226061a5a8afc737dfd36bbb63697ee6c4afcb5ac1', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}body{font-family:DejaVu Serif!important}.sitebar{font-family:DejaVu Sans!important}.eyebrow{font-family:DejaVu Sans!important}.paper-number{font-family:DejaVu Sans!important}.meta-grid{font-family:DejaVu Sans!important}article h2{font-family:DejaVu Sans!important}article h3{font-family:DejaVu Sans!important}article figcaption{font-family:DejaVu Sans!important}.colophon{font-family:DejaVu Sans!important}', 'profile': 'observed-font-lineage-override'}, {'pdf': 'papers/report-06-regenerative-reciprocity.pdf', 'html': 'papers/report-06-regenerative-reciprocity.html', 'pdf_blob': '5fc421a3a5720b3424d9a60e93fe32f9fb404bbd', 'html_sha': '3756e2423431bbc9bafe2481ae0428eca9625a02dabbabca79f5aecc4ba5ac03', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}body{font-family:DejaVu Serif!important}.crumb{font-family:HistoricalSans!important}.header h1{font-family:HistoricalSans!important}.header .sub{font-family:HistoricalSans!important}.header .meta{font-family:HistoricalSans!important}h2{font-family:HistoricalSans!important}h3{font-family:HistoricalSans!important}table{font-family:HistoricalSans!important}.annex .annex-tag{font-family:HistoricalSans!important}.footer{font-family:HistoricalSans!important}.closing-stack{font-family:HistoricalSans!important}', 'profile': 'observed-font-lineage-override'}, {'pdf': 'papers/water-into-dry-riverbeds.pdf', 'html': 'papers/water-into-dry-riverbeds.html', 'pdf_blob': '2aa4afcafa97f3cb10bf49d23c6100bd1da555e8', 'html_sha': '036a3d9224a26b63c4e6ee584f046cb9e5a5d2c75adf420f99d433acbe7280fe', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}size: A4;\n    margin: 18mm 26mm 19mm 26mm;\n    @bottom-right{font-family:Nimbus Sans!important}body{font-family:DejaVu Serif!important}.topline{font-family:Nimbus Sans!important}h1{font-family:Nimbus Sans!important}.meta{font-family:Nimbus Sans!important}.site{font-family:Nimbus Sans!important}h2{font-family:Nimbus Sans!important}h3{font-family:Nimbus Sans!important}h4{font-family:Nimbus Sans!important}.part{font-family:Nimbus Sans!important}.artifact-title{font-family:Nimbus Sans!important}th{font-family:Nimbus Sans!important}.footer-block{font-family:Nimbus Sans!important}.review-label{font-family:Nimbus Sans!important}@page{@bottom-right{font-family:Nimbus Sans!important}}', 'profile': 'observed-font-lineage-override'}, {'pdf': 'pdf/penguin-dashboard-legibility-as-governance.pdf', 'html': 'papers/penguin-dashboard-legibility-as-governance.html', 'pdf_blob': '0ae59b6c7d970bcd88ca63e6986a213abdc63542', 'html_sha': '098bcf698b12ecc06fc13cc7032c02b42fe75cf3f9702ed07a990806118bf862', 'css': 'a.sw-access-skip,.sw-shorter-entrances{display:none!important}body{font-family:DejaVu Serif!important}.text-mark{font-family:Nimbus Sans!important}.series{font-family:Nimbus Sans!important}h1,\n  h2,\n  h3{font-family:Nimbus Sans!important}.meta{font-family:Nimbus Sans!important}table{font-family:Nimbus Sans!important}footer{font-family:Nimbus Sans!important}.penguin-visual{font-family:Nimbus Sans!important}.living-map-figure figcaption{font-family:Nimbus Sans!important}.spiralweb-papers-return{font-family:Nimbus Sans!important}.series{font-family:DejaVu Sans!important}', 'profile': 'observed-font-lineage-override'}]
+          import base64
+          font_prefix=''
+          for weight,filename in [(400,'DejaVuSerif.ttf'),(700,'DejaVuSerif-Bold.ttf')]:
+           font_path=Path('/usr/share/fonts/truetype/dejavu')/filename
+           font_prefix+='@font-face{font-family:HistoricalSerif;src:url(data:font/ttf;base64,'+base64.b64encode(font_path.read_bytes()).decode()+');font-style:normal;font-weight:'+str(weight)+';}'
+          for weight,filename in [(400,'DejaVuSans.ttf'),(700,'DejaVuSans-Bold.ttf')]:
+           font_path=Path('/usr/share/fonts/truetype/dejavu')/filename
+           font_prefix+='@font-face{font-family:HistoricalSans;src:url(data:font/ttf;base64,'+base64.b64encode(font_path.read_bytes()).decode()+');font-style:normal;font-weight:'+str(weight)+';}'
+          for c in CASES:
+           c['css']=font_prefix+c['css'].replace('font-family:DejaVu Serif','font-family:HistoricalSerif')
+           c['profile']='recorded-regular-bold-only-synthetic-oblique-trial'
+          
+          report={'source_main':EXPECTED,'engine':weasyprint.__version__,'production_writes':0,'cases':[]}
+          inputs={str(p.relative_to(ROOT)):sha(p.read_bytes()) for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.parts}
+          logging.getLogger('weasyprint').setLevel(logging.ERROR)
+          for n,c in enumerate(CASES):
+           print('CASE',n+1,c['pdf'],flush=True);folder=OUT/(str(n+1)+'-'+Path(c['pdf']).stem);folder.mkdir();item={k:v for k,v in c.items() if k!='css'}
+           try:
+            html=ROOT/c['html'];pdf=ROOT/c['pdf'];assert sha(html.read_bytes())==c['html_sha'];assert blob(pdf.read_bytes())==c['pdf_blob']
+            (folder/'print.css').write_text(c['css']);shutil.copyfile(html,folder/'source.html');shutil.copyfile(pdf,folder/'production.pdf');prod=inspect(pdf)
+            f=Fetcher();fc=FontConfiguration();baseline=folder/'baseline.pdf'
+            HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+c['html'],url_fetcher=f).write_pdf(baseline,stylesheets=[CSS(string=c['css'],font_config=fc)],font_config=fc,pdf_tags=False)
+            base=inspect(baseline);item.update(baseline_exact=same(prod,base),baseline_pages=base['pages'],production_pages=prod['pages'],resources=f.resources)
+            if not item['baseline_exact']:
+             item.update(status='DEFERRED_BASELINE_DIFFERS',differences=[k for k in prod if prod[k]!=base[k]])
+            else:
+             f=Fetcher();fc=FontConfiguration();candidate=folder/'candidate.pdf'
+             HTML(filename=str(html),base_url='https://papers.spiralweb.earth/'+c['html'],url_fetcher=f).write_pdf(candidate,stylesheets=[CSS(string=c['css'],font_config=fc)],font_config=fc,pdf_tags=True)
+             cand=inspect(candidate);assert same(prod,cand),'Tagged render changed'
+             with fitz.open(candidate) as d:
+              root=d.pdf_catalog();st=d.xref_get_key(root,'StructTreeRoot');assert st[0]=='xref',st
+              struct=int(st[1].split()[0]);assert d.xref_get_key(struct,'ParentTree')[0]=='xref'
+              lang=d.xref_get_key(root,'Lang')[1];assert lang in ('en','da'),lang
+              roles={}
+              import re
+              for x in range(1,d.xref_length()):
+               for role in re.findall(r'/S /([A-Za-z0-9]+)',d.xref_object(x)) :roles[role]=roles.get(role,0)+1
+              assert roles.get('H1',0)>0 and roles.get('P',0)>0,roles
+              assert d.xref_get_key(root,'MarkInfo/Marked')[1]=='true'
+              for pg in [0,len(d)//2,len(d)-1]:d[pg].get_pixmap(alpha=False).save(folder/('candidate-page-'+str(pg+1)+'.png'))
+             item.update(status='CANDIDATE_EXACT_REVIEW_REQUIRED',candidate_sha256=sha(candidate.read_bytes()),candidate_blob=blob(candidate.read_bytes()),roles=roles,lang=lang,candidate_exact=True)
+            (folder/'comparison.json').write_text(json.dumps({'production':prod,'baseline':base},ensure_ascii=False))
+           except Exception as e:item.update(status='DEFERRED_ERROR',error=repr(e))
+           report['cases'].append(item);print('RESULT',item['status'],flush=True)
+          report['repository_unchanged']=all((ROOT/n).is_file() and sha((ROOT/n).read_bytes())==h for n,h in inputs.items())
+          assert report['repository_unchanged']
+          (OUT/'RESULT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          shutil.copyfile(Path(os.environ['RUNNER_TEMP'])/'weasy-tags.py',OUT/'script-used.py')
+          (OUT/'pip-freeze.txt').write_text(subprocess.check_output(['python','-m','pip','freeze'],text=True))
+          (OUT/'workflow-run.json').write_text(json.dumps({n:os.environ.get(n) for n in ('GITHUB_RUN_ID','GITHUB_SHA','ImageOS','ImageVersion')}))
+          (OUT/'MANIFEST.json').write_text(json.dumps({str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.rglob('*') if p.is_file()},indent=2))
+          print('COMPLETE',sum(c['status']=='CANDIDATE_EXACT_REVIEW_REQUIRED' for c in report['cases']),len(report['cases']),flush=True)
+          PY
+          python "$RUNNER_TEMP/weasy-tags.py"
+      - name: Preserve diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: papers-final-fonts-20261015
+          path: ${{ runner.temp }}/pdf-baseline-proof
+          retention-days: 30
+          if-no-files-found: error
+
+
+
