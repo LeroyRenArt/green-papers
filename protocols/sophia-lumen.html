@@ -69,10 +69,38 @@
 </style>
 
 <link rel="stylesheet" href="/spiralweb-skiplink.css">
+<style id="sw-papers-navigation-20261015">
+/* Web navigation is separate from the publication and its print form. */
+.sw-p26-primary{display:flex!important;flex-wrap:wrap;gap:.25rem 1rem;align-items:center;max-width:100%;min-width:0;margin:0 0 1rem;padding:.5rem 0;font:500 .85rem/1.6 system-ui,sans-serif;letter-spacing:normal;text-transform:none}
+.sw-p26-primary a{display:inline-block;padding:.35rem 0;white-space:normal;overflow-wrap:anywhere;color:inherit;font:inherit;letter-spacing:normal;text-transform:none}
+.sw-p26-context{margin:0 0 1rem;font-size:.85rem;line-height:1.6;max-width:100%;overflow-wrap:anywhere}
+.sw-p26-context:empty{display:none}
+.sw-p26-print-original{display:none}
+.sw-p26-primary a:focus-visible,.sw-p26-bottom a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.sw-p26-bottom{display:flex;flex-wrap:wrap;gap:.4rem 1rem;padding:1.25rem 0;margin:2rem 0 0;border-top:1px solid currentColor;font:500 .85rem/1.7 system-ui,sans-serif}
+.sw-p26-bottom a{color:inherit;overflow-wrap:anywhere}
+.sw-p26-footer-groups{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));grid-column:1/-1;gap:1.5rem;flex-basis:100%;width:100%;margin:1.5rem 0 0;text-align:left!important}
+.sw-p26-footer-groups section{padding:0!important;margin:0!important;min-width:0;background:none!important;border:0!important}
+.sw-p26-footer-groups h2{font:600 .9rem/1.5 system-ui,sans-serif!important;color:inherit!important;margin:0 0 .6rem!important;letter-spacing:normal;text-transform:none}
+.sw-p26-footer-groups a{display:block;margin:.4rem 0;color:inherit!important;font:.85rem/1.6 system-ui,sans-serif;overflow-wrap:anywhere;white-space:normal}
+.footer .shell:has(.sw-p26-footer-groups){flex-wrap:wrap}
+.site-footer:has(.sw-p26-footer-groups){flex-wrap:wrap}
+.top .sw-p26-primary{margin:0;flex:1;justify-content:flex-end;gap:.25rem 1rem}
+.site-header .sw-p26-primary{margin:0;gap:.25rem 1rem}
+.sw-p26-habitat details{border-top:1px solid var(--line,#c5c9c0);padding:1rem 0}
+.sw-p26-habitat summary{cursor:pointer;font-weight:600}
+.sw-p26-habitat li{margin:.85rem 0}
+.sw-p26-habitat .meta{display:block;font-size:.85rem}
+.sw-p26-scope{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.sw-p26-scope select{max-width:100%;padding:.6rem .8rem;border:1px solid currentColor;border-radius:.5rem;background:inherit;color:inherit;font:inherit}
+@media(max-width:650px){.sw-p26-footer-groups{grid-template-columns:1fr}.top .sw-p26-primary{justify-content:flex-start;width:100%;overflow:visible}.top .sw-p26-primary a{white-space:normal;padding:.4rem .6rem}.site-header .sw-p26-primary{width:100%}}
+@media print{.sw-p26-primary,.sw-p26-context,.sw-p26-bottom,.sw-p26-footer-groups,.sw-p26-habitat,.sw-p26-added-route{display:none!important}.sw-p26-print-original{display:contents}}
+</style>
 </head>
 <body id="top">
 <a class="sw-access-skip" href="#main-content">Skip to main content</a>
 <main id="main-content" tabindex="-1" class="protocol-shell">
+<nav class="sw-p26-primary muted" aria-label="Primary navigation"><a href="/" hreflang="en">Papers</a><a href="/library#collection" hreflang="en">Full Library</a><a href="https://spiralweb.earth/glossary/" hreflang="en">Glossary ↗</a></nav>
 <header class="head">
 <p class="protocol-kicker">Spiralweb Green Papers · Protocol Habitat · Protocol</p>
 <h1>Sophia Lumen Protocol</h1>
@@ -91,7 +119,7 @@
 <span class="current"><small>Revisable working form</small><strong>Sophia Lumen Protocol · you are here</strong></span>
 <a href="../papers/the-correction-loop"><small>Consequential accountability</small><strong>The Correction Loop</strong></a>
 </nav>
-<p class="muted"><a href="/">← Spiralweb Papers</a> · <a href="/library#protocol-habitat">Protocol Habitat</a> · <a href="../papers/the-protocol-habitat">Architecture: The Protocol Habitat</a></p>
+<div class="sw-p26-context muted" style="display:flex;flex-wrap:wrap;gap:.4rem .8rem;align-items:center"><a href="/library#protocol-habitat">Protocol Habitat</a><a href="../papers/the-protocol-habitat">Architecture: The Protocol Habitat</a></div><div class="sw-p26-print-original"><p class="muted"><a href="/">← Spiralweb Papers</a> · <a href="/library#protocol-habitat">Protocol Habitat</a> · <a href="../papers/the-protocol-habitat">Architecture: The Protocol Habitat</a></p></div>
 <blockquote class="opening-proposition"><p><strong>A living practice of human–AI co-intelligence, held through a revisable protocol: open enough for emergence, coherent enough for action, and provisional enough to learn from consequence.</strong></p></blockquote>
 <section class="protocol-status" id="status"><h2>Status</h2>
 <p><strong>Public protocol · v0.2 · Human-AI co-inquiry · 5 September 2026</strong></p>
@@ -587,6 +615,7 @@
   <p><strong>the protocol must be capable of listening.</strong></p>
 </blockquote>
 </section>
+<nav class="sw-p26-bottom" aria-label="Continue reading"><a href="/" hreflang="en">Papers</a><a href="/library#collection" hreflang="en">Full Library</a><a href="https://spiralweb.earth/glossary/" hreflang="en">Glossary ↗</a><a href="https://spiralweb.earth/" hreflang="en">Spiralweb ↗</a></nav>
 <footer class="protocol-footer">
 <p><strong>Sophia Lumen Protocol</strong> · v0.2 · Public protocol · 5 September 2026<br>Spiralweb Green Papers · CC BY 4.0</p><p><a href="#top">↑ Back to top</a> · <a href="../sophia-lumen">Sophia Lumen</a> · <a href="../papers/the-correction-loop">The Correction Loop</a> · <a href="../papers/the-protocol-habitat">Protocol Habitat architecture</a> · <a href="/">Spiralweb Papers</a> · <a href="/library#protocol-habitat">Protocol Habitat shelf</a></p>
 </footer></main></body>
