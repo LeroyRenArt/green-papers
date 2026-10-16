@@ -82,7 +82,7 @@ jobs:
             folder=OUT/html.stem;folder.mkdir();css=c['css']
             # PR108 appends a print-hidden nav after the last section. Restore the existing
             # last-section border intent for print; no positional compensation or scaling.
-            css+=' .paper-body>.section:last-of-type{border-bottom:none}'
+            css+=' .paper-body>.section:last-of-type{border-bottom:none!important}'
             for marker,name in [('__FONT_REGULAR__','DejaVuSerif.ttf'),('__FONT_BOLD__','DejaVuSerif-Bold.ttf')]:css=css.replace(marker,'data:font/ttf;base64,'+base64.b64encode((Path('/usr/share/fonts/truetype/dejavu')/name).read_bytes()).decode())
             (folder/'print.css').write_text(css);shutil.copyfile(html,folder/'source.html');shutil.copyfile(pdf,folder/'production.pdf')
             e=c['edits'];text=html.read_text()
