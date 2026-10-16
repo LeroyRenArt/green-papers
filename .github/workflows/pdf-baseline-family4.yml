@@ -70,7 +70,7 @@ jobs:
            with fitz.open(p) as d:
             return {'pages':len(d),'text':[p.get_text() for p in d], 'words':[[list(w) for w in p.get_text('words')] for p in d], 'sizes':[list(p.rect) for p in d],'pixels':[sha(p.get_pixmap(alpha=False).samples) for p in d]}
           def same(a,b):return all(a[k]==b[k] for k in ('pages','text','words','sizes','pixels'))
-          def norm(t):return re.sub(r'\s+',' ',unicodedata.normalize('NFKC',t).replace('\u00ad','').replace('\u200b','')).strip()
+          def norm(t):return re.sub(r'\s+',' ',re.sub(r'(?<=\w)-[ \t]*\n[ \t]*(?=\w)','-',unicodedata.normalize('NFKC',t).replace('\u00ad','').replace('\u200b',''))).strip()
           def destinations(p):
            with fitz.open(p) as d:return Counter(l['uri'] for pg in d for l in pg.get_links() if l.get('uri'))
           inputs={str(p.relative_to(ROOT)):sha(p.read_bytes()) for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.parts}
@@ -80,6 +80,9 @@ jobs:
            for c in CASES:
             html=ROOT/c['html'];pdf=ROOT/c['pdf'];assert sha(html.read_bytes())==c['html_sha'];assert blob(pdf.read_bytes())==c['pdf_blob']
             folder=OUT/html.stem;folder.mkdir();css=c['css']
+            # PR108 appends a print-hidden nav after the last section. Restore the existing
+            # last-section border intent for print; no positional compensation or scaling.
+            css+=' .paper-body>.section:last-of-type{border-bottom:none}'
             for marker,name in [('__FONT_REGULAR__','DejaVuSerif.ttf'),('__FONT_BOLD__','DejaVuSerif-Bold.ttf')]:css=css.replace(marker,'data:font/ttf;base64,'+base64.b64encode((Path('/usr/share/fonts/truetype/dejavu')/name).read_bytes()).decode())
             (folder/'print.css').write_text(css);shutil.copyfile(html,folder/'source.html');shutil.copyfile(pdf,folder/'production.pdf')
             e=c['edits'];text=html.read_text()
