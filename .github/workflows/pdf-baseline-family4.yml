@@ -1,0 +1,135 @@
+name: Papers bounded KL reference revision
+on:
+  push:
+    branches: [audit/kl-reference-proof-20261016]
+    paths: [.github/workflows/pdf-baseline-family4.yml]
+permissions:
+  contents: read
+jobs:
+  baseline-pdfs:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 832fe24f917c001266082854bdf63cc9d0830de8
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.12'
+      - name: Install recorded dependency versions
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y 'libpango-1.0-0=1.52.1+ds-1build1' 'libpangoft2-1.0-0=1.52.1+ds-1build1' 'fonts-dejavu-core=2.37-8' 'fonts-urw-base35=20200910-8'
+          cat > "$RUNNER_TEMP/pdf-requirements.lock" <<'LOCK'
+          brotli==1.2.0
+          cffi==2.1.1
+          cssselect2==0.10.1
+          fonttools==4.66.1
+          pillow==12.3.0
+          pycparser==3.11
+          pydyf==0.12.1
+          PyMuPDF==1.26.6
+          pyphen==0.18.1
+          tinycss2==1.5.1
+          tinyhtml5==2.1.0
+          weasyprint==70.0
+          webencodings==0.6.1
+          zopfli==0.4.3
+          LOCK
+          python -m pip install -r "$RUNNER_TEMP/pdf-requirements.lock"
+      - name: Verify paired KL revision against exact current PDF baselines
+        run: |
+          cat > "$RUNNER_TEMP/kl-revision.py" <<'PY'
+          from pathlib import Path
+          from urllib.parse import urlsplit,unquote
+          from collections import Counter
+          import base64,hashlib,json,os,re,subprocess,shutil,unicodedata,logging
+          import fitz,weasyprint
+          from weasyprint import HTML,CSS
+          from weasyprint.urls import URLFetcher
+          from weasyprint.text.fonts import FontConfiguration
+          ROOT=Path.cwd().resolve();OUT=Path(os.environ['RUNNER_TEMP'])/'pdf-baseline-proof';OUT.mkdir()
+          BASE='832fe24f917c001266082854bdf63cc9d0830de8'
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==BASE
+          assert weasyprint.__version__=='70.0'
+          sha=lambda b:hashlib.sha256(b).hexdigest()
+          blob=lambda b:hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          class Fetcher(URLFetcher):
+           def __init__(self):super().__init__(allowed_protocols=['file','data'],fail_on_errors=True);self.resources=[]
+           def fetch(self,url,headers=None):
+            u=urlsplit(url)
+            if u.scheme=='data':return super().fetch(url,headers)
+            if u.scheme in ('https','http') and u.hostname in ('papers.spiralweb.earth','green-papers.pages.dev'):p=(ROOT/unquote(u.path).lstrip('/')).resolve()
+            elif u.scheme=='file':p=Path(unquote(u.path)).resolve()
+            else:raise ValueError('External resource refused '+url)
+            if ROOT not in p.parents or not p.is_file():raise ValueError('Missing local resource '+str(p))
+            self.resources.append({'path':str(p.relative_to(ROOT)),'sha256':sha(p.read_bytes())})
+            return super().fetch(p.as_uri(),headers)
+          def inspect(p):
+           with fitz.open(p) as d:
+            return {'pages':len(d),'text':[p.get_text() for p in d], 'words':[[list(w) for w in p.get_text('words')] for p in d], 'sizes':[list(p.rect) for p in d],'pixels':[sha(p.get_pixmap(alpha=False).samples) for p in d]}
+          def same(a,b):return all(a[k]==b[k] for k in ('pages','text','words','sizes','pixels'))
+          def norm(t):return re.sub(r'\s+',' ',unicodedata.normalize('NFKC',t).replace('\u00ad','').replace('\u200b','')).strip()
+          def destinations(p):
+           with fitz.open(p) as d:return Counter(l['uri'] for pg in d for l in pg.get_links() if l.get('uri'))
+          inputs={str(p.relative_to(ROOT)):sha(p.read_bytes()) for p in ROOT.rglob('*') if p.is_file() and '.git' not in p.parts}
+          CASES=[{'pdf': 'papers/den-regenerative-kommune.pdf', 'html': 'papers/den-regenerative-kommune.html', 'pdf_blob': 'daf827c1f1875c6d87e870ffead895001cdffe9b', 'html_sha': '852b3e84a8c98f0a55091c396f76ae370ba38fcabb9afa6daa49190f67986715', 'css': 'a.sw-access-skip{display:none!important}@font-face{font-family:HistoricalSerif;src:url(__FONT_REGULAR__);font-weight:400;font-style:normal}@font-face{font-family:HistoricalSerif;src:url(__FONT_BOLD__);font-weight:700;font-style:normal} body{font-family:HistoricalSerif!important}.site-header{font-family:DejaVu Sans!important}.series-label{font-family:DejaVu Sans!important}.hero .kicker{font-family:DejaVu Sans!important}.meta-block{font-family:DejaVu Sans!important}.section-number{font-family:DejaVu Sans!important}.section h4{font-family:DejaVu Sans!important}table{font-family:DejaVu Sans!important}.site-footer{font-family:DejaVu Sans!important}.site-header,.hero .kicker,.meta-block,.site-footer{font-weight:400!important}', 'profile': 'sealed-20261012', 'edits': {'path': 'papers/den-regenerative-kommune.html', 'old': 'Kommunal AI er ikke længere et fremtidsscenarie. KL’s AI-landkort viste ved aflæsning den 30. juli 2026 348 kommunalt indmeldte projekter i 64 kommuner, hvoraf 228 var registreret som værende i drift.', 'new': 'Kommunal AI er ikke længere et fremtidsscenarie. KL’s AI-landkort samler kommunernes egne indmeldinger om konkrete AI-løsninger og viser eksempler på deres anvendelse i den kommunale opgaveløsning.', 'reference_old': 'Kommunernes egne indmeldte AI-projekter og status; tallene er aflæst den 30. juli 2026.', 'reference_new': 'Kommunernes egne indmeldte AI-projekter og status; tilgået 16. oktober 2026.', 'source_sha256': '852b3e84a8c98f0a55091c396f76ae370ba38fcabb9afa6daa49190f67986715', 'candidate_sha256': '5e58ec437b8f4a2fc36490b41dbed6903857ef4b2b8d437916e08f10225e4272'}}, {'pdf': 'papers/the-regenerative-municipality.pdf', 'html': 'papers/the-regenerative-municipality.html', 'pdf_blob': '9af28c8cdae5b2a2330fafcc5963d762602a5b7c', 'html_sha': 'c6e2eef88d7e75df798af40b7ba70391f45a809db40c5825bde2635ed2ab8db0', 'css': 'a.sw-access-skip{display:none!important}.site-header,.series-label,.hero .kicker,.meta-block,.section-number,.site-footer,.cite-block,.abstract-label,.editorial-note .note-label,.sources-block h3,.pilot-spor .spor-label{font-weight:400!important}b,strong{font-weight:500!important}', 'profile': 'sealed-approved-printform-20261012', 'edits': {'path': 'papers/the-regenerative-municipality.html', 'old': 'Municipal AI is no longer a future scenario. When accessed on 30 July 2026, KL’s municipal AI map showed 348 municipality-reported projects across 64 municipalities, of which 228 were registered as being in operation.', 'new': 'Municipal AI is no longer a future scenario. KL’s municipal AI map brings together municipalities’ own submissions about specific AI solutions and illustrates their use in municipal service delivery.', 'reference_old': 'Municipalities’ own reported AI projects and status; figures accessed on 30 July 2026.', 'reference_new': 'Municipalities’ own reported AI projects and status; accessed on 16 October 2026.', 'source_sha256': 'c6e2eef88d7e75df798af40b7ba70391f45a809db40c5825bde2635ed2ab8db0', 'candidate_sha256': 'fca31aab9b4cf2dbd7bfb45c287e51f3821770c83a63932a124d60ba0dc117a8'}}]
+          report=dict(result='STOP',operation_class='Class1 paired HTML/PDF candidate',source_main=BASE,engine=weasyprint.__version__,production_writes=0,publication_attempts=0,cases=[])
+          try:
+           for c in CASES:
+            html=ROOT/c['html'];pdf=ROOT/c['pdf'];assert sha(html.read_bytes())==c['html_sha'];assert blob(pdf.read_bytes())==c['pdf_blob']
+            folder=OUT/html.stem;folder.mkdir();css=c['css']
+            for marker,name in [('__FONT_REGULAR__','DejaVuSerif.ttf'),('__FONT_BOLD__','DejaVuSerif-Bold.ttf')]:css=css.replace(marker,'data:font/ttf;base64,'+base64.b64encode((Path('/usr/share/fonts/truetype/dejavu')/name).read_bytes()).decode())
+            (folder/'print.css').write_text(css);shutil.copyfile(html,folder/'source.html');shutil.copyfile(pdf,folder/'production.pdf')
+            e=c['edits'];text=html.read_text()
+            edits=[(e['old'],e['new'],1),(e['reference_old'],e['reference_new'],1),('https://videncenter.kl.dk/viden-og-vaerktoejer/ai/kommunernes-ai-landkort','https://www.kl.dk/videncenter/viden-og-vaerktoejer/ai-i-kommunerne/kommunernes-ai-landkort',2),('v1.1.2','v1.1.3',3)]
+            if html.stem=='den-regenerative-kommune':edits += [('12. oktober 2026','16. oktober 2026',2),('Tallene er derfor et dateret øjebliksbillede og en vidensbank','Landkortet er derfor en vidensbank',1)]
+            else:edits += [('12 October 2026','16 October 2026',2),('The figures are therefore a dated snapshot and a knowledge bank','The map is therefore a knowledge bank',1)]
+            for old,new,count in edits:assert text.count(old)==count,(old,text.count(old));text=text.replace(old,new,count)
+            candidate=folder/'candidate.html';candidate.write_text(text);assert sha(candidate.read_bytes())==c['edits']['candidate_sha256']
+            rendered=[];resources={}
+            for phase,src in [('baseline',html),('candidate-1',candidate),('candidate-2',candidate)]:
+             print('PRINT',html.stem,phase,flush=True);f=Fetcher();fc=FontConfiguration();dest=folder/(phase+'.pdf')
+             HTML(filename=str(src),base_url='https://papers.spiralweb.earth/'+c['html'],url_fetcher=f).write_pdf(dest,stylesheets=[CSS(string=css,font_config=fc)],font_config=fc,pdf_tags=True)
+             rendered.append(inspect(dest));resources[phase]=f.resources
+            prod=inspect(pdf);baseline,a,b=rendered
+            (folder/'comparisons.json').write_text(json.dumps(dict(production=prod,baseline=baseline,candidate=a),ensure_ascii=False))
+            assert same(prod,baseline),'Current baseline differs: '+','.join(k for k in prod if prod[k]!=baseline[k])
+            assert same(a,b),'Candidate repeat differs'
+            before=norm(' '.join(baseline['text']));after=norm(' '.join(a['text']));e=c['edits']
+            replacements=[(e['old'],e['new']),(e['reference_old'],e['reference_new']),('v1.1.2','v1.1.3')]
+            if html.stem=='den-regenerative-kommune':replacements += [('12. oktober 2026','16. oktober 2026'),('Tallene er derfor et dateret øjebliksbillede og en vidensbank','Landkortet er derfor en vidensbank')]
+            else:replacements += [('12 October 2026','16 October 2026'),('The figures are therefore a dated snapshot and a knowledge bank','The map is therefore a knowledge bank')]
+            for old,new in replacements:
+             old,new=norm(old),norm(new);assert old in before,('Missing expected baseline text',old);before=before.replace(old,new)
+            assert before==after,'Candidate text differs beyond approved edits'
+            oldlinks=destinations(pdf);newlinks=destinations(folder/'candidate-1.pdf');oldurl='https://videncenter.kl.dk/viden-og-vaerktoejer/ai/kommunernes-ai-landkort';newurl='https://www.kl.dk/videncenter/viden-og-vaerktoejer/ai-i-kommunerne/kommunernes-ai-landkort';expected=oldlinks.copy();expected[newurl]+=expected.pop(oldurl,0);assert expected==newlinks,('Destination delta differs',expected-newlinks,newlinks-expected)
+            with fitz.open(folder/'candidate-1.pdf') as d:
+             root=d.pdf_catalog();assert d.xref_get_key(root,'StructTreeRoot')[0]=='xref';assert d.xref_get_key(root,'MarkInfo/Marked')[1]=='true';lang=d.xref_get_key(root,'Lang')[1];assert lang==('da' if html.stem=='den-regenerative-kommune' else 'en')
+             outside=[]
+             for i,pg in enumerate(d):
+              for w in pg.get_text('words'):
+               if w[0]<-.5 or w[1]<-.5 or w[2]>pg.rect.width+.5 or w[3]>pg.rect.height+.5:outside.append([i+1,w[4]])
+             assert not outside,outside
+             selected={0,len(d)//2,len(d)-1}
+             for i,pg in enumerate(d):
+              if 'KL' in pg.get_text() and ('AI-landkort' in pg.get_text() or 'municipal AI map' in pg.get_text()):selected.update(j for j in (i-1,i,i+1) if 0<=j<len(d))
+             for i in sorted(selected):d[i].get_pixmap(alpha=False).save(folder/('candidate-page-'+str(i+1)+'.png'))
+            report['cases'].append(dict(html=c['html'],pdf=c['pdf'],baseline_exact=True,candidate_repeat=True,text_delta_exact=True,links_delta_exact=True,tagged=True,lang=lang,pages=a['pages'],css_sha256=sha(css.encode()),html_sha256=sha(candidate.read_bytes()),pdf_sha256=sha((folder/'candidate-1.pdf').read_bytes()),pdf_blob=blob((folder/'candidate-1.pdf').read_bytes()),resources=resources))
+           report['result']='PASS_CANDIDATE_REVIEW_REQUIRED'
+          except Exception as e:report['error']=repr(e);raise
+          finally:
+           report['repository_inputs_unchanged']=all((ROOT/n).is_file() and sha((ROOT/n).read_bytes())==h for n,h in inputs.items())
+           (OUT/'RESULT.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));(OUT/'script-used.py').write_bytes(Path(__file__).read_bytes());(OUT/'pip-freeze.txt').write_text(subprocess.check_output(['python','-m','pip','freeze'],text=True));(OUT/'system-packages.txt').write_text(subprocess.check_output(['dpkg-query','-W'],text=True));(OUT/'MANIFEST.json').write_text(json.dumps({str(p.relative_to(OUT)):sha(p.read_bytes()) for p in OUT.rglob('*') if p.is_file()},indent=2));print('FINAL',report['result'],flush=True)
+          PY
+          python "$RUNNER_TEMP/kl-revision.py"
+      - name: Preserve diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: papers-weasy-tags-calibration-20261014
+          path: ${{ runner.temp }}/pdf-baseline-proof
+          retention-days: 30
+          if-no-files-found: error
+
