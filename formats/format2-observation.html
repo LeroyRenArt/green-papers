@@ -217,6 +217,8 @@
     .small { font-size: 10.8px; line-height: 1.35; color: var(--muted); }
     .decisive { font-size: 11px; font-style: italic; color: var(--muted); text-align: right; }
 
+    @page { size: A4; margin: 0; }
+
     @media print {
       body { background: white; padding: 0; }
       .sheet { box-shadow: none; margin: 0; }
@@ -293,13 +295,28 @@
 @media(max-width:650px){.sw-p26-footer-groups{grid-template-columns:1fr}.top .sw-p26-primary{justify-content:flex-start;width:100%;overflow:visible}.top .sw-p26-primary a{white-space:normal;padding:.4rem .6rem}.site-header .sw-p26-primary{width:100%}}
 @media print{.sw-p26-primary,.sw-p26-context,.sw-p26-bottom,.sw-p26-footer-groups,.sw-p26-habitat,.sw-p26-added-route{display:none!important}.sw-p26-print-original{display:contents}}
 </style>
+
+<style>
+@media print {
+ .sheet { gap:7px; padding:12mm 14mm 10mm; }
+ .obs-grid { gap:7px; }
+ .obs-body { padding:5px 10px 6px; gap:4px; }
+ .writelines { height:32px; }
+ .twolines { height:28px; }
+ .topbar { display:grid; grid-template-columns:1fr 1fr; }
+ .topbar > div { min-width:0; }
+ .topbar .meta { min-width:0; grid-template-columns:1fr 1fr; }
+ .topbar .line-field { display:block; white-space:normal; }
+ .topbar .fill { display:block; min-width:0; width:100%; height:12px; }
+}
+</style>
 </head>
 <body>
 <a class="sheet-skip" href="#main-content">Skip to main content</a>
 <nav class="sw-p26-primary reading-room-nav" aria-label="Primary navigation"><a href="/" hreflang="en">Papers</a><a href="/library#operational-formats" hreflang="en">Full Library</a><a href="https://spiralweb.earth/formats/" hreflang="en">Formats ↗</a><a href="https://spiralweb.earth/glossary/" hreflang="en">Glossary ↗</a></nav>
-<main class="sheet" id="main-content" tabindex="-1"><div class="topbar"><div><h1>Observation Sheet</h1><div class="subtitle">A record for one bounded place, plot or observation frame. The eight categories are a land-based starter grammar, not universal indicators or a score. Adapt, replace or leave them unused through local knowledge. Format 2 v1.3 · August 2026 · Candidate tool.</div></div>
+<main class="sheet" id="main-content" tabindex="-1"><div class="topbar"><div><h1>Observation Sheet</h1><div class="subtitle">A record for one bounded place, plot or observation frame. The eight categories are a land-based starter grammar, not universal indicators or a score. Adapt, replace or leave them unused through local knowledge. Format 2 v1.3.1 · 17 October 2026 · Candidate tool.</div></div>
 <div class="meta"><div class="line-field"><span class="label">Place / frame / privacy code:</span><span class="fill"></span></div><div class="line-field"><span class="label">Date / time / duration:</span><span class="fill"></span></div><div class="line-field"><span class="label">Weather / conditions:</span><span class="fill"></span></div><div class="line-field"><span class="label">Observer:</span><span class="fill"></span></div></div></div>
-<div class="instruction"><div><strong>Describe before interpreting.</strong> Record what was directly noticed and the effort or conditions of observation. No category is inherently good or bad outside its ecological, cultural and practical context.</div><div><strong>Species:</strong> possible identification is not confirmation. “Not observed” is not proof of absence.</div></div>
+<div class="instruction"><div><strong>Describe before interpreting.</strong> Record what was directly noticed and the effort or conditions of observation. No category is inherently good or bad outside its ecological, cultural and practical context.</div><div><strong>Species:</strong> possible identification is not confirmation. “Not observed” is not proof of absence. Use N/A when a prompt does not apply, and Unknown when it applies but the basis is insufficient.</div></div>
 <div class="obs-grid">
 <div class="obs-card"><div class="obs-head"><span class="obs-num">1</span><h2 class="obs-title">Surface and soil cover</h2></div><div class="obs-body"><div class="question">What covers the surface, and where?</div><div class="writelines"></div><div class="signal-row"><span class="signal-note">Optional descriptive cue:</span> covered · partial · bare · N/A / unknown</div></div></div>
 <div class="obs-card"><div class="obs-head"><span class="obs-num">2</span><h2 class="obs-title">Vegetation structure</h2></div><div class="obs-body"><div class="question">What layers or patterns are present?</div><div class="writelines"></div><div class="signal-row"><span class="signal-note">Optional descriptive cue:</span> layered · mixed · single layer · N/A / unknown</div></div></div>

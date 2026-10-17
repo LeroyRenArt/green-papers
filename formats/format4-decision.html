@@ -153,6 +153,8 @@
     .footer { margin-top: auto; border-top: 1px solid var(--line); padding-top: 8px; display: flex; justify-content: space-between; align-items: flex-end; gap: 18px; }
     .small { font-size: 10.8px; line-height: 1.35; color: var(--muted); }
 
+    @page { size: A4; margin: 0; }
+
     @media print { body { background: white; padding: 0; } .sheet { box-shadow: none; margin: 0; } }
   
     .decision-card,.people-card,.tool-card,.decision-field{border:1px solid var(--line);border-radius:10px;overflow:hidden}
@@ -228,11 +230,21 @@
 @media(max-width:650px){.sw-p26-footer-groups{grid-template-columns:1fr}.top .sw-p26-primary{justify-content:flex-start;width:100%;overflow:visible}.top .sw-p26-primary a{white-space:normal;padding:.4rem .6rem}.site-header .sw-p26-primary{width:100%}}
 @media print{.sw-p26-primary,.sw-p26-context,.sw-p26-bottom,.sw-p26-footer-groups,.sw-p26-habitat,.sw-p26-added-route{display:none!important}.sw-p26-print-original{display:contents}}
 </style>
+
+<style>
+@media print {
+ .topbar { display:grid; grid-template-columns:1fr 1fr; }
+ .topbar > div { min-width:0; }
+ .topbar .meta { min-width:0; grid-template-columns:1fr 1fr; }
+ .topbar .line-field { display:block; white-space:normal; }
+ .topbar .fill { display:block; min-width:0; width:100%; height:12px; }
+}
+</style>
 </head>
 <body>
 <a class="sheet-skip" href="#main-content">Skip to main content</a>
 <nav class="sw-p26-primary reading-room-nav" aria-label="Primary navigation"><a href="/" hreflang="en">Papers</a><a href="/library#operational-formats" hreflang="en">Full Library</a><a href="https://spiralweb.earth/formats/" hreflang="en">Formats ↗</a><a href="https://spiralweb.earth/glossary/" hreflang="en">Glossary ↗</a></nav>
-<main class="sheet" id="main-content" tabindex="-1"><div class="topbar"><div><h1>Governance / Decision Log</h1><div class="subtitle">One decision-memory record for a decision, role change, exception, revision, pause or stop that should remain traceable. One decision per sheet allows mandate, evidence, dissent and correction to remain legible. Format 4 v1.3 · August 2026 · Candidate tool.</div></div>
+<main class="sheet" id="main-content" tabindex="-1"><div class="topbar"><div><h1>Governance / Decision Log</h1><div class="subtitle">One decision-memory record for a decision, role change, exception, revision, pause or stop that should remain traceable. One decision per sheet allows mandate, evidence, dissent and correction to remain legible. Format 4 v1.3.1 · 17 October 2026 · Candidate tool.</div></div>
 <div class="meta"><div class="line-field"><span class="label">Place / relation:</span><span class="fill"></span></div><div class="line-field"><span class="label">Date / version:</span><span class="fill"></span></div><div class="line-field"><span class="label">Record held by:</span><span class="fill"></span></div><div class="line-field"><span class="label">Decision holder:</span><span class="fill"></span></div></div></div>
 <div class="instruction"><div><strong>Record while the decision is still correctable.</strong> Preserve the basis, limits and important disagreement—not only the conclusion.</div><div><strong>Authority:</strong> AI may assist inquiry or drafting; it cannot hold mandate, consent, judgement or consequence.</div></div>
 <div class="decision-card"><div class="decision-head"><h2>The decision, change, pause or stop</h2><div class="entry-date-field"><span>Effective from:</span><span class="date-fill"></span></div></div><div class="decision-body"><div class="fourlines"></div></div></div>
@@ -240,7 +252,7 @@
 <div class="people-card"><div class="people-grid"><div><strong>Who holds legitimate authority—and its limit?</strong><div class="twolines"></div></div><div><strong>Who or what is affected?</strong><div class="twolines"></div></div><div><strong>Consulted / consented</strong><div class="twolines"></div></div><div><strong>Absent, dissenting or unable to participate</strong><div class="twolines"></div></div></div></div>
 <div class="tool-card"><strong>Material AI or other tool contribution, if any</strong><span> What did it help retrieve, compare, draft or test? What was checked by a human?</span><div class="twolines"></div></div>
 <div class="review-grid"><div class="review-card"><strong>Conditions / responsibilities</strong><div class="twolines"></div></div><div class="review-card"><strong>Review date or return point</strong><div class="twolines"></div></div><div class="review-card"><strong>Revise / pause / stop trigger</strong><div class="twolines"></div></div></div>
-<div class="stream-line"><strong>Streams touched:</strong> ☐ A — Land / Life &nbsp; ☐ B — Steward Viability &nbsp; ☐ C — Governance / Commons &nbsp; <span>Keep their consequences separate.</span></div>
+<div class="stream-line"><strong>Conditions affected:</strong> ☐ A — Land / Life &nbsp; ☐ B — Steward Viability &nbsp; ☐ C — Governance / Commons &nbsp; <span>Keep their consequences separate.</span></div>
 <div class="footer"><div class="small">Separate money, purpose and decision-making. A later outcome does not rewrite the original basis: add a dated return or a new version. This form records responsibility; it does not create mandate or validate the decision.</div><div class="small" style="text-align:right">papers.spiralweb.earth · CC BY 4.0<br>Candidate tool</div></div></main>
 </body>
 </html>
