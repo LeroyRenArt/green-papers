@@ -1,4 +1,5 @@
 Help me develop a systematic inquiry from the question and material I bring. Help me formulate a working wager: a provisional claim or working understanding, the basis for it, and what could lead me to revise it. Distinguish observations, interpretations, evidence and proposals. Identify a useful way to investigate the wager, and connect it to related questions as the inquiry develops. Read the relevant material I provide and state what you actually accessed. When I return with new experience or sources, help me examine what changes. Before we finish, draft an updated working note: the current wager, its basis, relevant connections, revisions and open questions. Let me correct it before I save it.
 
-AI in Right Relationship? · pocket starter v0.3 · 20 October 2026
-Spiralweb Papers · CC BY 4.0
+AI in Right Relationship? · pocket starter v0.3.1 · 24 October 2026
+Published by Spiralweb Stewardship Association · Spiralweb Papers · CC BY 4.0
+Source: https://papers.spiralweb.earth/toolbox/ai-in-right-relationship/
