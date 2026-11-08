@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stewardshipøkonomi og det liv, vi giver plads · Spiralweb Papers</title>
+<meta name="description" content="Tværgående undersøgelse i Anden Spiral">
+<meta name="publisher" content="Spiralweb Papers"><meta name="dcterms.contributor" content="Lars A. Engberg — accountable human knowledge steward">
+<link rel="canonical" href="https://papers.spiralweb.earth/papers/stewardshipoekonomi">
+<link rel="alternate" hreflang="da" href="https://papers.spiralweb.earth/papers/stewardshipoekonomi">
+<link rel="alternate" hreflang="en" href="https://papers.spiralweb.earth/papers/stewardship-economy">
+<style>
+:root{
+  --paper:#fbf8f1;
+  --paper-deep:#f2ece0;
+  --ink:#1f1d19;
+  --ink-soft:#4a463f;
+  --quiet:#746d61;
+  --rule:#d8cfbf;
+  --accent:#6f7a4d;
+  --accent-deep:#4f5b34;
+  --note:#f0eadc;
+  --maxw:760px;
+}
+*{box-sizing:border-box}
+html{font-size:18px;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Iowan Old Style","Charter","Cambria","Georgia",serif;
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.sitebar{
+  border-bottom:1px solid var(--rule);
+  background:rgba(242,236,224,.72);
+  padding:1rem 1.4rem;
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  align-items:baseline;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.68rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--quiet);
+}
+.sitebar a{color:var(--quiet);text-decoration:none}
+.paper{max-width:var(--maxw);margin:0 auto;padding:4.4rem 1.5rem 6rem}
+.eyebrow{
+  margin:0 0 .7rem;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+.paper-number{
+  margin:0 0 1.6rem;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  color:var(--quiet);
+}
+h1{
+  margin:0 0 1rem;
+  max-width:16ch;
+  font-size:clamp(2.55rem,7vw,4.35rem);
+  line-height:1.02;
+  font-weight:500;
+  letter-spacing:-.025em;
+}
+.dek{
+  max-width:43rem;
+  margin:0 0 2rem;
+  color:var(--ink-soft);
+  font-size:1.18rem;
+  line-height:1.5;
+  font-style:italic;
+}
+.meta-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem 1.4rem;
+  padding:1.25rem 0;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.78rem;
+  line-height:1.55;
+  color:var(--ink-soft);
+}
+.meta-grid strong{
+  display:block;
+  margin-bottom:.15rem;
+  color:var(--accent-deep);
+  font-size:.62rem;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.meta-grid a{color:var(--accent-deep)}
+.stewardship-note{
+  margin:2rem 0 3.4rem;
+  padding:1.1rem 1.25rem;
+  background:var(--note);
+  border-left:3px solid var(--accent);
+  color:var(--ink-soft);
+  font-size:.9rem;
+  line-height:1.58;
+}
+.stewardship-note p{margin:0}
+.stewardship-note a{color:var(--accent-deep)}
+.paper-toc{
+  margin:0 0 3.6rem;
+  padding:1.5rem 1.6rem;
+  border:1px solid var(--rule);
+  background:rgba(242,236,224,.38);
+}
+.paper-toc h2{
+  margin:0 0 .85rem;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+.paper-toc ol{columns:2;column-gap:2rem;margin:0;padding-left:1.2rem}
+.paper-toc li{break-inside:avoid;margin:.34rem 0;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.78rem;line-height:1.4}
+.paper-toc a{color:var(--ink-soft);text-decoration-thickness:1px;text-underline-offset:.16em}
+article h2{
+  margin:3.5rem 0 1.1rem;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:1.42rem;
+  line-height:1.25;
+  letter-spacing:-.01em;
+}
+article h2::before{
+  content:"";
+  display:block;
+  width:2.2rem;
+  height:2px;
+  margin-bottom:.9rem;
+  background:var(--accent);
+}
+article h3{
+  margin:2.7rem 0 1rem;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:1rem;
+  line-height:1.3;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--accent-deep);
+}
+article p{margin:0 0 1.15rem}
+article ul,article ol{margin:0 0 1.3rem;padding-left:1.35rem}
+article li{margin:.42rem 0;padding-left:.15rem}
+article li::marker{color:var(--accent)}
+article hr{border:0;height:1px;background:var(--rule);margin:3.3rem 0}
+article strong{font-weight:600}
+article em{font-style:italic}
+article a{color:var(--accent-deep);text-decoration-thickness:1px;text-underline-offset:.17em}
+article h3 + p strong{color:var(--accent-deep)}
+article figure{
+  margin:2.6rem 0;
+}
+article figure img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+article figcaption{
+  margin-top:.7rem;
+  color:var(--quiet);
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.78rem;
+  line-height:1.5;
+}
+article blockquote{
+  margin:1.8rem 0;
+  padding:.2rem 0 .2rem 1.2rem;
+  border-left:3px solid var(--accent);
+  color:var(--ink-soft);
+}
+article blockquote p{margin:.35rem 0}
+.colophon{
+  margin-top:4rem;
+  padding-top:1.4rem;
+  border-top:1px solid var(--rule);
+  color:var(--quiet);
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:.75rem;
+  line-height:1.65;
+}
+.colophon p{margin:.2rem 0}
+.colophon a{color:var(--quiet)}
+@media(max-width:640px){
+  .sitebar{align-items:flex-start;flex-direction:column}
+  .paper{padding:3.1rem 1.15rem 4.5rem}
+  .meta-grid{grid-template-columns:1fr}
+  .paper-toc ol{columns:1}
+  h1{font-size:2.65rem}
+}
+@page{size:A4;margin:18mm}
+@media print{
+  html{font-size:14px}
+  body{background:#fff;color:#111;line-height:1.5}
+  .sitebar{display:none}
+  .paper{max-width:none;margin:0;padding:0}
+  h1{font-size:31pt;max-width:none;margin-bottom:9pt}
+  .dek{font-size:12pt;margin-bottom:14pt}
+  .eyebrow,.paper-number{font-size:8pt}
+  .meta-grid{font-size:8.5pt;padding:9pt 0;gap:8pt}
+  .meta-grid strong{font-size:6.5pt}
+  .stewardship-note{
+    margin:14pt 0 20pt;
+    padding:9pt 11pt;
+    font-size:8.5pt;
+    line-height:1.45;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  article h2{
+    margin:22pt 0 8pt;
+    font-size:15pt;
+    break-after:avoid-page;
+    page-break-after:avoid;
+  }
+  article h2::before{
+    margin-bottom:7pt;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  article h3{
+    margin:17pt 0 7pt;
+    font-size:10pt;
+    break-after:avoid-page;
+    page-break-after:avoid;
+  }
+  article p,article li{font-size:10.2pt;line-height:1.48}
+  article p{margin-bottom:8pt}
+  article ul,article ol{margin-bottom:9pt}
+  article li{margin:3pt 0}
+  article hr{margin:20pt 0}
+  article figure{break-inside:avoid;page-break-inside:avoid;margin:16pt 0}
+  article figcaption{font-size:8pt}
+  article blockquote{break-inside:avoid;page-break-inside:avoid;margin:12pt 0}
+  .colophon{font-size:8pt;margin-top:24pt}
+  a{color:#111!important;text-decoration:none!important}
+}
+  
+article table{width:100%;border-collapse:collapse;margin:1.8rem 0;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.82rem;line-height:1.48}
+article th,article td{padding:.68rem .72rem;border:1px solid var(--rule);vertical-align:top;text-align:left}
+article th{background:var(--note);color:var(--accent-deep);font-weight:600}
+article section{display:block}
+.footnotes{margin-top:3.5rem;color:var(--ink-soft);font-size:.84rem}
+.footnotes ol{padding-left:1.2rem}
+@media(max-width:640px){article table{display:block;overflow-x:auto}}
+@media print{article table{font-size:8pt;break-inside:auto}article tr{break-inside:avoid;page-break-inside:avoid}.footnotes{font-size:8pt}}
+
+.language-switch{margin-top:.55rem;font-family:"Helvetica Neue",Arial,sans-serif;font-size:.76rem}
+.language-switch a{font-weight:600}
+@media print{.language-switch{display:none}}
+
+
+/* Web navigation is separate from the publication and its print form. */
+.sw-p26-primary{display:flex!important;flex-wrap:wrap;gap:.25rem 1rem;align-items:center;max-width:100%;min-width:0;margin:0 0 1rem;padding:.5rem 0;font:500 .85rem/1.6 system-ui,sans-serif;letter-spacing:normal;text-transform:none}
+.sw-p26-primary a{display:inline-block;padding:.35rem 0;white-space:normal;overflow-wrap:anywhere;color:inherit;font:inherit;letter-spacing:normal;text-transform:none}
+.sw-p26-context{margin:0 0 1rem;font-size:.85rem;line-height:1.6;max-width:100%;overflow-wrap:anywhere}
+.sw-p26-context:empty{display:none}
+.sw-p26-print-original{display:none}
+.sw-p26-primary a:focus-visible,.sw-p26-bottom a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.sw-p26-bottom{display:flex;flex-wrap:wrap;gap:.4rem 1rem;padding:1.25rem 0;margin:2rem 0 0;border-top:1px solid currentColor;font:500 .85rem/1.7 system-ui,sans-serif}
+.sw-p26-bottom a{color:inherit;overflow-wrap:anywhere}
+.sw-p26-footer-groups{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));grid-column:1/-1;gap:1.5rem;flex-basis:100%;width:100%;margin:1.5rem 0 0;text-align:left!important}
+.sw-p26-footer-groups section{padding:0!important;margin:0!important;min-width:0;background:none!important;border:0!important}
+.sw-p26-footer-groups h2{font:600 .9rem/1.5 system-ui,sans-serif!important;color:inherit!important;margin:0 0 .6rem!important;letter-spacing:normal;text-transform:none}
+.sw-p26-footer-groups a{display:block;margin:.4rem 0;color:inherit!important;font:.85rem/1.6 system-ui,sans-serif;overflow-wrap:anywhere;white-space:normal}
+.footer .shell:has(.sw-p26-footer-groups){flex-wrap:wrap}
+.site-footer:has(.sw-p26-footer-groups){flex-wrap:wrap}
+.top .sw-p26-primary{margin:0;flex:1;justify-content:flex-end;gap:.25rem 1rem}
+.site-header .sw-p26-primary{margin:0;gap:.25rem 1rem}
+.sw-p26-habitat details{border-top:1px solid var(--line,#c5c9c0);padding:1rem 0}
+.sw-p26-habitat summary{cursor:pointer;font-weight:600}
+.sw-p26-habitat li{margin:.85rem 0}
+.sw-p26-habitat .meta{display:block;font-size:.85rem}
+.sw-p26-scope{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.sw-p26-scope select{max-width:100%;padding:.6rem .8rem;border:1px solid currentColor;border-radius:.5rem;background:inherit;color:inherit;font:inherit}
+@media(max-width:650px){.sw-p26-footer-groups{grid-template-columns:1fr}.top .sw-p26-primary{justify-content:flex-start;width:100%;overflow:visible}.top .sw-p26-primary a{white-space:normal;padding:.4rem .6rem}.site-header .sw-p26-primary{width:100%}}
+@media print{.sw-p26-primary,.sw-p26-context,.sw-p26-bottom,.sw-p26-footer-groups,.sw-p26-habitat,.sw-p26-added-route{display:none!important}.sw-p26-print-original{display:contents}}
+
+h1{max-width:26ch;font-size:clamp(2rem,5vw,3.35rem);line-height:1.1}h2,h3{scroll-margin-top:2rem}.table-scroll{max-width:100%;overflow-x:auto;margin:1.5rem 0}table{border-collapse:collapse;width:100%;font-size:.84rem;line-height:1.5}th,td{border:1px solid var(--rule);padding:.65rem;vertical-align:top;text-align:left;overflow-wrap:anywhere}th{background:var(--note)}a{overflow-wrap:anywhere}.route{border-top:1px solid var(--rule);padding:1rem 0}.route p{margin-bottom:.6rem}.route small{font-family:Arial,sans-serif}.paper-toc{margin:2rem 0}svg{max-width:100%;height:auto}.publication-door{background:var(--note);padding:1.5rem;margin:2rem 0}.page-footer{border-top:1px solid var(--rule);margin-top:3rem;padding-top:1rem;font-size:.85rem}@media(max-width:600px){.paper{padding:2.4rem 1rem 4rem}.paper-toc ol{columns:1}table{font-size:.78rem}}@media print{.table-scroll{overflow:visible}table{font-size:8pt}tr{break-inside:avoid}h1{font-size:25pt}.paper-toc{break-after:page}.route{break-inside:avoid}}</style><link rel="stylesheet" href="/spiralweb-skiplink.css">
+<link rel="stylesheet" href="/assets/reading-salon-v1.css" media="screen"></head><body>
+<a class="sw-access-skip" href="#main-content">Gå til indhold</a>
+<nav class="sitebar" aria-label="Navigation"><a href="/da/">Spiralweb Papers</a><a href="/library">Hele biblioteket · EN</a><a href="/papers/stewardship-economy" hreflang="en" lang="en">English</a></nav>
+<main id="main-content" tabindex="-1" class="paper"><header><p class="eyebrow">Spiralweb Papers</p><h1>Stewardshipøkonomi og det liv, vi giver plads</h1><p class="dek">Tværgående undersøgelse i Anden Spiral</p>
+<div class="meta-grid"><div><strong>Status og udgave</strong>Privat kandidat · v0.63 · 8. november 2026</div><div><strong>Ansvarlig videnssteward</strong>Lars A. Engberg</div><div><strong>Udgivelsessted</strong>Spiralweb Papers · CC BY 4.0</div><div><strong>Sprog</strong>Dansk original</div></div></header>
+<nav class="paper-toc" aria-label="Indhold"><h2>Indhold</h2><ol><li><a href="#det-liv-vi-giver-plads">Det liv, vi giver plads</a></li><li><a href="#vandets-tid-og-pengenes-tid">Vandets tid og pengenes tid</a></li><li><a href="#hvordan-et-sted-finder-sin-retning">Hvordan et sted finder sin retning</a></li><li><a href="#når-erfaring-ændrer-vilkårene">Når erfaring ændrer vilkårene</a></li><li><a href="#når-felterne-svarer">Når felterne svarer</a></li><li><a href="#læseguide-otte-steder-at-begynde">Læseguide · Otte steder at begynde</a></li></ol></nav><h2 id="det-liv-vi-giver-plads">1. Det liv, vi giver plads</h2>
+<p>Et levested er ved at miste de betingelser, en art behøver. Et lokalsamfund må handle, før en tørke koster endnu en høst. Andre begynder, fordi de vil dyrke, lære eller skabe noget sammen. Nogen står allerede med ansvaret, før der er tid til at formulere en undersøgelse. En gård gør det muligt at følge, hvordan nogle af disse forhold hænger sammen.</p>
+<p>Forestil dig en gård sidst på sommeren. En dyrker går langs to rækker granatæbletræer. Ved markens kant er der stadig blade på de fleste af de unge træer. Længere inde er nogle ved at tørre ud. Hun skal snart beslutte, om hun vil bruge næste sæsons vand og arbejdstid på at holde hele plantagen i gang. Høsten er en del af familiens indtægt. På samme tur ser hun, at den vilde kant langs marken stadig har blomster, da det meste andet er tørt. Det giver hende to spørgsmål at gå hjem med. Hvad holder træerne i live, og hvad kan hun give plads til langs kanten?</p>
+<p><strong>Som arbejdsdefinition bruger vi stewardshipøkonomi om en måde at organisere arbejde, ressourcer og beslutningsret på, hvor arters, levesteders og menneskers livsbetingelser får reel vægt i økonomiske valg.</strong> Den skal gøre omsorgen mulig at bære og give det, vi erfarer undervejs, mulighed for at ændre de ordninger, der former vilkårene. Det gælder, hvordan vi fordeler adgang til jord og vand, ejerskab og brugsret, arbejdstid, penge og risiko. Omsorg omfatter både at værne om det, der endnu findes, og at give plads til, at noget kan komme sig eller opstå. Arter og levesteder har betydning i sig selv. Mennesker skal samtidig have tid, råderum og en levevej, der gør omsorgen mulig at bære.</p>
+<p><strong>Hvad rejser ud af et sted som værdi, og hvad bliver tilbage som regning?</strong> En høst kan sælges, mens presset på vandet og arbejdet med at holde jorden levende bliver hos dyrkerne. En bevilling kan betale for et anlæg, mens vedligeholdelsen ender hos nogen, hvis tid aldrig blev regnet med. Og en undersøgelse kan bringe lokal viden ud i verden, mens de mennesker, der gjorde den mulig, stadig venter på et brugbart svar. En økonomisk dynamik bliver ekstraktiv, når den igen og igen kan hente værdi ud, mens omkostningerne, risikoen eller tabet af råderum bliver båret andre steder. Det samme spørgsmål gælder det vidensarbejde, vi selv sætter i gang. Regningen kan lettes på to måder. Den, der har haft gavn af ordningen, kan være med til at betale for den pleje og reparation, der nu er brug for. Og de beslutninger, der bliver ved med at skabe regningen, kan ændres. En aftale om at betale for plejen af et vådområde kan være vigtig, samtidig med at vandudtaget skal ned, hvis området skal komme sig.</p>
+<p>For et hushold, der skal sikre den næste høst eller bruge en stor del af dagen på at hente vand, er tid til pleje og undersøgelse et økonomisk vilkår. Samtidig kan jord, vand og levesteder have brug for flere sæsoner med mindre pres, før en ændring bliver synlig. Derfor må en aftale ses både fra den kommende sæson og fra dem, der skal leve med den efter os. Hvilket arbejde bliver muligt nu, hvad får tid til at komme sig, og hvem kan tage ansvaret videre?</p>
+<p>En ændret fordeling kan også skabe muligheder, som parterne først opdager undervejs. En gård kan få en ny funktion som læringssted. Flere hushold kan udvikle en fælles måde at holde vand og planter til rådighed. En organisation kan opdage en opgave, som falder mellem dens programmer. Det hører med til undersøgelsen, hvem der får råderum af de nye muligheder, hvem der bærer arbejdet, og hvad de betyder for arter og levesteder.</p>
+<p><strong>Hvordan kan erfaring fra levende steder ændre den måde, vi fordeler tid, penge, adgang, risiko og ansvar på?</strong> Det kræver, at mennesker og fællesskaber kan gøre deres erfaringer virksomme og samtidig bevare råderetten over det, de deler. Det kræver også, at erfaringen kan nå frem til dem, der kan ændre vilkårene, og at svaret kan følges tilbage. Ved genbesøget kan vi undersøge, hvad ændringen faktisk betød for stedet, for dem, der bærer arbejdet, og for andre, der berøres.</p>
+<p>Teksterne på Papers er blevet til gennem en arbejdsform, vi selv undersøger. AI har formuleret og gennemredigeret prosaen i samarbejde med en menneskelig videnssteward, der har bragt erfaringer og spørgsmål ind, valgt retning, udfordret sammenfatninger og taget ansvar for den offentlige form. <a href="https://papers.spiralweb.earth/protocols/sophia-lumen">Sophia Lumen Protocol</a></p>
+<h3 id="begynd-med-det-du-lægger-mærke-til">Begynd med det, du lægger mærke til</h3>
+<p>Måske er du kommet med noget, du allerede har set. De små træer tørrer ud, mens dem ved kanten klarer sig bedre. Et sted, du kender, har forandret sig. Eller du vil gerne vide, om noget, I allerede gør, hjælper.</p>
+<p>Begynd med at fortælle, hvad du har lagt mærke til, og hvor og hvornår det skete. Du kan skrive nogle ord, tale dem ind på din telefon eller tage et billede til eget brug. Vælg én ting, du gerne vil se efter næste gang. Du kan bruge <a href="https://papers.spiralweb.earth/library#practice-guides">Feltets Dagbog og de åbne redskaber</a> eller blot gemme din egen note. Hvis du har adgang til AI, kan du bruge den til at finde en relevant læsning eller gøre spørgsmålet tydeligere. Du bestemmer, hvad du deler.</p>
+<p>Du kan læse videre herfra eller gå til <strong>Otte steder at begynde</strong> sidst i teksten, når du vil finde en vej videre.</p>
+<h2 id="vandets-tid-og-pengenes-tid">2. Vandets tid og pengenes tid</h2>
+<p>Næste gang tager dyrkeren en nabo med ud. Ved kanten står træerne i skygge en del af eftermiddagen, og der ligger blade og afklip på jorden. Inde mellem rækkerne er jorden bar. Naboen spørger, om begge rækker fik vand, da varmen stod på. De vælger at følge nogle få træer begge steder, mærke fugten i jorden efter vanding og notere, hvornår jorden tørrer. Samtidig vil de se, hvad der allerede lever langs kanten. Et nyt hegn kan supplere den vegetation, der findes. Før de vælger planter eller rydder noget, har de brug for at vide, hvilke blomster, skjul og steder at yngle kanten allerede giver plads til.</p>
+<p>Jorden og vandet bærer spor af mange års brug. Dyrkerens iagttagelser kan læses sammen med naboernes erfaringer, historiske spor og faglige undersøgelser af arter, jord og opland. Kilderne belyser forskellige forhold. En tør sæson, ændret indvinding andre steder og en lokal ændring i dyrkningen kan alle sætte spor i den samme plantage. Hvis vandforbruget pr. træ falder, er det stadig værd at undersøge den samlede indvinding. For en art kan afgørelsen desuden ligge i, om et levested er tilgængeligt i den korte periode, hvor den yngler eller finder føde.</p>
+<p>I Doukkala i Marokko tager et forslag til et gårdforløb afsæt i to arealer på samme gård. I den eksisterende granatæbleplantage skal man finde ud af, hvad der er værd at bygge videre på, og hvad nye planter vil betyde for træernes adgang til lys og vand. På det åbne areal er der mere plads til at forme et skovlandbrug fra begyndelsen. Her er der til gengæld mere, der skal etableres og passes gennem den første tørre sæson. Gården har også får, geder, bistader og vandlagring. Det giver flere grunde til at gå markens kanter igennem sammen. Hvor har dyrene brug for skygge? Hvor finder honningbier og vilde bestøvere føde gennem sæsonen? Hvad kan få plads uden at trække mere vand, end stedet kan bære? Det mulige første forløb er under lokal forberedelse. <a href="https://spiralweb.earth/fields/doukkala/">Feltposten for Doukkala</a></p>
+<p>I det lokale samarbejde kan en etableret gårdskole bidrage til udviklingen af et nyt læringssted. Forestil dig, at et besøg begynder med spørgsmålet om, hvilke planter der egner sig til et hegn. Undervejs opdager deltagerne, at nogle af dem kan formere planter, som de andre ellers skulle skaffe langvejsfra. En erfaren dyrker kan vise, hvad der skal til, for at de unge planter klarer en tør sæson. Det kan give grund til at aftale og betale for formering, undervisning eller ledsagelse. Det kan også ændre, hvilke arter gårdene har mulighed for at arbejde med, og hvor meget de kan sætte i gang. Før man gør det til en fælles opgave, må man finde ud af, hvem der vil bære den, hvor tiden og vandet skal komme fra, og hvad de deltagende steder selv får tilbage.</p>
+<p>En indsats kan kræve flere sæsoner, mens løn, husleje og afdrag forfalder undervejs. Så former pengenes tid det, der kan komme til at gro. Hvem kan bære en periode med mindre indtægt? Hvem betaler for observation og pleje, når arbejdet foregår længe før en mulig forbedring kan ses? Hvis der kommer mere vand til rådighed eller større efterspørgsel efter gårdens produkter, hvem får da adgang til gevinsten, og hvilket pres kan den skabe andre steder?</p>
+<h3 id="hvad-en-betaling-kan-bære">Hvad en betaling kan bære</h3>
+<p>Et salg kan betale for frugt. En arbejdsbetaling kan dække arbejdstid, faglig hjælp eller pleje af et levested. Fælles midler kan bære samarbejde og observation på tværs af ejendomme. En støttegiver kan give plads til en undersøgelse, hvis resultat endnu er åbent. De forhold kan eksistere side om side. Det skal være tydeligt, hvilket arbejde pengene gør muligt, hvilke forpligtelser der følger med, hvem der bærer risikoen, og hvor beslutningsretten ligger. <a href="https://papers.spiralweb.earth/papers/en-anstaendig-oekonomi-under-livets-jurisdiktion">En anstændig økonomi under livets jurisdiktion · GP23</a></p>
+<p>Et levesteds værdi rækker ud over den pris, nogen vil betale for plejen. Det betyder også noget for, hvordan vi følger forsøget. En forbedret indtægt afgør ikke, hvordan det går med arterne. Flere levesteder siger i sig selv intet om, hvorvidt dyrkeren kan bære arbejdet. Og en god aftale på gården kan eksistere samtidig med øget pres nedstrøms. Naturtilstand, stewardens mulighed for at fortsætte og kvaliteten af den fælles styring skal derfor kunne undersøges hver for sig.</p>
+<p>Forestil dig, at en lokal fond tilbyder at betale for etableringen af et levende hegn i det første år. Dyrkeren vælger at begynde langs et stykke af kanten, hvor det nye hegn kan forbindes med den vilde vegetation. Nogle af de nye planter tørrer ud den første sommer. Da hun og naboen vender tilbage efter endnu en sæson, er der mere plantedække, og de ser insekter søge føde ved blomsterne. De vil følge, om arterne fortsat bruger kanten, også når den tørre tid sætter ind. Plejen tager samtidig mere tid end forventet, og de unge hegnsplanter skal vandes. Hvor meget vand kræver hegnet i etableringsårene, og hvordan ændrer det på længere sigt markens samlede vandbehov? I oplandet som helhed er indvindingen steget. De ved endnu ikke, hvor meget der skyldes tørken, en ændring på gården eller den måde, andre bruger vandet på.</p>
+<p>Dyrkeren sammenholder sine noter med to naboers. Den ene har også dækket jorden, men hans træer viste tidligere tegn på tørkestress. Hos den anden holdt træerne sig længere. Hun husker, at hun fik vand lige før de varmeste dage. Gruppen bruger AI til at samle de noter, de har valgt at dele, i en tidslinje. Da de læser den sammen, opdager en nabo, at modellen har lagt to vandinger i den forkerte uge. Han finder den oprindelige note frem, og de retter tidslinjen. En rådgiver hjælper dem med at se, at jordtype, træernes alder og sort også kan gøre en forskel. Gruppen beslutter at følge sammenlignelige træer tættere næste sæson. Samtidig vil de undersøge, hvorfor vandet kom på forskellige tidspunkter. Det spørgsmål kan de ikke besvare ved at se på træerne alene.</p>
+<p>De aftaler at tage tidslinjen og spørgsmålet om vandfordeling med til vandforvaltningen. De personlige noter bliver på gårdene. Til mødet vil de gerne vide, hvordan vandet er fordelt i de varmeste uger, og om der findes oplysninger om den samlede indvinding. Et svar kan hjælpe dem med at planlægge næste sæson. Det kan også give vandforvaltningen anledning til at undersøge, om den nuværende ordning presser andre dyrkere eller vandafhængige levesteder. Ved næste besøg må man følge de forskellige virkninger hver for sig.</p>
+<h3 id="når-mindre-vand-ændrer-målet">Når mindre vand ændrer målet</h3>
+<p>Forestil dig, at en faglig gennemgang senere peger på, at et lavtliggende vådområde kun har en rimelig mulighed for at komme sig, hvis den samlede indvinding falder. Indtil da har dyrkeren spurgt, hvordan hun kan holde plantagen i gang. Nu må hun også spørge, hvor meget af den nuværende drift oplandet kan bære, hvis vådområdet skal have en chance. Hvilke rækker kan familien holde i drift med mindre vand? Hvad skal der ske med resten? Hegnet kan stadig give ly og føde langs markkanten. Vådområdet rejser et andet spørgsmål, som dyrkerne har brug for at tage op sammen med vandforvaltningen og andre brugere af vandet.</p>
+<p><strong>Et tænkt femårsoverslag.</strong> Beløbene er konstrueret til eksemplet med fonden. Fonden betaler 30.000 kr. til hegnet i år ét. Derefter ligger plejen hos dyrkeren. Hvis den koster 8.000 kr. om året fra etableringen, er der 40.000 kr. at finde over fem år. De første 8.000 kr. skal findes med det samme. De næste 32.000 kr. falder efter bevillingens udløb, mens hegnet stadig skal plejes og følges. Hvis en del af plantagen samtidig lægges om, og gården får 10.000 kr. mindre tilbage efter de variable omkostninger i hvert af de første to år, kommer yderligere 20.000 kr. oveni. I det regnestykke mangler der 60.000 kr., før eventuelle nye indtægter eller besparelser.</p>
+<p>Fonden kan tage stilling til, om den vil betale for flere sæsoners pleje og hjælpe familien gennem en periode med lavere indtægt, hvis en omlægning bliver relevant. Vandforvaltningen har en anden opgave. Den må tage stilling til, hvad den samlede indvinding betyder for vådområdet, og hvad der kan ændres i den måde, vandet fordeles på. Ved genbesøget kan dyrkerne og de fagfolk, de samarbejder med, se efter, om presset på vådområdet faktisk er lettet, om de arter, de følger, bruger hegnet gennem sæsonen, og om arbejdet og indkomsten hænger sammen for dem, der skal fortsætte.</p>
+<p>Hvad tilfører stewardshipøkonomi, når der allerede findes naturbeskyttelse, landbrugsrådgivning og vandforvaltning? Hver kan have viden, ansvar og redskaber, der bærer sin del af opgaven. Undersøgelsen følger det, der risikerer at falde <strong>mellem deres grænser og deres tidshorisonter</strong>. Et tiltag kan lykkes på en ejendom og stadig påvirke vand eller levesteder uden for den. En bevilling kan betale etableringen, mens arbejdet og risikoen ligger hos andre, når bevillingen udløber. Derfor spørger vi, hvem der får gevinsten, hvem der bærer følgerne, og hvem der har mulighed for at ændre aftalen eller reglen. Hvis en eksisterende ordning allerede forbinder de beslutninger og følger, er det også et svar. Det dobbelte spørgsmål om grænser og tidshorisonter er hentet fra undersøgelsen af dansk arealomlægning i <em>At holde jorden levende</em>. Her bruges det til at stille spørgsmål til et tænkt forløb inspireret af Doukkala. Hvordan mekanismen virker dér, skal undersøges stedligt. <a href="https://papers.spiralweb.earth/papers/at-holde-jorden-levende">At holde jorden levende</a></p>
+<blockquote>
+<p><strong>Prøv spørgsmålet på dit eget sted.</strong> Har du lagt mærke til, at noget klarer sig bedre ét sted end et andet? Skriv eller indtal, hvad du så. Vælg én forskel, du kan se efter næste gang, for eksempel skygge, jorddække eller tidspunktet for vanding. Du kan spørge en anden, hvad de har lagt mærke til. Hvis du bruger AI, kan du bede den skelne mellem det, I har set, og mulige forklaringer og vise, hvilke kilder den bygger på. Du kan vende tilbage med et bedre spørgsmål, også hvis forklaringen stadig er åben.</p>
+</blockquote>
+<h2 id="hvordan-et-sted-finder-sin-retning">3. Hvordan et sted finder sin retning</h2>
+<h3 id="hvordan-fagmiljøer-finder-en-retning">Hvordan fagmiljøer finder en retning</h3>
+<p>Naturbeskyttelse, økologisk genopretning og rewilding kan se på det samme landskab og stille forskellige spørgsmål. Artsbevarelse kan begynde med en bestand, der er ved at forsvinde, og spørge, hvad der skal beskyttes nu, og hvad der med tiden kan give bestanden mulighed for at formere sig og brede sig igen. IUCN’s rødliste belyser uddøelsesrisiko. Dens Green Status undersøger arters genopretning og betydningen af fortsat beskyttelse. En arts globale status kan orientere en lokal undersøgelse. Den lokale tilstedeværelse og levestedets kvalitet skal undersøges for sig. <a href="https://iucn.org/resources/conservation-tool/iucn-red-list-threatened-species">IUCN Red List</a> · <a href="https://iucn.org/resources/publication/iucn-green-status-species">IUCN Green Status of Species</a></p>
+<p>Økologisk genopretning kan begynde med et økosystem og spørge, hvilke arter, funktioner og forbindelser der er gået tabt eller er svækket. Økologiske referencer hjælper med at se, hvad der kan komme sig og under hvilke vilkår. Rewilding lægger særlig vægt på at give processer som succession, spredning og naturlige forstyrrelser plads til selv at forme udviklingen. Naturbaserede løsninger kan begynde med et samfundsproblem som oversvømmelse eller varme og undersøge, om en indsats både afhjælper problemet og gavner biodiversiteten. De forskellige tilgange hjælper med at præcisere, om vi vil bevare noget, der er tilbage, genoprette bestemte funktioner eller give mere plads til en udvikling, vi kun delvis kan forudse. <a href="https://www.ser.org/page/serstandards">SER’s standarder for økologisk genopretning</a> · <a href="https://iucn.org/resources/publication/guidelines-rewilding">IUCN’s retningslinjer for rewilding</a> · <a href="https://iucn.org/our-work/topic/iucn-global-standard-nature-based-solutions">IUCN’s standard for naturbaserede løsninger</a></p>
+<h3 id="hvordan-et-felt-kan-finde-sin-retning">Hvordan et felt kan finde sin retning</h3>
+<p>De mennesker, der bor og arbejder et sted, kan have erfaringer gennem mange sæsoner og mærker følgerne af forandringer i deres egen krop, hverdag og levevej. Deres spørgsmål kan begynde et andet sted end fagmiljøets. En fagperson kan se, at et levested har brug for mindre græsning. En familie kan samtidig stå med spørgsmålet om foder i denne uge. Familien kan kende muligheder og begrænsninger, som en naturfaglig vurdering overser. Den faglige vurdering kan vise følger for arter eller vand, som er svære at se fra én ejendom. De to erfaringer skal kunne ændre det fælles spørgsmål. De kan også pege på forskellige handlinger og på forskellige aktører, der har ansvar for at gøre dem mulige.</p>
+<p>Fire arbejdsspørgsmål hjælper med at holde det åbent og konkret:</p>
+<ol type="1">
+<li><p><strong>Hvad findes og fungerer her nu?</strong> Hvilke arter, levesteder og processer har vi belæg for at beskrive, og hvad er stadig ukendt?</p></li>
+<li><p><strong>Hvilken vej går det allerede?</strong> Hvad er på vej tilbage eller på vej til at gå tabt, og hvad kan være udtryk for sæsonvariation, tidligere indgreb eller ændrede forhold andre steder?</p></li>
+<li><p><strong>Hvad hjælper os til at se mulighederne?</strong> Udgangstilstanden beskriver stedet ved begyndelsen af et forløb. Lokale erindringer, historiske spor og sammenlignelige levesteder kan hjælpe os til at forstå, hvad der er gået tabt, og hvad der kan få plads igen under de vilkår, stedet står over for.</p></li>
+<li><p><strong>Hvad haster, og hvad kræver tid?</strong> Hvad kan beskyttes nu, hvad kan komme sig, hvis presset letter, og hvad kræver hjælp? Hvem kan handle og bære omkostningerne, og hvornår kan vi genbesøge det, vi har gjort?</p></li>
+</ol>
+<p>De spørgsmål kan begynde ved en art eller et levested, ved et jordbrug, der skal kunne fortsætte, ved et lokalsamfund under pres, ved en bys afhængighed af et landskab, ved et ønske om at lære og skabe noget sammen eller inde i en institution, der opdager følgerne af sin egen praksis. Begyndelserne kan skifte undervejs. Den måde, arbejdet opstår på, har betydning for, hvad man kan undersøge, og hvad nogen allerede er nødt til at gøre. <a href="https://papers.spiralweb.earth/papers/land-water-and-living-stewardship">Land, Water and Living Stewardship</a> · <a href="https://papers.spiralweb.earth/protocols/healthy-roots">Healthy Roots</a></p>
+<h3 id="at-kunne-undersøge-sit-eget-sted">At kunne undersøge sit eget sted</h3>
+<p>En dyrker, der vil forstå, hvorfor nogle træer klarer tørken bedre end andre, kan begynde med at fortælle om det med egne ord. Hun kan bruge et kort læsestykke, en længere faglig tekst eller en AI-samtale til at få færten af, hvad der er værd at følge. Med adgang til det relevante materiale kan AI hjælpe med at finde passager, sammenholde notater fra flere sæsoner, oversætte og gøre forskelle mellem forklaringer synlige. En lang tekst kan give dybde til et spørgsmål, selv om man kun har brug for en enkelt passage i første omgang. Spørgsmålet kan siden føre til et genbesøg, en samtale med en nabo eller en fagperson eller et forsøg, gruppen selv finder relevant.</p>
+<p>Det er den mulighed, Spiralweb undersøger som <strong>AI-understøttet citizen science</strong>. Folk kan udvikle deres egne spørgsmål, prøve forklaringer og revidere det, de gør, sammen med andre. I forslaget til <em>Learning with Living Fields</em> begynder grupperne med en måned, hvor de gør deres egne iagttagelser og former spørgsmål uden generativ AI. Senere kan de vælge at bruge AI med materiale, de har givet adgang til. Betalt tid, sprogstøtte og faglig sparring er også en del af forsøget. Det, vi undersøger, er blandt andet, hvem der i praksis får mulighed for at udføre vidensarbejdet og bruge det i deres egen situation. <a href="https://spiralweb.earth/glossary/">Spiralwebs arbejdshypotese og begrebsordbog</a></p>
+<p>Det åbne materiale er en del af de økonomiske vilkår for at kunne gøre det. Tekster og redskaber, der er udgivet under CC BY 4.0, kan bruges, oversættes og tilpasses under licensens vilkår. En gårdskole kan for eksempel ændre et observationsformat og bruge det selv. Et lokalt fællesskab kan vælge, om det vil dele sin tilpasning, en erfaring fra arbejdet eller ingen af delene. Arbejdet med at undersøge, undervise, oversætte og vedligeholde det fælles materiale kan finansieres, mens det åbent licenserede resultat fortsat kan bruges af andre. <a href="https://papers.spiralweb.earth/">Spiralweb Papers</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+<h3 id="når-begyndelsen-er-nød-eller-nødværge">Når begyndelsen er nød eller nødværge</h3>
+<p>En brand, en oversvømmelse eller en tørke, der har bygget sig op gennem flere sæsoner, kan tvinge mennesker til at handle med det samme. Nogen prøver at holde dyr, afgrøder eller en planteskole i live. Andre skal beskytte et levested, før en mulighed forsvinder. Handlingen kan komme først. En mere samlet undersøgelse kan begynde senere, når der igen er tid, eller vokse frem sammen med det arbejde, folk allerede gør.</p>
+<p>Feltposten for Kitgum beskriver forberedelse af planteskolen, vanding og besøg hos hushold, der allerede dyrker fødevarer under tørkepres. Større plantning afventer regn og lokal vurdering. Det giver tre forskellige tidshorisonter. Hvad skal holdes i live nu? Hvilke muligheder kan holdes åbne frem til næste sæson? Hvilke vilkår skal ændres, hvis den samme nød bliver ved med at vende tilbage? <a href="https://spiralweb.earth/fields/kitgum/">Spiralweb · feltarbejdet i Kitgum</a></p>
+<p>Forestil dig en fælles vandring i Kal Central A, et lokalsamfund i Kitgum i det nordlige Uganda. Den begynder ved de steder, hvor hushold henter vand og dyrker mad. En familie kan have brug for at sikre den næste afgrøde. En anden kan have erfaring med træer, der overlever tørre uger. Den, der passer planteskolen, kan fortælle, hvornår de små planter kræver mest vand, og hvornår plejen støder sammen med andet arbejde. Gruppen kan vælge at afprøve jorddække på få dyrkningssteder og samtidig tage et andet spørgsmål op. Hvordan fordeler vi vanding, pasning og adgang til planterne, så det fælles arbejde hjælper husholdene, også dem der har mindst tid til at deltage?</p>
+<p>På vandringen kan det vise sig, at de samme hushold henter det meste af vandet til planteskolen, selv om flere håber at få glæde af planterne. Så har gruppen fået øje på en fælles opgave. Hvad skal de holde i live sammen, og hvordan kan de dele arbejdet, mens regnen lader vente på sig? Før de vælger at udvide planteskolen eller investere i vandopsamling, kan de følge, hvor meget vand og tid den nuværende pleje tager. Hvis en lokal organisation skal forvalte støtte, skal den kunne modtage midlerne, betale for det aftalte arbejde og føre regnskab. Ved genbesøget kan husholdene se, hvad der blev holdt i live, hvem der fik gavn af det, og om den nye arbejdsdeling også hjalp dem, der før bar mest.</p>
+<p>Stewardshipøkonomien må her kunne spørge, om hjælp og penge kan komme, mens der stadig er noget at beskytte, og om nogen har tid og mandat til at holde forbindelsen, når den akutte opmærksomhed aftager. Et senere genbesøg kan give plads til at forstå, hvad der skete, og hvem der bar arbejdet. Det kan også vise, at næste svar skal komme fra en anden del af oplandet, en støtteordning eller en myndighed. Før vi følger gården gennem flere sæsoner, må vi derfor holde fast i, at steder begynder med forskelligt råderum og under forskelligt pres.</p>
+<p>Set fra Kitgum har tidspunktet for en støtte sin egen betydning. Midler til en planteskole, før en kritisk periode er overstået, kan give andre muligheder end det samme beløb bagefter. Og adgang til midler giver ingen grund til at plante, før forholdene kan bære det. Set derfra må vi også spørge til gårdens aftale. Er der plads til at handle hurtigt, til at vente, når stedet kræver det, og til at betale for at holde muligheder åbne i mellemtiden?</p>
+<h2 id="når-erfaring-ændrer-vilkårene">4. Når erfaring ændrer vilkårene</h2>
+<p>Når dyrkeren gør fonden opmærksom på, at plejen tager mere tid end aftalt, kan den fælles opsamling vise, hvilke opgaver der er vokset, og hvad det betyder for aftalen. Dyrkeren beholder de private erfaringer, hun har brugt til at forstå belastningen. Ved deling, oversættelse, sammenstilling eller AI-bearbejdning skal formål, indhold og modtager være aftalt med dem, der har myndighed over materialet. Fonden kan få det grundlag, den behøver for at tage stilling til flerårig pleje.</p>
+<p>En iagttagelse om vandstanden kan på samme tid rejse et andet spørgsmål. Hører den til en enkelt gårds dyrkningspraksis, eller peger den på et mønster i oplandet? Kan andre dyrkere, fagfolk og vandforvaltningen sammen undersøge det? Hvis den relevante beslutning ligger uden for gården, har nogen brug for at tage spørgsmålet op dér, hvor reglerne eller finansieringen kan ændres. Det faglige grundlag, den faktiske indflydelse og retten til at afgøre sagen må være synlige hver for sig.</p>
+<p>Når flere steder forbinder deres iagttagelser, kan de få øje på noget, ingen af dem kunne se alene. Vi bruger <strong>pixellering</strong> som billede for den bevægelse. Hver pixel er en afgrænset iagttagelse eller undersøgelse, man kan vende tilbage til med sted, tidspunkt, grundlag og usikkerhed i behold. Flere gårde kan opdage et fælles mønster i deres vandforhold. De kan også opdage, at de samme ord dækker over forskellige sorter, dyrkningsformer eller muligheder for at handle. Afvigelsen kan ændre spørgsmålet lige så meget som ligheden. Steder med mindst tid, adgang eller mulighed for at dele kan være mindst synlige i det fælles billede.</p>
+<p><strong>Feltintelligens</strong> betegner den fælles evne til at opdage, forstå og svare på det, der sker. Den ligger fordelt mellem mennesker, kilder, metoder og stedets egne reaktioner. AI kan hjælpe med at forbinde spor og formulere mulige forklaringer. En kritisk ven kan spørge, hvad der faktisk blev set, hvilke andre forklaringer der er mulige, og hvad det vil kræve at efterprøve dem. En lokal deltager kan rette en sammenfatning, en fagperson kan udfordre en årsagsforklaring, og en myndighed kan afklare sit eget mandat. Enighed mellem flere modeller giver ingen uafhængig bekræftelse. Et veldokumenteret åbent spørgsmål kan allerede have offentlig betydning. <a href="https://papers.spiralweb.earth/papers/atlas-over-en-levende-arkitektur">Atlas over en levende arkitektur</a> · <a href="https://papers.spiralweb.earth/protocols/sophia-lumen">Sophia Lumen Protocol</a></p>
+<p>En aftale kan gøre et arbejde muligt, og det, arbejdet lærer os, kan give grund til at ændre aftalen, en regel eller en institutions vurdering. Et svar kan også være et begrundet afslag eller en beslutning om at lade spørgsmålet stå åbent. Svaret skal kunne finde tilbage til dem, der rejste det, så de kan vurdere, hvad det betyder for deres næste handling.</p>
+<h3 id="når-en-organisation-selv-må-ændre-arbejdet">Når en organisation selv må ændre arbejdet</h3>
+<p>I eksemplet med det levende hegn blev udgiften synlig, da nogen skulle pleje det. I en kommune kan den samme forskydning vise sig, når en ny arbejdsgang ser ud til at spare tid. Forestil dig, at en medarbejder i et naturteam skal besvare en henvendelse om plejen af et vådområde. Hun finder en tidligere aftale i en kollegas noter, får den bekræftet hos driften og beder den lokale plejegruppe om et kort, som gruppen allerede har sendt. Sagen bliver afsluttet til tiden. Ugen efter gentager forløbet sig med en anden henvendelse. Hvis den næste medarbejder i funktionen bruger tiden på de samme omveje, er det selve arbejdsgangen, teamet har grund til at undersøge.</p>
+<p>Teamet kan tage udgangspunkt i et par forløb, som medarbejderne selv har valgt at gennemgå. Hvor længe ledte de efter aftalen, hvem blev bedt om at sende oplysninger igen, og hvem havde mandat til at svare? Lederen kan eksempelvis give én funktion ansvar for at holde den gældende plejeaftale tilgængelig og svare på spørgsmål om den. Ved næste genbesøg kan teamet se, om arbejdet faktisk blev lettere, om opgaven bare landede hos driften eller den lokale gruppe, og om der stadig er plads til fagligt skøn og indsigelse. Det er det, der afgør, om den sparede tid var en reel gevinst.</p>
+<p>En medarbejder kan eksempelvis bruge grøn, gul eller rød som ord for, hvordan vedkommende selv oplever belastningen over tid. Det er en selvvurdering, som personen selv bestemmer, om og hvordan de vil dele. Hvis den betros til en samtale om arbejdets vilkår, må den ikke genbruges til personbedømmelse. Den fælles hukommelse kan i stedet fastholde det forhold, der skal undersøges, hvad der blev ændret, og hvem der skal svare. Så kan et menneske bidrage med noget væsentligt uden at afgive råderetten over sin erfaring. Om organisationen bliver mere lydhør, viser sig i det, der kan ændres, og i hvordan det opleves, når nogen vender tilbage til opgaven. <a href="https://papers.spiralweb.earth/papers/kommunalt-arbejde-som-natur">Kommunalt Arbejde som Natur</a></p>
+<p>Den kommunale passage giver os et spørgsmål at tage tilbage til gården. Hvis en finansieringsaftale ser effektiv ud, fordi nogen overtager dokumentation eller pleje i fritiden, hvem har så båret gevinsten? Et genbesøg skal kunne få øje på det arbejde, der er flyttet, uanset om det ligger i en anden afdeling eller hos en familie på en gård.</p>
+<h3 id="når-byen-er-med-til-at-forme-landskabet">Når byen er med til at forme landskabet</h3>
+<p>I Xochimilco i Mexico City åbner chinampaerne, dyrkningsarealerne mellem kanalerne, undersøgelsen fra en anden skala. Hvor gårdeforløbet spørger, hvad en dyrker kan gøre inden for et oplands grænser, rejser Xochimilco spørgsmålet om, hvordan en storby er afhængig af et levende vand- og fødevarelandskab og selv er med til at forme det. Dyrkning, vedligeholdelse af vandveje og vilkår for arter kan være knyttet til beslutninger om vand, areal og offentligt arbejde, som træffes forskellige steder. Samarbejdet er under udvikling. Hvilke spørgsmål der kan undersøges sammen, afhænger af de lokale parters egne prioriteringer og aftaler. <a href="https://spiralweb.earth/fields/mexico-city/">Spiralweb · Xochimilco</a></p>
+<p>Forestil dig, at en dyrker opdager, at hun i en del af sæsonen har svært ved at få redskaber og grøntsager gennem den kanal, hun plejer at bruge. På samme strækning vil en nabo gerne vide, hvad en oprensning vil gøre ved bevoksningen langs bredden og de dyr, der bruger den. De to erfaringer giver forskellige grunde til at se nærmere på kanalen. Hvornår er den vanskelig at passere? Er der forskel på strækningerne? Hvad ved dyrkerne om tidligere oprensning og vandtilførsel? En vandfaglig undersøgelse kan hjælpe med at skelne mellem noget, de selv kan tage hånd om, og forhold, der afhænger af arbejdet andre steder i kanalsystemet.</p>
+<p>Den lokale organisation IAX beskriver i sit programforslag, hvordan fire af dens arbejdsområder kan spille sammen. Det drejer sig om undervisning for dyrkere, anvendt forskning, demonstration af dyrkningspraksis og arbejde med kvinders organisering og råderum. Hvis en jordprøve giver anledning til at ændre dyrkningen, kan det se enkelt ud på demonstrationsarealet. For en familie kan den samme ændring kræve tid, transport eller materialer, som skal betales, før høsten giver indtægt. Hvis flere familier peger på den samme vanskelighed, kan IAX få øje på en opgave, som falder mellem undervisningen og den faglige rådgivning. Hvem følger det, familierne prøver, efter at et hold er slut, og hvem får tid og betaling til at føre erfaringen tilbage til næste hold? Hvis opfølgningen viser, at det afgørende problem går igen langs flere kanaler, kan der samtidig opstå et spørgsmål, som IAX og dyrkerne har brug for at tage videre til byen.</p>
+<p>Hvis dyrkere på flere strækninger beskriver en lignende vanskelighed, kan de sammen med IAX vælge, hvilke erfaringer de vil bringe videre. Et fælles kort over passager, sæsoner og tidligere vedligeholdelse kan danne grundlag for at spørge, hvem der har ansvar for de berørte strækninger, hvad der allerede er afsat penge til, og hvordan hensyn til levesteder indgår i arbejdet. Et andet forløb kan begynde med høsten. Hvis flere dyrkere kan levere grøntsager, men hver især mister tid og indtægt på transport og uregelmæssige aftaler, ligger noget af handlemuligheden hos indkøberne eller i en fælles ordning for afsætning. En fast leveringsaftale rejser så nye spørgsmål om pris, sæsonvariation og hvem der bærer risikoen, når leveringen svigter. De to spor har forskellige modparter og forskellige pengestrømme. De mødes i det arbejde, en familie skal kunne leve af og have tid til at fortsætte.</p>
+<p>Set fra Mexico City er spørgsmålet også, hvordan et dyrket vådområde indgår i byens forsyning med fødevarer, dens vandforvaltning og pladsen til vilde arter. Arbejdet i Xochimilco kan rejse større spørgsmål om oversvømmelser, sætninger og arealpres, som kræver deres egne undersøgelser på by- eller oplandsskala. Hvem får gavn af, at landskabet fortsat er levende og i brug? Hvor i byens budgetter og aftaler hører de opgaver hjemme, som dyrkerne og deres organisationer i dag selv må finde tid til? En institutionel samtale bliver til en del af læringsspiralen, når den giver noget tilbage, som kan genbesøges lokalt. Det kan være en begrundet afgørelse, en vedligeholdelsesaftale med en ansvarlig part eller et afslag, der gør den reelle hindring synlig. I næste sæson er der stadig tre spørgsmål at holde adskilt. Hvad skete der med vand og levesteder? Kunne familierne bære arbejdet økonomisk og i hverdagen? Hvilke vilkår ændrede institutionerne faktisk?</p>
+<p>Xochimilco skærper på samme måde gårdens vandspørgsmål. Når en by eller flere brugere er med til at forme de samme vandforhold, må beslutningerne følges på tværs af steder. Et fælles anliggende kan kræve en ordning, som bærer vedligeholdelse og ansvar på oplandets skala, mens det enkelte sted fortsat har sit eget råderum og sine egne spørgsmål.</p>
+<p>De tre steder giver undersøgelsen forskellig retning. I Marokko kan gårde og gårdskoler undersøge, hvad der kan genrejses af jord, levesteder og dyrkning inden for vandets grænser, og hvilke spørgsmål der skal tages op på oplandets skala. I Kal Central A begynder spørgsmålet med, hvad husholdene kan dyrke og holde i live, og hvilke fælles vandløsninger de har råderum til at bygge, bruge og vedligeholde. I Xochimilco kan dyrkernes og læringsmiljøernes undersøgelser af et levende vand- og fødevarelandskab ændre undervisning og dyrkningspraksis og rejse spørgsmål til byens vandforvaltning. De stedlige forbindelser er under udvikling. Hvad de giver af naturforbedring, bedre leveveje eller ændrede vilkår, må vise sig i arbejdet og ved genbesøget. <a href="https://spiralweb.earth/anchorpoints/">AnchorPoints</a></p>
+<h2 id="når-felterne-svarer">5. Når felterne svarer</h2>
+<h3 id="at-holde-en-relation-over-tid">At holde en relation over tid</h3>
+<p>Mellem en iagttagelse, en beslutning og en virkning kan der gå flere sæsoner. Nogen skal kunne huske, hvad der blev aftalt, bevare kontakten, tage imod en korrektion og vende tilbage, også hvis midlerne kommer sent eller et forsøg sættes på pause. Den tid hører med til arbejdet. Ellers afhænger forbindelsen af, at den samme person bliver ved med at holde den oppe.</p>
+<p>Når man vender tilbage, kan et spørgsmål udefra også ændre, hvad der er værd at følge på stedet. En fagperson kan få øje på, at en art bruger markkanten på et bestemt tidspunkt. En nabo kan vise, at de uger, hvor der mangler vand på den ene gård, falder sammen med en ændring i vandfordelingen længere oppe. Det, de får øje på sammen, kan ændre både næste iagttagelse og hvem de har brug for at tale med.</p>
+<h3 id="stedbårne-læringsspiraler">Stedbårne læringsspiraler</h3>
+<p>Når mennesker arbejder med et sted gennem flere sæsoner, kan de opdage, at det, de hver især har forsøgt at løse, er en fælles opgave. Det kan begynde med nogle træer, der tørrer ud, eller et levested, der langsomt forsvinder. Når de følger det, der sker, bliver det tydeligere, hvad de selv kan gøre, hvem de har brug for at samarbejde med, og hvilke beslutninger der må ændres andre steder. Så kan der opstå nye aftaler om jord, vand, arbejdstid og penge. Ved næste genbesøg kan de se, om aftalerne gav det levende bedre vilkår, og om de mennesker, der passer på stedet, faktisk fik bedre mulighed for at fortsætte. Det er sådan, arbejdet med et sted over tid kan ændre de ordninger, som stedet hidtil har måttet bære følgerne af.</p>
+<p>Vi bruger <em>stedbårne læringsspiraler</em> som arbejdsnavn for denne måde at undersøge og handle sammen på. En gårdskole kan opdage, at et levested strækker sig over flere ejendomme. Én dyrker kan give plads, en anden kan formere planter, og skolen kan hjælpe med at følge, hvad der overlever. Hvis vandet stadig er den afgørende hindring, kommer andre brugere og den relevante myndighed ind i sagen. Det konstitutionelle ligger i, at arbejdet kan ændre, hvem der har en fælles opgave, hvad de kan beslutte, og hvem der har tid, penge og ansvar til at føre det videre. Om den nye ordning hjælper, må også ses i det, der sker med vandet, planterne og arterne i de følgende sæsoner.</p>
+<p>De 38 arbejdsspørgsmål er vokset frem af samtaler med felterne og en AI-støttet samlæsning af teksterne på Papers. Tallet viser, hvor den fælles bearbejdning er nået til. Dyrkere, naboer, undervisere, fagpersoner og foreningen kan bruge spørgsmålene til at få øje på sider af en sag, de endnu ikke har talt om. Dem, der skal bære en fælles undersøgelse, kan vælge et spørgsmål, ændre det eller stille et, som mangler. En lokal Working Wager gør en bestemt forventning mulig at vende tilbage til. Hvad troede vi ville ske, og hvad ville få os til at tænke om? Den lokale forventning kan også udfordre en af de fælles antagelser i registeret. Kritikfiguren hjælper med at følge værdien og regningen gennem den samme sag. Hvem fik gavn af ordningen, hvem bar arbejdet, og lettede presset på stedet eller flyttede det sig? Et genbesøg kan give grund til at ændre en lokal aftale, foreningens støtte eller spørgsmålene og antagelserne på Papers.</p>
+<p>Her får arkitekturen sin opgave. En feltkontakt kan holde relationen. En dagbog kan fastholde det iagttagede. En aftalt tilbagemelding kan give noget brugbart tilbage til stedet eller åbne en samtale med andre. En beslutningslog kan huske, hvem der tog ansvar, og hvornår der skal følges op. De enkelte redskaber kan understøtte den fælles undersøgelse, så længe deres brug kan afgrænses og korrigeres af dem, arbejdet vedrører.</p>
+<p>Et <strong>Anchor Point</strong> er en lokalt forankret relation, hvor flere over tid kan forme og genbesøge et spørgsmål. Feltbeskrivelsen viser, hvad der faktisk er i gang på det enkelte sted. I Marokko giver forbindelsen mellem et gårdforløb i Doukkala og et dyrkningssted ved Had Soualem med sit eget vandspørgsmål en mulighed for fælles læring. De to steder har hvert sit grundlag, sin rytme og sin lokale myndighed. Relationerne er virkelige, mens den fælles form stadig udvikles. Foreningen kan bære afgrænsede aftaler, koordinering og ressourcer. At holde forbindelsen gennem en regntid, en pause eller en institutionel beslutning kræver tid og mandat. <a href="https://spiralweb.earth/anchorpoints/">AnchorPoints</a> · <a href="https://spiralweb.earth/shared-capacity/">Shared Capacity</a></p>
+<p>Begrebsordbogens <strong>dobbelte Return</strong> forbinder genbesøget af stedet eller praksissen med det at give noget brugbart tilbage til de mennesker og relationer, arbejdet udsprang fra. En <em>Local Return</em> kan være fuldt brugbar dér. En <em>Field Return</em> er en særskilt mulighed for at lade noget rejse med aftalt formål, ophav, usikkerhed og grænser intakte. Et svar fra en institution kan give anledning til en ny omgang. Det samme kan en lokal tilpasning, som med aftale finder tilbage til Papers og ændrer et åbent redskab. Det åbne vidensgrundlag og beskyttelsen af den lokale erfaring gør hver sin del af bevægelsen mulig. <a href="https://spiralweb.earth/glossary/">Glossary</a> · <a href="https://spiralweb.earth/institutional-bridge/">Institutional Bridge</a></p>
+<p>Papers giver mulighed for at tage et fagligt spørgsmål eller en arbejdsform med ud i sit eget felt. Hovedsiden viser de konkrete relationer, feltets aktuelle status og det ansvar, foreningen kan bære. Atlas forbinder krop, sted, viden, økonomi og institutioner, så vi kan se, hvorfor en erfaring kan betyde noget forskelligt alt efter, hvor den bliver læst. <a href="https://papers.spiralweb.earth/">Spiralweb Papers</a> · <a href="https://spiralweb.earth/">Spiralweb</a> · <a href="https://papers.spiralweb.earth/papers/atlas-over-en-levende-arkitektur">Atlas</a></p>
+<h3 id="hvad-vi-arbejder-ud-fra-og-hvad-der-kan-ændres">Hvad vi arbejder ud fra, og hvad der kan ændres</h3>
+<p>Arters og levesteders betydning i sig selv og beskyttelsen af en betroet erfaring er forpligtelser i arbejdet. Om arbejdsformerne hjælper os til at leve op til dem, må vi undersøge. I Spiralweb kalder vi en begrundet, foreløbig antagelse for en <em>Working Wager</em>, når vi også angiver, hvad der ville få os til at tænke anderledes. En iagttagelse ved genbesøget har sin egen status. Den kan give belæg for at ændre en antagelse, en handling eller en aftale.</p>
+<p><strong>Beskyttet tilbagemelding.</strong> Når mennesker og fællesskaber kan afgrænse det, de deler, og få et svar på de vilkår, de peger på, kan tilbagevendende belastninger måske opdages og håndteres tidligere. Prøven er, om nogen kan sige fra uden at miste råderum, og om de samme belastninger bliver ved med at ramme den næste person i funktionen.</p>
+<p><strong>Stedlig erfaring og institutionelt svar.</strong> Når stedlige erfaringer kan nå nogen med mandat, og svaret kan følges tilbage, kan økonomiske og offentlige ordninger blive mere lydhøre over for det levende. Prøven er, hvad der faktisk ændres, hvem der bærer følgerne, og hvad genbesøget viser for mennesker, arter og levesteder.</p>
+<p><strong>Fælles læring mellem steder.</strong> Når flere lokalt holdte undersøgelser kan forbindes med deres forskelle og usikkerheder synlige, kan de måske opdage mønstre, afvigelser og fælles vilkår, som hvert sted kun kan se delvis. Prøven er, om de deltagende steder får bedre mulighed for at undersøge og handle, og om det fælles billede kan korrigeres af dem, der bærer erfaringerne. De tre antagelser læses i sammenhæng med de eksisterende Working Wagers. <a href="https://papers.spiralweb.earth/papers/the-spiral-of-hypotheses-full-register">The Spiral of Hypotheses</a></p>
+<p>Spiralwebs egne aftaler, formater og støtteveje skal kunne ændres af det, der vender tilbage. Hvis en opsamling kun bliver brugt som råstof til en offentlig fortælling, hvis rapporteringen tager tid fra plejen, eller hvis ingen har mandat og tid til at svare, er det vores egen organisering, der skal genbesøges. Det kan betyde at forenkle et format, ændre en aftale, flytte midler eller give en eksisterende arbejdsform mere plads.</p>
+<p>Spiralwebs tilblivelse er ét dokumenteret forløb, hvor én videnssteward sammen med AI har opbygget, forbundet og revideret et offentligt vidensgrundlag. <em>Learning with Living Fields</em> er et programforslag til at undersøge, hvad flere grupper kan bære sammen. <a href="https://papers.spiralweb.earth/ai-human-responsibility">Papers om AI og menneskeligt ansvar</a></p>
+<p>Et arbejdsrum, som deltagerne selv har råderet over, kan bevare observationer, kilder, versioner, indvendinger og aftaler på tværs af samtaler og sæsoner. En privat dagbog, en fælles arbejdshukommelse, forskningsmateriale og en offentlig Field Return har hver deres formål og adgangsvilkår.</p>
+<p>Samarbejdet skal genbesøges, hvis sproglig sammenhæng får mere vægt end belægget, hvis stederne bliver mindre genkendelige for dem, der bor der, eller hvis arbejdet afhænger af skjult arbejde eller et stadig tungere centrum.</p>
+<p>Ved et genbesøg kan vi skelne mellem tre situationer. Beskyttelsen kan svigte, hvis en betroet erfaring skifter formål. Svaret kan udeblive, hvis ingen med mandat tager spørgsmålet op. Og et svar kan få andre følger end ventet, også når beskyttelsen og beslutningsgangen holdt. De situationer giver forskellige grunde til at ændre praksis, aftaler eller formater.</p>
+<p>Næste gang dyrkerne vender tilbage til gården, kan de have et andet spørgsmål, en ændret aftale eller nye oplysninger om oplandet. De kan bruge det, de har lært, lokalt. Hvis noget er klar til at rejse, kan det med aftale give andre dyrkere noget at undersøge, få en institution til at genoverveje en beslutning eller ændre et åbent redskab på Papers. Der kan være uenighed om værdier og om, hvad der skal gøres. Et konkret fælles spørgsmål kan give arbejdet et sted at begynde.</p>
+<p>I Planetary Guardians-manifestet fra 2019 lå allerede en invitation til at give vild natur mere plads og dele erfaringer fra arbejdet. Den tidlige marokkanske skovlandbrugstekst gav den invitation et sted at begynde. I Spiralweb har spørgsmålet efterhånden fået en form, der kan holde et genbesøg, også når et forsøg udfordrer forventningen, en myndighed må svare, eller en bevilling udløber før arbejdet. <a href="https://spiralweb.earth/planetary-guardians/">Planetary Guardians på Spiralweb</a> · <a href="https://planetaryguardians.global/manifest/">Manifestet fra 2019</a> · <a href="https://planetaryguardians.global/syntropic-food-forests-in-morocco/">Skovlandbrug i Marokko, 2021</a></p>
+<p>Papers giver læseren noget at tage med ud i arbejdet. Ved et Anchor Point kan de mennesker, der bærer relationen, give deres læring en form, der er nyttig for dem. Et steds egen redegørelse, en faglig vandring eller en kort film kan også åbne en samtale med andre. Hylden til offentlige Field Returns holder plads til den gennemarbejdede erfaring, som deltagerne efter aftale ønsker at dele videre. Den kan vise, hvad der måtte ændres i naturarbejdet, hvem der kom til at bære det, eller hvilken beslutning et sted fik genåbnet. Biblioteket får dermed en måde at lære af noget, der først kunne blive kendt gennem arbejdet.</p>
+<p>Det er også her, vidensarbejdet bliver en del af stewardshipøkonomien. Det kan ændre, hvem der har tid og adgang til at undersøge, hvem der kan få sin erfaring til at tælle, og hvem der har mulighed for at svare. Den næste omgang viser, hvad der faktisk kom tilbage, og hvad det betød for det levende og for de mennesker, der bærer arbejdet.</p>
+<h2 id="læseguide-otte-steder-at-begynde">Læseguide · Otte steder at begynde</h2>
+<p>Du kan komme med en iagttagelse, en opgave eller en erfaring, du vil undersøge. Hver vej nedenfor giver dig et spørgsmål at tage med videre. Flere veje kan være relevante for det samme sted.</p>
+<ol type="1">
+<li><p><strong>En art eller bestand risikerer at gå tabt.</strong> Hvad er der faktisk set, og hvad ved I om det levested, arten behøver? En første iagttagelse kan give grund til at undersøge eller beskytte noget. Overvej, hvem der bør kende stedet, hvis en præcis lokalitet er følsom. <a href="https://iucn.org/resources/conservation-tool/iucn-red-list-threatened-species">IUCN Red List</a> · <a href="https://iucn.org/resources/publication/iucn-green-status-species">Green Status of Species</a></p></li>
+<li><p><strong>Et forringet sted har brug for en retning.</strong> Hvilken funktion eller hvilket levested vil I give mulighed for at komme sig? Beskriv først, hvordan stedet ser ud nu, og hvilken historisk eller økologisk reference der kan hjælpe jer med at vurdere mulighederne. <a href="https://papers.spiralweb.earth/papers/land-water-and-living-stewardship">Land, Water and Living Stewardship</a></p></li>
+<li><p><strong>I vil give naturlige processer mere plads.</strong> Hvilket pres skal lette, og hvad vil I følge, hvis succession, spredning eller andre processer får mere råderum? Spørg også, hvem der kan bære tid og opfølgning, mens udfaldet er åbent. <a href="https://iucn.org/resources/publication/guidelines-rewilding">IUCN’s retningslinjer for rewilding</a></p></li>
+<li><p><strong>En dyrkningspraksis skal ændres, og nogen skal kunne leve af den.</strong> Vælg én ændring at følge, og se både på jord, vand eller arter og på arbejdstid, omkostning og udbytte. Hvem har råderum til at prøve noget andet? <a href="https://papers.spiralweb.earth/protocols/healthy-roots">Healthy Roots</a> · <a href="https://papers.spiralweb.earth/papers/en-anstaendig-oekonomi-under-livets-jurisdiktion">En anstændig økonomi under livets jurisdiktion</a></p></li>
+<li><p><strong>Noget kræver handling nu.</strong> Hvad er vigtigst at holde i live eller beskytte, og hvem kan hjælpe lokalt? Når der igen er tid, kan I vende tilbage til, hvad der skete, og spørge, hvilke vilkår der kan ændres inden næste gang. <a href="https://spiralweb.earth/fields/kitgum/">Feltposten for Kitgum</a></p></li>
+<li><p><strong>I vil sammenholde iagttagelser fra flere steder.</strong> Hvad er sammenligneligt, og hvilke forskelle i sted, sæson, metode og observationsindsats skal følge med? Begynd med det, I faktisk kan undersøge sammen, og lad en vigtig afvigelse kunne ændre spørgsmålet. <a href="https://papers.spiralweb.earth/papers/knowing-from-the-ground">Knowing From the Ground</a></p></li>
+<li><p><strong>Andre vil gerne bruge viden, I forvalter.</strong> Afgør, hvad der må rejse, hvem der kan give tilladelse, og hvilket svar eller udbytte der skal tilbage. En åben protokol kan tilpasses lokalt, og de erfaringer, der bliver til undervejs, kan blive hos dem, der bærer dem. <a href="https://spiralweb.earth/governance/knowledge-in-right-relationship/">Knowledge in Right Relationship</a></p></li>
+<li><p><strong>Du har ansvar for et spørgsmål, der går på tværs af steder.</strong> Hvilken del af vandforvaltningen, finansieringen eller arbejdsdelingen kan du faktisk ændre? Hvilke erfaringer skal kunne udfordre din institutions læsning, og hvordan får de berørte et svar? <a href="https://spiralweb.earth/institutional-bridge/">Institutional Bridge</a> · <a href="https://spiralweb.earth/fields/mexico-city/">Feltposten for Xochimilco</a></p></li>
+</ol>
+<p><strong>Hvis du stiller midler til rådighed.</strong> Spørg, om pengene bærer etablering, løbende pleje, betalt tid til læring eller arbejdet med at holde en fælles aftale. Hvem tager over, når bevillingen udløber? <a href="https://spiralweb.earth/shared-capacity/">Støtteveje på hovedsiden</a></p>
+<h3 id="hvad-du-kan-gøre-alene-og-sammen-med-andre">Hvad du kan gøre alene og sammen med andre</h3>
+<p>De åbne tekster og formater kan hjælpe dig med at orientere dig, gøre et spørgsmål undersøgeligt, følge en ændring og huske, hvorfor du eller gruppen valgte at handle. <em>Feltets Dagbog</em>, <em>Healthy Roots</em> og PG Ledger-formaterne kan bruges stykkevis. En AI-samtale kan hjælpe med at finde forbindelser og kilder, mens du selv kan vende tilbage til stedet og afgøre, hvad der giver mening at følge. Et genbesøg kan give et fuldt brugbart lokalt udbytte.</p>
+<p>Hvis flere vil arbejde sammen, kan et Anchor Point med tiden holde den relation, hvor spørgsmålet kan formes og genbesøges. Deltagerne kan aftale, hvad der skal undersøges, hvilken faglig hjælp der er relevant, og hvad der kan komme tilbage til dem som en <em>Local Return</em>. En <em>Field Return</em> kræver en særskilt beslutning om, hvad der kan deles med andre. En henvendelse til en institution kan også være relevant, hvis spørgsmålet angår en beslutning, som den har mandat til at ændre. Spiralwebs medvirken til et konkret samarbejde, faglig bistand eller støtte afhænger af aftale og den kapacitet, der faktisk findes. <a href="https://spiralweb.earth/how-we-work/">Sådan arbejder Spiralweb</a> · <a href="https://spiralweb.earth/anchorpoints/">AnchorPoints</a></p>
+<p><a href="/da/stedbaarne-laeringsspiraler/">Stedbårne læringsspiraler · kort metodeindgang</a></p>
+<footer class="page-footer"><p>Udviklet gennem menneskeligt ledet undersøgelse, AI-medskabelse og redaktionel revision. Selvstændig Papers-undersøgelse; ikke vedtaget foreningspolitik.</p><p><a href="/methods-editorial-practice">Redaktionel praksis · EN</a> · <a href="mailto:contact@spiralweb.earth">Spørgsmål og rettelser</a></p></footer></main></body></html>
