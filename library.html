@@ -83,6 +83,9 @@
     .no-results.visible{display:block}
     @media(max-width:900px){.library-hero{grid-template-columns:1fr}.library-mark{display:none}}
     @media(max-width:620px){.library-map > .library-map-rooms{grid-template-columns:1fr}.library-search{grid-template-columns:1fr}.library-hero{padding-top:56px}}
+      .library-title-index {margin-block:1.5rem}
+    .library-title-index summary {cursor:pointer;font-weight:600}
+    .library-title-index li {margin-block:.4rem;overflow-wrap:anywhere}
   </style>
 <link href="/spiralweb-skiplink.css" rel="stylesheet"/>
 <style id="sw-papers-navigation-20261015">
@@ -130,7 +133,7 @@
 <p class="eyebrow">The complete public collection</p>
 <h1>A library with a memory.</h1>
 <p class="lead">Papers, reports, field papers, protocols and tools from a developing inquiry. Earlier work remains visible in its dated form; later work may return to it, narrow it or change what can be seen.</p>
-<div class="hero-actions"><a class="button primary" href="#library-map-title">See the library map ↓</a><a class="button secondary" href="/">Return to the curated entrance</a></div>
+<div class="hero-actions"><a class="button primary" href="#library-map-title">See the library map ↓</a><a class="button secondary" href="#title-index" id="title-index-link" hidden>Browse titles</a><a class="button secondary" href="/">Return to the curated entrance</a></div>
 </div>
 <div aria-hidden="true" class="library-mark"><img alt="" height="430" src="assets/identity/spiralweb-reading-room-organic-v1.png" style="height:auto" width="440"/></div>
 </section>
@@ -151,6 +154,15 @@
 <p hidden="" id="library-results-empty">No catalogue entry matches. Try a shorter term, a document type, or a related concept.</p>
 <ul id="library-results-list"></ul>
 </section>
+<details id="title-index" class="library-title-index" hidden>
+<summary>Browse the title index · Titelregister</summary>
+<p>Scan the titles from the catalogue and open an available reading edition directly.</p>
+<ul id="title-index-publications"></ul>
+<details>
+<summary>Pages and reading rooms on spiralweb.earth</summary>
+<ul id="title-index-places"></ul>
+</details>
+</details>
 <nav aria-labelledby="library-map-title" class="library-map">
 <h2 id="library-map-title">A map of the library</h2>
 <p class="muted">The spirals tell the story of the inquiry. The shelves bring together texts that do similar work.</p>
@@ -663,6 +675,64 @@
         entries.push(record);
         byAddress.set(address, record);
       }
+    });
+    const titleIndex = document.getElementById('title-index');
+    const titleIndexLink = document.getElementById('title-index-link');
+    const indexLists = {
+      publication: document.getElementById('title-index-publications'),
+      place: document.getElementById('title-index-places'),
+    };
+    const languageNames = new Intl.DisplayNames(['en'], { type: 'language' });
+    const languagesInLabels = {
+      English: 'en', Danish: 'da', French: 'fr', Spanish: 'es',
+      Darija: 'ary', Acholi: 'ach',
+    };
+    for (const { entry, kind } of entries.slice().sort((a, b) =>
+      a.entry.querySelector(':scope > a').textContent.trim()
+        .localeCompare(b.entry.querySelector(':scope > a').textContent.trim(), 'en'))) {
+      const row = document.createElement('li');
+      const title = entry.querySelector(':scope > a').cloneNode(true);
+      title.textContent = title.textContent.trim();
+      row.append(title);
+      const editions = new Map();
+      const linkedEditions = kind === 'publication' ? entry.querySelectorAll('.links a[href], a[href][hreflang], a[href][lang]') : [];
+      for (const link of [title, ...linkedEditions]) {
+        const labelLanguage = link.getAttribute('aria-label')?.split(' — ').at(-1);
+        const language = link.hreflang || link.lang || languagesInLabels[labelLanguage];
+        if (!language) continue;
+        const url = new URL(link.href);
+        const format = /\.(pdf|docx)$/i.exec(url.pathname)?.[1].toLowerCase();
+        if (format === 'docx') continue;
+        const editionKey = url.origin + url.pathname.replace(/\.(html|pdf)$/i, '').replace(/\/$/, '');
+        const prior = editions.get(editionKey);
+        if (!prior || (prior.format && !format)) {
+          editions.set(editionKey, { link, language, format });
+        }
+      }
+      const labels = new Map();
+      for (const { language } of editions.values()) {
+        labels.set(language, (labels.get(language) || 0) + 1);
+      }
+      for (const { link, language, format } of editions.values()) {
+        const edition = document.createElement('a');
+        edition.href = link.href;
+        edition.hreflang = language;
+        const languageLabel = language === 'ary' || language === 'ary-MA'
+          ? 'Darija' : language === 'ach' || language === 'ach-UG'
+            ? 'Acholi' : languageNames.of(language.split('-')[0]);
+        const editionLabel = labels.get(language) > 1
+          ? link.getAttribute('aria-label')?.split(' — ').slice(1, -1).join(' — ') || link.textContent.trim()
+          : '';
+        edition.textContent = [languageLabel, editionLabel, format?.toUpperCase()].filter(Boolean).join(' · ');
+        edition.setAttribute('aria-label', title.textContent + ', ' + edition.textContent);
+        row.append(' · ', edition);
+      }
+      indexLists[kind].append(row);
+    }
+    titleIndex.hidden = false;
+    titleIndexLink.hidden = false;
+    titleIndexLink.addEventListener('click', () => {
+      titleIndex.open = true;
     });
     let lastQuery = null;
     let lastScope = null;
