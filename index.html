@@ -79,13 +79,20 @@
 @media(max-width:650px){#questions .question-grid,.reading-notes-grid{grid-template-columns:1fr}}
 </style>
 <style>
-.editorial-copy{max-width:74ch;margin-inline:auto;overflow-wrap:anywhere}
+ .editorial-copy{max-width:74ch;margin-inline:auto;overflow-wrap:anywhere;line-height:1.72}
+.editorial-copy h2,.catalogue-reading h3{text-wrap:balance}
+.editorial-copy p+p{margin-block-start:1.05em}
+.editorial-contents{border-block-end:1px solid var(--line);padding-block:1rem}
+.editorial-contents .shell>div{max-width:74ch;margin-inline:auto}
+.editorial-contents-links,.reading-topics{display:flex;flex-wrap:wrap;gap:.35rem 1.2rem}
+.editorial-contents-links a,.reading-topics a{display:inline-flex;align-items:center;min-height:36px;text-underline-offset:.2em}
 .catalogue-readings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.25rem,3vw,2.5rem);margin:2rem 0}
-.reading-topics{display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-block:1rem 1.5rem}
+.reading-topics{margin-block:1rem 1.5rem}
 .catalogue-reading{min-width:0}
 .catalogue-reading h3{margin-top:0}
 .catalogue-reading p{line-height:1.75}
-@media(max-width:960px){.catalogue-readings{grid-template-columns:1fr}.catalogue-reading{max-width:74ch}.catalogue-reading+.catalogue-reading{border-top:1px solid currentColor;padding-top:1.5rem}}
+@media(min-width:961px){.catalogue-reading+.catalogue-reading{border-inline-start:1px solid var(--line);padding-inline-start:clamp(1rem,2vw,1.75rem)}}
+@media(max-width:960px){#reading-table .shell>*{max-width:74ch;margin-inline:auto}.catalogue-readings{grid-template-columns:1fr}.catalogue-reading+.catalogue-reading{border-top:1px solid var(--line);padding-top:1.5rem}}
 </style></head>
 <body class="sw-salon sw-salon-home">
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -96,7 +103,7 @@
 <main id="main-content"><section class="hero"><div class="shell">
     <div><p class="eyebrow">Public · versioned · correctable</p><h1>Living knowledge for regenerative futures.</h1><p class="lead">How can restoring soils, waterways and habitats become work people can make a living from? And how can what we learn in one place change how money is spent and decisions are made?</p><div class="hero-actions"><a class="button primary" href="/topics/">Read the introduction and catalogue</a><a class="button secondary" href="/library">Full Library</a></div><p><a href="/topics/#your-ai">Use Papers with your own AI</a></p></div>
     <div class="spiral" aria-label="A non-linear living map"><span class="orbit o1">Sense</span><span class="orbit o2">Coordinate</span><span class="orbit o3">Return</span><span class="orbit o4">Protect</span><img src="https://papers.spiralweb.earth/assets/identity/spiralweb-reading-room-organic-v1.png" alt="Spiralweb mark" width="440" height="430" style="height:auto"></div>
-  </div></section><section class="section" id="introduction"><div class="shell"><div class="editorial-copy"><h2>Learning with the living world</h2>
+  </div></section><nav class="editorial-contents" aria-label="On this page"><div class="shell"><div class="editorial-contents-links"><a href="#introduction">The living field</a><a href="#two-spirals">The two spirals</a><a href="#stewardship-bridge">Stewardship economy</a><a href="#reading-table">Readings</a></div></div></nav><section class="section" id="introduction"><div class="shell"><div class="editorial-copy"><h2>Learning with the living world</h2>
 <p>What does it mean for a place to recover? A farm can grow more food while losing species. A canal can be cleaned while pollution continues to flow into it. A place can begin to recover while the people caring for it can no longer afford to carry on. What would it take for that recovery to last? This library grew around questions like these.</p>
 <p>By <strong>the living field</strong> we mean a place together with the relationships and decisions through which actions have consequences. It includes soil, water, species and people, along with the agreements, working practices and decisions that shape their conditions. Water crosses property boundaries, so a farm’s living field can extend across a catchment. It can also include a grant agreement, because the length of the grant helps determine who can keep tending what has been started. A grower, a biologist and a water authority may each know a different part of the same field. Each can help the others see what they might have missed, especially when they return to see what has changed.</p>
 <p>We call work <strong>regenerative</strong> when it helps restore the conditions in which life can thrive. That can involve restoration, maintenance or protection. It can also involve removing pressure so that life can recover on its own. To say what that means in practice, we need to describe the starting conditions, which species, habitats or people we expect to benefit, where we expect to see change and how long it might take. Species and habitats matter in their own right.</p>
