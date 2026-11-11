@@ -2,7 +2,7 @@
 
 ## Spiralweb som læringsarkitektur: partiel viden, kritisk venskab og bevægelsen gennem spiralen
 
-**Positioneringspaper · offentlig dansk kandidat v0.7 · 9. september 2026**  
+**Positioneringspaper · offentlig dansk kandidat v0.7.3 · 11. november 2026**\
 **Sprog:** Dansk paralleludgave · originalsprog: engelsk · CC BY 4.0  
 **Status:** En selvstændig, versioneret formulering af Spiralwebs læringsarkitektur, praksisindgang og åbne institutionelle hypotese.
 
@@ -108,6 +108,8 @@ Et levende felt har ikke én stemme eller én samlet vilje. Feltets intelligens 
 - en intervention, der fremstår vellykket på afstand, men ikke kan vedligeholdes.
 
 At lytte til feltet betyder at holde sådanne svar fra at forsvinde, før de kan påvirke dømmekraften. Ingen hjemmeside, protokol, ekspert, model eller AI-syntese er feltet selv.
+
+Spiralweb er et praktisk svar på den udfordring. Spiralen gør det muligt at vende tilbage til stedet og se, hvad der har ændret sig. Nettet forbinder dem, der får øje på forskellige følger, med dem, der kan ændre de vilkår, som former dem. Registeret fastholder, hvad der blev iagttaget, hvad der stadig var usikkert eller omstridt, og hvad der blev besluttet. De berørte kan vælge, hvad de deler og på hvilke vilkår. Et svar kan så vende tilbage til stedet, hvor de kan se, hvad en ændring i praksis, i en aftale eller i et budget faktisk gjorde muligt, og hvem der bar omkostningerne. Sådan kan feltintelligens få betydning for en stewardship-økonomi. Følger, som før var lette at overse, kan få vægt i den næste beslutning, også når beslutningen gælder Spiralwebs egen måde at arbejde på. Om det sker, må vise sig i praksis.
 
 ## Kritisk venskab og samskabelse uden sammenblanding
 
