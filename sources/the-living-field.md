@@ -2,7 +2,7 @@
 
 ## Spiralweb as a learning architecture: partial knowledge, critical friendship and movement through the spiral
 
-**Position paper · public English-language candidate v0.7 · 9 September 2026**  
+**Position paper · public English-language candidate v0.7.3 · 11 November 2026**\
 **Language:** English · original language · parallel Danish edition · CC BY 4.0  
 **Status:** A self-standing, versioned articulation of Spiralweb's learning architecture, entry into practice, and open institutional hypothesis.
 
@@ -108,6 +108,8 @@ A living field does not have one voice or a single will. The intelligence of the
 - an intervention that appears successful from a distance but cannot be maintained.
 
 To listen to the field is to keep such responses from disappearing before they can shape judgement. No website, protocol, expert, model or AI synthesis is the field itself.
+
+Spiralweb is a practical response to this problem. The spiral gives people a way to return to the place and see what has changed. The web connects people who notice different consequences with those who can change the conditions that shape them. The register keeps a trace of what was observed, what remained uncertain or disputed, and what was decided. Those concerned can choose what to share and on what terms. A response can then come back to the place so they can see what a change in a practice, an agreement or a budget actually made possible and who carried its costs. This is how field intelligence can inform a stewardship economy. Consequences that were previously easy to overlook can shape the next decision, including a decision about how Spiralweb itself works. Whether that happens is a question for practice.
 
 ## Critical friendship and co-creation without conflation
 
